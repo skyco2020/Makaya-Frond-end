@@ -1,0 +1,233 @@
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -11%;
+    min-height: 100vh;
+}
+
+
+/* vh is a unit of measurement relative to 1% of the viewport height,
+ which is the size of the browser window. For example if the viewport is 80cm
+  high then 1vh = 0.8cm */
+
+.form {
+    width: 100%;
+    top: -9em;
+    position: relative;
+    border: none!important;
+}
+
+.input_e_mail {
+    height: 2.45em!important;
+    font-family: Arial;
+    font-size: 1.6rem!important;
+    border-radius: 0.3em 0 0 0.3em!important;
+}
+
+@media( max-width: 585px) {
+    .input-group {
+        position: relative;
+        display: block;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+    }
+    .btn {
+        background: #EF7F1A!important;
+        color: white!important;
+        border-color: #EF7F1A!important;
+        border-radius: .3em!important;
+        font-size: 1.7rem!important;
+        width: 14em;
+        height: 3.3em;
+    }
+    .input_e_mail {
+        height: 2.45em!important;
+        font-family: Arial;
+        font-size: 1.6rem!important;
+        border-radius: 0.3em 0.3em 0.3em 0.3em!important;
+    }
+}
+
+nav {
+    line-height: 0.1em!important;
+}
+
+.authLinks.redButton {
+    padding: 1.2em 2em!important;
+    height: 2em!important;
+    margin-top: 1em;
+}
+
+@media (max-width: 500px) {
+    .btn {
+        background: #EF7F1A!important;
+        color: white!important;
+        border-color: #EF7F1A!important;
+        border-radius: .3em!important;
+        font-size: 1.7rem!important;
+        width: 19em!important;
+        height: 3.3em;
+    }
+    .input_e_mail {
+        height: 2.45em!important;
+        font-family: Arial;
+        font-size: 1.6rem!important;
+        border-radius: 0.3em 0.3em 0.3em 0.3em!important;
+    }
+}
+
+@media all and (max-width:800px) {
+    .btn {
+        background: #EF7F1A!important;
+        color: white!important;
+        border-color: #EF7F1A!important;
+        border-radius: .3em!important;
+        font-size: 1.7rem!important;
+        width: 19em!important;
+        height: 2em;
+    }
+    .input_e_mail {
+        height: 2em!important;
+        font-family: Arial;
+        font-size: 1.6rem!important;
+        margin-bottom: 0.2em;
+        border-radius: 0.3em 0.3em 0.3em 0.3em!important;
+    }
+}
+
+@media all and (min-width:730px) and (max-width:1024px) {
+    .btn {
+        background: #EF7F1A!important;
+        color: white!important;
+        border-color: #EF7F1A!important;
+        border-radius: .3em!important;
+        font-size: 1.7rem!important;
+        width: 7em!important;
+        height: 2.45em;
+        border-radius: 0 0.3em .3em 0!important;
+    }
+    .input_e_mail {
+        height: 2.62em!important;
+        font-family: Arial;
+        font-size: 1.6rem!important;
+        border-radius: 0.3em 0 0 0.3em!important;
+    }
+}
+
+.container,
+.container-sm,
+.container-md {
+    position: relative;
+    top: 39%;
+}
+
+.portfolio {
+    height: 100vh;
+}
+
+.portfolio .title .titlefooter {
+    font-size: 24px;
+}
+
+.titlefooter {
+    font-size: 24px;
+    position: relative;
+    top: 93vh;
+}
+
+.portfolio .title .title-color .titlefooter {
+    color: #00BCCC;
+    font-weight: bolder;
+    font-size: 32px;
+}
+
+.portfolio-box {
+    position: relative;
+    display: block;
+    max-width: 650px;
+    margin: 20px;
+    z-index: -1;
+}
+
+.portfolio-box img {
+    width: 100%;
+    height: 400px;
+}
+
+.portfolio-box .portfolio-box-caption {
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    background-color: #EF7F1A;
+    /* background-color: rgba(0, 188, 204, 0.75); */
+    width: 100%;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+    z-index: 99;
+    color: #fff;
+}
+
+.portfolio-box .portfolio-box-caption .description {
+    color: #ededed;
+    font-size: 14px;
+}
+
+footer>.portfolio {
+    color: #757575!important;
+}
+
+.indigo {
+    background-color: #000!important;
+}
+
+div>ul>li>a {
+    color: #757575!important;
+}
+
+.logobackground {
+    background: url(/../assets/img/bgori.jpg?w=1000&fit=max&auto=format,compress) no-repeat top center;
+    background-size: cover;
+    -webkit-background-size: 99% 99%;
+    /* Safari 3.0 */
+    -moz-background-size: 99% 99%;
+    /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: 99% 99%;
+    /* Opera 9.5 */
+    background-size: 99% 99%;
+    /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+    /* -moz-border-image: url(/../assets/img/bgori.jpg) 0; */
+    /* Gecko 1.9.1 (Firefox 3.5) */
+    /* background-size: cover; */
+    /* filter: drop-shadow(0 0 4rem #EF7F1A); */
+    border-radius: 1%;
+    padding-right: 15px!important;
+    padding-left: 15px!important;
+    margin-right: auto;
+    margin-left: auto;
+    /* box-shadow: 5px 10px 18px red; */
+}
+
+.resize_fit_center {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+
+/*
+footer .bottom-footer {
+    padding-top: 14px;
+    padding-bottom: 22px;
+    background-color: #000;
+    overflow: auto;
+}
+
+footer * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+} */

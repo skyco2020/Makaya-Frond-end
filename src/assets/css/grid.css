@@ -1,0 +1,333 @@
+.container,
+.container-fluid {
+    display: block;
+    width: 100%;
+    margin: auto;
+    overflow-x: hidden;
+}
+
+.fixed {
+    background-color: #000;
+    opacity: 0.8;
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    height: 10.8%;
+    filter: drop-shadow(0 0 8rem #EF7F1A);
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.item {
+    display: block;
+    padding: 16px;
+    padding: 1rem;
+}
+
+.authLinks.redButton {
+    background-color: #EF7F1A;
+    line-height: inherit;
+    padding: 0.2em 2em;
+    font-weight: 500;
+    font-size: 1.7rem;
+    float: left;
+    width: 10em;
+    height: 3em;
+    text-align: center;
+    margin-left: -7em;
+    border-radius: .3em;
+}
+
+.authLinks {
+    color: #ffffff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+}
+
+label {
+    font-size: 1.7rem!important;
+}
+
+.btn {
+    background: #EF7F1A!important;
+    color: white!important;
+    border-color: #EF7F1A!important;
+    border-radius: 0 0.3em .3em 0!important;
+    font-size: 1.7rem!important;
+    width: 7em;
+    height: 2.3em;
+}
+
+.ph12 {
+    width: 100%;
+}
+
+.ph11 {
+    width: 91.66666666666667%;
+}
+
+.ph10 {
+    width: 83.33333333333333%;
+}
+
+.ph9 {
+    width: 75%;
+}
+
+.ph8 {
+    width: 66.66666666666667%;
+}
+
+.ph7 {
+    width: 58.33333333333333%;
+}
+
+.ph6 {
+    width: 50%;
+}
+
+.ph5 {
+    width: 41.66666666666667%;
+}
+
+.ph4 {
+    width: 33.33333333333333%;
+}
+
+.ph3 {
+    width: 25%;
+}
+
+.ph2 {
+    width: 16.66666666666667%;
+}
+
+.ph1 {
+    width: 8.333333333333333%;
+}
+
+@media screen and (min-width: 30em) {
+    .sm12 {
+        width: 100%;
+    }
+    .sm11 {
+        width: 91.66666666666667%;
+    }
+    .sm10 {
+        width: 83.33333333333333%;
+    }
+    .sm9 {
+        width: 75%;
+    }
+    .sm8 {
+        width: 66.66666666666667%;
+    }
+    .sm7 {
+        width: 58.33333333333333%;
+    }
+    .sm6 {
+        width: 50%;
+    }
+    .sm5 {
+        width: 41.66666666666667%;
+    }
+    .sm4 {
+        width: 33.33333333333333%;
+    }
+    .sm3 {
+        width: 25%;
+    }
+    .sm2 {
+        width: 16.66666666666667%;
+    }
+    .sm1 {
+        width: 8.333333333333333%;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .md12 {
+        width: 100%;
+    }
+    .md11 {
+        width: 91.66666666666667%;
+    }
+    .md10 {
+        width: 83.33333333333333%;
+    }
+    .md9 {
+        width: 75%;
+    }
+    .md8 {
+        width: 66.66666666666667%;
+    }
+    .md7 {
+        width: 58.33333333333333%;
+    }
+    .md6 {
+        width: 50%;
+    }
+    .md5 {
+        width: 41.66666666666667%;
+    }
+    .md4 {
+        width: 33.33333333333333%;
+    }
+    .md3 {
+        width: 25%;
+    }
+    .md2 {
+        width: 16.66666666666667%;
+    }
+    .md1 {
+        width: 8.333333333333333%;
+    }
+}
+
+@media screen and (min-width: 64em) {
+    .lg12 {
+        width: 100%;
+    }
+    .lg11 {
+        width: 91.66666666666667%;
+    }
+    .lg10 {
+        width: 83.33333333333333%;
+    }
+    .lg9 {
+        width: 75%;
+    }
+    .lg8 {
+        width: 66.66666666666667%;
+    }
+    .lg7 {
+        width: 58.33333333333333%;
+    }
+    .lg6 {
+        width: 50%;
+    }
+    .lg5 {
+        width: 41.66666666666667%;
+    }
+    .lg4 {
+        width: 33.33333333333333%;
+    }
+    .lg3 {
+        width: 25%;
+    }
+    .lg2 {
+        width: 16.66666666666667%;
+    }
+    .lg1 {
+        width: 8.333333333333333%;
+    }
+}
+
+@media only screen and (max-width: 549px) and (min-width: 400px),
+only screen and (max-width: 399px) and (min-width: 350px),
+only screen and (max-width: 349px) {
+    .authLinks.redButton {
+        font-size: 1rem!important;
+        margin-top: -4.6rem!important;
+        margin-left: -9rem;
+        padding: 0.2rem 2.5rem!important;
+        font-weight: 400;
+        left: 0rem!important;
+        height: 4em!important;
+        width: 9em!important;
+    }
+    #formulario {
+        width: 100%!important;
+        height: 24.4rem!important;
+        margin-top: -7em!important;
+        top: -3em;
+        position: relative;
+    }
+    fb-login,
+    .fb-login,
+    .login-signup-now {
+        margin-left: 0em!important;
+        margin-top: -1em;
+    }
+    .logo {
+        width: 4rem!important;
+        height: 4rem!important;
+        text-indent: 9999px;
+        background: transparent url(../img/logo.jpg) no-repeat left;
+        background-size: contain;
+        border-radius: 50%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .fb-login,
+    .login-signup-now {
+        margin-left: 0em!important;
+        margin-top: -2em;
+    }
+    #content {
+        position: relative;
+        top: -1.5em;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .fb-login,
+    .login-signup-now {
+        margin-left: 0em!important;
+        margin-top: -1em;
+    }
+    .fb-login {
+        margin-bottom: 2.8em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .authLinks.redButton {
+        margin-top: 1.35rem;
+        padding: 20px 26px;
+        position: relative;
+        left: -4rem;
+        width: 8rem;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .authLinks.redButton {
+        margin-top: 1.35rem;
+        padding: 1px 45px;
+        position: relative;
+        font-size: 1.7rem;
+        left: -4rem;
+        height: 3em;
+        width: 12rem;
+    }
+}
+
+@media only screen and (max-width: 1449px) and (min-width: 950px),
+only screen and (min-width: 1450px) {
+    .email-form {
+        max-width: 950px;
+        padding-top: .85rem;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -webkit-flex-flow: column-reverse;
+        -moz-box-orient: vertical;
+        -moz-box-direction: reverse;
+        -ms-flex-flow: column-reverse;
+        flex-flow: column-reverse;
+    }
+}
+
+@media only screen and (max-width: 1449px) and (min-width: 950px),
+only screen and (min-width: 1450px) {
+    .email-form-title {
+        max-width: none;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+}

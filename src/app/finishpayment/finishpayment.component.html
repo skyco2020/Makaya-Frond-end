@@ -1,0 +1,130 @@
+<br/>
+<div class="f1">
+    <div class="">
+        <nav class="tem  ph1  p0  i-b" id="menu">
+            <ul>
+                <li class="nobullet ">
+                    <!-- <button class="btn btn-outline-secondary">Sign In</button> -->
+                    <a class="item authLinks redButton" (click)="Logout()">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="container-fluid mx-auto" id="grad1">
+
+        <div class="row justify-content-center mt-0">
+            <div class="col-12 col-6 col-lg-6 text-center">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2><strong>Payment</strong></h2>
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <form id="msform">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="personal"><strong>Plan</strong></li>
+                                    <li id="payment"><strong>Payment</strong></li>
+                                    <li id="confirm"><strong>Finish</strong></li>
+                                </ul>
+                                <!-- fieldsets -->
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title ">Plan Information</h2>
+                                        <input class="ste2" hidden>
+                                        <h2 class="fs-title text-center">Select one Plan</h2>
+                                        <div class="card-body cardhidden flexContainer">
+                                            <div *ngFor="let item of plan; let idx = index" (click)="CarSubmit(item,idx)">
+                                                <div class="next card cardaddwith w-100 p-3 ">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title text-dark font-weight-bold center plan">{{item.metadata["Type Plan"]}}</h5>
+                                                        <p class="card-title text-dark font-weight-bold center price">Price: $ {{item.unit_amount / 100}}</p>
+                                                        <!-- <br> -->
+                                                        <div class="divcenter center">
+                                                            <h5 class="card-text text-dark font-weight-bold cyan-lighter-hover">
+                                                                {{item.nickname}}
+                                                            </h5>
+                                                        </div>
+                                                        <!-- <br>
+                                                    <button class="btn btn-primary btnsubmit" (click)="CarSubmit(idx)">Choose</button> -->
+                                                    </div>
+                                                </div>
+                                                <br>
+                                            </div>
+                                            <h2 class="red-text error_plan fs-title text-center"></h2>
+                                        </div>
+                                    </div>
+                                    <div class="overlay" *ngIf="load">
+
+                                        <div class="spinner ">
+                                            <img class="imgsp" src="../../assets/img/giphyloadinf.webp" />
+                                        </div>
+
+                                    </div>
+                                    <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+                                    <input type="button" name="plan" class="next action-button step2" value="Next Step" (click)="GetSelectPlan()" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title">Payment Information</h2>
+                                        <form novalidate (ngSubmit)="buy()" [formGroup]="StripeTest" #f="ngForm">
+                                            <h3 class="card-title center planidhow" hidden></h3>
+                                            <h3 class="card-title center planshow"></h3>
+                                            <h4 class="card-title center priceshow"></h4>
+                                            <br><br>
+                                            <label for="">Enter your full name as it is written on the card</label>
+                                            <input type="text" class="valfield required" formControlName="Firstname" placeholder="Full name" required [disabled]="!f.valid" (click)="HideMessage('error_fullname')">
+                                            <h2 class="red-text error_fullname alert-danger"></h2>
+                                            <div id="card-element" class="field"></div>
+                                            <div *ngIf="error" class="alert alert-danger">
+                                                {{error}}
+                                            </div>
+                                            <br><br><br>
+                                        </form>
+                                    </div>
+                                    <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+                                    <input type="button" name="make_payment" class="next action-button" (click)="buy()" value="Confirm" />
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                        <div class="next card cardaddwith">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-dark font-weight-bold center plan">{{succes!= null? succes.metadata["Type Plan"]: "" }}</h5>
+                                                <p class="card-title text-dark font-weight-bold center price">Price: $ {{succes!= null? succes.amount_decimal / 100:""}}</p>
+                                                <p class="card-title text-dark font-weight-bold center price">
+                                                    you have {{succes!= null? succes.trial_period_days: ""}} days trial
+                                                </p>
+                                                <br>
+                                                <div class="divcenter center">
+                                                    <h5 class="card-text text-dark font-weight-bold cyan-lighter-hover">
+                                                        {{succes!= null? succes.nickname : ""}}
+                                                    </h5>
+                                                    <br>
+                                                    <h3 class="card-text text-dark font-weight-bold cyan-lighter-hover">
+                                                        Soon you will be redirected to the login
+                                                    </h3>
+                                                </div>
+                                                <!-- <br>
+                                          <button class="btn btn-primary btnsubmit" (click)="CarSubmit(idx)">Choose</button> -->
+                                            </div>
+                                        </div>
+                                        <br><br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-3"> <img src="../../assets/img/sucess3.png" class="fit-image"> </div>
+                                        </div> <br><br>
+                                        <div class="row justify-content-center">
+                                            <div class="col-7 text-center">
+                                                <h5>You Have Successfully your payment right now enjoy Makaya</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

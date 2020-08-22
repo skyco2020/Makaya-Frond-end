@@ -1,0 +1,35 @@
+<div class="container ">
+    <div class="">
+        <a routerLink='/'>
+            <h1 class="logo " style="cursor:pointer ">SC</h1>
+        </a>
+    </div>
+    <div class="abs-center ">
+        <form id="formulario" #userRegistrationForm="ngForm" class="border p-3 form" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
+            <div class="form-group ">
+                <label for="email">Email</label>
+                <input type="email" #UserName name="UserName" [(ngModel)]="user.UserName" id="email" placeholder="Username" required class="form-control" (click)="HideMessage('error_mail')">
+                <span class="red-text error_mail"></span>
+            </div>
+            <div class="form-group ">
+                <label for="password ">Password</label>
+                <input type="password" #Password  name="PasswordHash" [(ngModel)]="user.PasswordHash" placeholder="Password" required id="password " class="form-control" (click)="HideMessage('error_password')">
+                <span class="red-text error_password"></span>
+            </div>
+            <button type="submit " class="btn btn-primary " id="btnlogin">Login</button>
+            <br>
+            <div class="facebookForm regOption sm12 ">
+                <div class="fb-minimal sm12 ">
+                    <hr>
+                    <div class="fb-login " data-uia="fb-login ">
+                        <img class="icon-facebook " src="https://assets.nflxext.com/ffe/siteui/login/images/FB-f-Logo__blue_57.png ">
+                        <span class="fbBtnText ">
+                      Iniciar sesión con Facebook
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="login-signup-now " data-uia="login-signup-now "> First time on SkyCo? <a class=" " href="/ ">Subscribe</a>.</div>
+        </form>
+    </div>
+</div>
