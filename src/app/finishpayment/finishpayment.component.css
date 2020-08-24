@@ -74,13 +74,12 @@ html {
     box-shadow: none !important;
     border: none;
     font-weight: bold;
-    border-bottom: 2px solid skyblue;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: skyblue;
+    background: #EF7F1A;;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -89,11 +88,15 @@ html {
     padding: 10px 5px;
     margin: 10px 5px
 }
-
-#msform .action-button:hover,
+/* #msform .action-button :hover{
+  outline: none;
+  border: none;
+  box-shadow: none;
+} */
+/* #msform .action-button:hover,
 #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
-}
+} */
 
 #msform .action-button-previous {
     width: 100px;
@@ -118,10 +121,6 @@ select.list-dt {
     border-bottom: 1px solid #ccc;
     padding: 2px 5px 3px 5px;
     margin: 2px
-}
-
-select.list-dt:focus {
-    border-bottom: 2px solid skyblue
 }
 
 .card {
