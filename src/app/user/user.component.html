@@ -1,77 +1,67 @@
-<div class="f0">
-    <div class="fixed">
-        <div class="item  ph12  md4  i-b  v-middle">
-            <h1 class="logo">SK</h1>
-        </div>
-
-        <nav class="tem  ph1  p0  i-b" id="menu">
-            <ul>
-                <li class="nobullet " routerLink='/account'>
-                    <!-- <button class="btn btn-outline-secondary">Sign In</button> -->
-                    <a class="item authLinks redButton" routerLink='/account'>Sign In</a>
-                </li>
-            </ul>
-        </nav>
-
+<div class="logobackground">
+  <header>
+    <div class="logoprincipal">
+      <img src="../../assets/img/logo.jpg" width="150" alt="Makaya">
+      <label>Makaya</label>
     </div>
+    <nav>
+      <a href="/account">Login</a>
+    </nav>
+  </header>
+  <section class="no-padding portfolio">
+    <div class="container">
+      <form class="border p-3 form" #loginForm="ngForm" (ngSubmit)="OnSubmit(UserName.value)">
+        <div class="input-group item  ph12  md8  i-b  v-middle  center  md-right  p0  menu">
+          <input type="text" class="form-control s6 input_e_mail" #UserName ngModel name="UserName"
+            (click)="HideError()" placeholder="  Type your e-mail" required aria-label="E-mail"
+            aria-describedby="basic-addon2">
 
+          <div class="input-group-append s6">
+            <button class="btn btn-outline-secondary" name="enviar" type="submit">Try now</button>
+          </div>
+          <input type="text" id="country" hidden>
+          <input type="text" id="code_country" hidden>
+          <input type="text" id="province" hidden>
+          <input type="text" id="city" hidden>
 
-    <section class="no-padding portfolio logobackground">
-        <div class="container">
-            <!-- <div class=""> -->
-            <form class="border p-3 form" #loginForm="ngForm" (ngSubmit)="OnSubmit(UserName.value)">
-                <div class="input-group item  ph12  md8  i-b  v-middle  center  md-right  p0  menu">
-                    <input type="text" class="form-control s6 input_e_mail" #UserName ngModel name="UserName" (click)="HideError()" placeholder="   E-mail or CellPhone" required aria-label="E-mail" aria-describedby="basic-addon2">
+          <input type="text" id="latitude" hidden>
+          <input type="text" id="longitude" hidden>
 
-                    <div class="input-group-append s6">
-                        <button class="btn btn-outline-secondary" name="enviar" type="submit">Try now</button>
-                    </div>
-                    <input type="text" id="country" hidden>
-                    <input type="text" id="code_country" hidden>
-                    <input type="text" id="province" hidden>
-                    <input type="text" id="city" hidden>
-
-                    <input type="text" id="latitude" hidden>
-                    <input type="text" id="longitude" hidden>
-
-                </div>
-                <label class="item  ph12  md6  i-b  v-middle  center  md-right  p0  menu red-text center error-message " style="font-size: 26px;">
-                      <span class="error_username"></span>
-                  </label>
-            </form>
-            <!-- </div> -->
         </div>
-    </section>
+        <label class="item  ph12  md6  i-b  v-middle  center  md-right  p0  menu red-text center error-message "
+          style="font-size: 26px;">
+          <span class="error_username"></span>
+        </label>
+      </form>
+    </div>
+  </section>
+  <section class="main">
 
-    <section class="">
-
-        <div class="container-fluid">
-            <div class="title col-sm-12 form-card">
-                <div class="row galno-gutter popup-lery card-body">
-                    <!-- list of movies-->
-                    <div class="col-lg-3 col-md-6 col-sm-3 card-body" *ngFor="let movie of Movies">
-                        <a href class="portfolio-box">
-                            <img src="{{movie.picture}}" class="img-responsive resize_fit_center" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="title">
-                                        {{movie.name}} - {{movie.age}}
-                                    </div>
-                                    <div class="description">
-                                        {{movie.description}}
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-        <script>
-            new Glide('.glide').mount()
-        </script>
-    </section>
+  </section>
 </div>
+<section class="">
+
+  <div class="">
+    <div class="">
+      <div class="row galno-gutter popup-lery">
+        <div class="col-lg-3 col-md-6 col-sm-3" *ngFor="let movie of Movies">
+          <a href class="portfolio-box">
+            <img src="{{movie.picture}}" class="img-responsive resize_fit_center" alt="">
+            <div class="portfolio-box-caption">
+              <div class="portfolio-box-caption-content">
+                <div class="title">
+                  {{movie.name}} - {{movie.age}}
+                </div>
+                <div class="description">
+                  {{movie.description}}
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <app-footer></app-footer>

@@ -1,9 +1,10 @@
 <div class="container ">
-    <div class="">
-        <a routerLink='/'>
-            <h1 class="logo " style="cursor:pointer ">SC</h1>
-        </a>
-    </div>
+    <header>
+      <div class="logoprincipal" [routerLink]="['/']" routerLinkActive="router-link-active" >
+        <img src="../../assets/img/logo.jpg" width="150" alt="Makaya">
+        <label>Makaya</label>
+      </div>
+    </header>
     <div class="abs-center ">
         <form id="formulario" #userRegistrationForm="ngForm" class="border p-3 form" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
             <div class="form-group ">
@@ -16,9 +17,9 @@
                 <input type="password" #Password  name="PasswordHash" [(ngModel)]="user.PasswordHash" placeholder="Password" required id="password " class="form-control" (click)="HideMessage('error_password')">
                 <span class="red-text error_password"></span>
             </div>
-            <button type="submit " class="btn btn-primary " id="btnlogin">Login</button>
-            <br>
-            <div class="facebookForm regOption sm12 ">
+            <button type="submit " class="btn-login">Login</button>
+            <br> <br> <br>
+            <!-- <div class="facebookForm regOption sm12 ">
                 <div class="fb-minimal sm12 ">
                     <hr>
                     <div class="fb-login " data-uia="fb-login ">
@@ -28,7 +29,7 @@
                     </span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="login-signup-now " data-uia="login-signup-now "> First time on SkyCo? <a class=" " href="/ ">Subscribe</a>.</div>
         </form>
     </div>

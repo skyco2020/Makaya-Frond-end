@@ -1,11 +1,10 @@
 <br/>
 <div class="f1">
     <div class="">
-        <nav class="tem  ph1  p0  i-b" id="menu">
+        <nav class="ph1" id="menu">
             <ul>
                 <li class="nobullet ">
-                    <!-- <button class="btn btn-outline-secondary">Sign In</button> -->
-                    <a class="item authLinks redButton" (click)="Logout()">Logout</a>
+                    <a class="authLinks" (click)="Logout()">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -73,7 +72,7 @@
                                             <h4 class="card-title center priceshow"></h4>
                                             <br><br>
                                             <label for="">Enter your full name as it is written on the card</label>
-                                            <input type="text" class="valfield required" formControlName="Firstname" placeholder="Full name" required [disabled]="!f.valid" (click)="HideMessage('error_fullname')">
+                                            <input type="text" class="valfield required" formControlName="name" placeholder="Full name" required [disabled]="!f.valid" (click)="HideMessage('error_fullname')">
                                             <h2 class="red-text error_fullname alert-danger"></h2>
                                             <div id="card-element" class="field"></div>
                                             <div *ngIf="error" class="alert alert-danger">

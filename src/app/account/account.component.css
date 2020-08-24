@@ -24,18 +24,6 @@
        border-radius: 1.2em;
    }
 
-   #btnlogin {
-       background-color: #e50914;
-       border: none;
-       height: 3rem;
-       color: #ffffff;
-       border-radius: .5rem;
-       margin-left: .7em;
-       width: 14em;
-       float: right;
-       border-radius: 0.3em!important;
-   }
-
    img {
        border: 0;
    }
@@ -45,7 +33,6 @@
        color: #d6dee6;
        cursor: pointer;
        border: none;
-       /* font-size: 14px; */
    }
 
    .hybrid-login-form .facebookForm .icon-facebook {

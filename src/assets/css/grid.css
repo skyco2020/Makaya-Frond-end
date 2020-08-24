@@ -21,7 +21,7 @@
     padding: 1rem;
 }
 
-.authLinks.redButton {
+.authLinks {
     background-color: #EF7F1A;
     line-height: inherit;
     padding: 0.2em 2em;
@@ -29,10 +29,19 @@
     font-size: 1.7rem;
     float: left;
     width: 10em;
-    height: 3em;
     text-align: center;
-    margin-left: -7em;
-    border-radius: .3em;
+    margin-left: -9em;
+    height: 2.1em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: 400;
+    cursor: pointer;
+    padding: .5em;
+    text-align: center;
+}
+
+.authLinks:hover {
+  background-color: #EF7F1A;
 }
 
 .authLinks {

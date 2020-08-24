@@ -1,4 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.containernew{
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+
+  /* Flex */
+  display: flex;
+ flex-flow: row wrap;
+
+}
+
+header{
+  width: 100%;
+  padding: 20px;
+
+  /* Flex */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+header .logoprincipal {
+  color:#fff;
+  cursor: pointer;
+}
+
+header .logoprincipal img {
+  border-radius: 5em;
+  width: 6em;
+}
+
+header .logoprincipal label{
+  color:#fff;
+  text-decoration: none;
+  line-height: 50px;
+  margin-left: .7em;
+}
+header nav{
+  width: 20%;
+  height: 20%;
+  border-radius: 0.29em;
+   /* Flex */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+header nav a {
+  background: #EF7F1A;
+  color: #fff;
+  border-color: #EF7F1A;
+  border-radius:.3em;
+  font-size: 1.2rem;
+  flex-basis: 9em;
+  height: 2.4em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-weight: 400;
+  cursor: pointer;
+  padding: .5em;
+  text-align: center;
+
+  /* Flex */
+  flex-grow: 1;
+}
 
 button.btn-submit {
     background-color: #38547b;
@@ -61,4 +132,55 @@ div.error-message i {
 a {
   color: #f8f9fa!important;
   font-size: medium;
+}
+
+.logobackground {
+  background: url(/../assets/img/bgori.jpg?w=1000&fit=max&auto=format,compress) no-repeat top center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  /* Safari 3.0 */
+  -moz-background-size: cover;
+  /* Gecko 1.9.2 (Firefox 3.6) */
+  -o-background-size: cover;
+  /* Opera 9.5 */
+  background-size: cover;
+}
+.logoprincipal:focus{
+  outline: none;
+}
+.btn-login {
+  background: #EF7F1A;
+  border: none;
+  height: 3rem;
+  color: #ffffff;
+  border-radius: .5rem;
+  margin-left: .7em;
+  width: 14em;
+  float: right;
+  border-radius: 0.3em!important;
+}
+button:focus {
+  outline: none;
+  background-color: #EF7F1A;
+}
+.overlay {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 100%, .6);
+  cursor: default;
+}
+
+.spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.imgsp {
+  opacity: .5;
 }

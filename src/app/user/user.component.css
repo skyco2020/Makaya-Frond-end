@@ -1,19 +1,6 @@
-.abs-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -11%;
-    min-height: 100vh;
-}
-
-
-/* vh is a unit of measurement relative to 1% of the viewport height,
- which is the size of the browser window. For example if the viewport is 80cm
-  high then 1vh = 0.8cm */
 
 .form {
     width: 100%;
-    top: -9em;
     position: relative;
     border: none!important;
 }
@@ -120,27 +107,11 @@ nav {
 .container-sm,
 .container-md {
     position: relative;
-    top: 39%;
+    top: 25%;
 }
 
 .portfolio {
     height: 100vh;
-}
-
-.portfolio .title .titlefooter {
-    font-size: 24px;
-}
-
-.titlefooter {
-    font-size: 24px;
-    position: relative;
-    top: 93vh;
-}
-
-.portfolio .title .title-color .titlefooter {
-    color: #00BCCC;
-    font-weight: bolder;
-    font-size: 32px;
 }
 
 .portfolio-box {
@@ -154,6 +125,7 @@ nav {
 .portfolio-box img {
     width: 100%;
     height: 400px;
+    background-size: cover;
 }
 
 .portfolio-box .portfolio-box-caption {
@@ -161,7 +133,6 @@ nav {
     bottom: 0;
     padding: 5px;
     background-color: #EF7F1A;
-    /* background-color: rgba(0, 188, 204, 0.75); */
     width: 100%;
     -webkit-transition: all 0.6s ease;
     transition: all 0.6s ease;
@@ -186,48 +157,8 @@ div>ul>li>a {
     color: #757575!important;
 }
 
-.logobackground {
-    background: url(/../assets/img/bgori.jpg?w=1000&fit=max&auto=format,compress) no-repeat top center;
-    background-size: cover;
-    -webkit-background-size: 99% 99%;
-    /* Safari 3.0 */
-    -moz-background-size: 99% 99%;
-    /* Gecko 1.9.2 (Firefox 3.6) */
-    -o-background-size: 99% 99%;
-    /* Opera 9.5 */
-    background-size: 99% 99%;
-    /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
-    /* -moz-border-image: url(/../assets/img/bgori.jpg) 0; */
-    /* Gecko 1.9.1 (Firefox 3.5) */
-    /* background-size: cover; */
-    /* filter: drop-shadow(0 0 4rem #EF7F1A); */
-    border-radius: 1%;
-    padding-right: 15px!important;
-    padding-left: 15px!important;
-    margin-right: auto;
-    margin-left: auto;
-    /* box-shadow: 5px 10px 18px red; */
-}
-
 .resize_fit_center {
     max-width: 100%;
     max-height: 100%;
     vertical-align: middle;
 }
-
-
-/*
-footer .bottom-footer {
-    padding-top: 14px;
-    padding-bottom: 22px;
-    background-color: #000;
-    overflow: auto;
-}
-
-footer * {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-} */
