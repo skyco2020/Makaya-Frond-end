@@ -171,6 +171,8 @@ export class FinishpaymentComponent implements OnInit {
       // return false;
     }
     else {
+      $('.hidden_button').prop( "disabled", true );
+      $(".hidden_button").attr('disabled','disabled');
       this.LoadData(true);
       this.stripeSvc
         .createToken(this.card, { name })
@@ -199,21 +201,25 @@ export class FinishpaymentComponent implements OnInit {
               },
               (err: HttpErrorResponse) => {
                 this.LoadData(false);
+                $(".hidden_button").removeAttr('disabled');
                 this.error = err.error.ErrorDescription;
               }
             ),
             // tslint:disable-next-line: no-unused-expression
             (err: HttpErrorResponse) => {
               this.LoadData(false);
+              $(".hidden_button").removeAttr('disabled');
               this.error = err.error.ErrorDescription;
             };
             this.error = undefined;
           } else if (result.error) {
             this.LoadData(false);
+            $(".hidden_button").removeAttr('disabled');
             this.error = result.error.message;
           }
         },
           (err: HttpErrorResponse) => {
+            $(".hidden_button").removeAttr('disabled');
             this.error = err.error.ErrorDescription;
           });
     }
