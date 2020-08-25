@@ -4,7 +4,11 @@
     position: relative;
     border: none!important;
 }
-
+.resize{
+  background-size: cover;
+  height:239px ;
+  width: 100%;
+}
 .input_e_mail {
     height: 2.45em!important;
     font-family: Arial;

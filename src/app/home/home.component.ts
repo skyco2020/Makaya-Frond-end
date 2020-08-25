@@ -98,4 +98,29 @@ function Carousel(){
         });
 
   });
+
+  $(document).ready(function(){
+      $('.modal').modal({
+        backdrop: 'static',
+        keyboard: false
+    });
+  });
+
+  $('.boton').on('click',function(){
+    debugger;
+    var v = document.getElementsByTagName("video")[0];
+    v.play();
+  });
+
+  $('.modal-close').on('click',function(){
+    debugger
+    var media = document.getElementsByTagName("video")[0];
+    media.pause();
+    let curent = media.currentTime;
+    media.currentTime = 0;
+    //  $('.modal').modal();
+    // $('.modal').hide();
+  });
+
+
 }

@@ -40,10 +40,26 @@
             <p class="descripcion">
                 It follows the adventures of a group of explorers who make use of a recently discovered wormhole to overcome the limitations of manned space travel and overcome the immense distances that interstellar travel has.
             </p>
-            <button role="button" class="boton"><i class="fas fa-play"></i>Play Movie  </button>
+            <button role="button"  style="cursor: pointer;" data-target="modal1" class="boton modal-trigger"><i class="fas fa-play"></i>Play Movie  </button>
             <button role="button" class="boton"><i class="fas fa-info-circle"></i>More information</button>
         </div>
     </div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <button type="button" class=" modal-action modal-close waves-effect waves-green btn-flat" data-dismiss="modal" aria-label="Close"><i class="fas fa-arrow-circle-left"></i></button>
+
+    <div class="modal-content">
+      <video class="option slicevideo" controls controlsList="nodownload">
+        <i class="fas fa-arrow-circle-left delay">10</i>
+        <source src="../../assets/video/elohim-hillsong-worship.mp4"  type="video/mp4" />
+      </video>
+      <div class="DelAdv">
+        <i class="fas fa-arrow-circle-left delay">10</i>
+        <i class="fas fa-arrow-circle-right advance">10</i>
+      </div>
+
+  </div>
+  </div>
 
     <div class="peliculas-recomendadas contenedor">
         <div class="contenedor-titulo-controles">

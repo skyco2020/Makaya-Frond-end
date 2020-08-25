@@ -5,25 +5,36 @@
     width: 100%;
     z-index: 1;
 }
-
-
-/* .carousel-item {
-    height: 40em;
-    width: 30em;
-    bottom: 3em;
+.modal {
+  max-height: none;
+  top: 0!important;
 }
-
-.carousel-item-left {
-    padding: 1em;
-    width: 40em;
-} */
 
 .vde {
     width: 100%;
 }
 
 .slicevideo {
-    height: 16em;
+    height: 90%;
+}
+.modal-close{
+  display: flex;
+  width: 100%;
+  background-color: #000;
+}
+.DelAdv{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #000;
+}
+.modal-close i, .delay,.advance{
+  color: #EF7F1A;
+}
+.modal-content {
+  height: 100%;
+  border: none!important;
+    border-radius: initial!important;
 }
 
 .posividplay {
