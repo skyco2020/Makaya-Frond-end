@@ -1,108 +1,148 @@
-   .abs-center {
-       display: flex;
-       align-items: center;
-       justify-content: center;
-       min-height: 100vh;
-   }
-   /* vh is a unit of measurement relative to 1% of the viewport height,
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+/* vh is a unit of measurement relative to 1% of the viewport height,
  which is the size of the browser window. For example if the viewport is 80cm
   high then 1vh = 0.8cm */
 
-   span {
-       font-size: 1.7rem;
-   }
+/* span {
+  font-size: 1.7rem;
+} */
 
-   #email,
-   #password {
-       font-size: 1.7rem;
-   }
+#email,
+#password {
+  /* font-size: 1.7rem; */
+  /* padding-left: 10px; */
+  background-color: rgb(241, 241, 241) !important;
+  outline: none;
+  border: none !important;
+}
+::placeholder {
+  padding: 10px;
+}
+#email:focus,
+#password:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #ef7f1a !important;
+  outline: none;
+  padding-left: 10px;
+  border-radius: none;
+}
+.form {
+  width: 400px;
+  top: -9em;
+  position: relative;
+  /* border-radius: 1.2em; */
+  border-radius: 3px;
+  background-color: #fff;
+}
+.form:hover {
+  box-shadow: inset 1px 2px 3px rgb(202, 202, 202),
+    inset 2px 3px 4px rgb(202, 202, 202), inset 3px 4px 5px rgb(202, 202, 202),
+    inset 3px 4px 5px rgb(187, 184, 184);
+}
+/* img {
+  border: 0;
+} */
 
-   .form {
-       width: 450px;
-       top: -9em;
-       position: relative;
-       border-radius: 1.2em;
-   }
+/* .fb-minimal .fb-login {
+  background: transparent;
+  color: #d6dee6;
+  cursor: pointer;
+  border: none;
+} */
 
-   img {
-       border: 0;
-   }
+/* .hybrid-login-form .facebookForm .icon-facebook {
+  height: 10px;
+  width: 10px;
+} */
 
-   .fb-minimal .fb-login {
-       background: transparent;
-       color: #d6dee6;
-       cursor: pointer;
-       border: none;
-   }
+/* .fb-minimal .icon-facebook {
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 13px;
+  height: 17.5rem;
+  color: #fff;
+} */
 
-   .hybrid-login-form .facebookForm .icon-facebook {
-       height: 10px;
-       width: 10px;
-   }
+/* .hybrid-login-form .facebookForm .fbBtnText {
+  color: #737373;
+  font-size: 13px;
+  font-weight: 500;
+} */
 
-   .fb-minimal .icon-facebook {
-       margin-right: 10px;
-       vertical-align: middle;
-       width: 13px;
-       height: 17.5rem;
-       color: #fff;
-   }
+/* .fb-minimal .icon-facebook {
+  width: 23px;
+  height: 23px;
+  color: #fff;
+} */
 
-   .hybrid-login-form .facebookForm .fbBtnText {
-       color: #737373;
-       font-size: 13px;
-       font-weight: 500;
-   }
+/* .icon-facebook {
+  margin-right: 10px;
+  vertical-align: middle;
+} */
 
-   .fb-minimal .icon-facebook {
-       width: 23px;
-       height: 23px;
-       color: #fff;
-   }
+/* .hybrid-login-form .facebookForm .fb-minimal {
+  margin-bottom: 0;
+} */
 
-   .icon-facebook {
-       margin-right: 10px;
-       vertical-align: middle;
-   }
+/* .fb-minimal {
+  margin-bottom: -8px;
+} */
 
-   .hybrid-login-form .facebookForm .fb-minimal {
-       margin-bottom: 0;
-   }
+/* div {
+  display: block;
+} */
 
-   .fb-minimal {
-       margin-bottom: -8px;
-   }
+/* .hybrid-login-form .login-signup-now {
+  color: #737373;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 16px;
+} */
 
-   div {
-       display: block;
-   }
+/* .hybrid-login-form .login-signup-now a {
+  color: rgb(0, 0, 0);
+}
 
-   .hybrid-login-form .login-signup-now {
-       color: #737373;
-       font-size: 16px;
-       font-weight: 500;
-       margin-top: 16px;
-   }
+.hybrid-login-form .login-signup-now a {
+  color: rgb(0, 0, 0);
+} */
 
-   .hybrid-login-form .login-signup-now a {
-       color: #fff;
-   }
+/* a {
+  background-color: transparent;
+} */
 
-   a {
-       background-color: transparent;
-   }
+/* .facebookForm,
+.regOption {
+  margin-bottom: 1em;
+}
 
-   .facebookForm,
-   .regOption {
-       margin-bottom: 1em;
-   }
+.fb-login,
+.login-signup-now {
+  margin-left: 5em;
+  color: #ffffff;
+} */
 
-   .fb-login,
-   .login-signup-now {
-       margin-left: 5em;
-       color: #ffffff;
-   }
-
-   a {
-       color: #6695c8;
-   }
+#formulario > .login-signup-now {
+  background-color: rgb(248, 248, 248);
+  width: 100%;
+  padding: 10px;
+}
+#formulario > .login-signup-now > .subscribe {
+  text-decoration: underline;
+  margin-left: 10px;
+  color: #ef7f1a !important;
+  font-size: 25px !important;
+}
+.form-group {
+  width: 95%;
+  margin: auto;
+}
+.btn-login:hover {
+  background-color: #d67d2f;
+  border-radius: 50px !important;
+}

@@ -1,25 +1,56 @@
-<div class="container ">
-    <header>
-      <div class="logoprincipal" [routerLink]="['/']" routerLinkActive="router-link-active" >
-        <img src="../../assets/img/logo.jpg" width="150" alt="Makaya">
-        <label>Makaya</label>
+<div class="container">
+  <header>
+    <div
+      class="logoprincipal"
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+    >
+      <img src="../../assets/img/logo.jpg" width="150" alt="Makaya" />
+      <label>Makaya</label>
+    </div>
+  </header>
+  <div class="abs-center">
+    <form
+      id="formulario"
+      #userRegistrationForm="ngForm"
+      class="border p-3 form"
+      (ngSubmit)="OnSubmit(UserName.value, Password.value)"
+    >
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          #UserName
+          name="UserName"
+          [(ngModel)]="user.UserName"
+          id="email"
+          placeholder="Username"
+          required
+          class="form-control"
+          (click)="HideMessage('error_mail')"
+        />
+        <span class="red-text error_mail"></span>
       </div>
-    </header>
-    <div class="abs-center ">
-        <form id="formulario" #userRegistrationForm="ngForm" class="border p-3 form" (ngSubmit)="OnSubmit(UserName.value,Password.value)">
-            <div class="form-group ">
-                <label for="email">Email</label>
-                <input type="email" #UserName name="UserName" [(ngModel)]="user.UserName" id="email" placeholder="Username" required class="form-control" (click)="HideMessage('error_mail')">
-                <span class="red-text error_mail"></span>
-            </div>
-            <div class="form-group ">
-                <label for="password ">Password</label>
-                <input type="password" #Password  name="PasswordHash" [(ngModel)]="user.PasswordHash" placeholder="Password" required id="password " class="form-control" (click)="HideMessage('error_password')">
-                <span class="red-text error_password"></span>
-            </div>
-            <button type="submit " class="btn-login">Login</button>
-            <br> <br> <br>
-            <!-- <div class="facebookForm regOption sm12 ">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          #Password
+          name="PasswordHash"
+          [(ngModel)]="user.PasswordHash"
+          placeholder="Password"
+          required
+          id="password"
+          class="form-control"
+          (click)="HideMessage('error_password')"
+        />
+        <span class="red-text error_password"></span>
+      </div>
+      <button type="submit" id="btn-login" class="btn-login">Login</button>
+      <br />
+      <br />
+      <br />
+      <!-- <div class="facebookForm regOption sm12 ">
                 <div class="fb-minimal sm12 ">
                     <hr>
                     <div class="fb-login " data-uia="fb-login ">
@@ -30,7 +61,10 @@
                     </div>
                 </div>
             </div> -->
-            <div class="login-signup-now " data-uia="login-signup-now "> First time on SkyCo? <a class=" " href="/ ">Subscribe</a>.</div>
-        </form>
-    </div>
+      <div class="login-signup-now" data-uia="login-signup-now">
+        First time on SkyCo ?
+        <a class="subscribe" id="subscribe" href="/">Subscribe</a>.
+      </div>
+    </form>
+  </div>
 </div>
