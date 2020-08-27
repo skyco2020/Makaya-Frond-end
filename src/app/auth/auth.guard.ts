@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import {TaskService} from '../services/task.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
- constructor(private router: Router){}
+ constructor(private authService: TaskService,private router: Router){}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (localStorage.getItem('userToken') != null) {
-        return true;
+      if (this.authService.loggedIn()) {
+      this.router.navigate(['/home']);
       }
-      this.router.navigate(['/login']);
-      return false;
+      return !this.authService.loggedIn();
   }
   canActivateChild(
     next: ActivatedRouteSnapshot,

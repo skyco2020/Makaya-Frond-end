@@ -37,15 +37,17 @@ export class HomeComponent implements OnInit {
     document.getElementsByTagName('head')[0].appendChild(node);
 }
   Logout() {
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('IdUser');
-    localStorage.removeItem('mailpay');
-    localStorage.removeItem('mail');
-    localStorage.removeItem('back');
-    this.router.navigate(['/login']);
+    this.userService.logout()
+    .subscribe(success => {
+      debugger
+      if (success) {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
 }
+
 function Carousel(){
   // tslint:disable-next-line: variable-name
   let index_first = 0;
@@ -106,7 +108,7 @@ function Carousel(){
     });
   });
 
-  $('.boton').on('click',function(){
+  $('.play').on('click',function(){
     debugger;
     var v = document.getElementsByTagName("video")[0];
     v.play();

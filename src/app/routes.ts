@@ -7,15 +7,19 @@ import {FinishpaymentComponent} from './finishpayment/finishpayment.component';
 import {NonepaymentComponent} from './nonepayment/nonepayment.component';
 import { AuthGuard } from './auth/auth.guard';
 import { from } from 'rxjs';
+import { StateloginService } from './statelogin.service';
 // import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
     {
       path: 'home', component: HomeComponent,
-       canActivate: [AuthGuard]
+      canActivate: [StateloginService],
+      canLoad: [StateloginService]
     },
     {
-        path: 'login', component: UserComponent
+        path: 'login', component: UserComponent,
+       canActivate: [AuthGuard]
+
     },
     {
         path: 'account', component: AccountComponent

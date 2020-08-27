@@ -40,15 +40,27 @@ export class AccountComponent implements OnInit {
       return false;
     }
     else{
-      this.user = new LoginToken();
-      this.user.UserName = userName;
-      this.user.PasswordHash = password;
-      this.userService.Authentication(this.user).subscribe((data: any) => {
-       localStorage.setItem('userToken', data);
-       this.router.navigate(['/home']);
+      // debugger;
+      // this.user = new LoginToken();
+      // this.user.UserName = userName;
+      // this.user.PasswordHash = password;
+      this.userService.Authentication(this.user)
+      .subscribe(success => {
+      if(success){
+        this.router.navigate(['/home']);
+      }
+      else{
+        $('.error_password').html('Connection problem');
+        this.isLoginError = true;
+      }
      },
      (err: HttpErrorResponse) => {
-       if (err.error.ErrorDescription === 'You need tu complete payment'){
+       debugger;
+       if(err.error == null){
+        $('.error_password').html('Connection problem');
+        this.isLoginError = true;
+       }
+       else if (err.error.ErrorDescription === 'You need tu complete payment'){
            localStorage.setItem('IdUser', err.error.ErrorCode);
            localStorage.setItem('mail', userName);
            this.router.navigate(['/finishpayment']);
