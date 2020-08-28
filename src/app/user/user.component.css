@@ -24,7 +24,7 @@
     width: 100%;
   }
 }
-.btn {
+/* .btn {
   background: #ef7f1a !important;
   color: white !important;
   border-color: #ef7f1a !important;
@@ -47,8 +47,8 @@ nav {
 .authLinks.redButton {
   padding: 1.2em 2em !important;
   height: 2em !important;
-  margin-top: 1em;
-}
+  margin-top: 1em; 
+}*/
 
 @media (max-width: 500px) {
   .btn {

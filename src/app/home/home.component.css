@@ -1,47 +1,47 @@
 .back {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 .modal {
   max-height: none;
-  top: 0!important;
+  top: 0 !important;
 }
 
 .vde {
-    width: 100%;
+  width: 100%;
 }
 
 .slicevideo {
-    height: 90%;
+  height: 90%;
 }
-.modal-close{
+.modal-close {
   display: flex;
   width: 100%;
   background-color: #000;
 }
-.DelAdv{
+.DelAdv {
   width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #000;
 }
-.modal-close i, .delay,.advance{
-  color: #EF7F1A;
+.modal-close i,
+.delay,
+.advance {
+  color: #ef7f1a;
 }
 .modal-content {
   height: 100%;
-  border: none!important;
-    border-radius: initial!important;
+  border: none !important;
+  border-radius: initial !important;
 }
 
 .posividplay {
-    height: 11.4em;
-    ;
+  height: 11.4em;
 }
-
 
 /* .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -49,17 +49,15 @@
 } */
 
 .transf {
-    z-index: -1;
-    opacity: 1;
-    display: flex!important;
-    transform: none!important;
+  z-index: -1;
+  opacity: 1;
+  display: flex !important;
+  transform: none !important;
 }
-
 
 /* .carousel {
     margin-top: 20px;
 } */
-
 
 /* .carousel {
     padding-top: 20px;
@@ -67,7 +65,6 @@
     overflow: hidden;
     position: relative;
 } */
-
 
 /* .carousel ul {
     position: relative;
@@ -79,35 +76,33 @@
 } */
 
 .btnPrevious {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    top: 31%;
-    left: 4%;
-    position: absolute;
-    background: no-repeat 50% / 100% 100%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  top: 31%;
+  left: 4%;
+  position: absolute;
+  background: no-repeat 50% / 100% 100%;
 }
 
 .btnNext {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    top: 31%;
-    left: 96%;
-    position: absolute;
-    background: no-repeat 50% / 100% 100%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  top: 31%;
+  left: 96%;
+  position: absolute;
+  background: no-repeat 50% / 100% 100%;
 }
 
 .carousel {
-    height: auto!important;
+  height: auto !important;
 }
-
 
 /* .carousel .carousel-item>img {
     width: 87%!important;
     height: 54%!important;
 } */
-
 
 /* .carousel ul li {
     position: absolute;
@@ -118,365 +113,361 @@
 } */
 
 .ulmod {
-    width: 100%!important;
-    left: 1%!important;
+  width: 100% !important;
+  left: 1% !important;
 }
 
 .bg-primary {
-    background-color: #007aeb;
-    color: #fff;
+  background-color: #007aeb;
+  color: #fff;
 }
 
 .sectionheight {
-    height: 28vh;
+  height: 28vh;
 }
 
 .bg-gray {
-    background-color: #cccccc;
+  background-color: #cccccc;
 }
 
 button:focus {
-    outline: none;
-    background-color: #343a40!important;
+  outline: none;
+  background-color: #343a40 !important;
 }
 
 .carousel {
-    overflow: revert!important;
+  overflow: revert !important;
 }
 
 .option,
 .first {
-    background-color: #000!important;
+  background-color: #000 !important;
 }
 
 nav a {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #d372d1;
-    margin: 0 15px;
-    font-size: 16px;
-    letter-spacing: 1px;
-    position: relative;
-    display: inline-block;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #d372d1;
+  margin: 0 15px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
 }
 
 .searchTab {
-    display: inline-block;
-    cursor: pointer;
-    border: none;
-    background: 0 0;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  background: 0 0;
 }
 
 .searchBox {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .pinning-header .secondary-navigation:not(.menu-navigation) .icon-search {
-    font-size: 1.3em;
-    margin-right: 0;
+  font-size: 1.3em;
+  margin-right: 0;
 }
 
 .pinning-header .secondary-navigation .icon-search {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 @media screen and (min-width: 1500px) {
-    .pinning-header .secondary-navigation {
-        right: 60px;
-    }
+  .pinning-header .secondary-navigation {
+    right: 60px;
+  }
 }
 
 .dropdown-menu {
-    background-color: #343a40;
+  background-color: #343a40;
 }
 
 nav a:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background: #16151b;
-    top: 47%;
-    animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #16151b;
+  top: 47%;
+  animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
 }
 
 nav a:hover:before {
-    animation: in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+  animation: in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
 }
 
 @keyframes in {
-    0% {
-        width: 0;
-        left: 0;
-        right: auto;
-    }
-    100% {
-        left: 0;
-        right: auto;
-        width: 100%;
-    }
+  0% {
+    width: 0;
+    left: 0;
+    right: auto;
+  }
+  100% {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
 }
 
 @keyframes out {
-    0% {
-        width: 100%;
-        left: auto;
-        right: 0;
-    }
-    100% {
-        width: 0;
-        left: auto;
-        right: 0;
-    }
+  0% {
+    width: 100%;
+    left: auto;
+    right: 0;
+  }
+  100% {
+    width: 0;
+    left: auto;
+    right: 0;
+  }
 }
 
 @keyframes show {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 :root {
-    --rojo: #E50914;
-    --fondo: #141414;
+  --rojo: #e50914;
+  --fondo: #141414;
 }
 
 body {
-    background: var(--fondo);
-    font-family: 'Open Sans', sans-serif;
+  background: var(--fondo);
+  font-family: "Open Sans", sans-serif;
 }
 
 .contenedor {
-    width: 90%;
-    margin: auto;
+  width: 90%;
+  margin: auto;
 }
 
 header {
-    padding: 30px 0;
+  padding: 30px 0;
 }
 
 header .contenedor {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header .logotipo {
-    font-family: 'Bebas Neue', cursive;
-    font-weight: normal;
-    color: var(--rojo);
-    font-size: 40px;
+  font-family: "Bebas Neue", cursive;
+  font-weight: normal;
+  color: var(--rojo);
+  font-size: 40px;
 }
 
 header nav a {
-    color: #AAA;
-    text-decoration: none;
-    margin-right: 20px;
+  color: #aaa;
+  text-decoration: none;
+  margin-right: 20px;
 }
 
 header nav a:hover,
 header nav a.activo {
-    color: #FFF;
+  color: #fff;
 }
-
 
 /* ---- ----- ----- Pelicula Principal ----- ----- ----- */
 
 .pelicula-principal {
-    font-size: 16px;
-    min-height: 40.62em;
-    color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0, 0, 0, .50) 100%), url(/../assets/img/backdrop.jpg);
-    background-position: center center;
-    background-size: cover;
-    margin-bottom: 3.12em;
-    display: flex;
-    align-items: end;
+  font-size: 16px;
+  min-height: 40.62em;
+  color: #fff;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%),
+    url(/../assets/img/backdrop.jpg);
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 3.12em;
+  display: flex;
+  align-items: end;
 }
 
 .pelicula-principal .contenedor {
-    margin: 0 auto;
-    margin-bottom: 6.25em;
+  margin: 0 auto;
+  margin-bottom: 6.25em;
 }
 
 .pelicula-principal .titulo {
-    font-weight: 600;
-    font-size: 3.12em;
-    margin-bottom: 0.4em;
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
 }
 
 .pelicula-principal .descripcion {
-    font-weight: normal;
-    font-size: 1em;
-    line-height: 1.75em;
-    max-width: 50%;
-    margin-bottom: 1.25em;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.75em;
+  max-width: 50%;
+  margin-bottom: 1.25em;
 }
 
 .pelicula-principal .boton {
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    border-radius: 0.31em;
-    padding: 0.93em 1.87em;
-    color: #fff;
-    margin-right: 1.25em;
-    cursor: pointer;
-    transition: .3s ease all;
-    font-size: 1.12em;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: #fff;
+  margin-right: 1.25em;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-size: 1.12em;
 }
 
 .pelicula-principal .boton:hover {
-    background: #fff;
-    color: #000;
+  background: #fff;
+  color: #000;
 }
 
 .pelicula-principal .boton i {
-    margin-right: 1.25em;
+  margin-right: 1.25em;
 }
-
 
 /* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
 
 .contenedor-titulo-controles {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
 }
 
 .contenedor-titulo-controles h3 {
-    color: #fff;
-    font-size: 30px;
+  color: #fff;
+  font-size: 30px;
 }
 
 .contenedor-titulo-controles .indicadores button {
-    background: #fff;
-    height: 3px;
-    width: 10px;
-    cursor: pointer;
-    border: none;
-    margin-right: 2px;
+  background: #fff;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
 }
 
 .contenedor-titulo-controles .indicadores button:hover,
 .contenedor-titulo-controles .indicadores button.activo {
-    background: red;
+  background: red;
 }
-
 
 /* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
 
 .peliculas-recomendadas {
-    margin-bottom: 70px;
+  margin-bottom: 70px;
 }
 
 .peliculas-recomendadas .contenedor-principal {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .peliculas-recomendadas .contenedor-principal .flecha-izquierda,
 .peliculas-recomendadas .contenedor-principal .flecha-derecha {
-    position: absolute;
-    border: none;
-    background: rgba(0, 0, 0, 0.3);
-    font-size: 40px;
-    height: 50%;
-    top: calc(50% - 25%);
-    line-height: 40px;
-    width: 50px;
-    color: #fff;
-    cursor: pointer;
-    z-index: 500;
-    transition: .2s ease all;
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
 }
 
 .peliculas-recomendadas .contenedor-principal .flecha-izquierda:hover,
 .peliculas-recomendadas .contenedor-principal .flecha-derecha:hover {
-    background: rgba(0, 0, 0, .9);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .peliculas-recomendadas .contenedor-principal .flecha-izquierda {
-    left: 0;
+  left: 0;
 }
 
 .peliculas-recomendadas .contenedor-principal .flecha-derecha {
-    right: 0;
+  right: 0;
 }
-
 
 /* ---- ----- ----- Carousel ----- ----- ----- */
 
 .peliculas-recomendadas .contenedor-carousel {
-    width: 100%;
-    padding: 20px 0;
-    overflow: hidden;
-    scroll-behavior: smooth;
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 .peliculas-recomendadas .contenedor-carousel .carousel {
-    display: flex;
-    flex-wrap: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
-    min-width: 20%;
-    transition: .3s ease all;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+  min-width: 20%;
+  transition: 0.3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula.hover {
-    transform: scale(1.2);
-    transform-origin: center;
+  transform: scale(1.2);
+  transform-origin: center;
 }
 
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula img {
-    width: 100%;
-    vertical-align: top;
+  width: 100%;
+  vertical-align: top;
 }
-
 
 /* ---- ----- ----- Media Queries ----- ----- ----- */
 
 @media screen and (max-width: 800px) {
-    header .logotipo {
-        /* margin-bottom: 10px;
+  header .logotipo {
+    /* margin-bottom: 10px;
         font-size: 30px; */
-    }
-    header .contenedor {
-        /* flex-direction: column;
+  }
+  header .contenedor {
+    /* flex-direction: column;
         text-align: center; */
-    }
-    .pelicula-principal {
-        /* font-size: 14px; */
-    }
-    .pelicula-principal .descripcion {
-        /* max-width: 100%; */
-    }
-    .peliculas-recomendadas .contenedor-carousel {
-        /* overflow: visible; */
-    }
-    .peliculas-recomendadas .contenedor-carousel .carousel {
-        /* display: grid;
+  }
+  .pelicula-principal {
+    /* font-size: 14px; */
+  }
+  .pelicula-principal .descripcion {
+    /* max-width: 100%; */
+  }
+  .peliculas-recomendadas .contenedor-carousel {
+    /* overflow: visible; */
+  }
+  .peliculas-recomendadas .contenedor-carousel .carousel {
+    /* display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px; */
-    }
-    .peliculas-recomendadas .indicadores,
-    .peliculas-recomendadas .flecha-izquierda,
-    .peliculas-recomendadas .flecha-derecha {
-        /* display: none; */
-    }
-    .peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
-        min-width: 50%;
-        transition: .3s ease all;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
-    }
+  }
+  .peliculas-recomendadas .indicadores,
+  .peliculas-recomendadas .flecha-izquierda,
+  .peliculas-recomendadas .flecha-derecha {
+    /* display: none; */
+  }
+  .peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
+    min-width: 50%;
+    transition: 0.3s ease all;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  }
 }
