@@ -1,168 +1,215 @@
-
 .form {
-    width: 100%;
-    position: relative;
-    border: none!important;
+  width: 100%;
+  position: relative;
+  border: none !important;
 }
-.resize{
+.resize {
   background-size: cover;
-  height:239px ;
+  height: 239px;
   width: 100%;
 }
 .input_e_mail {
-    height: 2.45em!important;
-    font-family: Arial;
-    font-size: 1.6rem!important;
-    border-radius: 0.3em 0 0 0.3em!important;
+  height: 2.45em !important;
+  font-family: Arial;
+  font-size: 1.6rem !important;
+  border-radius: 0.3em 0 0 0.3em !important;
 }
 
-@media( max-width: 585px) {
-    .input-group {
-        position: relative;
-        display: block;
-        flex-wrap: wrap;
-        align-items: stretch;
-        width: 100%;
-    }
-    .btn {
-        background: #EF7F1A!important;
-        color: white!important;
-        border-color: #EF7F1A!important;
-        border-radius: .3em!important;
-        font-size: 1.7rem!important;
-        width: 14em;
-        height: 3.3em;
-    }
-    .input_e_mail {
-        height: 2.45em!important;
-        font-family: Arial;
-        font-size: 1.6rem!important;
-        border-radius: 0.3em 0.3em 0.3em 0.3em!important;
-    }
+@media (max-width: 585px) {
+  .input-group {
+    position: relative;
+    display: block;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+  }
+}
+.btn {
+  background: #ef7f1a !important;
+  color: white !important;
+  border-color: #ef7f1a !important;
+  border-radius: 0.3em !important;
+  font-size: 1.7rem !important;
+  width: 14em;
+  height: 3.3em;
+}
+.input_e_mail {
+  height: 2.45em !important;
+  font-family: Arial;
+  font-size: 1.6rem !important;
+  border-radius: 0.3em 0.3em 0.3em 0.3em !important;
 }
 
 nav {
-    line-height: 0.1em!important;
+  line-height: 0.1em !important;
 }
 
 .authLinks.redButton {
-    padding: 1.2em 2em!important;
-    height: 2em!important;
-    margin-top: 1em;
+  padding: 1.2em 2em !important;
+  height: 2em !important;
+  margin-top: 1em;
 }
 
 @media (max-width: 500px) {
-    .btn {
-        background: #EF7F1A!important;
-        color: white!important;
-        border-color: #EF7F1A!important;
-        border-radius: .3em!important;
-        font-size: 1.7rem!important;
-        width: 19em!important;
-        height: 3.3em;
-    }
-    .input_e_mail {
-        height: 2.45em!important;
-        font-family: Arial;
-        font-size: 1.6rem!important;
-        border-radius: 0.3em 0.3em 0.3em 0.3em!important;
-    }
+  .btn {
+    background: #ef7f1a !important;
+    color: white !important;
+    border-color: #ef7f1a !important;
+    border-radius: 0.3em !important;
+    font-size: 1.7rem !important;
+    width: 19em !important;
+    height: 3.3em;
+  }
+  .input_e_mail {
+    height: 2.45em !important;
+    font-family: Arial;
+    font-size: 1.6rem !important;
+    border-radius: 0.3em 0.3em 0.3em 0.3em !important;
+  }
 }
 
-@media all and (max-width:800px) {
-    .btn {
-        background: #EF7F1A!important;
-        color: white!important;
-        border-color: #EF7F1A!important;
-        border-radius: .3em!important;
-        font-size: 1.7rem!important;
-        width: 19em!important;
-        height: 2em;
-    }
-    .input_e_mail {
-        height: 2em!important;
-        font-family: Arial;
-        font-size: 1.6rem!important;
-        margin-bottom: 0.2em;
-        border-radius: 0.3em 0.3em 0.3em 0.3em!important;
-    }
+@media all and (max-width: 800px) {
+  .btn {
+    background: #ef7f1a !important;
+    color: white !important;
+    border-color: #ef7f1a !important;
+    border-radius: 0.3em !important;
+    font-size: 1.7rem !important;
+    width: 19em !important;
+    height: 2em;
+  }
+  .input_e_mail {
+    height: 2em !important;
+    font-family: Arial;
+    font-size: 1.6rem !important;
+    margin-bottom: 0.2em;
+    border-radius: 0.3em 0.3em 0.3em 0.3em !important;
+  }
 }
 
-@media all and (min-width:730px) and (max-width:1024px) {
-    .btn {
-        background: #EF7F1A!important;
-        color: white!important;
-        border-color: #EF7F1A!important;
-        border-radius: .3em!important;
-        font-size: 1.7rem!important;
-        width: 7em!important;
-        height: 2.45em;
-        border-radius: 0 0.3em .3em 0!important;
-    }
-    .input_e_mail {
-        height: 2.62em!important;
-        font-family: Arial;
-        font-size: 1.6rem!important;
-        border-radius: 0.3em 0 0 0.3em!important;
-    }
+@media all and (min-width: 730px) and (max-width: 1024px) {
+  .btn {
+    background: #ef7f1a !important;
+    color: white !important;
+    border-color: #ef7f1a !important;
+    border-radius: 0.3em !important;
+    font-size: 1.7rem !important;
+    width: 7em !important;
+    height: 2.45em;
+    border-radius: 0 0.3em 0.3em 0 !important;
+  }
+  .input_e_mail {
+    height: 2.62em !important;
+    font-family: Arial;
+    font-size: 1.6rem !important;
+    border-radius: 0.3em 0 0 0.3em !important;
+  }
 }
 
 .container,
 .container-sm,
 .container-md {
-    position: relative;
-    top: 25%;
+  position: relative;
+  top: 25%;
 }
 
 .portfolio {
-    height: 100vh;
+  height: 100vh;
 }
 
 .portfolio-box {
-    position: relative;
-    display: block;
-    max-width: 650px;
-    margin: 20px;
-    z-index: -1;
+  position: relative;
+  display: block;
+  max-width: 650px;
+  margin: 20px;
+  z-index: -1;
 }
 
 .portfolio-box img {
-    width: 100%;
-    height: 400px;
-    background-size: cover;
+  width: 100%;
+  height: 400px;
+  background-size: cover;
 }
 
 .portfolio-box .portfolio-box-caption {
-    position: absolute;
-    bottom: 0;
-    padding: 5px;
-    background-color: #EF7F1A;
-    width: 100%;
-    -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
-    z-index: 99;
-    color: #fff;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  background-color: #ef7f1a;
+  width: 100%;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  z-index: 99;
+  color: #fff;
 }
 
 .portfolio-box .portfolio-box-caption .description {
-    color: #ededed;
-    font-size: 14px;
+  color: #ededed;
+  font-size: 14px;
 }
 
-footer>.portfolio {
-    color: #757575!important;
+footer > .portfolio {
+  color: #757575 !important;
 }
 
 .indigo {
-    background-color: #000!important;
+  background-color: #000 !important;
 }
 
-div>ul>li>a {
-    color: #757575!important;
+div > ul > li > a {
+  color: #757575 !important;
 }
 
 .resize_fit_center {
-    max-width: 100%;
-    max-height: 100%;
-    vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+/* others style to the cards */
+.allcards {
+  padding: 10px;
+  background-color: linear-gradient(To right #ef7f1a, black);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-items: center;
+  grid-gap: 15px;
+}
+.allcards > .one-card {
+  width: 250px;
+  background-color: #fff;
+  transition: ease-in-out 1s;
+  border-radius: 5px;
+}
+.allcards > .one-card:hover {
+  transform: translate(10px, 5px);
+  transform: scale(1.1);
+  z-index: 1000px;
+  border-radius: 0px;
+}
+.allcards > .one-card > .body {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 10px;
+}
+.allcards > .one-card > .body > h5 {
+  color: #ef7f1a;
+  font-weight: bold;
+  text-align: center;
+}
+.allcards > .one-card > img {
+  width: 100%;
+  height: 200px;
+  /* height: 50%; */
+}
+/* media queries  */
+@media (max-width: 430px) {
+  .allcards > .one-card {
+    width: 95%;
+    margin: 5px;
+  }
+  .allcards > .one-card > img {
+    width: 100%;
+    height: 50%;
+  }
 }

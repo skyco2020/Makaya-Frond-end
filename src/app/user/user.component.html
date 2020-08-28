@@ -1,7 +1,7 @@
 <div class="logobackground">
   <header>
     <div class="logoprincipal">
-      <img src="../../assets/img/logo.jpg" width="150" alt="Makaya">
+      <img src="../../assets/img/logo.jpg" width="150" alt="Makaya" />
       <label>Makaya</label>
     </div>
     <nav>
@@ -10,37 +10,57 @@
   </header>
   <section class="no-padding portfolio">
     <div class="container">
-      <form class="border p-3 form" #loginForm="ngForm" (ngSubmit)="OnSubmit(UserName.value)">
-        <div class="input-group item  ph12  md8  i-b  v-middle  center  md-right  p0  menu">
-          <input type="text" class="form-control s6 input_e_mail" #UserName ngModel name="UserName"
-            (click)="HideError()" placeholder="  Type your e-mail" required aria-label="E-mail"
-            aria-describedby="basic-addon2">
+      <form
+        class="border p-3 form"
+        #loginForm="ngForm"
+        (ngSubmit)="OnSubmit(UserName.value)"
+      >
+        <div
+          class="input-group item ph12 md8 i-b v-middle center md-right p0 menu"
+        >
+          <input
+            type="text"
+            class="form-control s6 input_e_mail"
+            #UserName
+            ngModel
+            name="UserName"
+            (click)="HideError()"
+            placeholder="  Type your e-mail"
+            required
+            aria-label="E-mail"
+            aria-describedby="basic-addon2"
+          />
 
           <div class="input-group-append s6">
-            <button class="btn btn-outline-secondary" name="enviar" type="submit">Try now</button>
+            <button
+              class="btn btn-outline-secondary"
+              name="enviar"
+              type="submit"
+            >
+              Try now
+            </button>
           </div>
-          <input type="text" id="country" hidden>
-          <input type="text" id="code_country" hidden>
-          <input type="text" id="province" hidden>
-          <input type="text" id="city" hidden>
+          <input type="text" id="country" hidden />
+          <input type="text" id="code_country" hidden />
+          <input type="text" id="province" hidden />
+          <input type="text" id="city" hidden />
 
-          <input type="text" id="latitude" hidden>
-          <input type="text" id="longitude" hidden>
-
+          <input type="text" id="latitude" hidden />
+          <input type="text" id="longitude" hidden />
         </div>
-        <label class="item  ph12  md6  i-b  v-middle  center  md-right  p0  menu red-text center error-message "
-          style="font-size: 26px;">
+        <label
+          class="item ph12 md6 i-b v-middle center md-right p0 menu red-text center error-message"
+          style="font-size: 26px"
+        >
           <span class="error_username"></span>
         </label>
       </form>
     </div>
   </section>
-  <section class="main">
-
-  </section>
+  <section class="main"></section>
 </div>
-<section class="">
 
+<section class="allcards">
   <!-- <div class="">
     <div class="">
       <div class="row galno-gutter popup-lery">
@@ -62,18 +82,15 @@
       </div>
     </div>
   </div> -->
-  <div class="row galno-gutter popup-lery">
-    <div class="card-group col-lg-3 col-md-6 col-sm-3" *ngFor="let movie of Movies">
-      <div class="card">
-        <img class="card-img-top resize" src="{{movie.picture}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title"> {{movie.name}} - {{movie.age}}</h5>
-          <p class="card-text"> {{movie.description}}</p>
-        </div>
-      </div>
+  <!-- <div class="row galno-gutter popup-lery"> -->
+  <div class="one-card" *ngFor="let movie of Movies">
+    <img class="" src="{{ movie.picture }}" alt="" />
+    <div class="body">
+      <h5 class="title">{{ movie.name }} - {{ movie.age }}</h5>
+      <p class="text">{{ movie.description }}</p>
     </div>
   </div>
-
+  <!-- </div> -->
 </section>
 
 <app-footer></app-footer>
