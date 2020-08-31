@@ -40,14 +40,29 @@ export class AccountComponent implements OnInit {
       return false;
     }
     else{
-      // debugger;
-      // this.user = new LoginToken();
-      // this.user.UserName = userName;
-      // this.user.PasswordHash = password;
       this.userService.Authentication(this.user)
       .subscribe(success => {
       if(success){
-        this.router.navigate(['/home']);
+        this.router.navigate(['/principal']);
+        // let role = this.userService.getUserRole().toLowerCase();
+        // if( role=== ("user").toLowerCase()){
+        //   this.router.navigate(['/home']);
+        // }
+        // else if(role === ("actor").toLowerCase()){
+        //   this.router.navigate(['/actor']);
+        // }
+        // else if(role === ("admin").toLowerCase()){
+        //   this.router.navigate(['/admin']);
+        // }
+        // else if(role === ("provider").toLowerCase()){
+        //   this.router.navigate(['/provider']);
+        // }
+        // else if(role === ("employee").toLowerCase()){
+        //   this.router.navigate(['/employee']);
+        // }
+        // else {
+        //   this.router.navigate(['/error']);
+        // }
       }
       else{
         $('.error_password').html('Connection problem');

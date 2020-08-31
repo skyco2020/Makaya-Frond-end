@@ -22,10 +22,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.loadScript();
     Carousel();
-    this.userService.getUserClaims().subscribe((data: any) => {
-      this.userClaims = data;
+    // this.userService.getUserClaims().subscribe((data: any) => {
+    //   this.userClaims = data;
 
-    });
+    // });
   }
   public loadScript() {
     const node = document.createElement('script');

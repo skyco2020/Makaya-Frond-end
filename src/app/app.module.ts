@@ -18,10 +18,15 @@ import {NgxStripeModule } from 'ngx-stripe';
 import { FooterComponent } from './footer/footer.component';
 import { FinishpaymentComponent } from './finishpayment/finishpayment.component';
 import { NonepaymentComponent } from './nonepayment/nonepayment.component';
-import { AdminComponent } from './admin/admin.component';
-import { ProviderComponent } from './provider/provider.component';
+// import { AdminComponent } from './admin/admin.component';
+// import { ProviderComponent } from './provider/provider.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { StateloginService } from './statelogin.service';
+import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
+// import { ListuserComponent } from './listuser/listuser.component';
+// import { ActorComponent } from './actor/actor.component';
+// import { EmployeeComponent } from './employee/employee.component';
+// import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +37,13 @@ import { StateloginService } from './statelogin.service';
     FooterComponent,
     FinishpaymentComponent,
     NonepaymentComponent,
-    AdminComponent,
-    ProviderComponent,
+    GlobalmenuComponent,
+    // AdminComponent,
+    // ProviderComponent,
+    // ListuserComponent,
+    // ActorComponent,
+    // EmployeeComponent,
+    // ErrorComponent,
   ],
   imports: [
     BrowserModule,

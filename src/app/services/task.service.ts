@@ -13,6 +13,7 @@ export class TaskService {
   public url = '/api';
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
+  private readonly RoleUser = 'RoleUser';
   private loggedUser: string;
 
   constructor(
@@ -84,6 +85,9 @@ export class TaskService {
     return localStorage.getItem(this.JWT_TOKEN);
   }
 
+  getUserRole() {
+    return localStorage.getItem(this.RoleUser);
+  }
   private storeJwtToken(jwt: string) {
     localStorage.setItem(this.JWT_TOKEN, jwt);
   }
@@ -95,6 +99,7 @@ export class TaskService {
   private removeTokens() {
     localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
+    localStorage.removeItem(this.RoleUser);
   }
   private doLoginUser(username: string, tokens: Tokens) {
     this.loggedUser = username;
@@ -109,5 +114,6 @@ export class TaskService {
   private storeTokens(tokens: Tokens) {
     localStorage.setItem(this.JWT_TOKEN, tokens.jwt);
     localStorage.setItem(this.REFRESH_TOKEN, tokens.refreshToken);
+    localStorage.setItem(this.RoleUser, tokens.role);
   }
 }

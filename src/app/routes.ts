@@ -8,6 +8,7 @@ import {NonepaymentComponent} from './nonepayment/nonepayment.component';
 import { AuthGuard } from './auth/auth.guard';
 import { from } from 'rxjs';
 import { StateloginService } from './statelogin.service';
+import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
 // import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
@@ -15,6 +16,12 @@ export const appRoutes: Routes = [
       path: 'home', component: HomeComponent,
       canActivate: [StateloginService],
       canLoad: [StateloginService]
+    },
+    {
+      path: 'principal', component: GlobalmenuComponent,
+      loadChildren : () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+      canActivate: [StateloginService],
+      canLoad: [StateloginService],
     },
     {
         path: 'login', component: UserComponent,
@@ -30,10 +37,19 @@ export const appRoutes: Routes = [
     {
       path : '', redirectTo: `/login`, pathMatch : 'full'
     },
+    // {
+    //     path: 'admin',
+    //     loadChildren : () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+    // },
     {
         path: 'finishpayment', component: FinishpaymentComponent
     },
     {
         path: 'nonepayment', component: NonepaymentComponent
+    },
+    /* any unrecognized path will send home */
+    {
+      path: '**',
+      redirectTo: '/home'
     }
   ];
