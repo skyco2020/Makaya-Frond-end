@@ -287,3 +287,66 @@ label {
     max-width: 100% !important;
   }
 }
+/* JHMesseroux part */
+.all-plan {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #ef7f1a;
+}
+.card-plan {
+  background-color: #fbfbfb;
+  padding: 10px;
+  transition: ease-in-out 1s;
+  width: 90%;
+  margin: auto;
+  /* border-radius: 4px; */
+}
+.all-plan > div:first-child {
+  margin-top: 25px;
+}
+
+.card-plan:hover {
+  /* box-shadow: 5px 5px 10px 5px white; */
+  border-top-right-radius: 50px;
+}
+.card-plan > .plan-body {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  /* text-align: center; */
+}
+.card-plan > .plan-body > h5 {
+  color: #ef7f1a;
+  text-align: center;
+}
+.card-plan > .plan-body > p {
+  color: #ef7f1a;
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.card-plan > .plan-body > div {
+  width: 90%;
+  margin: 0px auto;
+  text-align: center;
+  color: #000000;
+}
+
+.finish {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+.finish > h2 {
+  color: green;
+}
+.finish > div {
+  /* background-color: rgb(230, 134, 134); */
+  margin: 10px 0px;
+}
+.finish > .price-trial > p {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 25px;
+}
