@@ -41,6 +41,7 @@
                     type="text"
                     id="name-2"
                     name="Firstname"
+                    value="probando"
                     placeholder="type your first  name "
                     class="required"
                     (click)="HideMessage('error_name-2')"
@@ -52,6 +53,7 @@
                   <input
                     id="surname-2"
                     name="Lastname"
+                    value="probando"
                     placeholder="type your last  name "
                     type="text"
                     class="required"
@@ -88,6 +90,7 @@
                   <input
                     id="password-2"
                     name="password"
+                    value="probando"
                     type="password"
                     placeholder="create a password"
                     class="required"
@@ -103,6 +106,7 @@
                     id="confirm-2"
                     name="confirm"
                     type="password"
+                    value="probando"
                     placeholder="confirm your  password"
                     class="required"
                     (click)="HideMessage('error_confirm-2')"
@@ -139,28 +143,20 @@
                   <h2 class="fs-title">Plan Information</h2>
                   <input class="ste2" hidden />
                   <h2 class="fs-title text-center">Select one Plan</h2>
-                  <div class="card-body cardhidden flexContainer">
+                  <div class="all-plan">
                     <div
                       *ngFor="let item of plan; let idx = index"
                       (click)="CarSubmit(item, idx)"
                     >
-                      <div class="next card cardaddwith w-100 p-3">
-                        <div class="card-body">
-                          <h5
-                            class="card-title text-dark font-weight-bold center plan"
-                          >
+                      <div class="card-plan" id="select-plan">
+                        <div class="plan-body">
+                          <h5 class="">
                             {{ item.metadata["Type Plan"] }}
                           </h5>
-                          <p
-                            class="card-title text-dark font-weight-bold center price"
-                          >
-                            Price: $ {{ item.unit_amount / 100 }}
-                          </p>
+                          <p class="">Price: $ {{ item.unit_amount / 100 }}</p>
                           <br />
-                          <div class="divcenter center">
-                            <h5
-                              class="card-text text-dark font-weight-bold cyan-lighter-hover"
-                            >
+                          <div class="">
+                            <h5 class="">
                               {{ item.nickname }}
                             </h5>
                           </div>
@@ -247,64 +243,40 @@
                 />
               </fieldset>
               <fieldset>
-                <div class="form-card">
-                  <h2 class="fs-title text-center">Success !</h2>
-                  <br /><br />
-                  <div class="next card cardaddwith">
-                    <div class="card-body">
-                      <h5
-                        class="card-title text-dark font-weight-bold center plan"
-                      >
-                        {{ succes != null ? succes.metadata["Type Plan"] : "" }}
-                      </h5>
-                      <p
-                        class="card-title text-dark font-weight-bold center price"
-                      >
-                        Price: $
-                        {{ succes != null ? succes.amount_decimal / 100 : "" }}
-                      </p>
-                      <p
-                        class="card-title text-dark font-weight-bold center price"
-                      >
-                        you have
-                        {{
-                          succes != null ? succes.trial_period_days : ""
-                        }}
-                        days trial
-                      </p>
-                      <br />
-                      <div class="divcenter center">
-                        <h5
-                          class="card-text text-dark font-weight-bold cyan-lighter-hover"
-                        >
-                          {{ succes != null ? succes.nickname : "" }}
-                        </h5>
-                        <br />
-                        <h3
-                          class="card-text text-dark font-weight-bold cyan-lighter-hover"
-                        >
-                          Soon you will be redirected to the login
-                        </h3>
-                      </div>
-                      <!-- <br>
-                                          <button class="btn btn-primary btnsubmit" (click)="CarSubmit(idx)">Choose</button> -->
-                    </div>
+                <div class="finish">
+                  <h2 class="">Success !</h2>
+                  <br />
+                  <h2>You Have Successfully Signed Up</h2>
+                  <div class="">
+                    <img src="../../assets/img/sucess3.png" class="image" />
                   </div>
-                  <br /><br /><br />
-                  <div class="row justify-content-center">
-                    <div class="col-3">
-                      <img
-                        src="../../assets/img/sucess3.png"
-                        class="fit-image"
-                      />
-                    </div>
+
+                  <div class="price-trial">
+                    <h5>
+                      {{ succes != null ? succes.metadata["Type Plan"] : "" }}
+                    </h5>
+                    <p class="">
+                      Price: $
+                      {{ succes != null ? succes.amount_decimal / 100 : "" }}
+                    </p>
+                    <p class="">
+                      you have
+                      {{ succes != null ? succes.trial_period_days : "" }}
+                      days trial
+                    </p>
+                    <!-- <br> <button class="btn btn-primary btnsubmit" (click)="CarSubmit(idx)">Choose</button> -->
                   </div>
-                  <br /><br />
-                  <div class="row justify-content-center">
-                    <div class="col-7 text-center">
-                      <h5>You Have Successfully Signed Up</h5>
-                    </div>
+                  <div class="">
+                    <h5>
+                      {{ succes != null ? succes.nickname : "" }}
+                    </h5>
+
+                    <h3 class="">Soon you will be redirected to the login</h3>
                   </div>
+
+                  <!-- <div class="">
+                    <h5>You Have Successfully Signed Up</h5>
+                  </div> -->
                 </div>
               </fieldset>
             </form>
