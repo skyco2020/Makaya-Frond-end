@@ -20,12 +20,15 @@ export class HomeComponent implements OnInit {
   constructor(private userService: TaskService, private router: Router) { }
 
   ngOnInit() {
-    this.loadScript();
-    Carousel();
-    // this.userService.getUserClaims().subscribe((data: any) => {
-    //   this.userClaims = data;
-
-    // });
+    let role = this.userService.getUserRole().toLowerCase();
+    if( role=== ("user").toLowerCase()){
+      this.loadScript();
+      Carousel();
+      this.router.navigate(['/home']);
+    }
+    else{
+      this.router.navigate(['/error']);
+    }
   }
   public loadScript() {
     const node = document.createElement('script');

@@ -9,13 +9,18 @@ import { AuthGuard } from './auth/auth.guard';
 import { from } from 'rxjs';
 import { StateloginService } from './statelogin.service';
 import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
+import { ErrorComponent } from './error/error.component';
 // import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
+  {
+    path: 'home', component: HomeComponent,
+    canActivate: [StateloginService],
+    canLoad: [StateloginService]
+  },
     {
-      path: 'home', component: HomeComponent,
-      canActivate: [StateloginService],
-      canLoad: [StateloginService]
+      path: '404',
+      component: ErrorComponent
     },
     {
       path: 'principal', component: GlobalmenuComponent,
@@ -50,6 +55,6 @@ export const appRoutes: Routes = [
     /* any unrecognized path will send home */
     {
       path: '**',
-      redirectTo: '/home'
+      redirectTo: '/404'
     }
   ];

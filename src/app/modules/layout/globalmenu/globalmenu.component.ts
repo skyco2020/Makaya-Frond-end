@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TaskService} from '../../../services/task.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-globalmenu',
@@ -8,10 +9,17 @@ import {TaskService} from '../../../services/task.service';
 })
 export class GlobalmenuComponent implements OnInit {
   switchCondition:any;
-  constructor(private userService: TaskService) { }
+  constructor(private userService: TaskService, private router:Router) { }
 
   ngOnInit(): void {
-    this.switchCondition = this.userService.getUserRole().toLowerCase();
+    let role = this.userService.getUserRole().toLowerCase();
+    if( role!== ("user").toLowerCase()){
+      this.switchCondition = this.userService.getUserRole().toLowerCase();
+    }
+    else{
+      this.router.navigate(['/error']);
+    }
+
   }
 
 }

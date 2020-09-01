@@ -43,14 +43,13 @@ export class AccountComponent implements OnInit {
       this.userService.Authentication(this.user)
       .subscribe(success => {
       if(success){
-        this.router.navigate(['/principal']);
-        // let role = this.userService.getUserRole().toLowerCase();
-        // if( role=== ("user").toLowerCase()){
-        //   this.router.navigate(['/home']);
-        // }
-        // else if(role === ("actor").toLowerCase()){
-        //   this.router.navigate(['/actor']);
-        // }
+        let role = this.userService.getUserRole().toLowerCase();
+        if( role=== ("user").toLowerCase()){
+          this.router.navigate(['/home']);
+        }
+        else{
+          this.router.navigate(['/principal']);
+        }
         // else if(role === ("admin").toLowerCase()){
         //   this.router.navigate(['/admin']);
         // }
