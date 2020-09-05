@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+|import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListemployeComponent } from './listemploye/listemploye.component';
-securityimport { AuthGuard } from 'src/app/auth/auth.guard';
+import { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 const routes: Routes = [
