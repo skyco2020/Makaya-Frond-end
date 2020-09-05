@@ -4,6 +4,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+:root {
+  --primary: #ef7f1a;
+}
 
 .containernew {
   width: 90%;
@@ -18,7 +29,6 @@
 header {
   width: 100%;
   padding: 20px;
-
   /* Flex */
   display: flex;
   justify-content: space-between;
@@ -26,50 +36,53 @@ header {
   flex-flow: row wrap;
 }
 
-header .logoprincipal {
+header .show-case-logo {
   color: #fff;
   cursor: pointer;
 }
 
-header .logoprincipal img {
+header .show-case-logo img {
   border-radius: 5em;
   width: 6em;
 }
 
-header .logoprincipal label {
+header .show-case-logo label {
   color: #fff;
   text-decoration: none;
   line-height: 50px;
   margin-left: 0.7em;
 }
-header nav {
-  width: 20%;
-  height: 20%;
-  border-radius: 0.29em;
-  /* Flex */
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+header .nav-principal {
+  /* background-color: #fff; */
+  /* width: 30%; */
+  /* height: 20%; */
 }
-header nav a {
-  background: #ef7f1a;
-  color: #fff;
-  border-color: #ef7f1a;
-  border-radius: 0.3em;
-  font-size: 1.2rem;
-  flex-basis: 9em;
-  height: 2.4em;
-  line-height: 1.5;
+/* header > nav > a {
+  background: #ffffff;
   text-transform: uppercase;
-  font-weight: 400;
-  cursor: pointer;
-  padding: 0.5em;
+  color: black;
+  padding: 10px;
+  border-radius: 2px;
   text-align: center;
-
-  /* Flex */
-  flex-grow: 1;
+  outline: none;
+  border: none;
+} */
+.show-case > header .btn-login-principal {
+  /* width: 100%; */
+  width: 100px !important;
+  padding: 10px 25px;
+  background-color: #fff;
+  text-transform: uppercase;
+  color: black;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  transition: ease-in-out 1ms;
 }
-
+header .nav-principal a:hover {
+  background-color: var(--primary);
+  color: white;
+}
 button.btn-submit {
   background-color: #38547b;
   color: #fff;
@@ -126,24 +139,24 @@ div.error-message i {
   /* color: white!important; */
 }
 
-a {
+/* a {
   color: #000408 !important;
   font-size: medium;
-}
+} */
 
-.logobackground {
-  background: url(/../assets/img/bgori.jpg?w=1000&fit=max&auto=format,compress)
+.show-case-logo {
+  /* background: url(/../assets/img/bgori.jpg?w=1000&fit=max&auto=format,compress)
     no-repeat top center;
   background-size: cover;
   -webkit-background-size: cover;
-  /* Safari 3.0 */
+  Safari 3.0
   -moz-background-size: cover;
-  /* Gecko 1.9.2 (Firefox 3.6) */
+  Gecko 1.9.2 (Firefox 3.6)
   -o-background-size: cover;
-  /* Opera 9.5 */
-  background-size: cover;
+  Opera 9.5
+  background-size: cover; */
 }
-.logoprincipal:focus {
+.show-case-logo:focus {
   outline: none;
 }
 .btn-login {

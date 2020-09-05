@@ -13,6 +13,7 @@
   font-family: Arial;
   font-size: 1.6rem !important;
   border-radius: 0.3em 0 0 0.3em !important;
+  padding-right: 20px !important;
 }
 
 @media (max-width: 585px) {
@@ -106,7 +107,7 @@ nav {
   }
 }
 
-.container,
+/* .container,
 .container-sm,
 .container-md {
   position: relative;
@@ -123,15 +124,15 @@ nav {
   max-width: 650px;
   margin: 20px;
   z-index: -1;
-}
-
+} */
+/* 
 .portfolio-box img {
   width: 100%;
   height: 400px;
   background-size: cover;
-}
+} */
 
-.portfolio-box .portfolio-box-caption {
+/* .portfolio-box .portfolio-box-caption {
   position: absolute;
   bottom: 0;
   padding: 5px;
@@ -141,9 +142,9 @@ nav {
   transition: all 0.6s ease;
   z-index: 99;
   color: #fff;
-}
+} */
 
-.portfolio-box .portfolio-box-caption .description {
+/* .portfolio-box .portfolio-box-caption .description {
   color: #ededed;
   font-size: 14px;
 }
@@ -164,6 +165,31 @@ div > ul > li > a {
   max-width: 100%;
   max-height: 100%;
   vertical-align: middle;
+} */
+
+/* header principal other style  */
+.show-case {
+  position: relative;
+  background-image: url(../../assets/img/bp2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  /* Safari 3.0 */
+  -moz-background-size: cover;
+  /* Gecko 1.9.2 (Firefox 3.6) */
+  -o-background-size: cover;
+  /* Opera 9.5 */
+  width: 100%;
+  height: 95vh;
+}
+
+.show-case .show-case-logo nav a {
+  background-color: #fff;
+}
+.show-case > .show-case-try > .container {
+  position: relative;
+  top: 150px;
 }
 
 /* others style to the cards */
