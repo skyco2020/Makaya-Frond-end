@@ -7,53 +7,53 @@
 } */
 
 .allvh {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .fixed-top {
-    padding-top: 6rem;
+  padding-top: 6rem;
 }
 
 .waw {
-    padding-top: initial;
+  padding-top: initial;
 }
 
 .header {
-    background-color: #000;
-    overflow-x: hidden;
+  background-color: #000;
+  overflow-x: hidden;
 }
 
 .logo {
-    width: 7rem;
-    height: 7rem;
-    text-indent: 9999px;
-    background: transparent url("../img/logo.jpg") no-repeat left;
-    background-size: contain;
-    border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  text-indent: 9999px;
+  background: transparent url("../img/makaya.png") no-repeat left;
+  background-size: contain;
+  border-radius: 50%;
 }
 
 .menu {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .home {
-    background: #000 url("../img/fondo-home.jpg") no-repeat center;
+  background: #000 url("../img/fondo-home.jpg") no-repeat center;
 }
 
 .home h2 {
-    margin: 40vh auto 0;
-    font-size: 20vw;
-    font-weight: 900;
-    color: #EECF27;
-    letter-spacing: 1vw;
+  margin: 40vh auto 0;
+  font-size: 20vw;
+  font-weight: 900;
+  color: #eecf27;
+  letter-spacing: 1vw;
 }
 
 .batman-img {
-    max-width: 50%;
+  max-width: 50%;
 }
 
 .logos ul {
-    font-family: "batman";
+  font-family: "batman";
 }
 /*
 @media screen and (min-width: 30em) {}

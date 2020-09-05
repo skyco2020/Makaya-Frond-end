@@ -326,14 +326,14 @@ export class RegisterpaymentComponent implements OnInit {
   }
 
   CarSubmit(item, index) {
-    const divselect = $('.cardaddwith').eq(index)[0];
-    for (let val = 0; val < $('.cardaddwith').length; val++) {
-      const divUnselect = $('.cardaddwith').eq(val)[0];
+    const divselect = $('.card-plan').eq(index)[0];
+    for (let val = 0; val < $('.card-plan').length; val++) {
+      const divUnselect = $('.card-plan').eq(val)[0];
       $(divUnselect).css({
         display: 'block',
         position: 'relative',
-        'border-color': 'initial',
-        'border-style': 'initial',
+        borderColor: 'initial',
+        borderStyle: 'initial',
       });
     }
 
