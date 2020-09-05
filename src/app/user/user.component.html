@@ -49,8 +49,7 @@
           <input type="text" id="longitude" hidden />
         </div>
         <label
-          class="item ph12 md6 i-b v-middle center md-right p0 menu red-text center error-message"
-          style="font-size: 26px"
+          class="item ph12 md6 i-b v-middle md-right p0 menu error-message"
         >
           <span class="error_username"></span>
         </label>
@@ -61,28 +60,6 @@
 </div>
 
 <section class="allcards">
-  <!-- <div class="">
-    <div class="">
-      <div class="row galno-gutter popup-lery">
-        <div class="col-lg-3 col-md-6 col-sm-3" *ngFor="let movie of Movies">
-          <a href class="portfolio-box">
-            <img src="{{movie.picture}}" class="img-responsive resize_fit_center" alt="">
-            <div class="portfolio-box-caption">
-              <div class="portfolio-box-caption-content">
-                <div class="title">
-                  {{movie.name}} - {{movie.age}}
-                </div>
-                <div class="description">
-                  {{movie.description}}
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div class="row galno-gutter popup-lery"> -->
   <div class="one-card" *ngFor="let movie of Movies">
     <img class="" src="{{ movie.picture }}" alt="" />
     <div class="body">
