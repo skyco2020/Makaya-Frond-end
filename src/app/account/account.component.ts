@@ -43,25 +43,23 @@ export class AccountComponent implements OnInit {
       this.userService.Authentication(this.user)
       .subscribe(success => {
       if(success){
+        debugger;
         let role = this.userService.getUserRole().toLowerCase();
-        if( role=== ("user").toLowerCase()){
+        if (this.userService.loggedIn() && role=== ("user").toLowerCase()) {
           this.router.navigate(['/home']);
         }
-        else{
-          this.router.navigate(['/principal']);
+        else if(this.userService.loggedIn() && role=== ("admin").toLowerCase()){
+          this.router.navigate(['/admin']);
         }
-        // else if(role === ("admin").toLowerCase()){
-        //   this.router.navigate(['/admin']);
-        // }
-        // else if(role === ("provider").toLowerCase()){
-        //   this.router.navigate(['/provider']);
-        // }
-        // else if(role === ("employee").toLowerCase()){
-        //   this.router.navigate(['/employee']);
-        // }
-        // else {
-        //   this.router.navigate(['/error']);
-        // }
+        else if(this.userService.loggedIn() && role=== ("provider").toLowerCase()){
+          this.router.navigate(['/provider']);
+        }
+        else if(this.userService.loggedIn() && role=== ("employee").toLowerCase()){
+          this.router.navigate(['/employee/employee']);
+        }
+        else{
+          this.router.navigate(['/error']);
+        }
       }
       else{
         $('.error_password').html('Connection problem');

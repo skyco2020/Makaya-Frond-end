@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListemployeComponent } from './listemploye/listemploye.component';
+securityimport { AuthGuard } from 'src/app/auth/auth.guard';
 
 
 const routes: Routes = [
   {
     path:'employee',
+    // canActivate:[AuthGuard],
     component: ListemployeComponent
   }
 ];

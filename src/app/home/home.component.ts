@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     .subscribe(success => {
       debugger
       if (success) {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/browse']);
       }
     });
   }

@@ -39,14 +39,14 @@ export const appRoutes: Routes = [
     loadChildren: () => import('./modules/provider/provider.module').then(p => p.ProviderModule)
   },
   {
-    path: 'employe',
-    canActivate:[AuthGuard],
+    path: 'employee',
+    // canActivate:[AuthGuard],
     component: ListemployeComponent,
     loadChildren: () => import('./modules/employee/employee.module').then(e =>e.EmployeeModule)
   },
   {
-      path: 'login', component: UserComponent,
-      canActivate: [AuthGuard]
+      path: 'browse', component: UserComponent,
+      // canActivate: [AuthGuard]
 
   },
   {
@@ -56,7 +56,7 @@ export const appRoutes: Routes = [
       path: 'registerpayment', component: RegisterpaymentComponent
   },
   {
-    path : '', redirectTo: `/login`, pathMatch : 'full'
+    path : '', redirectTo: `/browse`, pathMatch : 'full'
   },
   // {
   //     path: 'admin',

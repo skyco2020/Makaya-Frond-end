@@ -10,6 +10,7 @@ export class ListemployeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    debugger;
   }
 
 }
