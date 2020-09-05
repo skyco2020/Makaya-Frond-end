@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{Globalfunction} from '../../../Classes/globalfunction';
 
 @Component({
   selector: 'app-listemploye',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListemployeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private globalfunction:Globalfunction) { }
 
   ngOnInit(): void {
     debugger;
   }
-
+  Logout() {
+    this.globalfunction.Logout();
+  }
 }

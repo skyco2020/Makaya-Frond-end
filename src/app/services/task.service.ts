@@ -35,6 +35,7 @@ export class TaskService {
   }
 
   Authentication(modal: LoginToken): Observable<boolean>{
+    debugger;
     return this.http.post<any>(`/api/authenticate`, modal)
     .pipe(
       tap( tokens => this.doLoginUser(modal.UserName, tokens)),
@@ -68,12 +69,14 @@ export class TaskService {
     let tokenss = new Tokens;
     tokenss.refreshToken = this.getRefreshToken();
     tokenss.jwt = this.getJwtToken();
-      return this.http.post<any>(`/api/refresh`, tokenss ,
-      {headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        // tslint:disable-next-line: object-literal-key-quotes
-        'Authorization': tokenss.jwt})
-      })
+    debugger;
+      return this.http.post<any>('/api/refresh', tokenss
+      // {headers: new HttpHeaders({
+      //   'Content-Type': 'application/x-www-form-urlencoded',
+      //   // tslint:disable-next-line: object-literal-key-quotes
+      //   'Authorization': tokenss.jwt})
+      // }
+      )
       .pipe(tap((tokens: Tokens) => {
         this.storeJwtToken(tokens.jwt);
       }));

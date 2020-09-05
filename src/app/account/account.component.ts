@@ -55,7 +55,7 @@ export class AccountComponent implements OnInit {
           this.router.navigate(['/provider']);
         }
         else if(this.userService.loggedIn() && role=== ("employee").toLowerCase()){
-          this.router.navigate(['/employee/employee']);
+          this.router.navigate(['/employee']);
         }
         else{
           this.router.navigate(['/error']);

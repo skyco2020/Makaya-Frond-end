@@ -1,1 +1,35 @@
-<h1 style="background-color: aliceblue;">listemploye works!</h1>
+<section class="back">
+  <nav class="navbar navbar-default navbar-expand-lg navbar navbar-dark bg-dark">
+      <a class="navbar-nav" href="/home">Sky CO</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Genres</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">tv - series</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">News</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+              </li>
+          </ul>
+          <span class="navbar-text">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item" style="cursor:pointer;">
+                  <a class="nav-link"  (click)="Logout()">Logout</a>
+              </li>
+          </ul>
+          </span>
+      </div>
+  </nav>
+</section>
+<router-outlet></router-outlet>
