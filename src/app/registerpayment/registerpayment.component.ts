@@ -99,6 +99,7 @@ export class RegisterpaymentComponent implements OnInit {
     $('#mail-2').attr('readonly', true);
     $('#confirm_mail-2').attr('readonly', true);
   }
+  // TODO:form card company
   GetFormStripe() {
     this.StripeTest = this.fb.group({
       name: ['', Validators.required],
@@ -158,48 +159,48 @@ export class RegisterpaymentComponent implements OnInit {
       // return false;
     } else {
       /* lo comemtamos para no mostrar el loading */
-      // this.LoadData(true);
+      this.LoadData(true);
       this.stripeSvc.createToken(this.card, { name }).subscribe(
         (result) => {
           this.GetNextPage();
           /* lo comemtamos para que pueda hacer lo de front-end sin bombadear la base de datos */
-          // if (result.token) {
-          //   console.log(result.token);
-          //   const paymentIntentDto: PaymentIntentDto = {
-          //     // tslint:disable-next-line: radix
-          //     AccountId: parseInt(localStorage.getItem('IdUser')),
-          //     CardId: result.token.card.id,
-          //     Description: this.PlanSelect.nickname,
-          //     Email: localStorage.getItem('mail'),
-          //     IDStripePrice: this.PlanSelect.id,
-          //     fullname: name,
-          //     idPaymentIntent: 0,
-          //     state: 1,
-          //     stripeTokenId: result.token.id
-          //   };
+          if (result.token) {
+            console.log(result.token);
+            const paymentIntentDto: PaymentIntentDto = {
+              // tslint:disable-next-line: radix
+              AccountId: parseInt(localStorage.getItem('IdUser')),
+              CardId: result.token.card.id,
+              Description: this.PlanSelect.nickname,
+              Email: localStorage.getItem('mail'),
+              IDStripePrice: this.PlanSelect.id,
+              fullname: name,
+              idPaymentIntent: 0,
+              state: 1,
+              stripeTokenId: result.token.id,
+            };
 
-          //   this.paymentService.Post(paymentIntentDto).subscribe(
-          //     (data: any) => {
-          //       this.LoadData(false);
-          //       this.succes = data;
-          //       this.GetNextPage();
-          //       this.LoadRedirect();
-          //     },
-          //     (err: HttpErrorResponse) => {
-          //       this.LoadData(false);
-          //       this.error = err.error.ErrorDescription;
-          //     }
-          //   ),
-          //   // tslint:disable-next-line: no-unused-expression
-          //   (err: HttpErrorResponse) => {
-          //     this.LoadData(false);
-          //     this.error = err.error.ErrorDescription;
-          //   };
-          //   this.error = undefined;
-          // } else if (result.error) {
-          //   this.LoadData(false);
-          //   this.error = result.error.message;
-          // }
+            this.paymentService.Post(paymentIntentDto).subscribe(
+              (data: any) => {
+                this.LoadData(false);
+                this.succes = data;
+                this.GetNextPage();
+                this.LoadRedirect();
+              },
+              (err: HttpErrorResponse) => {
+                this.LoadData(false);
+                this.error = err.error.ErrorDescription;
+              }
+            ),
+              // tslint:disable-next-line: no-unused-expression
+              (err: HttpErrorResponse) => {
+                this.LoadData(false);
+                this.error = err.error.ErrorDescription;
+              };
+            this.error = undefined;
+          } else if (result.error) {
+            this.LoadData(false);
+            this.error = result.error.message;
+          }
         },
         (err: HttpErrorResponse) => {
           this.error = err.error.ErrorDescription;
@@ -340,8 +341,7 @@ export class RegisterpaymentComponent implements OnInit {
     $(divselect).css({
       display: 'block',
       position: 'relative',
-      'border-color': '#EF7F1A',
-      'border-style': 'dotted',
+      border: '3px dotted black',
     });
     $('.error_plan').html('');
     this.PlanSelect = item;
