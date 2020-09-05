@@ -12,8 +12,21 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<u
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (this.authService.loggedIn()) {
-      this.router.navigate(['/home']);
+      let role = this.authService.getUserRole().toLowerCase();
+      if (this.authService.loggedIn() && role=== ("user").toLowerCase()) {
+        this.router.navigate(['/home']);
+      }
+      else if(this.authService.loggedIn() && role=== ("admin").toLowerCase()){
+        this.router.navigate(['/admin']);
+      }
+      else if(this.authService.loggedIn() && role=== ("provider").toLowerCase()){
+        this.router.navigate(['/provider']);
+      }
+      else if(this.authService.loggedIn() && role=== ("employee").toLowerCase()){
+        this.router.navigate(['/employee']);
+      }
+      else{
+        this.router.navigate(['/error']);
       }
       return !this.authService.loggedIn();
   }

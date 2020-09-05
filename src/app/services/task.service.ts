@@ -58,7 +58,9 @@ export class TaskService {
       tap(() => this.doLogoutUser()),
       mapTo(true),
       catchError(error => {
-        return of(false)
+        debugger;
+        this.doLogoutUser()
+        return of(true)
       }));
   }
 
@@ -97,6 +99,7 @@ export class TaskService {
   }
 
   private removeTokens() {
+    debugger;
     localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
     localStorage.removeItem(this.RoleUser);
