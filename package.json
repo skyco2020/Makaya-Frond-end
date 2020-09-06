@@ -30,6 +30,7 @@
         "cors": "^2.8.5",
         "font-awesome": "^4.7.0",
         "from-form-submit": "^0.4.0",
+        "jwt-decode": "^2.2.0",
         "ng": "0.0.0",
         "ng-form-group": "^1.4.2",
         "ngx-bootstrap-modal": "^2.0.1",
