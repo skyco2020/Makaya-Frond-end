@@ -25,15 +25,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     stopPlay();
     let role = this.userService.getUserRole().toLowerCase();
-<<<<<<< HEAD
+
     if( role=== ("user").toLowerCase()){
       this.loadScript();
       Carousel();
       this.router.navigate(['/home']);
     }
     else{
-=======
->>>>>>> cdf765d7de1c791a1ca1902a3f9bd6a758bbef4a
     if (role === 'user'.toLowerCase()) {
       this.loadScript();
       Carousel();
