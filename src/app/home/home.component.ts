@@ -23,13 +23,17 @@ export class HomeComponent implements OnInit {
   constructor(private userService: TaskService, private router: Router) {}
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
+    stopPlay();
     let role = this.userService.getUserRole().toLowerCase();
+<<<<<<< HEAD
     if( role=== ("user").toLowerCase()){
       this.loadScript();
       Carousel();
       this.router.navigate(['/home']);
     }
     else{
+=======
+>>>>>>> cdf765d7de1c791a1ca1902a3f9bd6a758bbef4a
     if (role === 'user'.toLowerCase()) {
       this.loadScript();
       Carousel();
@@ -120,6 +124,46 @@ function Carousel() {
     var v = document.getElementsByTagName('video')[0];
     v.play();
   });
+
+  $('.modal-close').on('click', function () {
+    debugger;
+    var media = document.getElementsByTagName('video')[0];
+    media.pause();
+    let curent = media.currentTime;
+    media.currentTime = 0;
+    //  $('.modal').modal();
+    // $('.modal').hide();
+  });
+}
+function stopPlay() {
+  $('.stop-principal').on('click', function () {
+    // debugger;
+    var v = document.getElementsByTagName('video')[0];
+    v.pause();
+    $('.stop-principal').toggle();
+    $('.play-principal').toggle();
+  });
+  $('.play-principal').on('click', function () {
+    // debugger;
+    var v = document.getElementsByTagName('video')[0];
+    v.play();
+    $('.stop-principal').toggle();
+    $('.play-principal').toggle();
+  });
+  // $('volume-principal').on('click', function () {
+  //    debugger;
+  //   var v = document.getElementsByTagName('video')[0];
+  //   v.prop('muted');
+  //   $('.stop-principal').toggle();
+  //   $('.play-principal').toggle();
+  // });
+  // $('muted-principal').on('click', function () {
+  //   // debugger;
+  //   var v = document.getElementsByTagName('video')[0];
+  //   v.muted();
+  //   $('.stop-principal').toggle();
+  //   $('.play-principal').toggle();
+  // });
 
   $('.modal-close').on('click', function () {
     debugger;
