@@ -24,24 +24,22 @@ export class HomeComponent implements OnInit {
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
     let role = this.userService.getUserRole().toLowerCase();
-<<<<<<< HEAD
     if( role=== ("user").toLowerCase()){
       this.loadScript();
       Carousel();
       this.router.navigate(['/home']);
     }
     else{
-=======
     if (role === 'user'.toLowerCase()) {
       this.loadScript();
       Carousel();
       this.router.navigate(['/home']);
     } else {
->>>>>>> 75af889c9661469d6f1ce6a68bc04a87f7dda9ed
       this.router.navigate(['/error']);
     }
   }
-  public loadScript() {
+}
+ loadScript() {
     const node = document.createElement('script');
     node.src = urljs;
     node.type = 'text/javascript';
