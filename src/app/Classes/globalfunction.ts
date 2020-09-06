@@ -5,6 +5,7 @@ export class Globalfunction {
   router: Router;
 
   public Logout(){
+    debugger;
     this.userService.logout()
     .subscribe(success => {
       debugger

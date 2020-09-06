@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import{Globalfunction} from '../../../Classes/globalfunction';
+import{Router} from '@angular/router';
+import{TaskService} from '../../../services/task.service';
+
 
 @Component({
   selector: 'app-listemploye',
@@ -7,13 +9,18 @@ import{Globalfunction} from '../../../Classes/globalfunction';
   styleUrls: ['./listemploye.component.css']
 })
 export class ListemployeComponent implements OnInit {
-
-  constructor(private globalfunction:Globalfunction) { }
+  constructor(private userService: TaskService, private router : Router) { }
 
   ngOnInit(): void {
     debugger;
   }
   Logout() {
-    this.globalfunction.Logout();
+    this.userService.logout()
+    .subscribe(success => {
+      debugger
+      if (success) {
+        this.router.navigate(['/browse']);
+      }
+    });
   }
 }

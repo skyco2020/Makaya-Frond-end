@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate {
     debugger;
       if(this._authService.loggedIn()){
         this._router.navigate(['/browse']);
+        return true;
       }
       else{
 
