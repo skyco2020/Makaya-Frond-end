@@ -23,7 +23,7 @@ import { NonepaymentComponent } from './nonepayment/nonepayment.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { StateloginService } from './statelogin.service';
 import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
-import{Globalfunction} from './Classes/globalfunction';
+// import{Globalfunction} from './Classes/globalfunction';
 // import { ListuserComponent } from './listuser/listuser.component';
 // import { ActorComponent } from './actor/actor.component';
 // import { EmployeeComponent } from './employee/employee.component';

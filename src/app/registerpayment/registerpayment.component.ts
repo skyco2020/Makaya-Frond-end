@@ -182,6 +182,7 @@ export class RegisterpaymentComponent implements OnInit {
             this.paymentService.Post(paymentIntentDto).subscribe(
               (data: any) => {
                 this.LoadData(false);
+                debugger;
                 this.succes = data;
                 this.GetNextPage();
                 this.LoadRedirect();
@@ -215,7 +216,7 @@ export class RegisterpaymentComponent implements OnInit {
 
   OnSubmit() {
     if (this.validateField() === true) {
-      // this.LoadData(true);
+      this.LoadData(true);
       this.usr = new SkycoUser();
       //#region User
       // tslint:disable-next-line: radix
@@ -300,18 +301,18 @@ export class RegisterpaymentComponent implements OnInit {
       //#endregion
       this.GetNextPage();
       /* lo comemtamos para que pueda hacer lo de front-end sin bombadear la base de datos */
-      // this.userService.Put(this.usr).subscribe(
-      //   (data: any) => {
-      //     // tslint:disable-next-line: no-debugger
-      //     this.usr = this.usr;
-      //     IStep2 = true;
-      //     this.GetNextPage();
-      //   },
-      //   (err: HttpErrorResponse) => {
-      //     this.LoadData(false);
-      //     this.errorconnection = 'Error occured while trying to proxy.';
-      //   }
-      // );
+      this.userService.Put(this.usr).subscribe(
+        (data: any) => {
+          // tslint:disable-next-line: no-debugger
+          this.usr = this.usr;
+          IStep2 = true;
+          this.GetNextPage();
+        },
+        (err: HttpErrorResponse) => {
+          this.LoadData(false);
+          this.errorconnection = 'Error occured while trying to proxy.';
+        }
+      );
     }
   }
   LoadData(val) {
