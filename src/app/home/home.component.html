@@ -36,8 +36,8 @@
   <div class="container-menu">
     <div class="menu-home-left">
       <div class="menu-home-left-logo">
-        <a href="#">MAKAYA</a>
-        <!-- <img src="../../assets/img/makaya.png" width="60" alt="Makaya" /> -->
+        <!-- <a href="#">MAKAYA</a> -->
+        <img src="../../assets/img/makaya.png" width="40" alt="Makaya" />
       </div>
       <div class="menu-home-left-list">
         <a href="#">home</a>
@@ -48,44 +48,34 @@
       </div>
     </div>
     <div class="menu-home-right">
-      user
-      <!-- <img src="../../assets/img/makaya.png" width="80" alt="Makaya" /> -->
-    </div>
-    <div class="pelicula-principal">
-      <div class="contenedor">
-        <h3 class="titulo">Interestellar</h3>
-        <p class="descripcion">
-          It follows the adventures of a group of explorers who make use of a
-          recently discovered wormhole to overcome the limitations of manned
-          space travel and overcome the immense distances that interstellar
-          travel has.
-        </p>
-        <button
-          role="button"
-          style="cursor: pointer"
-          data-target="modal1"
-          class="boton play modal-trigger"
-        >
-          <i class="fas fa-play"></i>Play Movie
-        </button>
-        <button role="button" class="boton">
-          <i class="fas fa-info-circle"></i>More information
-        </button>
-      </div>
+      <ul>
+        <li class="item-list">
+          <img src="../../assets/img/user.png" width="50" alt="Makaya" />
+          <i
+            class="fas fa-angle-double-down"
+            style="margin: 0px 10px; font-size: 20px"
+          ></i>
+          <ul class="sub-menu-user">
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Setting</a></li>
+            <li><a href="#">Plan</a></li>
+            <li><a href="#">Notification</a></li>
+            <li><a (click)="Logout()" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
-</div>
-
-<br /><br /><br />
-<main>
-  <!-- <div class="pelicula-principal">
-    <div class="contenedor">
+  <div class="pelicula-principal">
+    <div class="infos">
       <h3 class="titulo">Interestellar</h3>
       <p class="descripcion">
         It follows the adventures of a group of explorers who make use of a
         recently discovered wormhole to overcome the limitations of manned space
         travel and overcome the immense distances that interstellar travel has.
       </p>
+    </div>
+    <div class="pelicula-principal-btn">
       <button
         role="button"
         style="cursor: pointer"
@@ -98,7 +88,10 @@
         <i class="fas fa-info-circle"></i>More information
       </button>
     </div>
-  </div> -->
+  </div>
+</div>
+
+<main>
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <button
@@ -111,7 +104,12 @@
     </button>
 
     <div class="modal-content">
-      <video class="option slicevideo" controls controlsList="nodownload">
+      <video
+        class="option slicevideo"
+        id="video-principal"
+        controls
+        controlsList="nodownload"
+      >
         <source
           src="../../assets/video/elohim-hillsong-worship.mp4"
           type="video/mp4"
@@ -125,8 +123,18 @@
         />
       </video>
       <div class="DelAdv">
-        <i class="fas fa-arrow-circle-left delay">10</i>
-        <i class="fas fa-arrow-circle-right advance">10</i>
+        <div class="left-side">
+          <i class="fas fa-play" style="display: none"></i>
+          <i class="fas fa-stop-circle"></i>
+          <i class="fas fa-fast-backward"></i>
+          <i class="fas fa-fast-forward"></i>
+          <i class="fas fa-volume-up"></i>
+          <i class="fas fa-volume-slash muted-video"></i>
+        </div>
+        <div class="right-side">
+          <i class="fas fa-closed-captioning"></i>
+          <i class="fas fa-share-alt-square"></i>
+        </div>
       </div>
     </div>
   </div>
