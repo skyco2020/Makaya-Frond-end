@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   constructor(private userService: TaskService, private router: Router) {}
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
+<<<<<<< HEAD
     playStop();
     mut();
     let role = this.userService.getUserRole().toLowerCase();
@@ -33,6 +34,17 @@ export class HomeComponent implements OnInit {
     } else {
       this.router.navigate(['/error']);
     }
+=======
+    // let role = this.userService.getUserRole().toLowerCase();
+    // if( role=== ("user").toLowerCase()){
+      this.loadScript();
+      Carousel();
+      this.router.navigate(['/home']);
+    // }
+    // else{
+    //   this.router.navigate(['/error']);
+    // }
+>>>>>>> 421476479600fbf89b3811915923c8b86f7ae160
   }
   public loadScript() {
     const node = document.createElement('script');
