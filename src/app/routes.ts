@@ -12,13 +12,17 @@ import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.comp
 import { ErrorComponent } from './error/error.component';
 import { ProviderComponent } from './provider/provider.component';
 import { ListemployeComponent } from './modules/employee/listemploye/listemploye.component';
+import { RoleGuardGuard } from './role-guard.guard';
 // import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
   {
     path: 'home', component: HomeComponent,
-    canActivate: [StateloginService],
-    canLoad: [StateloginService]
+    canActivate: [RoleGuardGuard],
+    canLoad: [StateloginService],
+    data: {
+      expectedRole: 'user'
+    }
   },
   {
     path: '404',
@@ -40,17 +44,21 @@ export const appRoutes: Routes = [
   },
   {
     path: 'employee',
-    // canActivate:[AuthGuard],
     component: ListemployeComponent,
+    canActivate: [RoleGuardGuard],
+    data: {
+      expectedRole: 'employee'
+    },
     loadChildren: () => import('./modules/employee/employee.module').then(e =>e.EmployeeModule)
   },
   {
       path: 'browse', component: UserComponent,
-      // canActivate: [AuthGuard]
-
+      canActivate: [AuthGuard]
   },
   {
-      path: 'account', component: AccountComponent
+      path: 'account',
+      component: AccountComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'registerpayment', component: RegisterpaymentComponent

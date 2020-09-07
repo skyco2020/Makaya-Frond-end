@@ -2,35 +2,21 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CanActivate, CanActivateChild, CanDeactivate, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import {TaskService} from '../services/task.service';
+import {AuthService} from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
- constructor(private authService: TaskService,private router: Router){}
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): boolean {
-      debugger;
-      let role = this.authService.getUserRole().toLowerCase();
-      if (this.authService.loggedIn() && role=== ("user").toLowerCase()) {
-        this.router.navigate(['/home']);
-      }
-      else if(this.authService.loggedIn() && role=== ("admin").toLowerCase()){
-        this.router.navigate(['/admin']);
-      }
-      else if(this.authService.loggedIn() && role=== ("provider").toLowerCase()){
-        this.router.navigate(['/provider']);
-      }
-      else if(this.authService.loggedIn() && role=== ("employee").toLowerCase()){
-        this.router.navigate(['/employee']);
-      }
-      else{
-        this.router.navigate(['/error']);
-      }
-      return !this.authService.loggedIn();
+ constructor(private authService: AuthService,private router: Router){}
+ canActivate(): boolean {
+   debugger;
+  if (!this.authService.isAuthenticated()) {
+    this.router.navigate(['browse']);
+    return false;
   }
+  return true;
+}
   canActivateChild(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

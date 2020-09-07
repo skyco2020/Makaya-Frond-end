@@ -4,6 +4,7 @@ import {TaskService} from '../services/task.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {LoginToken} from '../Classes/login-token';
+import decode from 'jwt-decode';
 
 declare var $: any;
 
@@ -40,11 +41,11 @@ export class AccountComponent implements OnInit {
       return false;
     }
     else{
+
       this.userService.Authentication(this.user)
       .subscribe(success => {
       if(success){
-        debugger;
-        let role = this.userService.getUserRole().toLowerCase();
+        let role = decode(this.userService.getJwtToken()).UserRole.toLowerCase();
         if (this.userService.loggedIn() && role=== ("user").toLowerCase()) {
           this.router.navigate(['/home']);
         }

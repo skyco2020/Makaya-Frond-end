@@ -12,13 +12,13 @@ export class GlobalmenuComponent implements OnInit {
   constructor(private userService: TaskService, private router:Router) { }
 
   ngOnInit(): void {
-    let role = this.userService.getUserRole().toLowerCase();
-    if( role!== ("user").toLowerCase()){
-      this.switchCondition = this.userService.getUserRole().toLowerCase();
-    }
-    else{
-      this.router.navigate(['/error']);
-    }
+    // let role = this.userService.getUserRole().toLowerCase();
+    // if( role!== ("user").toLowerCase()){
+    //   this.switchCondition = this.userService.getUserRole().toLowerCase();
+    // }
+    // else{
+    //   this.router.navigate(['/error']);
+    // }
 
   }
 

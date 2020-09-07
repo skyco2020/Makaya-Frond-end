@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { JwtHelperService,  JWT_OPTIONS  } from '@auth0/angular-jwt';
 import {RouterModule} from '@angular/router';
 import { appRoutes } from './routes';
 import { ToastrModule } from 'ngx-toastr';
@@ -18,22 +19,17 @@ import {NgxStripeModule } from 'ngx-stripe';
 import { FooterComponent } from './footer/footer.component';
 import { FinishpaymentComponent } from './finishpayment/finishpayment.component';
 import { NonepaymentComponent } from './nonepayment/nonepayment.component';
-// import { AdminComponent } from './admin/admin.component';
-// import { ProviderComponent } from './provider/provider.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { StateloginService } from './statelogin.service';
 import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
-// import{Globalfunction} from './Classes/globalfunction';
-// import { ListuserComponent } from './listuser/listuser.component';
-// import { ActorComponent } from './actor/actor.component';
-// import { EmployeeComponent } from './employee/employee.component';
-// import { ErrorComponent } from './error/error.component';
+import{RoleGuardServiceService} from './services/role-guard-service.service';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UserComponent,
     AccountComponent,
+    // RoleGuardServiceService,
     RegisterpaymentComponent,
     FooterComponent,
     FinishpaymentComponent,
@@ -58,7 +54,8 @@ import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.comp
     ToastrModule.forRoot()
     ],
   exports:[RouterModule],
-  providers: [AuthGuard,TaskService, StateloginService,
+
+  providers: [{provide:JWT_OPTIONS, useValue:JWT_OPTIONS},JwtHelperService,AuthGuard,TaskService, StateloginService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
