@@ -17,9 +17,9 @@ import { RoleGuardGuard } from './role-guard.guard';
 
 export const appRoutes: Routes = [
   {
-    path: 'home', component: HomeComponent,
+    path: 'home',
+    component: HomeComponent,
     canActivate: [RoleGuardGuard],
-    canLoad: [StateloginService],
     data: {
       expectedRole: 'user'
     }
@@ -29,17 +29,12 @@ export const appRoutes: Routes = [
     component: ErrorComponent
   },
   {
-    path: 'principal',
-    component: GlobalmenuComponent,
-    canActivate:[AuthGuard],
-    loadChildren : () => import('./modules/admin/admin.module').then(m => m.AdminModule),
-    // canActivate: [StateloginService],
-    canLoad: [StateloginService],
-  },
-  {
     path: 'provider',
-    canActivate:[AuthGuard],
     component: ProviderComponent,
+    canActivate:[RoleGuardGuard],
+     data: {
+      expectedRole: 'provider'
+    },
     loadChildren: () => import('./modules/provider/provider.module').then(p => p.ProviderModule)
   },
   {
@@ -52,8 +47,9 @@ export const appRoutes: Routes = [
     loadChildren: () => import('./modules/employee/employee.module').then(e =>e.EmployeeModule)
   },
   {
-      path: 'browse', component: UserComponent,
-      canActivate: [AuthGuard]
+      path: 'browse',
+      component: UserComponent,
+      // canActivate: [AuthGuard]
   },
   {
       path: 'account',
@@ -61,20 +57,21 @@ export const appRoutes: Routes = [
       canActivate: [AuthGuard]
   },
   {
-      path: 'registerpayment', component: RegisterpaymentComponent
+      path: 'registerpayment',
+      component: RegisterpaymentComponent
   },
   {
-    path : '', redirectTo: `/browse`, pathMatch : 'full'
-  },
-  // {
-  //     path: 'admin',
-  //     loadChildren : () => import('./modules/admin/admin.module').then(m => m.AdminModule)
-  // },
-  {
-      path: 'finishpayment', component: FinishpaymentComponent
+    path : '',
+    redirectTo: `/browse`,
+    pathMatch : 'full'
   },
   {
-      path: 'nonepayment', component: NonepaymentComponent
+      path: 'finishpayment',
+      component: FinishpaymentComponent
+  },
+  {
+      path: 'nonepayment',
+      component: NonepaymentComponent
   },
   /* any unrecognized path will send home */
   {

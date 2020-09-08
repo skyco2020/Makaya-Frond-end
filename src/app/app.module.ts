@@ -22,7 +22,6 @@ import { NonepaymentComponent } from './nonepayment/nonepayment.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { StateloginService } from './statelogin.service';
 import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
-import{RoleGuardServiceService} from './services/role-guard-service.service';
 @NgModule({
   declarations: [
     AppComponent,

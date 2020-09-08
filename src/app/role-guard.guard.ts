@@ -17,7 +17,7 @@ export class RoleGuardGuard implements CanActivate {
     debugger
 
     if (!this.autisAut.isAuthenticated() || tokenPayload.UserRole.toLowerCase() !== expectedRole) {
-      this.router.navigate(['404']);
+      this.router.navigate(['browse']);
       return false;
     }
     return true;
