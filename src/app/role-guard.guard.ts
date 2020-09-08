@@ -12,11 +12,11 @@ export class RoleGuardGuard implements CanActivate {
   constructor(public auth: TaskService, public router: Router,
     public autisAut:AuthService) { }
   canActivate(route: ActivatedRouteSnapshot): boolean {
-    const expectedRole = route.data.expectedRole;
-    const tokenPayload = decode(this.auth.getJwtToken());
-    debugger
+    // const expectedRole = route.data.expectedRole;
+    // const tokenPayload = decode(this.auth.getJwtToken());
+    // debugger
 
-    if (!this.autisAut.isAuthenticated() || tokenPayload.UserRole.toLowerCase() !== expectedRole) {
+    if (!this.autisAut.isAuthenticated() || decode(this.auth.getJwtToken()).UserRole.toLowerCase() !== route.data.expectedRole) {
       this.router.navigate(['browse']);
       return false;
     }

@@ -54,7 +54,7 @@ export const appRoutes: Routes = [
   {
       path: 'account',
       component: AccountComponent,
-      canActivate: [AuthGuard]
+      // canActivate: [AuthGuard]
   },
   {
       path: 'registerpayment',
