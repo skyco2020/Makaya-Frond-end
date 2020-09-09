@@ -19,6 +19,7 @@ export const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canLoad:[AuthGuard],
     canActivate: [RoleGuardGuard],
     data: {
       expectedRole: 'user'
