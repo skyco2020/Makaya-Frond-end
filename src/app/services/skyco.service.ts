@@ -13,7 +13,10 @@ export class SkycoService {
     const conect = `${this.url}/${filters}`;
     return this.http.get(conect);
   }
-
+  GetMovie(){
+    const conect = `/api/Movies?state=1`;
+    return  this.http.get(conect);
+  }
   public GetById(id){
       const conect = `${this.url}/${id}`;
       return this.http.get(conect);

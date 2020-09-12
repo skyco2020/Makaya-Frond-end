@@ -23,7 +23,6 @@ export class TaskService {
   CountryAuto(modal: Country){
    return this.http.post(`/api/Countries/CountryAuto`, modal);
   }
-
   getUserClaims()
   {
     return  this.http.get('/api/GetUserClaims',

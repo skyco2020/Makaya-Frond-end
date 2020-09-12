@@ -61,10 +61,10 @@
 
 <section class="allcards">
   <div class="one-card" *ngFor="let movie of Movies">
-    <img class="" src="{{ movie.picture }}" alt="" />
+    <img class="" src="{{ movie.Poster }}" alt="" />
     <div class="body">
-      <h5 class="title">{{ movie.name }} - {{ movie.age }}</h5>
-      <p class="text">{{ movie.description }}</p>
+      <h5 class="title">{{ movie.Title }} - {{ movie.Year }}</h5>
+      <p class="text">{{ movie.Type }}</p>
     </div>
   </div>
   <!-- </div> -->
