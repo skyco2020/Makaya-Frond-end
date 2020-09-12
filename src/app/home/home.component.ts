@@ -23,12 +23,12 @@ export class HomeComponent implements OnInit {
   constructor(private userService: TaskService, private router: Router) {}
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
-      stopPlay();
-        this.loadScript();
-        Carousel();
-        this.router.navigate(['/home']);
+    stopPlay();
+    this.loadScript();
+    Carousel();
+    this.router.navigate(['/home']);
   }
- loadScript() {
+  loadScript() {
     const node = document.createElement('script');
     node.src = urljs;
     node.type = 'text/javascript';
@@ -112,7 +112,7 @@ function Carousel() {
 
   $('.modal-close').on('click', function () {
     debugger;
-    var media = document.getElementsByTagName('video')[0];
+    var media = document.getElementsByTagName('video')[1];
     media.pause();
     let curent = media.currentTime;
     media.currentTime = 0;
@@ -122,37 +122,36 @@ function Carousel() {
 }
 function stopPlay() {
   $('.stop-principal').on('click', function () {
-    // debugger;
-    var v = document.getElementsByTagName('video')[0];
+    var v = document.getElementsByTagName('video')[1];
     v.pause();
     $('.stop-principal').toggle();
     $('.play-principal').toggle();
   });
+
   $('.play-principal').on('click', function () {
-    // debugger;
-    var v = document.getElementsByTagName('video')[0];
+    var v = document.getElementsByTagName('video')[1];
     v.play();
     $('.stop-principal').toggle();
     $('.play-principal').toggle();
   });
-  // $('volume-principal').on('click', function () {
-  //    debugger;
-  //   var v = document.getElementsByTagName('video')[0];
-  //   v.prop('muted');
-  //   $('.stop-principal').toggle();
-  //   $('.play-principal').toggle();
-  // });
-  // $('muted-principal').on('click', function () {
-  //   // debugger;
-  //   var v = document.getElementsByTagName('video')[0];
-  //   v.muted();
-  //   $('.stop-principal').toggle();
-  //   $('.play-principal').toggle();
-  // });
+
+  $('.stop-video-principal').on('click', function () {
+    var vp = document.getElementsByTagName('video')[0];
+    vp.pause();
+    $('.stop-video-principal').toggle();
+    $('.play-video-principal').toggle();
+  });
+
+  $('.play-video-principal').on('click', function () {
+    var vp = document.getElementsByTagName('video')[0];
+    vp.play();
+    $('.stop-video-principal').toggle();
+    $('.play-video-principal').toggle();
+  });
 
   $('.modal-close').on('click', function () {
     debugger;
-    var media = document.getElementsByTagName('video')[0];
+    var media = document.getElementsByTagName('video')[1];
     media.pause();
     let curent = media.currentTime;
     media.currentTime = 0;
@@ -160,18 +159,3 @@ function stopPlay() {
     // $('.modal').hide();
   });
 }
-// function mut() {
-//   $('.muted-video').prop('muted', true);
-// }
-// function playStop() {
-//   $('.fa-stop-circle').click(function () {
-//     $('.fa-play').toggle();
-//     $('.fa-stop-circle').toggle();
-//     $('#video-principal').pause();
-//   });
-//   $('.fa-play').click(function () {
-//     $('.fa-play').toggle();
-//     $('.fa-stop-circle').toggle();
-//     $('#video-principal').play();
-//   });
-// }

@@ -14,6 +14,9 @@ a:hover {
 }
 :root {
   --primary: #ef7f1a;
+
+  --rojo: #e50914;
+  --fondo: #141414;
 }
 
 .containernew {
