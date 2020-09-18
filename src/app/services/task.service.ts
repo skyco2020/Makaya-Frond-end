@@ -13,6 +13,7 @@ export class TaskService {
   public url = '/api';
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
+  private readonly RoleUser = 'RoleUser';
   private loggedUser: string;
 
   constructor(
@@ -22,7 +23,6 @@ export class TaskService {
   CountryAuto(modal: Country){
    return this.http.post(`/api/Countries/CountryAuto`, modal);
   }
-
   getUserClaims()
   {
     return  this.http.get('/api/GetUserClaims',
@@ -103,7 +103,7 @@ export class TaskService {
   private removeTokens() {
     localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
-    // localStorage.removeItem(this.RoleUser);
+    localStorage.removeItem(this.RoleUser);
   }
   private doLoginUser(username: string, tokens: Tokens) {
     this.loggedUser = username;

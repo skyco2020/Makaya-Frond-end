@@ -22,9 +22,16 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem('mail');
-    this.Probar();
+    this.GetMovies();
+    // this.Probar();
   }
-
+  GetMovies() {
+    debugger;
+    this.userService.GetMovie().subscribe((data: any) => {
+      debugger;
+      this.Movies = data;
+    });
+  }
   Probar(){
     this.Movies = [
       {
