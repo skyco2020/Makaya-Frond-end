@@ -123,9 +123,12 @@ function Carousel() {
 function stopPlay() {
   $('.stop-principal').on('click', function () {
     var v = document.getElementsByTagName('video')[1];
+    v.parentElement;
     v.pause();
     $('.stop-principal').toggle();
     $('.play-principal').toggle();
+    var p = document.getElementsByClassName('stop-principal');
+    console.log(p);
   });
 
   $('.play-principal').on('click', function () {

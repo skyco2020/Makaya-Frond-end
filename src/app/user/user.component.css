@@ -209,17 +209,20 @@ div > ul > li > a {
 /* others style to the cards */
 .allcards {
   padding: 10px;
-  background-color: linear-gradient(To right #ef7f1a, black);
+  /* background: linear-gradient(to right top, orange,white, rgb(255, 136, 0)); */
+  background-color: white;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   justify-items: center;
-  grid-gap: 15px;
+  justify-content: center;
+  grid-gap: 10px;
 }
 .allcards > .one-card {
-  width: 250px;
+  width: 240px;
   background-color: #fff;
-  transition: ease-in-out 1s;
-  border-radius: 5px;
+  transition: ease-in-out 1ms;
+  border-radius: 0px;
+  border: 0.5px solid rgb(218, 217, 217);
 }
 .allcards > .one-card:hover {
   transform: translate(10px, 5px);
@@ -231,11 +234,17 @@ div > ul > li > a {
   display: flex;
   flex-flow: column wrap;
   padding: 10px;
+  background: rgb(218, 218, 218);
 }
 .allcards > .one-card > .body > h5 {
-  color: #ef7f1a;
+  color: #000000;
   font-weight: bold;
-  text-align: center;
+  text-align: left !important;
+}
+.allcards > .one-card > .body p {
+  text-align: left !important;
+  font-size: 25px;
+  margin: 0 !important;
 }
 .allcards > .one-card > img {
   width: 100%;

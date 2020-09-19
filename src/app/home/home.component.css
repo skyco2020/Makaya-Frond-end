@@ -12,6 +12,41 @@ body {
 .modal {
   max-height: none;
   top: 0 !important;
+  background: transparent;
+}
+
+/* modal Films */
+#modal1 {
+  height: 100vh;
+  padding: 0px !important;
+  /* border-bottom: 4px solid rgb(255, 255, 255); */
+}
+.modal-close {
+  width: 51px;
+  height: 48px;
+  background: var(--primary);
+  border: 2px solid black;
+  border-radius: 999px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  height: 100%;
+  border: none !important;
+  border-radius: initial !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+}
+.modal-content > video {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
 }
 
 .vde {
@@ -26,21 +61,54 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: #000;
-  padding: 15px;
-  padding-bottom: 0;
-  border-top: 3px solid var(--primary);
-  border-bottom: 2px solid var(--primary);
+  /* background-color: #000; */
+  padding: 10px 15px 10px 20px;
+  /* border-top: 3px solid var(--primary); */
+  /* border-bottom: 2px solid var(--primary); */
+  position: absolute;
+  bottom: 0;
 }
+.DelAdv .left-side,
+.DelAdv .right-side {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.DelAdv .right-side {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+}
+/* .DelAdv .left-side div,
+.DelAdv .right-side div {
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 999px;
+  background-color: var(--primary) !important;
+  color: white !important;
+  text-align: center;
+  z-index: 4;
+} */
 
 .DelAdv .left-side > i,
 .DelAdv .right-side > i {
-  /* margin-right: 30px; */
-  /* margin-left: 20px; */
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
   color: white;
-  /* padding: 5px; */
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  margin-right: 25px;
+}
+.DelAdv .left-side > i:hover,
+.DelAdv .right-side > i:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-close i,
@@ -363,7 +431,6 @@ nav a:hover:before {
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
   min-width: 20%;
   position: relative;
-
   transition: 0.3s ease all;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -457,11 +524,11 @@ nav a:hover:before {
 
 /* ---- ----- ----- Media Queries ----- ----- ----- */
 
-.peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
+/* .peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
   min-width: 50%;
   transition: 0.3s ease all;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-}
+} */
 
 /* menu style */
 .menu-home {
@@ -541,6 +608,7 @@ nav a:hover:before {
 }
 .item-list {
   transition: all 1ms;
+  /* position: relative; */
 }
 .item-list:hover .sub-menu-user {
   width: 130px;
@@ -556,7 +624,9 @@ nav a:hover:before {
   color: white;
   z-index: 100;
 }
-
+.sub-menu-user::before {
+  border-top: 3px solid var(--primary);
+}
 .sub-menu-user > li {
   display: block;
   padding: 10px;
@@ -571,37 +641,4 @@ nav a:hover:before {
 .sub-menu-user > li > a {
   color: white;
   text-transform: uppercase;
-}
-
-/* modal Films */
-#modal1 {
-  height: 98vh;
-  padding: 0px !important;
-  border-bottom: 4px solid rgb(255, 255, 255);
-}
-.modal-close {
-  width: 51px;
-  height: 48px;
-  background: var(--primary);
-  border: 2px solid black;
-  border-radius: 999px;
-  padding: 10px;
-  position: absolute;
-  z-index: 2;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modal-content {
-  height: 100%;
-  border: none !important;
-  border-radius: initial !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  width: 100%;
-}
-.modal-content > video {
-  width: 100%;
-  overflow: hidden;
 }
