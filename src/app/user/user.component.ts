@@ -22,13 +22,12 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem('mail');
+    this.taskser.doLogoutUser();
     this.GetMovies();
     // this.Probar();
   }
   GetMovies() {
-    debugger;
     this.userService.GetMovie().subscribe((data: any) => {
-      debugger;
       this.Movies = data;
     });
   }

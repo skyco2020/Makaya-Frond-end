@@ -34,7 +34,7 @@ export class TaskService {
   }
 
   Authentication(modal: LoginToken): Observable<boolean>{
-    this.removeTokens();
+    this.doLogoutUser();
     return this.http.post<any>(`/api/authenticate`, modal)
     .pipe(
       tap( tokens => this.doLoginUser(modal.UserName, tokens)),
@@ -63,23 +63,36 @@ export class TaskService {
         return of(true)
       }));
   }
-
-  refreshToken() {
+  refreshToken(): Observable<boolean>{
     let tokenss = new Tokens;
     tokenss.refreshToken = this.getRefreshToken();
     tokenss.jwt = this.getJwtToken();
     debugger;
-      return this.http.post<any>('/api/refresh', tokenss
-      // {headers: new HttpHeaders({
-      //   'Content-Type': 'application/x-www-form-urlencoded',
-      //   // tslint:disable-next-line: object-literal-key-quotes
-      //   'Authorization': tokenss.jwt})
-      // }
-      )
-      .pipe(tap((tokens: Tokens) => {
-        this.storeJwtToken(tokens.jwt);
-      }));
+    return this.http.post<any>(`/api/refresh`, tokenss)
+    .pipe(
+      tap( tokens => this.storeJwtToken(tokens)),
+      mapTo(true),
+      catchError(error => {
+        return of(false)
+      })
+    );
   }
+  // refreshToken() {
+  //   let tokenss = new Tokens;
+  //   tokenss.refreshToken = this.getRefreshToken();
+  //   tokenss.jwt = this.getJwtToken();
+  //   debugger;
+  //     return this.http.post<any>('/api/refresh', tokenss
+  //     // {headers: new HttpHeaders({
+  //     //   'Content-Type': 'application/x-www-form-urlencoded',
+  //     //   // tslint:disable-next-line: object-literal-key-quotes
+  //     //   'Authorization': tokenss.jwt})
+  //     // }
+  //     )
+  //     .pipe(tap((tokens: Tokens) => {
+  //       this.storeJwtToken(tokens.jwt);
+  //     }));
+  // }
 
   loggedIn() {
     return !!this.getJwtToken();
@@ -93,6 +106,7 @@ export class TaskService {
   //   return localStorage.getItem(this.RoleUser);
   // }
   private storeJwtToken(jwt: string) {
+    debugger;
     localStorage.setItem(this.JWT_TOKEN, jwt);
   }
 
@@ -110,7 +124,7 @@ export class TaskService {
     this.storeTokens(tokens);
   }
 
-  private doLogoutUser() {
+  public doLogoutUser() {
     this.loggedUser = null;
     this.removeTokens();
   }
