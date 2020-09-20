@@ -512,7 +512,10 @@ nav a:hover:before {
   z-index: 100000;
   transform-origin: center;
 }
-
+.peliculas-recomendadas .contenedor-carousel .carousel .pelicula video {
+  width: 100%;
+  /* vertical-align: top; */
+}
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula img {
   width: 100%;
   /* vertical-align: top; */
@@ -553,6 +556,9 @@ nav a:hover:before {
 .video-principal > #video {
   width: 100vw;
   height: 100vh;
+}
+video{
+  width: 100%;
 }
 .icon-video-primcipal {
   font-size: 100px;

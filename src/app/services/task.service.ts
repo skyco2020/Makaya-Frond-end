@@ -32,7 +32,10 @@ export class TaskService {
       'Authorization': this.getJwtToken()})
     });
   }
-
+  GetAllMovie()
+  {
+    return  this.http.get('/api/GetAllMovie');
+  }
   Authentication(modal: LoginToken): Observable<boolean>{
     this.doLogoutUser();
     return this.http.post<any>(`/api/authenticate`, modal)
