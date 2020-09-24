@@ -21,17 +21,18 @@ const urljs = '../../assets/js/sliderhome.js';
 export class HomeComponent implements OnInit {
   userClaims: any;
   Movies: any;
-  principal
+  principal;
   constructor(private userService: TaskService, private router: Router) {}
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
     stopPlay();
+    // largeVideo();
     this.loadScript();
     Carousel();
     this.GetAllMovie();
     // this.router.navigate(['/home']);
   }
-  GetAllMovie(){
+  GetAllMovie() {
     this.userService.GetAllMovie().subscribe((data: any) => {
       this.principal = data[4];
       this.Movies = data;
@@ -115,7 +116,7 @@ function Carousel() {
 
   $('.play').on('click', function () {
     debugger;
-    var v = document.getElementsByTagName('video')[0];
+    var v = document.getElementsByTagName('video')[1];
     v.play();
   });
 
@@ -172,3 +173,10 @@ function stopPlay() {
     // $('.modal').hide();
   });
 }
+
+// function largeVideo() {
+//   $('.wide-video').onclick(function () {
+//     this.css.backgroundColor = 'blue';
+//     alert('Blue');
+//   });
+// }

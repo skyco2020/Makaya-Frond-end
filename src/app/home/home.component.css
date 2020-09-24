@@ -417,10 +417,11 @@ nav a:hover:before {
 
 .peliculas-recomendadas .contenedor-carousel {
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0;
   overflow: hidden;
   scroll-behavior: smooth;
   height: auto;
+  background: radial-gradient(to right top, black, var(--primary));
 }
 
 .peliculas-recomendadas .contenedor-carousel .carousel {
@@ -432,63 +433,15 @@ nav a:hover:before {
   min-width: 20%;
   position: relative;
   transition: 0.3s ease all;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.peliculas-recomendadas
-  .contenedor-carousel
-  .carousel
-  .pelicula
-  .actions
-  > div
-  > i {
-  font-size: 20px;
-  text-align: center;
-  color: rgb(15, 15, 15);
-}
-.peliculas-recomendadas
-  .contenedor-carousel
-  .carousel
-  .pelicula
-  .actions
-  > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30px;
-  height: 30px;
-}
-.peliculas-recomendadas
-  .contenedor-carousel
-  .carousel
-  .pelicula
-  .actions
-  > div:hover {
-  background-color: rgb(177, 96, 4);
-  cursor: pointer;
-  border-radius: 10px;
-}
-.peliculas-recomendadas
-  .contenedor-carousel
-  .carousel
-  .pelicula
-  .actions
-  > div:hover
-  i {
-  color: #ffffff;
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); */
 }
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula .actions {
   display: none;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-content: center;
-  background-color: var(--primary);
-  width: 100%;
-  /* height: 100px; */
-  z-index: 1000000;
-  padding: 10px;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
+}
+.peliculas-recomendadas .contenedor-carousel .carousel .pelicula .actions > i {
+  font-size: 15px;
+  text-align: center;
+  color: rgb(15, 15, 15);
 }
 .peliculas-recomendadas
   .contenedor-carousel
@@ -496,42 +449,29 @@ nav a:hover:before {
   .pelicula:hover
   .actions {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-content: center;
-  background-color: var(--primary);
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
-  padding: 10px 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  /* border-bottom: 3px solid white; */
+  padding: 10px;
+  background-color: var(--primary);
+}
+
+.peliculas-recomendadas
+  .contenedor-carousel
+  .carousel
+  .pelicula
+  .actions
+  :hover
+  i {
+  color: #ffffff;
 }
 
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula:hover {
-  transform: scale(1.3);
-  z-index: 100000;
-  transform-origin: center;
-}
-.peliculas-recomendadas .contenedor-carousel .carousel .pelicula video {
+  transform: scale(1.1);
+  z-index: 100 !important;
   width: 100%;
-  /* vertical-align: top; */
+  /* transform-origin: center; */
 }
-.peliculas-recomendadas .contenedor-carousel .carousel .pelicula img {
-  width: 100%;
-  /* vertical-align: top; */
-}
-.peliculas-recomendadas .contenedor-carousel .carousel .pelicula:hover img {
-  width: 100%;
-  /* vertical-align: top; */
-}
-
-/* ---- ----- ----- Media Queries ----- ----- ----- */
-
-/* .peliculas-recomendadas .contenedor-carousel .carousel .pelicula {
-  min-width: 50%;
-  transition: 0.3s ease all;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-} */
 
 /* menu style */
 .menu-home {
@@ -557,7 +497,7 @@ nav a:hover:before {
   width: 100vw;
   height: 100vh;
 }
-video{
+video {
   width: 100%;
 }
 .icon-video-primcipal {

@@ -4,7 +4,7 @@
       id="video-principal"
       autoplay
       loop
-      src="{{principal.urlmovie}}"
+      src="{{ principal.urlmovie }}"
     ></video>
     <i class="fas fa-volume-up icon-video-primcipal"></i>
     <i class="fas fa-volume-slash icon-video-primcipal"></i>
@@ -88,6 +88,7 @@
         class="option slicevideo"
         id="video-principal-modal"
         autoplay
+        loop
         controlsList="nodownload"
       >
         <source src="../../assets/video/Tropical.mp4" type="video/mp4" />
@@ -131,19 +132,19 @@
       <div class="contenedor-carousel" *ngFor="let item of Movies">
         <div class="carousel">
           <div class="pelicula">
-           <video >
+            <video>
               <source src="{{ item.urlmovie }}" type="video/mp4" />
             </video>
-          <!-- <video >
+            <!-- <video >
             <source src="{{ item.urlmovie }}" type="video/mp4" />
           </video> -->
             <div class="actions">
-              <div class="play"><i class="fas fa-play"></i></div>
-              <div class="like"><i class="fa fa-angle-double-down"></i></div>
-              <div class="add-list"><i class="fas fa-plus-circle"></i></div>
+              <i class="fas fa-play"></i>
+              <i class="fa fa-angle-double-down" id="wide-video"></i>
+              <i class="fas fa-plus-circle"></i>
             </div>
           </div>
-<!--
+          <!--
           <div class="pelicula">
             <a href="#"><img src="../../assets/img/2.png" alt="" /></a>
             <div class="actions">
