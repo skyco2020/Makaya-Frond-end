@@ -1,33 +1,35 @@
-const fila = document.querySelector('.contenedor-carousel');
-const peliculas = document.querySelectorAll('.pelicula');
+const fila = document.querySelector(".contenedor-carousel");
+const peliculas = document.querySelectorAll(".pelicula");
 
-const filaRomantic = document.querySelector('.Romantic');
-const peliculasRomantic = document.querySelectorAll('.pelicula');
+const filaRomantic = document.querySelector(".Romantic");
+const peliculasRomantic = document.querySelectorAll(".pelicula");
 
-const flechaIzquierda = document.getElementById('flecha-izquierda');
-const flechaDerecha = document.getElementById('flecha-derecha');
+const flechaIzquierda = document.getElementById("flecha-izquierda");
+const flechaDerecha = document.getElementById("flecha-derecha");
 
-const flechaIzquierdaRomantic = document.getElementById('flecha-izquierdaRomantic');
-const flechaDerechaRomantic = document.getElementById('flecha-derechaRomantic');
+const flechaIzquierdaRomantic = document.getElementById(
+  "flecha-izquierdaRomantic"
+);
+const flechaDerechaRomantic = document.getElementById("flecha-derechaRomantic");
 
 // ? ----- ----- Event Listener para la flecha derecha. ----- -----
-flechaDerecha.addEventListener('click', () => {
-    fila.scrollLeft += fila.offsetWidth;
+flechaDerecha.addEventListener("click", () => {
+  fila.scrollLeft += fila.offsetWidth;
 });
 
 // ? ----- ----- Event Listener para la flecha izquierda. ----- -----
-flechaIzquierda.addEventListener('click', () => {
-    fila.scrollLeft -= fila.offsetWidth;
+flechaIzquierda.addEventListener("click", () => {
+  fila.scrollLeft -= fila.offsetWidth;
 });
 
 // ? ----- ----- Event Listener para la flecha derecha Romantic. ----- -----
-flechaDerechaRomantic.addEventListener('click', () => {
-    filaRomantic.scrollLeft += filaRomantic.offsetWidth;
+flechaDerechaRomantic.addEventListener("click", () => {
+  filaRomantic.scrollLeft += filaRomantic.offsetWidth;
 });
 
 // ? ----- ----- Event Listener para la flecha izquierda Romantic. ----- -----
-flechaIzquierdaRomantic.addEventListener('click', () => {
-    filaRomantic.scrollLeft -= filaRomantic.offsetWidth;
+flechaIzquierdaRomantic.addEventListener("click", () => {
+  filaRomantic.scrollLeft -= filaRomantic.offsetWidth;
 });
 
 // ? ----- ----- Paginacion ----- -----
@@ -51,15 +53,33 @@ flechaIzquierdaRomantic.addEventListener('click', () => {
 
 // ? ----- ----- Hover ----- -----
 peliculas.forEach((pelicula) => {
-    pelicula.addEventListener('mouseenter', (e) => {
-        const elemento = e.currentTarget;
-        setTimeout(() => {
-            peliculas.forEach(pelicula => pelicula.classList.remove('hover'));
-            elemento.classList.add('hover');
-        }, 300);
-    });
+  pelicula.addEventListener("mouseenter", (e) => {
+    const elemento = e.currentTarget;
+    setTimeout(() => {
+      peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
+      elemento.classList.add("hover");
+    }, 300);
+  });
 });
 
-fila.addEventListener('mouseleave', () => {
-    peliculas.forEach(pelicula => pelicula.classList.remove('hover'));
+fila.addEventListener("mouseleave", () => {
+  peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
 });
+
+// const cards = document.querySelectorAll("#card");
+// cards.forEach((card) =>
+//   card.addEventListener("mouseover", function () {
+//     card.style.cursor = "pointer";
+//   })
+// );
+
+peliculas.forEach((pel) => {
+  pel.addEventListener("mouseover", function () {
+    document.querySelectorAll(".actions").style.display = "flex";
+  });
+});
+function deleteDisplay() {
+  peliculas.forEach((p) => {
+    p.style.border = "none";
+  });
+}

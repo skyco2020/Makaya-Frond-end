@@ -36,6 +36,7 @@
               class="btn btn-outline-secondary"
               name="enviar"
               type="submit"
+              id="try-now"
             >
               Try now
             </button>
@@ -60,7 +61,7 @@
 </div>
 
 <section class="allcards">
-  <div class="one-card" *ngFor="let movie of Movies">
+  <div id="card" class="one-card" *ngFor="let movie of Movies">
     <img class="" src="{{ movie.Poster }}" alt="" />
     <div class="body">
       <h5 class="title">{{ movie.Title }} - {{ movie.Year }}</h5>

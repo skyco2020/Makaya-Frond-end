@@ -12,6 +12,10 @@
   text-transform: uppercase;
   font-size: large;
 }
+button {
+  outline: none;
+  border: none;
+}
 .resize {
   background-size: cover;
   height: 239px;
@@ -21,8 +25,14 @@
   height: 2.45em !important;
   font-family: Arial;
   font-size: 1.6rem !important;
-  border-radius: 0.3em 0 0 0.3em !important;
+  border-radius: none !important;
   /* padding-right: 20px !important; */
+}
+
+#try-now {
+  background-color: var(--primary);
+  font-size: 25px;
+  color: white;
 }
 
 @media (max-width: 585px) {
@@ -219,18 +229,19 @@ div > ul > li > a {
 }
 .allcards > .one-card {
   width: 240px;
+  overflow: hidden;
   background-color: #fff;
-  transition: ease-in-out 1ms;
+  transition: ease-in-out 1s;
   border-radius: 0px;
   border: 0.5px solid rgb(218, 217, 217);
 }
 .allcards > .one-card:hover {
   transform: translate(10px, 5px);
-  transform: scale(1.1);
-  z-index: 1000px;
-  border-radius: 0px;
+  /* transform: scale(1.1); */
+  z-index: 0;
 }
 .allcards > .one-card > .body {
+  z-index: 3;
   display: flex;
   flex-flow: column wrap;
   padding: 10px;

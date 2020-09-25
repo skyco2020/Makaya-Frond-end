@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
     stopPlay();
-    // largeVideo();
     this.loadScript();
     Carousel();
     this.GetAllMovie();
@@ -174,9 +173,8 @@ function stopPlay() {
   });
 }
 
-// function largeVideo() {
-//   $('.wide-video').onclick(function () {
-//     this.css.backgroundColor = 'blue';
-//     alert('Blue');
-//   });
-// }
+function modalMedio() {
+  $('.pelicula').on('click', function () {
+    alert('trying!');
+  });
+}
