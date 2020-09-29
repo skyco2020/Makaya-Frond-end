@@ -4,7 +4,7 @@
       id="video-principal"
       autoplay
       loop
-      src="{{ principal.urlmovie }}"
+      src="{{ principal.picture }}"
     ></video>
     <i class="fas fa-volume-up icon-video-primcipal"></i>
     <i class="fas fa-volume-slash icon-video-primcipal"></i>
@@ -151,13 +151,13 @@
         <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
           <div class="video">
             <video>
-              <source src="{{ item.urlmovie }}" type="video/mp4" />
+              <source src="{{ item.picture }}" type="video/mp4" />
             </video>
           </div>
           <!-- <video >
             <source src="{{ item.urlmovie }}" type="video/mp4" />
           </video> -->
-          <div class="actions" id="actions">
+          <div class="actions">
             <i class="fas fa-play"></i>
             <i class="fa fa-angle-double-down" id="wide-video"></i>
             <i class="fas fa-plus-circle"></i>
@@ -189,12 +189,9 @@
           <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
             <div class="video">
               <video>
-                <source src="{{ item.urlmovie }}" type="video/mp4" />
+                <source src="{{ item.picture }}" type="video/mp4" />
               </video>
             </div>
-            <!-- <video >
-              <source src="{{ item.urlmovie }}" type="video/mp4" />
-            </video> -->
             <div class="actions">
               <i class="fas fa-play"></i>
               <i class="fa fa-angle-double-down" id="wide-video"></i>
@@ -218,22 +215,17 @@
         <i class="fas fa-angle-left"></i>
       </button>
 
-      <div class="contenedor-carousel">
-        <div class="carousel">
-          <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
-            <div class="video">
-              <video>
-                <source src="{{ item.urlmovie }}" type="video/mp4" />
-              </video>
-            </div>
-            <!-- <video >
-              <source src="{{ item.urlmovie }}" type="video/mp4" />
-            </video> -->
-            <div class="actions">
-              <i class="fas fa-play"></i>
-              <i class="fa fa-angle-double-down" id="wide-video"></i>
-              <i class="fas fa-plus-circle"></i>
-            </div>
+      <div class="carousel">
+        <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
+          <div class="video">
+            <video>
+              <source src="{{ item.picture }}" type="video/mp4" />
+            </video>
+          </div>
+          <div class="actions">
+            <i class="fas fa-play"></i>
+            <i class="fa fa-angle-double-down" id="wide-video"></i>
+            <i class="fas fa-plus-circle"></i>
           </div>
         </div>
       </div>
@@ -256,7 +248,7 @@
         <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
           <div class="video">
             <video>
-              <source src="{{ item.urlmovie }}" type="video/mp4" />
+              <source src="{{ item.picture }}" type="video/mp4" />
             </video>
           </div>
           <!-- <video >

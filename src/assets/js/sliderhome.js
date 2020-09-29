@@ -66,17 +66,15 @@ fila.addEventListener("mouseleave", () => {
   peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
 });
 
-// const cards = document.querySelectorAll("#card");
-// cards.forEach((card) =>
-//   card.addEventListener("mouseover", function () {
-//     card.style.cursor = "pointer";
-//   })
-// );
+const cards = document.querySelectorAll("#card");
+cards.forEach((card) =>
+  card.addEventListener("mouseover", function () {
+    card.style.cursor = "pointer";
+  })
+);
 
 peliculas.forEach((pel) => {
-  pel.addEventListener("mouseover", function () {
-    document.querySelectorAll(".actions").style.display = "flex";
-  });
+  pel.addEventListener("mouseover", function () {});
 });
 function deleteDisplay() {
   peliculas.forEach((p) => {
