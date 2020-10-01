@@ -14,8 +14,9 @@ export class TaskService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private readonly RoleUser = 'RoleUser';
+  private email:any;
   private loggedUser: string;
-
+  user = new LoginToken();
   constructor(
     readonly http: HttpClient
   ) { }
@@ -38,6 +39,7 @@ export class TaskService {
   }
   Authentication(modal: LoginToken): Observable<boolean>{
     this.doLogoutUser();
+    this.email = modal.Email;
     return this.http.post<any>(`/api/authenticate`, modal)
     .pipe(
       tap( tokens => this.doLoginUser(modal.UserName, tokens)),
@@ -48,20 +50,17 @@ export class TaskService {
     );
   }
 
-  logout(){
+  logout(): Observable<boolean>{
+    this.user.UserName = this.getJwtToken();
+    debugger;
     let tokens = new Tokens();
     tokens.refreshToken = this.getRefreshToken();
     tokens.jwt = this.getJwtToken();
 
-    return this.http.post<any>('/api/CloseSession', tokens ,
-    {headers: new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization': tokens.jwt})
-    }).pipe(
+    return this.http.post<any>('/api/CloseSession', tokens).pipe(
       tap(() => this.doLogoutUser()),
       mapTo(true),
       catchError(error => {
-        debugger;
         this.doLogoutUser()
         return of(true)
       }));
@@ -70,8 +69,9 @@ export class TaskService {
     let tokenss = new Tokens;
     tokenss.refreshToken = this.getRefreshToken();
     tokenss.jwt = this.getJwtToken();
-    debugger;
-    return this.http.post<any>(`/api/refresh`, tokenss)
+    const filters = '?refreshToken='+this.getRefreshToken();
+    const conect = `/api/Refresh${filters}`;
+    return this.http.post<any>('/api/Refresh', tokenss)
     .pipe(
       tap( tokens => this.storeJwtToken(tokens)),
       mapTo(true),

@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
   countryid = 0;
   provinceid = 0;
   cityid = 0;
+  Movies:any;
   constructor(
     private userService: SkycoService,
     private taskser: TaskService,
