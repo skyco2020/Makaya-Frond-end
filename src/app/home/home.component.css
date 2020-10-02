@@ -423,51 +423,53 @@ nav a:hover:before {
 /* ---- ----- ----- Carousel ----- ----- ----- */
 
 .peliculas-recomendadas .carousel {
+  position: relative;
   display: flex;
   justify-content: center;
   scroll-behavior: smooth;
   width: 100%;
-  height: 250px;
-  position: relative;
+  /* height: 250px; */
+  /* height: auto; */
 }
 .peliculas-recomendadas .carousel .pelicula {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  width: 100%;
-  height: 250px;
-  /* position: relative; */
-  z-index: 1;
+  background-color: black;
+  min-width: 20%;
+  height: auto;
+  transition: ease-in-out 1s;
   overflow: hidden;
-  border-radius: 10px;
   margin: 0px 2px 0px 2px;
-  transition: ease-in-out 2s;
+  transition: ease-in-out 1ms;
   cursor: pointer;
 }
+
 .actions {
   display: none;
 }
-.peliculas-recomendadas .carousel .pelicula:hover .actions {
-  flex-basis: 20%;
+
+.show-action {
   display: flex;
-  /* position: absolute; */
-  flex-flow: row nowrap;
+  height: 55px;
+  margin: 0px !important;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
   align-content: center;
   background-color: rgb(51, 52, 53) !important;
   color: white !important;
+  /* flex-basis: 20%; */
+  /* position: absolute; */
 }
 .peliculas-recomendadas .carousel .pelicula .video {
+  margin: 0px !important;
   width: 100%;
-  flex-basis: 80%;
-  height: 200px;
-  background: rgb(255, 255, 255);
 }
-.peliculas-recomendadas .carousel .pelicula .video video  {
+.peliculas-recomendadas .carousel .pelicula .video video {
+  margin: 0px !important;
   width: 100%;
   height: 100%;
-
 }
 
 .peliculas-recomendadas .carousel .pelicula .actions i {
@@ -574,7 +576,7 @@ video {
   z-index: 100;
 }
 .sub-menu-user::before {
-  border-top: 3px solid var(--primary);
+  /* border-top: 3px solid var(--primary);ikm< */
 }
 .sub-menu-user > li {
   display: block;

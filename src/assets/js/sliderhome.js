@@ -72,12 +72,43 @@ cards.forEach((card) =>
     card.style.cursor = "pointer";
   })
 );
-
 peliculas.forEach((pel) => {
-  pel.addEventListener("mouseover", function () {});
+  pel.addEventListener("mouseover", function () {
+    deleteShowAction();
+    pel.lastChild.classList.add("show-action");
+    pel.firstChild.firstChild.play();
+    pel.style.background = " black";
+    pel.style.height = "auto";
+    pel.style.transform = "scale(1.3)";
+    pel.style.anaimation = "showFilms 1s";
+    pel.style.borderRadius = "5px";
+    pel.style.zIndex = "3";
+    pel.firstChild.firstChild.style.height = "100%";
+    // pel.style.position = "absolute";
+    // pel.style.clip = "rect(1px,1px,1px,1px)";
+    // pel.style.top = "initial";
+    // pel.style.left = "initial";
+    // pel.style.transform = "rotate(90)";
+    // pel.style.width = "300px";
+    // this.firstChild.style.width = "240px";
+    // this.firstChild.firstChild.style.width = "240px";
+  });
 });
-function deleteDisplay() {
+peliculas.forEach((pel) => {
+  pel.addEventListener("mouseout", function () {
+    this.lastChild.classList.remove("show-action");
+    this.firstChild.firstChild.pause();
+    pel.style.transform = "scale(1)";
+    this.style.position = "initial";
+    this.style.height = "initial";
+    this.style.borderRadius = "initial";
+    this.style.width = "initial";
+    this.style.zIndex = "initial";
+    this.style.background = "initial";
+  });
+});
+function deleteShowAction() {
   peliculas.forEach((p) => {
-    p.style.border = "none";
+    p.lastChild.classList.remove("show-action");
   });
 }

@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
         age: 'Orson Welles, USA 1941',
         description:
           'Cerbero es un perro con mucha energia, necesita un hogar donde tenga mucho espacio',
-        picture: '../../assets/video/Tropical.mp4',
+        picture: '../../assets/video/VID-20200705-WA0050.mp4',
       },
       {
         name: 'Tokyo Story',
@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
         age: 'Heading South 2005',
         description:
           'Three female tourists have their eyes opened while visiting the poverty-stricken and dangerous world of 1980s Haiti.',
-        picture: '../../assets/video/Tropical.mp4',
+        picture: '../../assets/video/VID-20200705-WA0050.mp4',
       },
       {
         name: 'Voodoo Possession',
@@ -88,14 +88,14 @@ export class HomeComponent implements OnInit {
         age: 'Jacque Roc 2005',
         description:
           "Pluie d'Espoir is a movie based on the story of a young peasant named Toussaint from the Haitian Provinces. His instinct for survival is strong.",
-        picture: '../../assets/video/agenord.mp4',
+        picture: '../../assets/video/VID-20200705-WA0050.mp4',
       },
       {
         name: 'Lakay',
         age: 'Brian T. Lee 2009',
         description:
           'A powerful and engaging social issue documentary investigating the living situations and treatment of Haitian immigrants and their children in the Bahamas.',
-        picture: '../../assets/video/Tropical.mp4',
+        picture: '../../assets/video/VID-20200705-WA0050.mp4',
       },
       // {
       //   name: 'La Règle du jeu',
