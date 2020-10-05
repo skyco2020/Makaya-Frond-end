@@ -4,6 +4,7 @@ import {TaskService} from '../services/task.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {LoginToken} from '../Classes/login-token';
+import {PerfilService} from '../services/perfil.service';
 import decode from 'jwt-decode';
 
 declare var $: any;
@@ -16,7 +17,9 @@ declare var $: any;
 export class AccountComponent implements OnInit {
   isLoginError = false;
   user = new LoginToken();
-  constructor(private userService: TaskService, private router: Router) { }
+  constructor(private userService: TaskService,
+              private serperfil:PerfilService,
+              private router: Router) { }
 
   ngOnInit(): void {
     localStorage.removeItem('userToken');
@@ -45,9 +48,18 @@ export class AccountComponent implements OnInit {
       this.userService.Authentication(this.user)
       .subscribe(success => {
       if(success){
-        let role = decode(this.userService.getJwtToken()).UserRole.toLowerCase();
+        let decodotken = decode(this.userService.getJwtToken());
+        let role = decodotken.UserRole.toLowerCase();
         if (this.userService.loggedIn() && role=== ("user").toLowerCase()) {
-          this.router.navigate(['/home']);
+          let filter ="?AccountId="+decodotken.Idaccount;
+          this.serperfil.GetAll(filter).subscribe((data: any) => {
+            if(data.ResourceList.length > 1){
+              this.router.navigate(['/perfil']);
+            }
+            else{
+              this.router.navigate(['/home']);
+            }
+          });
         }
         else if(this.userService.loggedIn() && role=== ("admin").toLowerCase()){
           this.router.navigate(['/admin']);

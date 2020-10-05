@@ -1,0 +1,74 @@
+.allcards {
+  padding: 10px;
+  /* background: linear-gradient(to right top, orange,white, rgb(255, 136, 0)); */
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  justify-items: center;
+  justify-content: center;
+  grid-gap: 10px;
+}
+.allcards > .one-card {
+  width: 240px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: ease-in-out 1s;
+  border-radius: 0px;
+  border: 0.5px solid rgb(218, 217, 217);
+}
+.allcards > .one-card:hover {
+  transform: translate(10px, 5px);
+  /* transform: scale(1.1); */
+  z-index: 0;
+}
+.allcards > .one-card > .body {
+  z-index: 3;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 10px;
+  background: rgb(218, 218, 218);
+}
+.allcards > .one-card > .body > h5 {
+  color: #000000;
+  font-weight: bold;
+  text-align: left !important;
+}
+.allcards > .one-card > .body p {
+  text-align: left !important;
+  font-size: 25px;
+  margin: 0 !important;
+}
+.allcards > .one-card > img {
+  width: 100%;
+  height: 200px;
+  /* height: 50%; */
+}
+.one-card:hover {
+  cursor: pointer;
+  outline: 0;
+}
+.profile-button {
+  display: block;
+  margin: 2em 0 1em 0;
+  font-size: 1.3vw;
+}
+.profile-button a, .profile-button span {
+  border: 1px solid grey;
+  color: grey;
+  text-transform: uppercase;
+  padding: .5em 1.5em;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-size: .9em;
+}
+/* media queries  */
+@media (max-width: 430px) {
+  .allcards > .one-card {
+    width: 95%;
+    margin: 5px;
+  }
+  .allcards > .one-card > img {
+    width: 100%;
+    height: 50%;
+  }
+}

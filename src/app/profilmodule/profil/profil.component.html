@@ -1,0 +1,14 @@
+
+<section class="allcards">
+  <div id="card" class="one-card" *ngFor="let profil of profils" (click)="ShowHome(profil)">
+    <img class="" src="https://faceswaponline.com/wp-content/uploads/2018/03/PresidentBean-a6525ccd677bbbb7cc8d29250333d2bb.jpg" alt="" />
+    <div class="body">
+      <h5 class="title">{{ profil.name }}</h5>
+    </div>
+  </div>
+</section>
+<span class="profile-button">
+  <a aria-label="MANAGE PROFILES" href="#">
+    MANAGE PROFILES
+  </a>
+</span>

@@ -22,6 +22,9 @@ import { NonepaymentComponent } from './nonepayment/nonepayment.component';
 import { TokenInterceptorService } from './token-interceptor.service';
 import { StateloginService } from './statelogin.service';
 import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
+import { ProfilComponent } from './profilmodule/profil/profil.component';
+import { UpdateprofilComponent } from './profilmodule/updateprofil/updateprofil.component';
+import { KidsComponent } from './profilmodule/kids/kids.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +37,9 @@ import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.comp
     FinishpaymentComponent,
     NonepaymentComponent,
     GlobalmenuComponent,
+    ProfilComponent,
+    UpdateprofilComponent,
+    KidsComponent,
     // Globalfunction,
     // AdminComponent,
     // ProviderComponent,

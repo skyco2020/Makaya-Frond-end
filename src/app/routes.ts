@@ -13,12 +13,23 @@ import { ErrorComponent } from './error/error.component';
 import { ProviderComponent } from './provider/provider.component';
 import { ListemployeComponent } from './modules/employee/listemploye/listemploye.component';
 import { RoleGuardGuard } from './role-guard.guard';
+import { ProfilComponent } from './profilmodule/profil/profil.component';
+import { KidsComponent } from './profilmodule/kids/kids.component';
 // import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canLoad:[AuthGuard],
+    canActivate: [RoleGuardGuard],
+    data: {
+      expectedRole: 'user'
+    }
+  },
+  {
+    path: 'kids',
+    component: KidsComponent,
     canLoad:[AuthGuard],
     canActivate: [RoleGuardGuard],
     data: {
@@ -51,6 +62,14 @@ export const appRoutes: Routes = [
       path: 'browse',
       component: UserComponent,
       // canActivate: [AuthGuard]
+  },
+  {
+      path: 'perfil',
+      component: ProfilComponent,
+      canActivate: [RoleGuardGuard],
+      data: {
+        expectedRole: 'user'
+      },
   },
   {
       path: 'account',

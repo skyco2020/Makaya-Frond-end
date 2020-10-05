@@ -1,0 +1,610 @@
+body {
+  background: var(--fondo);
+  font-family: "Open Sans", sans-serif;
+}
+.back {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.modal {
+  max-height: none;
+  top: 0 !important;
+  background: transparent;
+}
+
+/* modal Films */
+#modal1 {
+  height: 100vh;
+  padding: 0px !important;
+  /* border-bottom: 4px solid rgb(255, 255, 255); */
+}
+.modal-close {
+  width: 51px;
+  height: 48px;
+  background: var(--primary);
+  border: 2px solid black;
+  border-radius: 999px;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  height: 100%;
+  border: none !important;
+  border-radius: initial !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100%;
+}
+.modal-content > video {
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.vde {
+  width: 100%;
+}
+
+.slicevideo {
+  height: 90%;
+}
+
+.DelAdv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #000; */
+  padding: 10px 15px 10px 20px;
+  /* border-top: 3px solid var(--primary); */
+  /* border-bottom: 2px solid var(--primary); */
+  position: absolute;
+  bottom: 0;
+}
+.DelAdv .left-side,
+.DelAdv .right-side {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+}
+.DelAdv .right-side {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+}
+/* .DelAdv .left-side div,
+.DelAdv .right-side div {
+  width: 30px;
+  height: 30px;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 999px;
+  background-color: var(--primary) !important;
+  color: white !important;
+  text-align: center;
+  z-index: 4;
+} */
+
+.DelAdv .left-side > i,
+.DelAdv .right-side > i {
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  margin-right: 25px;
+}
+.DelAdv .left-side > i:hover,
+.DelAdv .right-side > i:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-close i,
+.delay,
+.advance {
+  color: #ffffff;
+}
+
+.posividplay {
+  height: 11.4em;
+}
+
+.transf {
+  z-index: -1;
+  opacity: 1;
+  display: flex !important;
+  transform: none !important;
+}
+
+.btnPrevious {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  top: 31%;
+  left: 4%;
+  position: absolute;
+  background: no-repeat 50% / 100% 100%;
+}
+
+.btnNext {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  top: 31%;
+  left: 96%;
+  position: absolute;
+  background: no-repeat 50% / 100% 100%;
+}
+
+.carousel {
+  height: auto !important;
+}
+
+.ulmod {
+  width: 100% !important;
+  left: 1% !important;
+}
+
+.bg-primary {
+  background-color: #007aeb;
+  color: #fff;
+}
+
+.sectionheight {
+  height: 28vh;
+}
+
+.bg-gray {
+  background-color: #cccccc;
+}
+
+button:focus {
+  outline: none;
+  background-color: #343a40 !important;
+}
+
+.carousel {
+  overflow: revert !important;
+}
+
+.option,
+.first {
+  background-color: #000 !important;
+}
+
+.searchTab {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  background: 0 0;
+}
+
+.searchBox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pinning-header .secondary-navigation:not(.menu-navigation) .icon-search {
+  font-size: 1.3em;
+  margin-right: 0;
+}
+
+.pinning-header .secondary-navigation .icon-search {
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 1500px) {
+  .pinning-header .secondary-navigation {
+    right: 60px;
+  }
+}
+
+.dropdown-menu {
+  background-color: #343a40;
+}
+
+nav a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #16151b;
+  top: 47%;
+  animation: out 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+}
+
+nav a:hover:before {
+  animation: in 0.2s cubic-bezier(1, 0, 0.58, 0.97) 1 both;
+}
+
+@keyframes in {
+  0% {
+    width: 0;
+    left: 0;
+    right: auto;
+  }
+  100% {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+@keyframes out {
+  0% {
+    width: 100%;
+    left: auto;
+    right: 0;
+  }
+  100% {
+    width: 0;
+    left: auto;
+    right: 0;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- ----- ----- Pelicula Principal ----- ----- ----- */
+.pelicula-principal {
+  color: white;
+  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  z-index: 2;
+}
+
+.pelicula-principal > .infos {
+  width: 60%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.pelicula-principal > .pelicula-principal-btn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.pelicula-principal > .infos .titulo {
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
+}
+
+.pelicula-principal > .infos .descripcion {
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1.75em;
+  /* max-width: 50%; */
+  margin-bottom: 1.25em;
+}
+
+.pelicula-principal > .pelicula-principal-btn .boton {
+  background: var(--primary);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: #fff;
+  margin-right: 1.25em;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-size: 1.12em;
+}
+
+.pelicula-principal .pelicula-principal-btn .boton:hover {
+  opacity: 0.7;
+}
+
+.pelicula-principal .boton i {
+  margin-right: 3em;
+}
+.pelicula-principal > .pelicula-principal-btn div {
+  background-color: rgb(26, 25, 25, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 999px;
+  text-align: center;
+}
+.pelicula-principal > .pelicula-principal-btn div:hover {
+  opacity: 0.6;
+}
+/* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
+
+.contenedor-titulo-controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.contenedor-titulo-controles h3 {
+  color: #fff;
+  font-size: 30px;
+}
+
+.contenedor-titulo-controles .indicadores button {
+  background: #fff;
+  height: 3px;
+  width: 10px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.contenedor-titulo-controles .indicadores button:hover,
+.contenedor-titulo-controles .indicadores button.activo {
+  background: red;
+}
+
+/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
+
+.peliculas-recomendadas {
+  margin-bottom: 70px;
+  z-index: 2;
+  /* background-color: rgb(255, 255, 255); */
+}
+.peliculas-recomendadas .contenedor-titulo-controles {
+  /* background: rgba(0, 0, 0, 0.4); */
+  margin: 0px 0px 0px 10px;
+}
+.peliculas-recomendadas .contenedor-titulo-controles h3 {
+  z-index: 2;
+  text-transform: capitalize;
+  font-size: 25px !important;
+}
+
+.peliculas-recomendadas .contenedor-principal {
+  display: flex;
+  align-items: center;
+  /* position: relative; */
+  z-index: 2;
+  margin: 5px 0px 15px 0px !important;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha {
+  position: absolute;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 40px;
+  height: 32%;
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: 0.2s ease all;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda:hover,
+.peliculas-recomendadas .contenedor-principal .flecha-derecha:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-izquierda {
+  left: 0;
+}
+
+.peliculas-recomendadas .contenedor-principal .flecha-derecha {
+  right: 0;
+}
+
+/* ---- ----- ----- Carousel ----- ----- ----- */
+
+.peliculas-recomendadas .carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  scroll-behavior: smooth;
+  width: 100%;
+  /* height: 250px; */
+  /* height: auto; */
+}
+.peliculas-recomendadas .carousel .pelicula {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  background-color: black;
+  min-width: 20%;
+  height: auto;
+  transition: ease-in-out 1s;
+  overflow: hidden;
+  margin: 0px 2px 0px 2px;
+  transition: ease-in-out 1ms;
+  cursor: pointer;
+}
+
+.actions {
+  display: none;
+}
+
+.show-action {
+  display: flex;
+  height: 55px;
+  margin: 0px !important;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(51, 52, 53) !important;
+  color: white !important;
+  /* flex-basis: 20%; */
+  /* position: absolute; */
+}
+.peliculas-recomendadas .carousel .pelicula .video {
+  margin: 0px !important;
+  width: 100%;
+}
+.peliculas-recomendadas .carousel .pelicula .video video {
+  margin: 0px !important;
+  width: 100%;
+  height: 100%;
+}
+
+.peliculas-recomendadas .carousel .pelicula .actions i {
+  font-size: 20px;
+  cursor: pointer;
+  /* color: var(--primary); */
+}
+
+/* menu style */
+.menu-home {
+  display: flex;
+  flex-flow: column wrap;
+  justify-items: center;
+  justify-content: space-between;
+  height: 95vh;
+}
+/* video principal  */
+
+.video-principal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  opacity: 1;
+}
+.video-principal > #video {
+  width: 100vw;
+  height: 100vh;
+}
+video {
+  width: 100%;
+}
+.icon-video-primcipal {
+  font-size: 100px;
+  background-color: #fff;
+  padding: 10px;
+  z-index: 3;
+}
+.container-menu {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  z-index: 2;
+}
+.menu-home-left {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+.menu-home-left-list {
+  display: flex;
+  flex-flow: row wrap;
+
+  transition: ease-in-out 1ms;
+  text-align: center;
+}
+.menu-home-left > .menu-home-left-logo > img {
+  /* width: 100px; */
+  margin-left: 20px;
+}
+.menu-home-left-list > a {
+  transition: all 1s;
+  text-transform: capitalize;
+  font-size: large;
+  padding: 10px 10px;
+  text-align: center;
+  color: white;
+}
+.menu-home-left-list > a:hover {
+  opacity: 0.8;
+}
+.menu-home-right {
+  margin-right: 30px;
+
+  position: relative;
+  cursor: pointer;
+  top: 15%;
+}
+.sub-menu-user {
+  display: none;
+}
+.item-list {
+  transition: all 1ms;
+  /* position: relative; */
+}
+.item-list:hover .sub-menu-user {
+  width: 130px;
+  height: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  position: absolute;
+
+  margin-left: -30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  color: white;
+  z-index: 100;
+}
+.sub-menu-user::before {
+  /* border-top: 3px solid var(--primary);ikm< */
+}
+.sub-menu-user > li {
+  display: block;
+  padding: 10px;
+  border-bottom: 2px solid black;
+}
+.sub-menu-user > li:hover {
+  background-color: var(--primary);
+}
+.sub-menu-user > li:last-child {
+  border-bottom: none;
+}
+.sub-menu-user > li > a {
+  color: white;
+  text-transform: uppercase;
+}
+.btnchild{
+  background: var(--primary);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.3em 1em;
+  color: #fff;
+  /* margin-right: 1.25em; */
+  cursor: pointer;
+  transition: 0.3s ease all;
+  font-size: 1.12em;
+}
+.btnchild:hover{
+  cursor: pointer;
+  outline: 0;
+}
