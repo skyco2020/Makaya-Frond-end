@@ -1,28 +1,101 @@
-.abs-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
 .container-login {
   height: 100vh;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   overflow: hidden;
+  background: url(../../assets/img/backdrop.jpg) no-repeat center;
+}
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .form {
-  width: 400px;
-  top: -9em;
+  width: 30%;
+  /* border-radius: 3px; */
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column wrap;
+  padding: 5px;
+}
+.form h1 {
+  color: white;
+  text-transform: capitalize;
+  margin: 10px 0px 10px 0px;
+  width: 90%;
+  border-bottom: 1px solid white;
+  padding: 10px 0px 15px 0px;
+}
+.form .form-group {
+  width: 90%;
+  margin: 0px auto;
+  margin-bottom: 30px;
   position: relative;
-  border-radius: 3px;
-  background-color: #fff;
 }
-.form:hover {
-  box-shadow: inset 1px 2px 3px rgb(202, 202, 202),
-    inset 2px 3px 4px rgb(202, 202, 202), inset 3px 4px 5px rgb(202, 202, 202),
-    inset 3px 4px 5px rgb(187, 184, 184);
+.form .form-group label {
+  position: absolute;
+  bottom: 7px;
+  color: black !important;
+  margin-left: 15px !important;
+  font-family: serif;
+  font-size: 20px;
 }
+
+.form .form-group input {
+  padding: 30px 15px;
+  border-radius: 3px !important;
+  background-color: #fff !important;
+  transition: all 1s;
+}
+#password:focus ~ label,
+#password:valid ~ label,
+#email:active ~ label,
+#email:valid ~ label,
+#email:focus ~ label {
+  transform: translateY(-20px);
+  font-size: 13px;
+}
+
+.regOption {
+  margin-bottom: 1em;
+}
+
+#formulario > .login-signup-now {
+  /* background-color: rgba(0, 0, 0.6); */
+  width: 90%;
+  padding: 10px;
+  color: white;
+  margin-top: 10px;
+}
+#formulario > .login-signup-now > .subscribe {
+  text-decoration: underline;
+  margin-left: 10px;
+  color: white !important;
+  font-size: 25px !important;
+}
+.btn-login {
+  background: var(--primary);
+  transition: 1s;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  padding: 10px 10px;
+  width: auto;
+  font-size: 25px;
+  /* font-weight: bold; */
+  text-transform: capitalize;
+  width: 90%;
+  border-radius: 4px;
+  margin: 5px 0px 5px 0px;
+}
+.btn-login:hover {
+  background-color: #d67d2f;
+  border-radius: 50px !important;
+}
+
 @media (max-width: 800px) {
   .form {
     width: 90%;
@@ -38,44 +111,26 @@
     /* background-color: #fff; */
   }
 }
-#email,
-#password {
-  background-color: rgb(241, 241, 241) !important;
-  outline: none;
-  border: none !important;
+.valid {
+  font-size: initial !important;
+  transform: translateY(-20px) !important;
+  /* color: #d67d2f !important; */
 }
-::placeholder {
-  padding: 10px;
+.error_mail,
+.error_password {
+  color: #ef0000 !important;
+  padding: 5px;
+  text-align: center;
+  /* width: 100%; */
+  display: none;
+  justify-content: center;
+  background: white;
+  margin-top: 10px;
+  font-size: 20px;
+  border: 1px solid red;
 }
-#email:focus,
-#password:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #ef7f1a !important;
-  outline: none;
-  padding-left: 10px;
-  border-radius: none;
-}
-
-.regOption {
-  margin-bottom: 1em;
-}
-
-#formulario > .login-signup-now {
-  background-color: rgb(248, 248, 248);
-  width: 100%;
-  padding: 10px;
-}
-#formulario > .login-signup-now > .subscribe {
-  text-decoration: underline;
-  margin-left: 10px;
-  color: #ef7f1a !important;
-  font-size: 25px !important;
-}
-.form-group {
-  width: 95%;
-  margin: auto;
-}
-.btn-login:hover {
-  background-color: #d67d2f;
-  border-radius: 50px !important;
+.disabledBnt {
+  opacity: 0.6;
+  background-color: rgb(177, 177, 177);
+  cursor: not-allowed;
 }

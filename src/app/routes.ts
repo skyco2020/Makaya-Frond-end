@@ -1,10 +1,10 @@
-import { Routes } from '@angular/router'
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-import {AccountComponent} from './account/account.component';
-import {RegisterpaymentComponent} from './registerpayment/registerpayment.component';
-import {FinishpaymentComponent} from './finishpayment/finishpayment.component';
-import {NonepaymentComponent} from './nonepayment/nonepayment.component';
+import { AccountComponent } from './account/account.component';
+import { RegisterpaymentComponent } from './registerpayment/registerpayment.component';
+import { FinishpaymentComponent } from './finishpayment/finishpayment.component';
+import { NonepaymentComponent } from './nonepayment/nonepayment.component';
 import { AuthGuard } from './auth/auth.guard';
 import { from } from 'rxjs';
 import { StateloginService } from './statelogin.service';
@@ -15,87 +15,98 @@ import { ListemployeComponent } from './modules/employee/listemploye/listemploye
 import { RoleGuardGuard } from './role-guard.guard';
 import { ProfilComponent } from './profilmodule/profil/profil.component';
 import { KidsComponent } from './profilmodule/kids/kids.component';
+import { UpdateprofilComponent } from './profilmodule/updateprofil/updateprofil.component';
 // import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canLoad:[AuthGuard],
+    canLoad: [AuthGuard],
     canActivate: [RoleGuardGuard],
     data: {
-      expectedRole: 'user'
-    }
+      expectedRole: 'user',
+    },
   },
   {
     path: 'kids',
     component: KidsComponent,
-    canLoad:[AuthGuard],
+    canLoad: [AuthGuard],
     canActivate: [RoleGuardGuard],
     data: {
-      expectedRole: 'user'
-    }
+      expectedRole: 'user',
+    },
   },
   {
     path: '404',
-    component: ErrorComponent
+    component: ErrorComponent,
   },
   {
     path: 'provider',
     component: ProviderComponent,
-    canActivate:[RoleGuardGuard],
-     data: {
-      expectedRole: 'provider'
+    canActivate: [RoleGuardGuard],
+    data: {
+      expectedRole: 'provider',
     },
-    loadChildren: () => import('./modules/provider/provider.module').then(p => p.ProviderModule)
+    loadChildren: () =>
+      import('./modules/provider/provider.module').then(
+        (p) => p.ProviderModule
+      ),
   },
   {
     path: 'employee',
     component: ListemployeComponent,
     canActivate: [RoleGuardGuard],
     data: {
-      expectedRole: 'employee'
+      expectedRole: 'employee',
     },
-    loadChildren: () => import('./modules/employee/employee.module').then(e =>e.EmployeeModule)
+    loadChildren: () =>
+      import('./modules/employee/employee.module').then(
+        (e) => e.EmployeeModule
+      ),
   },
   {
-      path: 'browse',
-      component: UserComponent,
-      // canActivate: [AuthGuard]
+    path: 'browse',
+    component: UserComponent,
+    // canActivate: [AuthGuard]
   },
   {
-      path: 'perfil',
-      component: ProfilComponent,
-      canActivate: [RoleGuardGuard],
-      data: {
-        expectedRole: 'user'
-      },
+    path: 'perfil',
+    component: ProfilComponent,
+    canActivate: [RoleGuardGuard],
+    data: {
+      expectedRole: 'user',
+    },
   },
   {
-      path: 'account',
-      component: AccountComponent,
-      // canActivate: [AuthGuard]
+    path: 'account',
+    component: AccountComponent,
+    // canActivate: [AuthGuard]
   },
   {
-      path: 'registerpayment',
-      component: RegisterpaymentComponent
+    path: 'registerpayment',
+    component: RegisterpaymentComponent,
   },
   {
-    path : '',
+    path: '',
     redirectTo: `/browse`,
-    pathMatch : 'full'
+    pathMatch: 'full',
   },
   {
-      path: 'finishpayment',
-      component: FinishpaymentComponent
+    path: 'updateprofil',
+    component: UpdateprofilComponent,
   },
   {
-      path: 'nonepayment',
-      component: NonepaymentComponent
+    path: 'finishpayment',
+    component: FinishpaymentComponent,
+  },
+  {
+    path: 'nonepayment',
+    component: NonepaymentComponent,
   },
   /* any unrecognized path will send home */
   {
     path: '**',
-    redirectTo: '/404'
-  }
+    redirectTo: '/404',
+  },
 ];

@@ -10,7 +10,7 @@ cards.forEach((card) =>
 questions.forEach((question) =>
   question.addEventListener("click", function () {
     // console.log(this.nextElementSibling);  select the next brother element
-    console.log(this.nextElementSibling.style.display);
+    // console.log(this.nextElementSibling.style.display);
     if (this.nextElementSibling.style.display === "block") {
       this.nextElementSibling.style.display = "none";
     } else {
@@ -22,3 +22,4 @@ questions.forEach((question) =>
 function removeResponse() {
   termCcontent.forEach((question) => (question.style.display = "none"));
 }
+const btnLoginn = (document.getElementById("btn-login").disabled = true);

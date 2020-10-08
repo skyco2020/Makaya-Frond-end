@@ -13,54 +13,40 @@
     <form
       id="formulario"
       #userRegistrationForm="ngForm"
-      class="border p-3 form"
+      class="form"
       (ngSubmit)="OnSubmit(UserName.value, Password.value)"
     >
+      <h1 class="sign-in">Sign in</h1>
       <div class="form-group">
-        <label for="email">Email</label>
         <input
           type="email"
           #UserName
           name="UserName"
           [(ngModel)]="user.UserName"
           id="email"
-          placeholder="Username"
           required
-          class="form-control"
+          class="form-control email-login"
           (click)="HideMessage('error_mail')"
         />
+        <label class="label-email" for="email">Email</label>
         <span class="red-text error_mail"></span>
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
         <input
           type="password"
           #Password
           name="PasswordHash"
           [(ngModel)]="user.PasswordHash"
-          placeholder="Password"
           required
           id="password"
-          class="form-control"
+          class="form-control password-login"
           (click)="HideMessage('error_password')"
         />
+        <label for="password">Password</label>
         <span class="red-text error_password"></span>
       </div>
-      <button type="submit" id="btn-login" class="btn-login">Login</button>
-      <br />
-      <br />
-      <br />
-      <!-- <div class="facebookForm regOption sm12 ">
-                <div class="fb-minimal sm12 ">
-                    <hr>
-                    <div class="fb-login " data-uia="fb-login ">
-                        <img class="icon-facebook " src="https://assets.nflxext.com/ffe/siteui/login/images/FB-f-Logo__blue_57.png ">
-                        <span class="fbBtnText ">
-                      Iniciar sesión con Facebook
-                    </span>
-                    </div>
-                </div>
-            </div> -->
+
+      <button type="submit" id="btn-login" class="btn-login">Sign In</button>
       <div class="login-signup-now" data-uia="login-signup-now">
         First time on SkyCo ?
         <a class="subscribe" id="subscribe" href="/">Subscribe</a>.

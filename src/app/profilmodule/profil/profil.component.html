@@ -1,14 +1,25 @@
-
-<section class="allcards">
-  <div id="card" class="one-card" *ngFor="let profil of profils" (click)="ShowHome(profil)">
-    <img class="" src="https://faceswaponline.com/wp-content/uploads/2018/03/PresidentBean-a6525ccd677bbbb7cc8d29250333d2bb.jpg" alt="" />
-    <div class="body">
-      <h5 class="title">{{ profil.name }}</h5>
+<div class="profiles">
+  <section class="profiles-content">
+    <div
+      id="profile-user"
+      class="profile-user"
+      *ngFor="let profil of profils"
+      (click)="ShowHome(profil)"
+    >
+      <img class="" src="../../assets/img/user.png" alt="" />
+      <div class="profile-username">
+        <h5 class="username">{{ profil.name }}</h5>
+      </div>
     </div>
+    <i class="fas fa-user-edit"></i>
+  </section>
+  <div class="manage-profile">
+    <a
+      class="btn-manage-profile"
+      aria-label="MANAGE PROFILES"
+      href="/updateprofil"
+    >
+      MANAGE PROFILES
+    </a>
   </div>
-</section>
-<span class="profile-button">
-  <a aria-label="MANAGE PROFILES" href="#">
-    MANAGE PROFILES
-  </a>
-</span>
+</div>

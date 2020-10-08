@@ -1,0 +1,13 @@
+.container-error {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right top, var(--primary), white, black);
+}
+p {
+  font-size: 100px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
