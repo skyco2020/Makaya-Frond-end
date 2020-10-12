@@ -11,7 +11,7 @@
         <h5 class="username">{{ profil.name }}</h5>
       </div>
     </div>
-    <!-- <i class="fas fa-user-edit"></i> -->
+    <i class="fas fa-plus add" (click)="Add()"></i>
   </section>
   <div class="manage-profile">
     <a
@@ -23,3 +23,14 @@
     </a>
   </div>
 </div>
+<section class="addprofile">
+  <label>name</label>
+  <input type="text" name="idprofil" id="idprofil" hidden>
+  <input type="text" name="complete" id="complete" hidden>
+  <input type="text" name="profilname" id="name">
+  <br>
+  <span style="color: brown;display: none;" id="errorname">Enter profile name</span>
+  <br>
+  <button (click)="Save()">Save</button>
+  <button (click)="Cancel()">Cancel</button>
+</section>
