@@ -38,7 +38,15 @@ export class UpdateprofilComponent implements OnInit {
       display:'none'
     })
     $('.modify').css({
-      display:'block'
+      display:'flex',
+      width: '100%',
+      height :'100vh',
+      justifyContent : 'center',
+      flexFlow: 'column wrap',
+      alignItems:'center',
+      background: '#141414',
+      margin: '0px auto'
+
     })
     $('#name').val(profil.name);
     $('#idprofil').val(profil.idPerfil);

@@ -12,8 +12,8 @@
 .profiles-content {
   width: 50%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  align-items: unset;
   align-content: center;
 }
 
@@ -24,6 +24,9 @@
   cursor: pointer;
   background: var(--primary);
   transition: all 1s;
+  width: 200px;
+  max-width: 200px;
+  margin-right: 20px;
 }
 .profile-user:hover {
   box-shadow: #343a40 3px 5px 43px, rgb(30, 34, 37) 7px 16px 27px;
@@ -33,7 +36,7 @@
   transform: scale(1.25);
 }
 .profile-user > img {
-  width: 100px;
+  width: 100%;
   border-radius: 5px;
 }
 .profile-user .profile-username {
@@ -49,7 +52,7 @@
   text-align: center;
   color: white;
 }
-.add{
+.add {
   background: linear-gradient(
     to right top,
     var(--primary),
@@ -64,7 +67,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.addprofile{
+.addprofile {
   display: none;
 }
 .manage-profile {
@@ -73,6 +76,7 @@
   align-items: center;
   align-content: center;
   margin-top: -300px;
+  /* text-align: center; */
 }
 .manage-profile .btn-manage-profile {
   width: auto;
@@ -87,9 +91,41 @@
   border-radius: 4px;
   font-weight: bold;
   font-size: 25px;
+  text-align: center;
   transition: all 1s;
 }
 .btn-manage-profile:hover {
-  color: white;
-  background: var(--primary) !important;
+  /* color: white; */
+  /* background: var(--primary) !important; */
+}
+.addprofile {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--fondo);
+}
+@media (max-width: 500px) {
+  .profiles {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+  .profiles-content {
+    width: 95%;
+    flex-flow: column wrap;
+    margin: 0px auto;
+  }
+  .profile-user {
+    width: 100%;
+    /* max-width: 200px; */
+    margin-right: 0px;
+    margin-bottom: 15px;
+  }
+  .manage-profile {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    /* text-align: center; */
+  }
 }

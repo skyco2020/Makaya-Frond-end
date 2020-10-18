@@ -1,7 +1,6 @@
 const btnLoginn = document.getElementById("btn-login");
 const email = document.querySelector("#email");
 const pass = document.querySelector("#password");
-alert("Hola");
 const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 addEvents();
 function addEvents() {

@@ -1,13 +1,18 @@
 <div id="profiles" class="profiles">
   <section class="profiles-content">
-    <div id="profile-user" class="profile-user" *ngFor="let profil of profils" (click)="UpdateProfil(profil)">
+    <div
+      id="profile-user"
+      class="profile-user"
+      *ngFor="let profil of profils"
+      (click)="UpdateProfil(profil)"
+    >
       <img class="" src="../../assets/img/user.png" alt="" />
       <div class="profile-username">
         <h5 class="username">{{ profil.name }}</h5>
       </div>
-      <div class="action">
+      <!-- <div class="action">
         <a id="edit-user" href="#" data-id="4">edit</a>
-      </div>
+      </div> -->
       <i id="edit" class="fas fa-user-edit edit"></i>
     </div>
     <!-- <div id="profile-user" class="profile-user">
@@ -38,24 +43,27 @@
   </div>
 </div>
 <section class="modify">
-  <label>name</label>
-  <input type="text" name="idprofil" id="idprofil" hidden>
-  <input type="text" name="complete" id="complete" hidden>
-  <input type="text" name="profilname" id="name">
-  <br>
-  <span style="color: brown;display: none;" id="errorname">Enter profile name</span>
-  <br>
-  <button (click)="Save()">Modify</button>
-  <button (click)="Cancel()">Cancel</button>
-</section>
+  <div class="fill-data">
+    <label>name</label>
+    <input type="text" name="idprofil" id="idprofil" hidden />
+    <input type="text" name="complete" id="complete" hidden />
+    <input type="text" name="profilname" id="name" />
 
-<div
-  id="modal"
-  class="modal"
-  style="background-color: aquamarine; padding: 10px"
->
-  <div class="modal-content">
-    <div class="modal-header">Hi</div>
-    <div class="modal-body">body</div>
+    <span style="color: brown; display: none" id="errorname"
+      >You have to enter a profile name</span
+    >
+    <br />
+    <label>Password</label>
+    <input type="text" name="idprofil" id="idprofil" hidden />
+    <input type="text" name="complete" id="complete" hidden />
+    <input type="text" name="profilname" id="name" />
+
+    <span style="color: brown; display: none" id="errorname"
+      >You have to enter a profile name</span
+    >
   </div>
-</div>
+  <div class="action-update">
+    <button class="btn-update btn-modify" (click)="Save()">Modify</button>
+    <button class="btn-update btn-cancel" (click)="Cancel()">Cancel</button>
+  </div>
+</section>
