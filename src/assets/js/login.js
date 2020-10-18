@@ -1,9 +1,11 @@
 const btnLoginn = document.getElementById("btn-login");.
 const email = document.querySelector("#email");
 const pass = document.querySelector("#password");
+alert("Hola");
 const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 addEvents();
 function addEvents() {
+  
   loginLabel();
 }
 function loginLabel() {
@@ -19,8 +21,9 @@ function verify(e) {
     btnLoginn.classList.add("disabledBnt");
   } else {
     e.target.style.border = "none";
+    e.target.style.border = "0.5px solid green";
     if (email.value != "" && pass.value != "" && er.test(email.value)) {
-      console.log(btnLoginn.classList);
+      // console.log(btnLoginn.classList);
       btnLoginn.disabled = false;
       btnLoginn.classList.remove("disabledBnt");
     }

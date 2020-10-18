@@ -70,4 +70,9 @@
   border-radius: 4px;
   font-weight: bold;
   font-size: 25px;
+  transition: all 1s;
+}
+.btn-manage-profile:hover {
+  color: white;
+  background: var(--primary) !important;
 }

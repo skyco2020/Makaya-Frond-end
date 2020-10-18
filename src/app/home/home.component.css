@@ -438,7 +438,6 @@ nav a:hover:before {
   background-color: black;
   min-width: 20%;
   height: auto;
-  transition: ease-in-out 1s;
   overflow: hidden;
   margin: 0px 2px 0px 2px;
   transition: ease-in-out 1ms;
@@ -559,7 +558,13 @@ video {
 }
 .item-list {
   transition: all 1ms;
+  list-style: none;
   /* position: relative; */
+}
+.item-list i {
+  margin: 0px 10px;
+  font-size: 25px;
+  color: white;
 }
 .item-list:hover .sub-menu-user {
   width: 130px;

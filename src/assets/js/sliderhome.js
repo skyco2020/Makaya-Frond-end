@@ -78,9 +78,9 @@ peliculas.forEach((pel) => {
     pel.lastChild.classList.add("show-action");
     pel.firstChild.firstChild.play();
     pel.style.background = " black";
-    pel.style.height = "auto";
-    pel.style.transform = "scale(1.3)";
-    pel.style.anaimation = "showFilms 1s";
+    // pel.style.height = "auto";
+    pel.style.transform = "scale(1.11)";
+    // pel.style.anaimation = "showFilms 1s";
     pel.style.borderRadius = "5px";
     pel.style.zIndex = "3";
     pel.firstChild.firstChild.style.height = "100%";

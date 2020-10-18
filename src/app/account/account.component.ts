@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { LoginToken } from '../Classes/login-token';
 import { PerfilService } from '../services/perfil.service';
 import decode from 'jwt-decode';
-import * as sld from '../../assets/js/login.js';
+// import * as sld from '../../assets/js/login.js';
 
 declare var $: any;
 const urljs = '../../assets/js/login.js';
