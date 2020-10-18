@@ -1,4 +1,4 @@
-const btnLoginn = document.getElementById("btn-login");.
+const btnLoginn = document.getElementById("btn-login");
 const email = document.querySelector("#email");
 const pass = document.querySelector("#password");
 alert("Hola");

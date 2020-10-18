@@ -1,16 +1,16 @@
 <div id="profiles" class="profiles">
   <section class="profiles-content">
-    <div id="profile-user" class="profile-user">
+    <div id="profile-user" class="profile-user" *ngFor="let profil of profils" (click)="UpdateProfil(profil)">
       <img class="" src="../../assets/img/user.png" alt="" />
       <div class="profile-username">
-        <h5 class="username">Hilaire</h5>
+        <h5 class="username">{{ profil.name }}</h5>
       </div>
       <div class="action">
         <a id="edit-user" href="#" data-id="4">edit</a>
       </div>
-      <i id="edit" class="fas fa-user-edit"></i>
+      <i id="edit" class="fas fa-user-edit edit"></i>
     </div>
-    <div id="profile-user" class="profile-user">
+    <!-- <div id="profile-user" class="profile-user">
       <img class="" src="../../assets/img/user.png" alt="" />
       <div class="profile-username">
         <h5 class="username">Hilaire</h5>
@@ -29,14 +29,26 @@
         <a href="#">edit</a>
       </div>
       <i id="edit-user" class="fas fa-user-edit"></i>
-    </div>
+    </div> -->
   </section>
   <div class="manage-profile">
-    <a class="btn-manage-profile" aria-label="MANAGE PROFILES" href="">
+    <a class="btn-manage-profile" aria-label="MANAGE PROFILES" href="/perfil">
       Finish
     </a>
   </div>
 </div>
+<section class="modify">
+  <label>name</label>
+  <input type="text" name="idprofil" id="idprofil" hidden>
+  <input type="text" name="complete" id="complete" hidden>
+  <input type="text" name="profilname" id="name">
+  <br>
+  <span style="color: brown;display: none;" id="errorname">Enter profile name</span>
+  <br>
+  <button (click)="Save()">Modify</button>
+  <button (click)="Cancel()">Cancel</button>
+</section>
+
 <div
   id="modal"
   class="modal"
