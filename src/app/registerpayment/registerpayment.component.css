@@ -1,14 +1,28 @@
 /* Wizzard new  */
 
-html {
-  height: 100%;
+.container-register{
+  width: 90%;
+  margin: 0px auto ;
+  /* height: 100vh; */
+  max-height: auto;
+  background: var(--fondo);
 }
 
-.divcenter {
-  margin-left: 2em;
-  margin-right: 2em;
+.content-register  h2{
+  color: white;
+  margin-left: 20px;
 }
-
+.register-col{
+  display: grid;
+ grid-template-columns:repeat(2,1fr);
+ grid-gap: 5px;
+ width: 90%;
+ margin: auto;
+  
+}
+.register-col div {
+  margin: 0px 5px 0px 5px ;
+}
 .authLinks.redButton {
   margin-left: -3em;
   height: 2.8em;
@@ -20,35 +34,30 @@ html {
 }
 
 #msform {
-  text-align: center;
+  /* text-align: center; */
   position: relative;
+  margin: 0px auto;
   margin-top: 20px;
   border-radius: none !important;
+  width: 90%;
 }
 
-#msform fieldset .form-card {
-  background: white;
-  border: none;
-  border-radius: 0px;
-  transition: 1s;
-  padding: 20px 40px 30px 40px;
-  box-sizing: border-box;
-  width: 94%;
-  margin: 0 3% 20px 3%;
-  position: relative;
-}
-#msform fieldset .form-card:hover {
-  box-shadow: 0 2px 2px 2px #d8d8d8;
-}
+
 #msform fieldset {
-  background: white;
+  background:var(--fondo);
   border: 0 none;
-  border-radius: 0.5rem;
   box-sizing: border-box;
   width: 100%;
   margin: 0;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   position: relative;
+}
+#msform fieldset h2{
+  display: block;
+  text-align: center;
+  border-bottom: 2px solid white ;
+  margin: auto ;
+  margin-bottom: 5px;
 }
 
 #msform fieldset:not(:first-of-type) {
@@ -59,21 +68,20 @@ html {
   text-align: left;
   color: #9e9e9e;
 }
-
+#msform label{
+  color: white;
+  display: block;
+}
 #msform input,
 #msform textarea {
-  padding: 0px 8px 4px 8px;
-  border: none;
-  border-bottom: 1px solid #ccc;
+  padding: 5px 10px ;
+  border: 1px solid #ccc;
   border-radius: 0px;
-  margin-bottom: 25px;
-  margin-top: 2px;
   width: 100%;
   box-sizing: border-box;
   font-family: montserrat;
   color: #2c3e50;
   font-size: 16px;
-  letter-spacing: 1px;
 }
 
 #msform input:focus,
@@ -88,15 +96,19 @@ html {
 }
 
 #msform .action-button {
-  width: 100px;
-  background: skyblue;
+  width: 90%;
+  background: var(--primary);
   font-weight: bold;
   color: white;
   border: 0 none;
   border-radius: 0px;
   cursor: pointer;
   padding: 10px 5px;
-  margin: 10px 5px;
+  margin:0px auto ;
+  display: flex; 
+  justify-content: center;
+  margin-top: 10px ;
+
 }
 
 #msform .action-button:hover,
@@ -150,14 +162,15 @@ select.list-dt:focus {
 }
 
 #progressbar {
+  text-align: center;
   margin-bottom: 30px;
   width: 100%;
   overflow: hidden;
-  color: lightgrey;
+  color: rgb(0, 0, 0);
 }
 
 #progressbar .active {
-  color: #000000;
+  color: white;
 }
 
 #progressbar li {
@@ -166,6 +179,7 @@ select.list-dt:focus {
   width: 25%;
   float: left;
   position: relative;
+  text-align : center;
 }
 
 #progressbar #account:before {
@@ -245,6 +259,15 @@ select.list-dt:focus {
 .fit-image {
   width: 100%;
   object-fit: cover;
+}
+@media(max-width:530px ){
+  .register-col{  
+   grid-template-columns:repeat(1,1fr);
+   grid-gap: 10px;  
+  }
+  #msform {
+    width: 95%;
+  }
 }
 
 @media only screen and (max-width: 549px) and (min-width: 400px),
