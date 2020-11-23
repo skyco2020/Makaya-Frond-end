@@ -141,10 +141,10 @@
       </div> -->
       <!-- <div class="contenedor-carousel" > -->
       <div class="carousel">
-        <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
+        <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
           <div class="video">
             <video>
-              <source src="{{ item.picture }}" type="video/mp4" />
+              <source src="{{ item.videos.large.url }}" type="video/mp4" />
             </video>
           </div>
           <!-- <video >
@@ -179,10 +179,10 @@
 
       <div class="contenedor-carousel Romantic">
         <div class="carousel">
-          <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
+          <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
             <div class="video">
               <video>
-                <source src="{{ item.picture }}" type="video/mp4" />
+                <source src="{{ item.videos.medium.url }}" type="video/mp4" />
               </video>
             </div>
             <div class="actions">
@@ -209,10 +209,10 @@
       </button>
 
       <div class="carousel">
-        <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
+        <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
           <div class="video">
             <video>
-              <source src="{{ item.picture }}" type="video/mp4" />
+              <source src="{{ item.videos.small.url }}" type="video/mp4" />
             </video>
           </div>
           <div class="actions">

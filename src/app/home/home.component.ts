@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   userClaims: any;
   Movies: any;
   principal;
+  videoslist;
   constructor(private userService: TaskService, private router: Router,
     private gbfuncservice: GlobalFunctionService) {}
   // TODO:hay que llamar la function aca siempre
@@ -24,6 +25,10 @@ export class HomeComponent implements OnInit {
     this.Probar();
     this.principal = this.Movies[2];
     this.gbfuncservice.loadScript(urljs);
+    this.video(dat => {
+      this.videoslist = dat;
+      debugger;
+    });
   }
   GetAllMovie() {
     this.userService.GetAllMovie().subscribe((data: any) => {
@@ -119,13 +124,27 @@ export class HomeComponent implements OnInit {
       // },
     ];
   }
-  
+
   Logout() {
     this.userService.logout().subscribe((success) => {
-      debugger;
       if (success) {
         this.router.navigate(['/browse']);
       }
+    });
+  }
+
+   video(callback){
+    var API_KEY = '19225679-589718ac01031a964104548e7';
+    var URL = "https://pixabay.com/api/videos/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
+    $.getJSON(URL, function(data){
+    if (parseInt(data.totalHits) > 0)
+      callback(data.hits);
+        // $.each(data.hits, function(i, hit)
+        // { 
+        //   console.log(hit.pageURL); 
+        // });
+    // else
+    //     return null;
     });
   }
 }
