@@ -25,6 +25,7 @@ import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.comp
 import { ProfilComponent } from './profilmodule/profil/profil.component';
 import { UpdateprofilComponent } from './profilmodule/updateprofil/updateprofil.component';
 import { KidsComponent } from './profilmodule/kids/kids.component';
+import { GlobalFunctionService} from './Function/global-function.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,7 @@ import { KidsComponent } from './profilmodule/kids/kids.component';
     ],
   exports:[RouterModule],
 
-  providers: [{provide:JWT_OPTIONS, useValue:JWT_OPTIONS},JwtHelperService,AuthGuard,TaskService, StateloginService,
+  providers: [{provide:JWT_OPTIONS, useValue:JWT_OPTIONS},JwtHelperService,AuthGuard,TaskService, GlobalFunctionService, StateloginService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

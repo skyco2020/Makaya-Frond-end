@@ -19,7 +19,6 @@ import { SkycoUser } from '../Classes/skyco-user';
 import { SkycoAccount } from '../Classes/skyco-account';
 import { City } from '../Classes/city';
 import { SkycoAddress } from '../Classes/skyco-address';
-import { Country } from '../Classes/country';
 import { Province } from '../Classes/province';
 
 declare var $: any;

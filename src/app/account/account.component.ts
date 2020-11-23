@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { LoginToken } from '../Classes/login-token';
 import { PerfilService } from '../services/perfil.service';
 import decode from 'jwt-decode';
-// import * as sld from '../../assets/js/login.js';
+import { GlobalFunctionService } from '../Function/global-function.service';
 
 declare var $: any;
 const urljs = '../../assets/js/login.js';
@@ -22,12 +22,12 @@ export class AccountComponent implements OnInit {
   constructor(
     private userService: TaskService,
     private serperfil: PerfilService,
-    private router: Router
+    private router: Router,
+    private gbfuncservice: GlobalFunctionService
   ) {}
 
   ngOnInit(): void {
     loginLabel();
-    this.loadScript();
     localStorage.removeItem('userToken');
     if (localStorage.getItem('mail') !== null) {
       this.user.UserName = localStorage.getItem('mail');
@@ -35,16 +35,9 @@ export class AccountComponent implements OnInit {
     } else {
       $('#email').attr('disabled', false);
     }
+    this.gbfuncservice.loadScript(urljs);
   }
-  loadScript() {
-    const node = document.createElement('script');
-    node.src = urljs;
-    node.type = 'text/javascript';
-    node.async = true;
-    // tslint:disable-next-line: deprecation
-    node.charset = 'utf-8';
-    document.getElementsByTagName('head')[0].appendChild(node);
-  }
+
   OnSubmit(userName, password) {
     if (userName === '') {
       $('.error_mail').html('Enter your email');

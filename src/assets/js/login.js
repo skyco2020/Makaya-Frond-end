@@ -1,12 +1,13 @@
-document
+
 const btnLoginn = document.getElementById("btn-login");
 const email = document.querySelector("#email");
 const pass = document.querySelector("#password");
-console.log(email.value);
+
 const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 addEvents();
 function addEvents() {
-  
+  debugger;  
+console.log("Email valor "+ $("#email").val());
   loginLabel();
 }
 function loginLabel() {
@@ -15,7 +16,8 @@ function loginLabel() {
   pass.addEventListener("keyup", verify);
 }
 
-function verify(e) {
+function verify(e) {  
+  debugger;
   if (e.target.value == "") {
     e.target.style.border = "0.5px solid red";
     btnLoginn.disabled = true;

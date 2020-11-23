@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from '../services/task.service';
-// import {Glide} from '@glidejs/glide';
-import Glide, {
-  Controls,
-  Breakpoints,
-} from '@glidejs/glide/dist/glide.modular.esm';
-import { DOCUMENT } from '@angular/common';
-import * as sld from '../../assets/js/sliderhome.js';
-// new Glide('.glide').mount({ Controls, Breakpoints });
+import { GlobalFunctionService } from '../Function/global-function.service';
 
 declare var $: any;
 const urljs = '../../assets/js/sliderhome.js';
@@ -22,16 +15,15 @@ export class HomeComponent implements OnInit {
   userClaims: any;
   Movies: any;
   principal;
-  constructor(private userService: TaskService, private router: Router) {}
+  constructor(private userService: TaskService, private router: Router,
+    private gbfuncservice: GlobalFunctionService) {}
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
     stopPlay();
-    this.loadScript();
     Carousel();
     this.Probar();
     this.principal = this.Movies[2];
-    // this.GetAllMovie();
-    // this.router.navigate(['/home']);
+    this.gbfuncservice.loadScript(urljs);
   }
   GetAllMovie() {
     this.userService.GetAllMovie().subscribe((data: any) => {
@@ -127,15 +119,7 @@ export class HomeComponent implements OnInit {
       // },
     ];
   }
-  loadScript() {
-    const node = document.createElement('script');
-    node.src = urljs;
-    node.type = 'text/javascript';
-    node.async = true;
-    // tslint:disable-next-line: deprecation
-    node.charset = 'utf-8';
-    document.getElementsByTagName('head')[0].appendChild(node);
-  }
+  
   Logout() {
     this.userService.logout().subscribe((success) => {
       debugger;
