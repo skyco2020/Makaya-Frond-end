@@ -1,5 +1,5 @@
 body {
-  background: var(--fondo);
+  background: var(--fondo)!important;
   font-family: "Open Sans", sans-serif;
 }
 .back {
@@ -386,8 +386,9 @@ nav a:hover:before {
 
 .peliculas-recomendadas .contenedor-principal {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  /* position: relative; */
+  position: relative;
   z-index: 2;
   margin: 5px 0px 15px 0px !important;
 }
@@ -435,12 +436,12 @@ nav a:hover:before {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  background-color: black;
+  background-color: transparent;
   min-width: 20%;
   height: auto;
   overflow: hidden;
   margin: 0px 2px 0px 2px;
-  transition: ease-in-out 1ms;
+  transition: all 1s;
   cursor: pointer;
 }
 

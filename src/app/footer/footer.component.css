@@ -1,11 +1,12 @@
 a {
   text-transform: capitalize;
+  transition: all 1s;
 }
 a:hover {
   text-decoration: underline;
-  opacity: 0.8;
+  /* opacity: 0.8; */
   text-align: left !important;
-  color: rgba(0, 0, 0, 0.8);
+  /* color: rgba(0, 0, 0, 0.8); */
 }
 hr {
   background: white;
@@ -38,12 +39,14 @@ footer > .footer-wrapper > .box > ul > li {
 /* media queries  */
 @media (max-width: 430px) {
   footer {
-    padding: 0;
-    padding-top: 10px;
+    padding: 10px 0px 5px 15px ;
   }
   footer > .footer-wrapper > .box {
     border-bottom: 0.3px solid black;
     margin-right: 0px;
     margin-bottom: 0px;
+  }
+  footer > .footer-wrapper > .box:last-child{
+    border-bottom:none;
   }
 }
