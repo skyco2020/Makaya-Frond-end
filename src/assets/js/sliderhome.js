@@ -1,4 +1,4 @@
-const fila = document.querySelector(".contenedor-carousel");
+// const fila = document.querySelector(".contenedor-principal");
 const peliculas = document.querySelectorAll(".pelicula");
 
 const filaRomantic = document.querySelector(".Romantic");
@@ -13,14 +13,16 @@ const flechaIzquierdaRomantic = document.getElementById(
 const flechaDerechaRomantic = document.getElementById("flecha-derechaRomantic");
 
 // ? ----- ----- Event Listener para la flecha derecha. ----- -----
-flechaDerecha.addEventListener("click", () => {
-  fila.scrollLeft += fila.offsetWidth;
-});
+// flechaDerecha.addEventListener("click", () => {
+//   debugger;
+//   fila.scrollLeft += fila.offsetWidth;
+// });
 
 // ? ----- ----- Event Listener para la flecha izquierda. ----- -----
-flechaIzquierda.addEventListener("click", () => {
-  fila.scrollLeft -= fila.offsetWidth;
-});
+// flechaIzquierda.addEventListener("click", () => {
+//   debugger;
+//   fila.scrollLeft -= fila.offsetWidth;
+// });
 
 // ? ----- ----- Event Listener para la flecha derecha Romantic. ----- -----
 flechaDerechaRomantic.addEventListener("click", () => {
@@ -62,9 +64,9 @@ peliculas.forEach((pelicula) => {
   });
 });
 
-fila.addEventListener("mouseleave", () => {
-  peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
-});
+// fila.addEventListener("mouseleave", () => {
+//   peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
+// });
 
 const cards = document.querySelectorAll("#card");
 cards.forEach((card) =>

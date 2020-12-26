@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { StripeService, Elements, Element as StripeElement, ElementsOptions } from 'ngx-stripe';
+import { StripeService, Elements, Element as StripeElement, 
+  ElementsOptions } from 'ngx-stripe';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Token } from '../Classes/token';

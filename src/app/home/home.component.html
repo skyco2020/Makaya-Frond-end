@@ -122,24 +122,6 @@
         <i class="fas fa-angle-left"></i>
       </button>
 
-      <!-- <div class="contenedor-carousel" *ngFor="let item of Movies">
-        <div class="carousel">
-          <div class="pelicula">
-            <video id="pelicula">
-              <source src="{{ item.urlmovie }}" type="video/mp4" />
-            </video>
-            <video >
-            <source src="{{ item.urlmovie }}" type="video/mp4" />
-          </video>
-            <div class="actions">
-              <i class="fas fa-play"></i>
-              <i class="fa fa-angle-double-down" id="wide-video"></i>
-              <i class="fas fa-plus-circle"></i>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
       <!-- <div class="contenedor-carousel" > -->
       <div class="carousel">
         <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
@@ -262,5 +244,22 @@
     </div>
   </div>
 </main>
+
+<p-carousel [value]="Movies" [numVisible]="4" [numScroll]="2" [circular]="false">
+  <ng-template pTemplate="header">
+      <h5>Films for try out</h5>
+  </ng-template>  
+  <ng-template let-movies pTemplate="item">
+      <div class="product-item">
+          <div class="product-item-content">
+            <div class="video p-mb-1">
+              <video>
+                <source src="{{ movies.picture }}" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+      </div>
+  </ng-template>
+</p-carousel>
 
 <app-footer></app-footer>

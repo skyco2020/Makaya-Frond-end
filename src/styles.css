@@ -111,3 +111,6 @@ div.error-message i {
 .show-case-logo:focus {
   outline: none;
 }
+.p-carousel-content >ul.p-carousel-indicators{
+  display: none;
+}

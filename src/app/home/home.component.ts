@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     stopPlay();
     Carousel();
+    FullScreen();
     this.Probar();
     this.principal = this.Movies[2];
     this.gbfuncservice.loadScript(urljs);
@@ -93,35 +94,7 @@ export class HomeComponent implements OnInit {
         description:
           'A powerful and engaging social issue documentary investigating the living situations and treatment of Haitian immigrants and their children in the Bahamas.',
         picture: '../../assets/video/VID-20200705-WA0050.mp4',
-      },
-      // {
-      //   name: 'La Règle du jeu',
-      //   age: 'Jean Renoir, France 1939',
-      //   description:
-      //     'Made on the cusp of WWII, Jean Renoir’s satire of the upper-middle classes was banned as demoralising by the French government for two decades after its release.',
-      //   picture: '../../assets/img/regle-du-jeu-la-1939.jpg',
-      // },
-      // {
-      //   name: 'The Searchers',
-      //   age: 'John Ford, USA 1956',
-      //   description:
-      //     'John Ford created perhaps the greatest of all westerns with this tale of a Civil War veteran doggedly hunting the Comanche who have kidnapped his niece.',
-      //   picture: '../../assets/img/searchers-e1956.jpg',
-      // },
-      // {
-      //   name: '2001: A Space Odyssey',
-      //   age: 'Stanley Kubrick, UK/USA 1968',
-      //   description:
-      //     'Stanley Kubrick took science fiction cinema in a grandly intelligent new direction with this epic story of man’s quest for knowledge.',
-      //   picture: '../../assets/img/space-odyssey-1968.jpg',
-      // },
-      // {
-      //   name: 'Sunrise: A Song of Two Humans',
-      //   age: 'F.W. Murnau, USA 1927',
-      //   description:
-      //     'Lured to Hollywood by producer William Fox, German Expressionist filmmaker F.W. Murnau created one of the silent cinema’s last and most luminous masterpieces.',
-      //   picture: '../../assets/img/sunrise-1927.jpg',
-      // },
+      }
     ];
   }
 
@@ -138,13 +111,7 @@ export class HomeComponent implements OnInit {
     var URL = "https://pixabay.com/api/videos/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
     $.getJSON(URL, function(data){
     if (parseInt(data.totalHits) > 0)
-      callback(data.hits);
-        // $.each(data.hits, function(i, hit)
-        // { 
-        //   console.log(hit.pageURL); 
-        // });
-    // else
-    //     return null;
+      callback(data.hits);       
     });
   }
 }
@@ -207,13 +174,11 @@ function Carousel() {
   });
 
   $('.play').on('click', function () {
-    debugger;
     var v = document.getElementsByTagName('video')[1];
     v.play();
   });
 
   $('.modal-close').on('click', function () {
-    debugger;
     var media = document.getElementsByTagName('video')[1];
     media.pause();
     let curent = media.currentTime;
@@ -263,5 +228,69 @@ function stopPlay() {
     media.currentTime = 0;
     //  $('.modal').modal();
     // $('.modal').hide();
+  });
+}
+
+function FullScreen(){
+
+  $("#video-principal-modal").on("dblclick", function(){
+    toggleFullScreen();
+  });
+
+  document.addEventListener("keydown", function(e) {
+    debugger;
+    if (e.keyCode == 13) {     
+      toggleFullScreen();
+    }
+  }, false);
+
+  $(document).bind('fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange', function (e) {
+    var fullscreenElement = document.fullscreenElement
+    if (!fullscreenElement) {
+      Block();
+    } 
+  });
+  
+}
+
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    None();
+    document.documentElement.requestFullscreen();
+  } else {
+    if (document.exitFullscreen) {
+      Block();
+      document.exitFullscreen(); 
+    }
+  }
+
+  $("#video-principal-modal").mouseover(function() {
+    FedeIn();
+  });
+
+  $("#video-principal-modal").mouseleave(function() {
+    FedeOut();
+  });
+}
+
+function FedeOut(){
+  $(".DelAdv").fadeOut(3000);
+}
+
+function FedeIn(){
+  $(".DelAdv").fadeIn();
+}
+
+function None(){
+  FedeOut();
+  $(".btn-flat").css({
+    display: "none"
+  });
+}
+
+function Block(){
+  FedeIn();
+  $(".btn-flat").css({
+    display: "block"
   });
 }

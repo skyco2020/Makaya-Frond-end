@@ -26,6 +26,10 @@ import { ProfilComponent } from './profilmodule/profil/profil.component';
 import { UpdateprofilComponent } from './profilmodule/updateprofil/updateprofil.component';
 import { KidsComponent } from './profilmodule/kids/kids.component';
 import { GlobalFunctionService} from './Function/global-function.service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {CarouselModule} from 'primeng/carousel';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,11 +56,12 @@ import { GlobalFunctionService} from './Function/global-function.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    CarouselModule,
     FormsModule,
     NgbModalModule,
     ReactiveFormsModule,
     NgxStripeModule.forRoot('pk_test_ystNiSIyKYOF0Nm6pgLjXXEW00Ym2IQmtV') ,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     ToastrModule.forRoot()
     ],
   exports:[RouterModule],
