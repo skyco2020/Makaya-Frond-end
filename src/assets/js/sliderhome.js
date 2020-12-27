@@ -1,16 +1,18 @@
 // const fila = document.querySelector(".contenedor-principal");
-const peliculas = document.querySelectorAll(".pelicula");
-
-const filaRomantic = document.querySelector(".Romantic");
-const peliculasRomantic = document.querySelectorAll(".pelicula");
-
-const flechaIzquierda = document.getElementById("flecha-izquierda");
-const flechaDerecha = document.getElementById("flecha-derecha");
-
-const flechaIzquierdaRomantic = document.getElementById(
-  "flecha-izquierdaRomantic"
+const peliculas = document.querySelectorAll(
+  ".peliculas-recomendadas .product-item"
 );
-const flechaDerechaRomantic = document.getElementById("flecha-derechaRomantic");
+// console.log("la confe");
+// const filaRomantic = document.querySelector(".Romantic");
+// const peliculasRomantic = document.querySelectorAll(".pelicula");
+
+// const flechaIzquierda = document.getElementById("flecha-izquierda");
+// const flechaDerecha = document.getElementById("flecha-derecha");
+
+// const flechaIzquierdaRomantic = document.getElementById(
+//   "flecha-izquierdaRomantic"
+// );
+// const flechaDerechaRomantic = document.getElementById("flecha-derechaRomantic");
 
 // ? ----- ----- Event Listener para la flecha derecha. ----- -----
 // flechaDerecha.addEventListener("click", () => {
@@ -25,14 +27,14 @@ const flechaDerechaRomantic = document.getElementById("flecha-derechaRomantic");
 // });
 
 // ? ----- ----- Event Listener para la flecha derecha Romantic. ----- -----
-flechaDerechaRomantic.addEventListener("click", () => {
-  filaRomantic.scrollLeft += filaRomantic.offsetWidth;
-});
+// flechaDerechaRomantic.addEventListener("click", () => {
+//   filaRomantic.scrollLeft += filaRomantic.offsetWidth;
+// });
 
-// ? ----- ----- Event Listener para la flecha izquierda Romantic. ----- -----
-flechaIzquierdaRomantic.addEventListener("click", () => {
-  filaRomantic.scrollLeft -= filaRomantic.offsetWidth;
-});
+// // ? ----- ----- Event Listener para la flecha izquierda Romantic. ----- -----
+// flechaIzquierdaRomantic.addEventListener("click", () => {
+//   filaRomantic.scrollLeft -= filaRomantic.offsetWidth;
+// });
 
 // ? ----- ----- Paginacion ----- -----
 // const numeroPaginas = Math.ceil(peliculas.length / 5);
@@ -54,15 +56,15 @@ flechaIzquierdaRomantic.addEventListener("click", () => {
 // }
 
 // ? ----- ----- Hover ----- -----
-peliculas.forEach((pelicula) => {
-  pelicula.addEventListener("mouseenter", (e) => {
-    const elemento = e.currentTarget;
-    setTimeout(() => {
-      peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
-      elemento.classList.add("hover");
-    }, 300);
-  });
-});
+// peliculas.forEach((pelicula) => {
+//   pelicula.addEventListener("mouseenter", (e) => {
+//     const elemento = e.currentTarget;
+//     setTimeout(() => {
+//       peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
+//       elemento.classList.add("hover");
+//     }, 300);
+//   });
+// });
 
 // fila.addEventListener("mouseleave", () => {
 //   peliculas.forEach((pelicula) => pelicula.classList.remove("hover"));
@@ -76,24 +78,26 @@ cards.forEach((card) =>
 );
 peliculas.forEach((pel) => {
   pel.addEventListener("mouseover", function () {
+    // console.log(pel);
     deleteShowAction();
     pel.lastChild.classList.add("show-action");
     pel.firstChild.firstChild.play();
-    pel.style.background = " black";
-    // pel.style.height = "auto";
-    pel.style.transform = "scale(1.3)";
-    // pel.style.anaimation = "showFilms 1s";
-    pel.style.borderRadius = "5px";
-    pel.style.zIndex = "3";
+    pel.querySelector(".fa-play").onclick = () => {
+      let url = this.firstChild.firstChild.firstChild.getAttribute("src");
+      let modal = document.querySelector("#modal1");
+
+      let video = modal.querySelector("#video-principal-modal");
+      if (video.firstChild) {
+        video.firstChild.remove();
+      }
+      let videoNuevo = document.createElement("source");
+      videoNuevo.setAttribute("src", url);
+      video.appendChild(videoNuevo);
+      console.log(video);
+      modal.style.display = "block";
+      console.log(modal);
+    };
     pel.firstChild.firstChild.style.height = "100%";
-    // pel.style.position = "absolute";
-    // pel.style.clip = "rect(1px,1px,1px,1px)";
-    // pel.style.top = "initial";
-    // pel.style.left = "initial";
-    // pel.style.transform = "rotate(90)";
-    // pel.style.width = "300px";
-    // this.firstChild.style.width = "240px";
-    // this.firstChild.firstChild.style.width = "240px";
   });
 });
 peliculas.forEach((pel) => {
@@ -101,12 +105,6 @@ peliculas.forEach((pel) => {
     this.lastChild.classList.remove("show-action");
     this.firstChild.firstChild.pause();
     pel.style.transform = "scale(1)";
-    this.style.position = "initial";
-    this.style.height = "initial";
-    this.style.borderRadius = "initial";
-    this.style.width = "initial";
-    this.style.zIndex = "initial";
-    this.style.background = "initial";
   });
 });
 function deleteShowAction() {
@@ -114,3 +112,23 @@ function deleteShowAction() {
     p.lastChild.classList.remove("show-action");
   });
 }
+let close = document.querySelector(".modal-close ");
+let modal = document.querySelector("#modal1");
+document.querySelector(".btn-play-principal").onclick = () => {
+  let vp = document.querySelector("#video-principal").getAttribute("src");
+
+  console.log(close);
+  let videoNuevo = document.createElement("source");
+  let modal = document.querySelector("#modal1");
+  let video = modal.querySelector("#video-principal-modal");
+  if (video.firstChild) {
+    video.firstChild.remove();
+  }
+  videoNuevo.setAttribute("src", vp);
+  video.appendChild(videoNuevo);
+  modal.style.display = "block";
+};
+close.onclick = () => {
+  console.log("se cierra elmodal");
+  modal.style.display = "none";
+};

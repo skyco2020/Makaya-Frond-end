@@ -1,0 +1,126 @@
+
+    <div class="contenedor-principal">
+      <button role="button" id="flecha-izquierda" class="flecha-izquierda">
+        <i class="fas fa-angle-left"></i>
+      </button>
+
+      <!-- <div class="contenedor-carousel" > -->
+      <div class="carousel">
+        <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
+          <div class="video">
+            <video>
+              <source src="{{ item.videos.large.url }}" type="video/mp4" />
+            </video>
+          </div>
+          <!-- <video >
+            <source src="{{ item.urlmovie }}" type="video/mp4" />
+          </video> -->
+          <div class="actions">
+            <i class="fas fa-play"></i>
+            <i class="fa fa-angle-double-down" id="wide-video"></i>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+
+      <button role="button" id="flecha-derecha" class="flecha-derecha">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+
+    <div class="contenedor-titulo-controles">
+      <h3>Romantic</h3>
+      <!-- <div class="indicadores"></div> -->
+    </div>
+    <div class="contenedor-principal">
+      <button
+        role="button"
+        id="flecha-izquierdaRomantic"
+        class="flecha-izquierda"
+      >
+        <i class="fas fa-angle-left"></i>
+      </button>
+
+      <div class="contenedor-carousel Romantic">
+        <div class="carousel">
+          <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
+            <div class="video">
+              <video>
+                <source src="{{ item.videos.medium.url }}" type="video/mp4" />
+              </video>
+            </div>
+            <div class="actions">
+              <i class="fas fa-play"></i>
+              <i class="fa fa-angle-double-down" id="wide-video"></i>
+              <i class="fas fa-plus-circle"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button role="button" id="flecha-derechaRomantic" class="flecha-derecha">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+
+    <div class="contenedor-titulo-controles">
+      <h3>Faith</h3>
+      <!-- <div class="indicadores"></div> -->
+    </div>
+    <div class="contenedor-principal">
+      <button role="button" id="flecha-izquierda" class="flecha-izquierda">
+        <i class="fas fa-angle-left"></i>
+      </button>
+
+      <div class="carousel">
+        <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
+          <div class="video">
+            <video>
+              <source src="{{ item.videos.small.url }}" type="video/mp4" />
+            </video>
+          </div>
+          <div class="actions">
+            <i class="fas fa-play"></i>
+            <i class="fa fa-angle-double-down" id="wide-video"></i>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <button role="button" id="flecha-derecha" class="flecha-derecha">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>
+
+    <div class="contenedor-titulo-controles">
+      <h3>Drama</h3>
+      <!-- <div class="indicadores"></div> -->
+    </div>
+    <div class="contenedor-principal">
+      <button role="button" id="flecha-izquierda" class="flecha-izquierda">
+        <i class="fas fa-angle-left"></i>
+      </button>
+
+      <div class="carousel">
+        <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
+          <div class="video">
+            <video>
+              <source src="{{ item.picture }}" type="video/mp4" />
+            </video>
+          </div>
+          <!-- <video >
+              <source src="{{ item.urlmovie }}" type="video/mp4" />
+            </video> -->
+          <div class="actions">
+            <i class="fas fa-play"></i>
+            <i class="fa fa-angle-double-down" id="wide-video"></i>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+      </div>
+
+      <button role="button" id="flecha-derecha" class="flecha-derecha">
+        <i class="fas fa-angle-right"></i>
+      </button>
+    </div>

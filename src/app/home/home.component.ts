@@ -178,14 +178,14 @@ function Carousel() {
     v.play();
   });
 
-  $('.modal-close').on('click', function () {
-    var media = document.getElementsByTagName('video')[1];
-    media.pause();
-    let curent = media.currentTime;
-    media.currentTime = 0;
-    //  $('.modal').modal();
-    // $('.modal').hide();
-  });
+  // $('.modal-close').on('click', function () {
+  //   var media = document.getElementsByTagName('video')[1];
+  //   media.pause();
+  //   let curent = media.currentTime;
+  //   media.currentTime = 0;
+  //   //  $('.modal').modal();
+  //   // $('.modal').hide();
+  // });
 }
 
 function stopPlay() {
@@ -213,22 +213,22 @@ function stopPlay() {
     $('.play-video-principal').toggle();
   });
 
-  $('.play-video-principal').on('click', function () {
-    var vp = document.getElementsByTagName('video')[0];
-    vp.play();
-    $('.stop-video-principal').toggle();
-    $('.play-video-principal').toggle();
-  });
+  // $('.play-video-principal').on('click', function () {
+  //   var vp = document.getElementsByTagName('video')[0];
+  //   vp.play();
+  //   $('.stop-video-principal').toggle();
+  //   $('.play-video-principal').toggle();
+  // });
 
-  $('.modal-close').on('click', function () {
-    debugger;
-    var media = document.getElementsByTagName('video')[1];
-    media.pause();
-    let curent = media.currentTime;
-    media.currentTime = 0;
-    //  $('.modal').modal();
-    // $('.modal').hide();
-  });
+  // $('.modal-close').on('click', function () {
+  //   debugger;
+  //   var media = document.getElementsByTagName('video')[1];
+  //   media.pause();
+  //   let curent = media.currentTime;
+  //   media.currentTime = 0;
+  //   //  $('.modal').modal();
+  //   // $('.modal').hide();
+  // });
 }
 
 function FullScreen(){

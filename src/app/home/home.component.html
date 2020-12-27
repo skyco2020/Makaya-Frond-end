@@ -49,7 +49,7 @@
         role="button"
         style="cursor: pointer"
         data-target="modal1"
-        class="boton play modal-trigger"
+        class="boton btn-play-principal play modal-trigger"
       >
         <i class="fas fa-play"></i>Play Movie
       </button>
@@ -84,14 +84,14 @@
         loop
         controlsList="nodownload"
       >
-        <source src="../../assets/video/Tropical.mp4" type="video/mp4" />
-        <track
+        <!-- <source src="../../assets/video/Tropical.mp4" type="video/mp4" /> -->
+        <!-- <track
           label="English subtitles"
           kind="subtitles"
           srclang="en"
           src="/static/the-web-is-always-changing.vtt"
           default=""
-        />
+        /> -->
       </video>
       <div class="DelAdv">
         <div class="left-side">
@@ -111,91 +111,22 @@
     </div>
   </div>
 
-  <div class="peliculas-recomendadas contenedor">
-    <div class="contenedor-titulo-controles">
-      <h3>Recommended Movies</h3>
-      <!-- <div class="indicadores"></div> -->
-    </div>
-
-    <div class="contenedor-principal">
-      <button role="button" id="flecha-izquierda" class="flecha-izquierda">
-        <i class="fas fa-angle-left"></i>
-      </button>
-
-      <!-- <div class="contenedor-carousel" > -->
-      <div class="carousel">
-        <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
+  <div class="peliculas-recomendadas">
+    <p-carousel
+      [value]="Movies"
+      [numVisible]="4"
+      [numScroll]="2"
+      [circular]="false"
+    >
+      <ng-template pTemplate="header">
+        <h5 class="title-section">Films for try out</h5>
+      </ng-template>
+      <ng-template let-movies pTemplate="item">
+        <div class="product-item">
+          <!-- <div class="product-item-content"> -->
           <div class="video">
             <video>
-              <source src="{{ item.videos.large.url }}" type="video/mp4" />
-            </video>
-          </div>
-          <!-- <video >
-            <source src="{{ item.urlmovie }}" type="video/mp4" />
-          </video> -->
-          <div class="actions">
-            <i class="fas fa-play"></i>
-            <i class="fa fa-angle-double-down" id="wide-video"></i>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-        </div>
-      </div>
-      <!-- </div> -->
-
-      <button role="button" id="flecha-derecha" class="flecha-derecha">
-        <i class="fas fa-angle-right"></i>
-      </button>
-    </div>
-
-    <div class="contenedor-titulo-controles">
-      <h3>Romantic</h3>
-      <!-- <div class="indicadores"></div> -->
-    </div>
-    <div class="contenedor-principal">
-      <button
-        role="button"
-        id="flecha-izquierdaRomantic"
-        class="flecha-izquierda"
-      >
-        <i class="fas fa-angle-left"></i>
-      </button>
-
-      <div class="contenedor-carousel Romantic">
-        <div class="carousel">
-          <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
-            <div class="video">
-              <video>
-                <source src="{{ item.videos.medium.url }}" type="video/mp4" />
-              </video>
-            </div>
-            <div class="actions">
-              <i class="fas fa-play"></i>
-              <i class="fa fa-angle-double-down" id="wide-video"></i>
-              <i class="fas fa-plus-circle"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button role="button" id="flecha-derechaRomantic" class="flecha-derecha">
-        <i class="fas fa-angle-right"></i>
-      </button>
-    </div>
-
-    <div class="contenedor-titulo-controles">
-      <h3>Faith</h3>
-      <!-- <div class="indicadores"></div> -->
-    </div>
-    <div class="contenedor-principal">
-      <button role="button" id="flecha-izquierda" class="flecha-izquierda">
-        <i class="fas fa-angle-left"></i>
-      </button>
-
-      <div class="carousel">
-        <div class="pelicula" id="pelicula" *ngFor="let item of videoslist">
-          <div class="video">
-            <video>
-              <source src="{{ item.videos.small.url }}" type="video/mp4" />
+              <source src="{{ movies.picture }}" type="video/mp4" />
             </video>
           </div>
           <div class="actions">
@@ -203,63 +134,63 @@
             <i class="fa fa-angle-double-down" id="wide-video"></i>
             <i class="fas fa-plus-circle"></i>
           </div>
+          <!-- </div> -->
         </div>
-      </div>
-
-      <button role="button" id="flecha-derecha" class="flecha-derecha">
-        <i class="fas fa-angle-right"></i>
-      </button>
-    </div>
-
-    <div class="contenedor-titulo-controles">
-      <h3>Drama</h3>
-      <!-- <div class="indicadores"></div> -->
-    </div>
-    <div class="contenedor-principal">
-      <button role="button" id="flecha-izquierda" class="flecha-izquierda">
-        <i class="fas fa-angle-left"></i>
-      </button>
-
-      <div class="carousel">
-        <div class="pelicula" id="pelicula" *ngFor="let item of Movies">
+      </ng-template>
+    </p-carousel>
+    <p-carousel
+      [value]="Movies"
+      [numVisible]="4"
+      [numScroll]="2"
+      [circular]="false"
+    >
+      <ng-template pTemplate="header">
+        <h5 class="title-section">Movies</h5>
+      </ng-template>
+      <ng-template let-movies pTemplate="item">
+        <div class="product-item">
+          <!-- <div class="product-item-content"> -->
           <div class="video">
             <video>
-              <source src="{{ item.picture }}" type="video/mp4" />
+              <source src="{{ movies.picture }}" type="video/mp4" />
             </video>
           </div>
-          <!-- <video >
-              <source src="{{ item.urlmovie }}" type="video/mp4" />
-            </video> -->
           <div class="actions">
             <i class="fas fa-play"></i>
             <i class="fa fa-angle-double-down" id="wide-video"></i>
             <i class="fas fa-plus-circle"></i>
           </div>
+          <!-- </div> -->
         </div>
-      </div>
-
-      <button role="button" id="flecha-derecha" class="flecha-derecha">
-        <i class="fas fa-angle-right"></i>
-      </button>
-    </div>
+      </ng-template>
+    </p-carousel>
+    <p-carousel
+      [value]="Movies"
+      [numVisible]="4"
+      [numScroll]="2"
+      [circular]="false"
+    >
+      <ng-template pTemplate="header">
+        <h5 class="title-section">Drama</h5>
+      </ng-template>
+      <ng-template let-movies pTemplate="item">
+        <div class="product-item">
+          <!-- <div class="product-item-content"> -->
+          <div class="video">
+            <video>
+              <source src="{{ movies.picture }}" type="video/mp4" />
+            </video>
+          </div>
+          <div class="actions">
+            <i class="fas fa-play"></i>
+            <i class="fa fa-angle-double-down" id="wide-video"></i>
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <!-- </div> -->
+        </div>
+      </ng-template>
+    </p-carousel>
   </div>
 </main>
-
-<p-carousel [value]="Movies" [numVisible]="4" [numScroll]="2" [circular]="false">
-  <ng-template pTemplate="header">
-      <h5>Films for try out</h5>
-  </ng-template>  
-  <ng-template let-movies pTemplate="item">
-      <div class="product-item">
-          <div class="product-item-content">
-            <div class="video p-mb-1">
-              <video>
-                <source src="{{ movies.picture }}" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-      </div>
-  </ng-template>
-</p-carousel>
 
 <app-footer></app-footer>

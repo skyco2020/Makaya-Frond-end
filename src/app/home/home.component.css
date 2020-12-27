@@ -83,18 +83,6 @@ body {
   align-items: center;
   align-content: center;
 }
-/* .DelAdv .left-side div,
-.DelAdv .right-side div {
-  width: 30px;
-  height: 30px;
-  padding: 8px;
-  margin-right: 10px;
-  border-radius: 999px;
-  background-color: var(--primary) !important;
-  color: white !important;
-  text-align: center;
-  z-index: 4;
-} */
 
 .DelAdv .left-side > i,
 .DelAdv .right-side > i {
@@ -128,7 +116,7 @@ body {
   transform: none !important;
 }
 
-.btnPrevious {
+/* .btnPrevious {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -146,11 +134,9 @@ body {
   left: 96%;
   position: absolute;
   background: no-repeat 50% / 100% 100%;
-}
+} */
 
-.carousel {
-  height: auto !important;
-}
+
 
 .ulmod {
   width: 100% !important;
@@ -340,109 +326,44 @@ nav a:hover:before {
 .pelicula-principal > .pelicula-principal-btn div:hover {
   opacity: 0.6;
 }
-/* ---- ----- ----- Contenedor Titulo y Controles ----- ----- ----- */
 
-.contenedor-titulo-controles {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-}
+/* pelñiculas recomendadas  */
 
-.contenedor-titulo-controles h3 {
-  color: #fff;
-  font-size: 30px;
+.peliculas-recomendadas{
+  margin: 25px 0px ;
+  padding: 10px ;
 }
+.title-section{
+  color: white;
 
-.contenedor-titulo-controles .indicadores button {
-  background: #fff;
-  height: 3px;
-  width: 10px;
-  cursor: pointer;
-  border: none;
-  margin-right: 2px;
 }
+.p-carousel-item{
+  display: grid;
+    grid-template-columns: repeat(auto-fit ,minmax(200px, 1fr));
+    padding: 10px;
+    grid-gap: 1rem;
+    z-index: 2!important;
 
-.contenedor-titulo-controles .indicadores button:hover,
-.contenedor-titulo-controles .indicadores button.activo {
-  background: red;
-}
-
-/* ---- ----- ----- Contenedor Principal y Flechas ----- ----- ----- */
-
-.peliculas-recomendadas {
-  margin-bottom: 70px;
-  z-index: 2;
-  /* background-color: rgb(255, 255, 255); */
-}
-.peliculas-recomendadas .contenedor-titulo-controles {
-  /* background: rgba(0, 0, 0, 0.4); */
-  margin: 0px 0px 0px 10px;
-}
-.peliculas-recomendadas .contenedor-titulo-controles h3 {
-  z-index: 2;
-  text-transform: capitalize;
-  font-size: 25px !important;
-}
-
-.peliculas-recomendadas .contenedor-principal {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-  margin: 5px 0px 15px 0px !important;
-}
-
-.peliculas-recomendadas .contenedor-principal .flecha-izquierda,
-.peliculas-recomendadas .contenedor-principal .flecha-derecha {
-  position: absolute;
-  border: none;
-  background: rgba(0, 0, 0, 0.3);
-  font-size: 40px;
-  height: 32%;
-  line-height: 40px;
-  width: 50px;
-  color: #fff;
-  cursor: pointer;
-  z-index: 500;
-  transition: 0.2s ease all;
-}
-
-.peliculas-recomendadas .contenedor-principal .flecha-izquierda:hover,
-.peliculas-recomendadas .contenedor-principal .flecha-derecha:hover {
-  background: rgba(0, 0, 0, 0.9);
-}
-
-.peliculas-recomendadas .contenedor-principal .flecha-izquierda {
-  left: 0;
-}
-
-.peliculas-recomendadas .contenedor-principal .flecha-derecha {
-  right: 0;
-}
-
-/* ---- ----- ----- Carousel ----- ----- ----- */
-
-.peliculas-recomendadas .carousel {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  scroll-behavior: smooth;
-  width: 100%;
-  /* height: 250px; */
-  /* height: auto; */
-}
-.peliculas-recomendadas .carousel .pelicula {
+  }
+  .product-item{
+   z-index: 1;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  position: relative;
   background-color: transparent;
-  min-width: 20%;
-  height: auto;
-  overflow: hidden;
-  margin: 0px 2px 0px 2px;
+  width: 250px;
+  height: 250px;
   transition: all 1s;
   cursor: pointer;
+
+}
+.product-item:hover{
+  z-index: 1000!important;
+  position: absolute;
+  transform: scale(1.5);
+  overflow: visible;
+
 }
 
 .actions {
@@ -471,8 +392,7 @@ nav a:hover:before {
   width: 100%;
   height: 100%;
 }
-
-.peliculas-recomendadas .carousel .pelicula .actions i {
+ .actions i {
   font-size: 20px;
   cursor: pointer;
   /* color: var(--primary); */
@@ -598,22 +518,4 @@ video {
 .sub-menu-user > li > a {
   color: white;
   text-transform: uppercase;
-}
-/* Full screen */
-
-#video-principal-modal:-webkit-full-screen {
-  width: 100%;
-  height: 100%;
-}
-.product-item-content {
-  /* border: 1px solid var(--surface-d); */
-  border-radius: 3px;
-  margin: .3rem;
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.product-image {
-  width: 50%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
 }
