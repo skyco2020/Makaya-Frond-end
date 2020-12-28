@@ -519,3 +519,9 @@ video {
   color: white;
   text-transform: uppercase;
 }
+#volume{
+  width: 24%;
+  margin: 0;
+  left: -2%;
+  position: relative;
+}

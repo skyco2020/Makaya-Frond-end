@@ -26,6 +26,7 @@ export const appRoutes: Routes = [
     canActivate: [RoleGuardGuard],
     data: {
       expectedRole: 'user',
+      title: 'Home'
     },
   },
   {
@@ -35,11 +36,15 @@ export const appRoutes: Routes = [
     canActivate: [RoleGuardGuard],
     data: {
       expectedRole: 'user',
+      title: 'Kids'
     },
   },
   {
     path: '404',
     component: ErrorComponent,
+    data: {
+      title: 'Error'
+    },
   },
   {
     path: 'provider',
@@ -47,6 +52,7 @@ export const appRoutes: Routes = [
     canActivate: [RoleGuardGuard],
     data: {
       expectedRole: 'provider',
+      title: 'Provider'
     },
     loadChildren: () =>
       import('./modules/provider/provider.module').then(
@@ -59,6 +65,7 @@ export const appRoutes: Routes = [
     canActivate: [RoleGuardGuard],
     data: {
       expectedRole: 'employee',
+      title: 'Employe'
     },
     loadChildren: () =>
       import('./modules/employee/employee.module').then(
@@ -68,6 +75,7 @@ export const appRoutes: Routes = [
   {
     path: 'browse',
     component: UserComponent,
+     data: {title: 'browse'}
     // canActivate: [AuthGuard]
   },
   {
@@ -76,16 +84,18 @@ export const appRoutes: Routes = [
     canActivate: [RoleGuardGuard],
     data: {
       expectedRole: 'user',
+      title: 'Perfil'
     },
   },
   {
     path: 'account',
     component: AccountComponent,
-    // canActivate: [AuthGuard]
+    data: {title: 'Account'}
   },
   {
     path: 'registerpayment',
     component: RegisterpaymentComponent,
+    data: {title: 'Register payment'}
   },
   {
     path: '',
@@ -95,14 +105,17 @@ export const appRoutes: Routes = [
   {
     path: 'updateprofil',
     component: UpdateprofilComponent,
+    data: {title: 'Update perfil'}
   },
   {
     path: 'finishpayment',
     component: FinishpaymentComponent,
+    data: {title: 'Finish payment'}
   },
   {
     path: 'nonepayment',
     component: NonepaymentComponent,
+    data: {title: 'None payment'}
   },
   /* any unrecognized path will send home */
   {

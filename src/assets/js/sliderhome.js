@@ -1,3 +1,5 @@
+var $;
+var media = document.getElementsByTagName('video')[1];
 // const fila = document.querySelector(".contenedor-principal");
 const peliculas = document.querySelectorAll(
   ".peliculas-recomendadas .product-item"
@@ -81,7 +83,7 @@ peliculas.forEach((pel) => {
     // console.log(pel);
     deleteShowAction();
     pel.lastChild.classList.add("show-action");
-    pel.firstChild.firstChild.play();
+    // pel.firstChild.firstChild.play();
     pel.querySelector(".fa-play").onclick = () => {
       let url = this.firstChild.firstChild.firstChild.getAttribute("src");
       let modal = document.querySelector("#modal1");
@@ -92,9 +94,13 @@ peliculas.forEach((pel) => {
       }
       let videoNuevo = document.createElement("source");
       videoNuevo.setAttribute("src", url);
-      video.appendChild(videoNuevo);
+      $(video).attr("src", url);
+      // video.appendChild(videoNuevo);
       console.log(video);
-      modal.style.display = "block";
+      debugger;
+      $('#modal1').modal('open');
+      // modal.style.display = "block";
+      // $("#modal1").addClass("open");
       console.log(modal);
     };
     pel.firstChild.firstChild.style.height = "100%";
@@ -112,7 +118,7 @@ function deleteShowAction() {
     p.lastChild.classList.remove("show-action");
   });
 }
-let close = document.querySelector(".modal-close ");
+let close = document.querySelector(".modal-close");
 let modal = document.querySelector("#modal1");
 document.querySelector(".btn-play-principal").onclick = () => {
   let vp = document.querySelector("#video-principal").getAttribute("src");
@@ -125,10 +131,80 @@ document.querySelector(".btn-play-principal").onclick = () => {
     video.firstChild.remove();
   }
   videoNuevo.setAttribute("src", vp);
-  video.appendChild(videoNuevo);
-  modal.style.display = "block";
+  $(video).attr("src", vp);
+  // video.appendChild(videoNuevo);
+  $('#modal1').modal('open');
+  // modal.style.display = "block";
 };
 close.onclick = () => {
-  console.log("se cierra elmodal");
-  modal.style.display = "none";
+    media.pause();  
+  $("#modal1").removeClass('open');
 };
+// Volumen
+let currentTime = false;
+$(".fa-fast-forward").on("click", function(){
+  media.currentTime += 10;
+  media.play();
+  currentTime = true;
+})
+$(".fa-fast-backward").on("click", function(){
+  media.currentTime -= 10;
+  media.play();
+  currentTime = true;
+})
+// $(".fa-volume-up").on("click", function(){
+//   let val = parseInt($("#volume").val());
+//   if(val > 0){
+//     $("#volume").val(parseInt($("#volume").val()) - 10);
+//     $(media).prop("volume",(parseInt($("#volume").val())/100));
+//   }
+//   // media.play();
+//   currentTime = true;
+// })
+
+$(".fa-plus,.fa-volume-up").on("click", function(){
+  debugger;
+  let val = parseInt($("#volume").val());
+  if(val <= 0 || val < 100){
+    $("#volume").val(parseInt($("#volume").val()) + 10);
+    $(media).prop("volume",(parseInt($("#volume").val())/100));
+  }
+  // media.play();
+  currentTime = true;
+})
+
+$(".fa-minus").on("click", function(){
+  let val = parseInt($("#volume").val());
+  debugger;
+  if(val === 0)
+    return;
+  if(val <= 100){
+    $("#volume").val(parseInt($("#volume").val()) - 10);
+    $(media).prop("volume",(parseInt($("#volume").val())/100));
+  }
+  // media.play();
+  currentTime = true;
+})
+
+$("#volume").on("change", function(){ 
+  let val = $("#volume").val();
+  $(media).prop("volume",(val / 100));
+  currentTime = true;
+})
+
+
+let ispause = false;
+$('#modal1').on("click", function(){
+  if(currentTime){
+    currentTime = false;
+    return;
+  }
+  if(!ispause){
+    media.pause();
+    ispause = true;
+  }  
+  else{
+    media.play();
+    ispause = false;
+  } 
+})

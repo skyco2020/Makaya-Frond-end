@@ -114,3 +114,15 @@ div.error-message i {
 .p-carousel-content >ul.p-carousel-indicators{
   display: none;
 }
+
+/* Volumen */
+.thumb  > span{
+  display: none;
+}
+.thumb{
+  left: initial!important;
+  height: initial!important;
+  width: initial!important;
+  margin-left: initial!important;
+};
+
