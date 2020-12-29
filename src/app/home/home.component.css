@@ -513,7 +513,6 @@ video {
   color: white;
   text-transform: uppercase;
 }
-<<<<<<< HEAD
 .div-wide {
   width: 80%;
   display: none;
@@ -588,11 +587,9 @@ video {
 .div-wide .info-film {
   flex-basis: 50%;
 }
-=======
-#volume{
+#volume {
   width: 24%;
   margin: 0;
   left: -2%;
   position: relative;
 }
->>>>>>> 5f0709e0442d4d4386ae34546bceb3649d1822b3
