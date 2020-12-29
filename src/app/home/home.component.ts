@@ -31,12 +31,14 @@ export class HomeComponent implements OnInit {
       debugger;
     });
   }
+
   GetAllMovie() {
     this.userService.GetAllMovie().subscribe((data: any) => {
       this.principal = data[4];
       this.Movies = data;
     });
   }
+
   Probar() {
     this.Movies = [
       {
