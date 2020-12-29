@@ -114,6 +114,7 @@ div.error-message i {
 .p-carousel-content > ul.p-carousel-indicators {
   display: none;
 }
+<<<<<<< HEAD
 .btn {
   outline: none;
   border: none;
@@ -123,3 +124,17 @@ div.error-message i {
   border-radius: 3px;
   background-color: var(--primary);
 }
+=======
+
+/* Volumen */
+.thumb  > span{
+  display: none;
+}
+.thumb{
+  left: initial!important;
+  height: initial!important;
+  width: initial!important;
+  margin-left: initial!important;
+};
+
+>>>>>>> 5f0709e0442d4d4386ae34546bceb3649d1822b3

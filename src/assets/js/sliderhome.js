@@ -1,3 +1,5 @@
+var $;
+var media = document.getElementsByTagName('video')[1];
 // const fila = document.querySelector(".contenedor-principal");
 const peliculas = document.querySelectorAll(
   ".peliculas-recomendadas .product-item"
@@ -81,9 +83,13 @@ peliculas.forEach((pel) => {
     // console.log(pel);
     deleteShowAction();
     pel.lastChild.classList.add("show-action");
+<<<<<<< HEAD
     pel.firstChild.firstChild.play();
     pel.firstChild.firstChild.style.height = "100%";
     let url = this.firstChild.firstChild.firstChild.getAttribute("src");
+=======
+    // pel.firstChild.firstChild.play();
+>>>>>>> 5f0709e0442d4d4386ae34546bceb3649d1822b3
     pel.querySelector(".fa-play").onclick = () => {
       let modal = document.querySelector("#modal1");
 
@@ -93,6 +99,7 @@ peliculas.forEach((pel) => {
       }
       let videoNuevo = document.createElement("source");
       videoNuevo.setAttribute("src", url);
+<<<<<<< HEAD
       video.appendChild(videoNuevo);
       modal.style.display = "block";
       // console.log(video);
@@ -112,6 +119,16 @@ peliculas.forEach((pel) => {
       document.querySelector(".close-wide-video").onclick = () => {
         closeModal(videoWide, wide);
       };
+=======
+      $(video).attr("src", url);
+      // video.appendChild(videoNuevo);
+      console.log(video);
+      debugger;
+      $('#modal1').modal('open');
+      // modal.style.display = "block";
+      // $("#modal1").addClass("open");
+      console.log(modal);
+>>>>>>> 5f0709e0442d4d4386ae34546bceb3649d1822b3
     };
   });
 });
@@ -127,7 +144,7 @@ function deleteShowAction() {
     p.lastChild.classList.remove("show-action");
   });
 }
-let close = document.querySelector(".modal-close ");
+let close = document.querySelector(".modal-close");
 let modal = document.querySelector("#modal1");
 document.querySelector(".btn-play-principal").onclick = () => {
   let vp = document.querySelector("#video-principal").getAttribute("src");
@@ -139,6 +156,7 @@ document.querySelector(".btn-play-principal").onclick = () => {
   if (v.firstChild) {
     v.firstChild.remove();
   }
+<<<<<<< HEAD
   vn.setAttribute("src", vp);
   v.appendChild(vn);
   modal.style.display = "block";
@@ -150,3 +168,83 @@ function closeModal(v, md) {
   v.pause();
   md.style.display = "none";
 }
+=======
+  videoNuevo.setAttribute("src", vp);
+  $(video).attr("src", vp);
+  // video.appendChild(videoNuevo);
+  $('#modal1').modal('open');
+  // modal.style.display = "block";
+};
+close.onclick = () => {
+    media.pause();  
+  $("#modal1").removeClass('open');
+};
+// Volumen
+let currentTime = false;
+$(".fa-fast-forward").on("click", function(){
+  media.currentTime += 10;
+  media.play();
+  currentTime = true;
+})
+$(".fa-fast-backward").on("click", function(){
+  media.currentTime -= 10;
+  media.play();
+  currentTime = true;
+})
+// $(".fa-volume-up").on("click", function(){
+//   let val = parseInt($("#volume").val());
+//   if(val > 0){
+//     $("#volume").val(parseInt($("#volume").val()) - 10);
+//     $(media).prop("volume",(parseInt($("#volume").val())/100));
+//   }
+//   // media.play();
+//   currentTime = true;
+// })
+
+$(".fa-plus,.fa-volume-up").on("click", function(){
+  debugger;
+  let val = parseInt($("#volume").val());
+  if(val <= 0 || val < 100){
+    $("#volume").val(parseInt($("#volume").val()) + 10);
+    $(media).prop("volume",(parseInt($("#volume").val())/100));
+  }
+  // media.play();
+  currentTime = true;
+})
+
+$(".fa-minus").on("click", function(){
+  let val = parseInt($("#volume").val());
+  debugger;
+  if(val === 0)
+    return;
+  if(val <= 100){
+    $("#volume").val(parseInt($("#volume").val()) - 10);
+    $(media).prop("volume",(parseInt($("#volume").val())/100));
+  }
+  // media.play();
+  currentTime = true;
+})
+
+$("#volume").on("change", function(){ 
+  let val = $("#volume").val();
+  $(media).prop("volume",(val / 100));
+  currentTime = true;
+})
+
+
+let ispause = false;
+$('#modal1').on("click", function(){
+  if(currentTime){
+    currentTime = false;
+    return;
+  }
+  if(!ispause){
+    media.pause();
+    ispause = true;
+  }  
+  else{
+    media.play();
+    ispause = false;
+  } 
+})
+>>>>>>> 5f0709e0442d4d4386ae34546bceb3649d1822b3

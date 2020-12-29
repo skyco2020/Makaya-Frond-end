@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule,Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -27,39 +27,20 @@ import { UpdateprofilComponent } from './profilmodule/updateprofil/updateprofil.
 import { KidsComponent } from './profilmodule/kids/kids.component';
 import { GlobalFunctionService} from './Function/global-function.service';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CarouselModule} from 'primeng/carousel';
+import {GalleriaModule} from 'primeng/galleria';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    UserComponent,
-    AccountComponent,
-    // RoleGuardServiceService,
-    RegisterpaymentComponent,
-    FooterComponent,
-    FinishpaymentComponent,
-    NonepaymentComponent,
-    GlobalmenuComponent,
-    ProfilComponent,
-    UpdateprofilComponent,
-    KidsComponent,
-    // Globalfunction,
-    // AdminComponent,
-    // ProviderComponent,
-    // ListuserComponent,
-    // ActorComponent,
-    // EmployeeComponent,
-    // ErrorComponent,
+    AppComponent,HomeComponent, UserComponent,
+    AccountComponent,RegisterpaymentComponent,FooterComponent,
+    FinishpaymentComponent,NonepaymentComponent,
+    GlobalmenuComponent, ProfilComponent,
+    UpdateprofilComponent, KidsComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    CarouselModule,
-    FormsModule,
-    NgbModalModule,
-    ReactiveFormsModule,
+    BrowserModule,HttpClientModule,CarouselModule,GalleriaModule,
+    FormsModule,NgbModalModule,ReactiveFormsModule,
     NgxStripeModule.forRoot('pk_test_ystNiSIyKYOF0Nm6pgLjXXEW00Ym2IQmtV') ,
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     ToastrModule.forRoot()
@@ -71,7 +52,7 @@ import {CarouselModule} from 'primeng/carousel';
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true
-  }
+  },Title
 ],
   bootstrap: [AppComponent]
 })

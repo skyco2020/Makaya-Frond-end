@@ -114,6 +114,9 @@ export class HomeComponent implements OnInit {
       callback(data.hits);       
     });
   }
+  return(){
+    this.router.navigate(['/perfil']);
+  }
 }
 
 function Carousel() {
