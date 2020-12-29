@@ -111,6 +111,15 @@ div.error-message i {
 .show-case-logo:focus {
   outline: none;
 }
-.p-carousel-content >ul.p-carousel-indicators{
+.p-carousel-content > ul.p-carousel-indicators {
   display: none;
+}
+.btn {
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  color: white;
+  border-radius: 3px;
+  background-color: var(--primary);
 }

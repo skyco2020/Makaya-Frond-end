@@ -82,8 +82,9 @@ peliculas.forEach((pel) => {
     deleteShowAction();
     pel.lastChild.classList.add("show-action");
     pel.firstChild.firstChild.play();
+    pel.firstChild.firstChild.style.height = "100%";
+    let url = this.firstChild.firstChild.firstChild.getAttribute("src");
     pel.querySelector(".fa-play").onclick = () => {
-      let url = this.firstChild.firstChild.firstChild.getAttribute("src");
       let modal = document.querySelector("#modal1");
 
       let video = modal.querySelector("#video-principal-modal");
@@ -93,11 +94,25 @@ peliculas.forEach((pel) => {
       let videoNuevo = document.createElement("source");
       videoNuevo.setAttribute("src", url);
       video.appendChild(videoNuevo);
-      console.log(video);
       modal.style.display = "block";
-      console.log(modal);
+      // console.log(video);
+      // console.log(modal);
     };
-    pel.firstChild.firstChild.style.height = "100%";
+    pel.querySelector("#wide-video").onclick = () => {
+      const wide = document.querySelector(".div-wide");
+      const videoWide = document.querySelector(".div-wide video");
+
+      const infoFilm = document.querySelector(".div-wide .info-film");
+      // infoFilm.innerHTML = `
+      //   <p style="color :white"> Nombre de la pelicula </p>
+      // `;
+      videoWide.setAttribute("src", url);
+      videoWide.play();
+      wide.style.display = "block";
+      document.querySelector(".close-wide-video").onclick = () => {
+        closeModal(videoWide, wide);
+      };
+    };
   });
 });
 peliculas.forEach((pel) => {
@@ -117,18 +132,21 @@ let modal = document.querySelector("#modal1");
 document.querySelector(".btn-play-principal").onclick = () => {
   let vp = document.querySelector("#video-principal").getAttribute("src");
 
-  console.log(close);
-  let videoNuevo = document.createElement("source");
-  let modal = document.querySelector("#modal1");
-  let video = modal.querySelector("#video-principal-modal");
-  if (video.firstChild) {
-    video.firstChild.remove();
+  // console.log(close);
+  let vn = document.createElement("source");
+  // let modal = document.querySelector("#modal1");
+  let v = modal.querySelector("#video-principal-modal");
+  if (v.firstChild) {
+    v.firstChild.remove();
   }
-  videoNuevo.setAttribute("src", vp);
-  video.appendChild(videoNuevo);
+  vn.setAttribute("src", vp);
+  v.appendChild(vn);
   modal.style.display = "block";
 };
 close.onclick = () => {
-  console.log("se cierra elmodal");
   modal.style.display = "none";
 };
+function closeModal(v, md) {
+  v.pause();
+  md.style.display = "none";
+}
