@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProviderComponent } from 'src/app/provider/provider.component';
+import { ProfilComponent } from 'src/app/profilmodule/profil/profil.component';
 import { RoleGuardGuard } from 'src/app/role-guard.guard';
-
 
 const routes: Routes = [
   {
     path: '',
-    component: ProviderComponent,
+    component: ProfilComponent,
     canActivate: [RoleGuardGuard],
     data: {
-      expectedRole: 'provider',
-      title: 'Provider'
+      expectedRole: 'user',
+      title: 'Perfil'
     }
-  }
+   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProviderRoutingModule { }
+export class PerfilRoutingModule { }

@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProviderComponent } from 'src/app/provider/provider.component';
+import { AuthGuard } from '../../auth/auth.guard';
+import { HomeComponent } from 'src/app/home/home.component';
 import { RoleGuardGuard } from 'src/app/role-guard.guard';
-
 
 const routes: Routes = [
   {
     path: '',
-    component: ProviderComponent,
+    component: HomeComponent,
+    canLoad: [AuthGuard],
     canActivate: [RoleGuardGuard],
     data: {
-      expectedRole: 'provider',
-      title: 'Provider'
-    }
+      expectedRole: 'user',
+      title: 'Home'
+    },
   }
 ];
 
@@ -20,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProviderRoutingModule { }
+export class HomeRoutingModule { }

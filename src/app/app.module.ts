@@ -8,7 +8,7 @@ import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import {ReactiveFormsModule} from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { JwtHelperService,  JWT_OPTIONS  } from '@auth0/angular-jwt';
-import {RouterModule} from '@angular/router';
+import {PreloadAllModules, RouterModule} from '@angular/router';
 import { appRoutes } from './routes';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './auth/auth.guard';
@@ -42,7 +42,12 @@ import {GalleriaModule} from 'primeng/galleria';
     BrowserModule,HttpClientModule,CarouselModule,GalleriaModule,
     FormsModule,NgbModalModule,ReactiveFormsModule,
     NgxStripeModule.forRoot('pk_test_ystNiSIyKYOF0Nm6pgLjXXEW00Ym2IQmtV') ,
-    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(appRoutes, 
+      { 
+        relativeLinkResolution: 'legacy' ,
+        enableTracing: true,
+        preloadingStrategy: PreloadAllModules
+      }),
     ToastrModule.forRoot()
     ],
   exports:[RouterModule],
