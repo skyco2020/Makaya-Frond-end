@@ -126,3 +126,59 @@ div.error-message i {
   margin-left: initial!important;
 };
 
+
+@media (max-width: 585px) {
+  
+}
+
+@media (max-width: 500px) {
+ 
+}
+
+@media all and (max-width: 800px) {
+  
+}
+
+@media all and (min-width: 730px) and (max-width: 1024px) {
+  .header{
+    width: 100%;
+  }
+  .icon-video-primcipal{
+    top: -2em;
+    POSITION: relative;
+    font-size: 46px!important;
+    display: none;
+  }
+  .pelicula-principal > .infos {
+      width: 100%!important;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+  }
+  .video-principal{
+    height: 41vh!important;
+  }
+  .pelicula-principal {
+      width: 100%!important;
+      top: 15%;      
+      position: relative;
+  }
+  .menu-home {
+      display: flex;
+      flex-flow: column wrap;
+      justify-items: center;
+      justify-content: space-between;
+      height: 38vh!important;
+  }
+  .profiles-content {
+      width: 91%!important;    
+      top: 18%;
+      position: relative;
+  }
+  .manage-profile {
+      top: -16%;
+      position: relative;
+  }
+}
+
