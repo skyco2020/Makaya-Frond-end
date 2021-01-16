@@ -1,59 +1,21 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-import { AccountComponent } from './account/account.component';
-import { RegisterpaymentComponent } from './registerpayment/registerpayment.component';
-import { FinishpaymentComponent } from './finishpayment/finishpayment.component';
-import { NonepaymentComponent } from './nonepayment/nonepayment.component';
-import { AuthGuard } from './auth/auth.guard';
-import { from } from 'rxjs';
-import { StateloginService } from './statelogin.service';
-import { GlobalmenuComponent } from './modules/layout/globalmenu/globalmenu.component';
-import { ErrorComponent } from './error/error.component';
-import { ProviderComponent } from './provider/provider.component';
-import { ListemployeComponent } from './modules/employee/listemploye/listemploye.component';
-import { RoleGuardGuard } from './role-guard.guard';
-import { ProfilComponent } from './profilmodule/profil/profil.component';
-import { KidsComponent } from './profilmodule/kids/kids.component';
-import { UpdateprofilComponent } from './profilmodule/updateprofil/updateprofil.component';
-// import { AuthGuard } from './auth/auth.guard';
 
 export const appRoutes: Routes = [
   {
     path: 'home',
-    component: HomeComponent,
-    canLoad: [AuthGuard],
-    canActivate: [RoleGuardGuard],
-    data: {
-      expectedRole: 'user',
-      title: 'Home'
-    },
+    loadChildren: () => import("./modules/home/home.module").then((p) => p.HomeModule),
   },
   {
     path: 'kids',
-    component: KidsComponent,
-    canLoad: [AuthGuard],
-    canActivate: [RoleGuardGuard],
-    data: {
-      expectedRole: 'user',
-      title: 'Kids'
-    },
+    loadChildren: () => import("./modules/kid/kid.module").then((p) => p.KidModule),
   },
   {
     path: '404',
-    component: ErrorComponent,
-    data: {
-      title: 'Error'
-    },
+    loadChildren: () => import("./modules/error/error.module").then((p) => p.ErrorModule),
   },
   {
-    path: 'provider',
-    component: ProviderComponent,
-    canActivate: [RoleGuardGuard],
-    data: {
-      expectedRole: 'provider',
-      title: 'Provider'
-    },
+    path: 'provider',    
     loadChildren: () =>
       import('./modules/provider/provider.module').then(
         (p) => p.ProviderModule
@@ -61,12 +23,6 @@ export const appRoutes: Routes = [
   },
   {
     path: 'employee',
-    component: ListemployeComponent,
-    canActivate: [RoleGuardGuard],
-    data: {
-      expectedRole: 'employee',
-      title: 'Employe'
-    },
     loadChildren: () =>
       import('./modules/employee/employee.module').then(
         (e) => e.EmployeeModule
@@ -76,26 +32,27 @@ export const appRoutes: Routes = [
     path: 'browse',
     component: UserComponent,
      data: {title: 'browse'}
-    // canActivate: [AuthGuard]
   },
   {
     path: 'perfil',
-    component: ProfilComponent,
-    canActivate: [RoleGuardGuard],
-    data: {
-      expectedRole: 'user',
-      title: 'Perfil'
-    },
+    loadChildren: () =>
+      import('./modules/perfil/perfil.module').then(
+        (e) => e.PerfilModule
+      ),
   },
   {
     path: 'account',
-    component: AccountComponent,
-    data: {title: 'Account'}
+    loadChildren: () =>
+      import('./modules/account/account.module').then(
+        (e) => e.AccountModule
+      ),
   },
   {
     path: 'registerpayment',
-    component: RegisterpaymentComponent,
-    data: {title: 'Register payment'}
+    loadChildren: () =>
+      import('./modules/registerpayment/registerpayment.module').then(
+        (e) => e.RegisterpaymentModule
+      ),
   },
   {
     path: '',
@@ -104,18 +61,24 @@ export const appRoutes: Routes = [
   },
   {
     path: 'updateprofil',
-    component: UpdateprofilComponent,
-    data: {title: 'Update perfil'}
+    loadChildren: () =>
+      import('./modules/updateprofil/updateprofil.module').then(
+        (e) => e.UpdateprofilModule
+      ),
   },
   {
     path: 'finishpayment',
-    component: FinishpaymentComponent,
-    data: {title: 'Finish payment'}
+    loadChildren: () =>
+      import('./modules/finishpayment/finishpayment.module').then(
+        (e) => e.FinishpaymentModule
+      ),
   },
   {
     path: 'nonepayment',
-    component: NonepaymentComponent,
-    data: {title: 'None payment'}
+    loadChildren: () =>
+      import('./modules/nonepayment/nonepayment.module').then(
+        (e) => e.NonepaymentModule
+      ),
   },
   /* any unrecognized path will send home */
   {

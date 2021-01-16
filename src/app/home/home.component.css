@@ -254,13 +254,14 @@ nav a:hover:before {
 .pelicula-principal {
   color: white;
   margin-bottom: 10px;
-  background: rgba(0, 0, 0, 0.3);
+  /* background: rgba(0, 0, 0, 0.3); */
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 20px;
   z-index: 2;
+  width: 87%;
 }
 
 .pelicula-principal > .infos {

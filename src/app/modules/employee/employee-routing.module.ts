@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListemployeComponent } from './listemploye/listemploye.component';
 import { AuthGuard } from 'src/app/auth/auth.guard';
+import { RoleGuardGuard } from 'src/app/role-guard.guard';
 
 
 const routes: Routes = [
   {
-    path:'employee',
-    // canActivate:[AuthGuard],
-    component: ListemployeComponent
+    path: '',
+    component: ListemployeComponent,
+    canActivate: [RoleGuardGuard],
+    data: {
+      expectedRole: 'employee',
+      title: 'Employe'
+    }
   }
 ];
 
