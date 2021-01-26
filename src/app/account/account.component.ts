@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { LoginToken } from '../Classes/login-token';
 import { PerfilService } from '../services/perfil.service';
 import decode from 'jwt-decode';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GlobalFunctionService } from '../Function/global-function.service';
 
 declare var $: any;
@@ -17,17 +18,22 @@ const urljs = '../../assets/js/login.js';
   styleUrls: ['./account.component.css'],
 })
 export class AccountComponent implements OnInit {
-  isLoginError = false;
   user = new LoginToken();
+  
+  accountForm: FormGroup;
+  private isEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
   constructor(
     private userService: TaskService,
     private serperfil: PerfilService,
-    private router: Router,
+    private router: Router, private fb:FormBuilder,
     private gbfuncservice: GlobalFunctionService
-  ) {}
+  ) {
+    this.initForm();
+  }
 
   ngOnInit(): void {
-    loginLabel();
+    // loginLabel();
     localStorage.removeItem('userToken');
     if (localStorage.getItem('mail') !== null) {
       this.user.UserName = localStorage.getItem('mail');
@@ -38,15 +44,20 @@ export class AccountComponent implements OnInit {
     this.gbfuncservice.loadScript(urljs);
   }
 
-  OnSubmit(userName, password) {
-    if (userName === '') {
-      $('.error_mail').html('Enter your email');
-      return false;
-    } else if (password === '') {
-      $('.error_password').html('Enter your password');
-      return false;
-    } else {
-      this.userService.Authentication(this.user).subscribe(
+  private initForm():void{
+    this.accountForm = this.fb.group({
+      PasswordHash: ['',[Validators.required]],
+      UserName: ['',[Validators.required,Validators.pattern(this.isEmail)]]
+    });
+  }
+  isValidField(field: string): string{
+    const validatedField = this.accountForm.get(field);
+    return(!validatedField.valid && validatedField.touched) ?
+      'is-invalid': validatedField.touched ? 'is-valid':'';
+  }
+  OnSubmit() {
+    if(this.accountForm.valid) {
+      this.userService.Authentication(this.accountForm.value).subscribe(
         (success) => {
           if (success) {
             let decodotken = decode(this.userService.getJwtToken());
@@ -79,37 +90,31 @@ export class AccountComponent implements OnInit {
               this.router.navigate(['/error']);
             }
           } else {
-            $('.error_password').html('Connection problem');
-            this.isLoginError = true;
+            $('.error_password').val('Connection problem');
           }
         },
         (err: HttpErrorResponse) => {
           debugger;
           if (err.error == null) {
             $('.error_password').html('Connection problem');
-            this.isLoginError = true;
           } else if (
             err.error.ErrorDescription === 'You need tu complete payment'
           ) {
             localStorage.setItem('IdUser', err.error.ErrorCode);
-            localStorage.setItem('mail', userName);
+            localStorage.setItem('mail', this.accountForm.value.userName);
             this.router.navigate(['/finishpayment']);
           } else if (
             err.error.ErrorDescription === 'Payment is missing for this month'
           ) {
             localStorage.setItem('IdUser', err.error.ErrorCode);
-            localStorage.setItem('mail', userName);
+            localStorage.setItem('mail', this.accountForm.value.userName);
             this.router.navigate(['/nonepayment']);
           } else {
             $('.error_password').html(err.error.ErrorDescription);
-            this.isLoginError = true;
           }
         }
       );
     }
-  }
-  HideMessage(msg) {
-    $('.' + msg).html('');
   }
 }
 function loginLabel() {

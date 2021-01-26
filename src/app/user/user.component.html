@@ -2,7 +2,6 @@
   <header>
     <div class="show-case-logo">
       <img src="../../assets/img/makaya.png" width="150" alt="Makaya" />
-      <!-- <label class="makaya">Makaya</label> -->
     </div>
     <div class="nav-principal">
       <a class="btn-login-principal" href="/account">Sign in</a>
@@ -10,54 +9,28 @@
   </header>
   <section class="show-case-try">
     <div class="container">
-      <form
-        class="border p-3 form"
-        #loginForm="ngForm"
-        (ngSubmit)="OnSubmit(UserName.value)"
-      >
-        <div
-          class="input-group item ph12 md8 i-b v-middle center md-right p0 menu"
-        >
-          <input
-            type="text"
-            class="form-control s6 input_e_mail"
-            #UserName
-            ngModel
-            name="UserName"
-            (click)="HideError()"
-            placeholder="  Type your e-mail"
-            required
-            aria-label="E-mail"
-            aria-describedby="basic-addon2"
-          />
+      <form class="border p-3 form" [formGroup]="browserForm" (ngSubmit)="OnSubmit()">
+        <div class="input-group item ph12 md8 i-b v-middle center md-right p0 menu">
+          <input type="text" class="form-control s6 input_e_mail" name="UserName" placeholder="  Type your e-mail" 
+          aria-label="E-mail" aria-describedby="basic-addon2" formControlName="UserName" [class]="isValidField('UserName')"/>
 
           <div class="input-group-append s6">
-            <button
-              class="btn btn-outline-secondary"
-              name="enviar"
-              type="submit"
-              id="try-now"
-            >
+            <button class="btn btn-outline-secondary" name="enviar" type="submit" id="try-now">
               Try now
             </button>
           </div>
-          <input type="text" id="country" hidden />
-          <input type="text" id="code_country" hidden />
-          <input type="text" id="province" hidden />
-          <input type="text" id="city" hidden />
-
-          <input type="text" id="latitude" hidden />
-          <input type="text" id="longitude" hidden />
+          <div class="invalid-feedback">
+            <span *ngIf="browserForm.get('UserName').errors?.required" style="left: 45%; position: relative;font-weight: 900;">
+                this field is rquired
+            </span>
+            <span *ngIf="browserForm.get('UserName').errors?.pattern" style="left: 45%; position: relative;font-weight: 900;">
+               Enter a valid email
+            </span>
+         </div>
         </div>
-        <label
-          class="item ph12 md6 i-b v-middle md-right p0 menu error-message"
-        >
-          <span class="error_username"></span>
-        </label>
       </form>
     </div>
   </section>
-  <!-- <section class="main"></section> -->
 </div>
 
 <section class="allcards">
@@ -151,24 +124,4 @@
     </div>
   </div>
 </section>
-<!--<section class="letsgo">
-  <div class="">
-    <input
-      type="text"
-      class="input_e_mail"
-      #UserName
-      ngModel
-      name="UserName"
-      (click)="HideError()"
-      placeholder="  Type your e-mail"
-      required
-      aria-label="E-mail"
-      aria-describedby="basic-addon2"
-    />
-
-    <button class="btn-login" name="enviar" type="submit" id="try-now">
-      Try now
-    </button>
-  </div>
-</section> -->
 <app-footer></app-footer>
