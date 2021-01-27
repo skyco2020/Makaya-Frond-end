@@ -45,8 +45,8 @@ import {GalleriaModule} from 'primeng/galleria';
     RouterModule.forRoot(appRoutes, 
       { 
         relativeLinkResolution: 'legacy' ,
-        enableTracing: true,
-        preloadingStrategy: PreloadAllModules
+        // enableTracing: true,
+        // preloadingStrategy: PreloadAllModules
       }),
     ToastrModule.forRoot()
     ],
