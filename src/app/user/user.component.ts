@@ -54,29 +54,29 @@ export class UserComponent implements OnInit {
   OnSubmit() {
     if(this.browserForm.valid) {
       this.user = new SkycoUser();
-      this.user.CreatedBy = this.browserForm.value.userName;
-      this.user.EmailAddress = this.browserForm.value.userName;
+      this.user.CreatedBy = this.browserForm.value.UserName;
+      this.user.EmailAddress = this.browserForm.value.UserName;
       this.user.CreatedBy = 'Automatic';
       this.user.CreatedAt = new Date();
       this.user.Voided = 1;
 
       this.userService.Post(this.user).subscribe(
-        (data: any) => {
+        (data: any) => {         
           if (data.message === "sucees") {
-            localStorage.setItem('IdUser', data.UserId);
-            localStorage.setItem('mail', this.browserForm.value.userName);
+            localStorage.setItem('IdUser', this.gbfuncservice.Encrypt(data.UserId));
+            localStorage.setItem('mail', this.gbfuncservice.Encrypt(this.browserForm.value.UserName));
             this.router.navigate(['/registerpayment']);
           }
           else if (data.message === "Welcome to Makaya"){
-            localStorage.setItem('IdUser', data.UserId);
-            localStorage.setItem('mail', this.browserForm.value.userName);
-            localStorage.setItem('back', 'Welcome to Sky co');
+            localStorage.setItem('IdUser', this.gbfuncservice.Encrypt(data.UserId));
+            localStorage.setItem('mail', this.gbfuncservice.Encrypt(this.browserForm.value.UserName));
+            localStorage.setItem('back', this.gbfuncservice.Encrypt(data.message));
             this.router.navigate(['/registerpayment']);
           }
           else if(data.message === "Welcome Back at Makaya" || data.message ==='There is already an account with this email'){
-            localStorage.setItem('back', data.message);
-            localStorage.setItem('IdUser', data.UserId);
-            localStorage.setItem('mail', this.browserForm.value.userName);
+            localStorage.setItem('back', this.gbfuncservice.Encrypt(data.message));
+            localStorage.setItem('IdUser', this.gbfuncservice.Encrypt(data.UserId));
+            localStorage.setItem('mail', this.gbfuncservice.Encrypt(this.browserForm.value.UserName));
             this.router.navigate(['/account']);
           }
         },

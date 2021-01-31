@@ -20,6 +20,7 @@ import { SkycoAccount } from '../Classes/skyco-account';
 import { City } from '../Classes/city';
 import { SkycoAddress } from '../Classes/skyco-address';
 import { Province } from '../Classes/province';
+import { GlobalFunctionService } from '../Function/global-function.service';
 
 declare var $: any;
 declare var Stripe: any;
@@ -49,10 +50,6 @@ export class RegisterpaymentComponent implements OnInit {
   succes: any;
   token = new Token();
 
-  @Input() precio;
-  @Input() descripcion;
-  @Input() nombre;
-
   error: any;
   errorname: any;
   errorconnection: any;
@@ -73,7 +70,7 @@ export class RegisterpaymentComponent implements OnInit {
     private paymentService: PaymentServiceService,
     private fb: FormBuilder,
     private stripeSvc: StripeService,
-    public modalService: NgbModal
+    public modalService: NgbModal, private gbfuncservice: GlobalFunctionService
   ) {}
 
   ngOnInit(): void {
@@ -83,20 +80,20 @@ export class RegisterpaymentComponent implements OnInit {
     if (localStorage.getItem('mail') === null) {
       this.router.navigate(['/']);
     } else {
-      $('#mail-2').val(localStorage.getItem('mail'));
-      $('#confirm_mail-2').val(localStorage.getItem('mail'));
+      $('#mail-2').val(this.gbfuncservice.Decrypt(localStorage.getItem('mail')));
+      $('#confirm_mail-2').val(this.gbfuncservice.Decrypt(localStorage.getItem('mail')));
       this.EnableMail();
       this.GetPlan();
       this.errorname = undefined;
-      $('.cardhidden').show();
+      // $('.cardhidden').show();
       $('.hiddenfooter').hide();
       this.GetFormStripe();
     }
   }
 
   EnableMail() {
-    $('#mail-2').attr('readonly', true);
-    $('#confirm_mail-2').attr('readonly', true);
+    $('#mail-2').attr('readonly', false);
+    $('#confirm_mail-2').attr('readonly', false);
   }
   // TODO:form card company
   GetFormStripe() {
@@ -167,10 +164,10 @@ export class RegisterpaymentComponent implements OnInit {
             console.log(result.token);
             const paymentIntentDto: PaymentIntentDto = {
               // tslint:disable-next-line: radix
-              AccountId: parseInt(localStorage.getItem('IdUser')),
+              AccountId: parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser'))),
               CardId: result.token.card.id,
               Description: this.PlanSelect.nickname,
-              Email: localStorage.getItem('mail'),
+              Email: this.gbfuncservice.Decrypt(localStorage.getItem('mail')),
               IDStripePrice: this.PlanSelect.id,
               fullname: name,
               idPaymentIntent: 0,
@@ -219,7 +216,7 @@ export class RegisterpaymentComponent implements OnInit {
       this.usr = new SkycoUser();
       //#region User
       // tslint:disable-next-line: radix
-      this.usr.UserId = parseInt(localStorage.getItem('IdUser'));
+      this.usr.UserId = parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser')));
       this.usr.Firstname = $('#name-2').val();
       this.usr.Lastname = $('#surname-2').val();
       this.usr.EmailAddress = $('#mail-2').val();
@@ -241,7 +238,7 @@ export class RegisterpaymentComponent implements OnInit {
       //#region Account
       const Account = new SkycoAccount();
       // tslint:disable-next-line: radix
-      Account.UserId = parseInt(localStorage.getItem('IdUser'));
+      Account.UserId = parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser')));
       Account.EmailAddress = $('#mail-2').val();
       Account.Username = $('#mail-2').val();
       Account.PasswordHash = $('#password-2').val();
@@ -298,10 +295,11 @@ export class RegisterpaymentComponent implements OnInit {
 
       this.usr.Skyco_Account.push(Account);
       //#endregion
-      this.GetNextPage();
+      // this.GetNextPage();
       /* lo comemtamos para que pueda hacer lo de front-end sin bombadear la base de datos */
       this.userService.Put(this.usr).subscribe(
         (data: any) => {
+          debugger;
           // tslint:disable-next-line: no-debugger
           this.usr = this.usr;
           IStep2 = true;
@@ -396,6 +394,7 @@ export class RegisterpaymentComponent implements OnInit {
   GetNextPage() {
     this.LoadData(false);
     $('#progressbar li').eq($('fieldset').index(next_fs)).addClass('active');
+    debugger;
     next_fs.show();
     current_fs.css({
       display: 'none',
@@ -430,6 +429,7 @@ function funcionCustom() {
   // tslint:disable-next-line: only-arrow-functions
   $(document).ready(function () {
     $('.next').click(function () {
+      debugger;
       current_fs = $(this).parent();
       next_fs = $(this).parent().next();
       if (selecttyp === undefined && IStep2 === true) {
