@@ -2,10 +2,8 @@
 var $;
 var media = document.getElementsByTagName("video")[1];
 console.log(media);
-// const fila = document.querySelector(".contenedor-principal");
-const peliculas = document.querySelectorAll(
-  ".peliculas-recomendadas .product-item"
-);
+
+const peliculas = document.querySelectorAll(".pelicula");
 
 const cards = document.querySelectorAll("#card");
 cards.forEach((card) =>
@@ -17,6 +15,7 @@ peliculas.forEach((pel) => {
   pel.addEventListener("mouseover", function () {
     deleteShowAction();
     pel.lastChild.classList.add("show-action");
+
     pel.firstChild.firstChild.play();
     pel.querySelector(".fa-play").onclick = () => {
       let url = this.firstChild.firstChild.firstChild.getAttribute("src");
@@ -131,4 +130,16 @@ $("#modal1").on("click", function () {
     document.querySelector(".play-modal").style.display = "none";
     document.querySelector(".stop-modal").style.display = "block";
   }
+});
+const peliculass = document.querySelectorAll(".pelicula");
+const btnLeft = document.querySelector(".flecha-izquierda");
+const btnRight = document.querySelector(".flecha-derecha");
+const carrousel = document.querySelector(".carrousel");
+btnLeft.addEventListener("click", () => {
+  carrousel.scrollLeft -= carrousel.offsetWidth;
+  console.log(12);
+});
+btnRight.addEventListener("click", () => {
+  console.log(12);
+  carrousel.scrollLeft += carrousel.offsetWidth;
 });

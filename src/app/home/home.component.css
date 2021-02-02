@@ -594,3 +594,114 @@ video {
   left: -2%;
   position: relative;
 }
+
+/* carousel new */
+
+.peliculas-recomendadas {
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.contendor-titilos {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  width: 95%;
+  margin: 0px auto;
+}
+.contendor-titilos h3 {
+  font-size: 14px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.btn-left,
+.btn-right {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  height: 50%;
+  top: calc(50% - 25%);
+  /* line-height: 50px; */
+  /* font-size: 50px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 100;
+  width: 20px;
+  /* border-radius: 50%; */
+}
+button:active {
+  background: none;
+}
+.btn-left:hover,
+.btn-right:hover {
+  background-color: transpanrent !important;
+}
+.fa-angle-left,
+.fa-angle-right {
+  padding: 10px;
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-angle-left:hover,
+.fa-angle-right:hover {
+  background-color: #fff;
+  color: black;
+}
+.btn-left:hover,
+.btn-right:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.carrousel {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  /* overflow-x: scroll; */
+  width: 95%;
+  margin: 0px auto;
+  position: relative;
+}
+.carrousel .pelicula {
+  min-width: 20%;
+  transition: 1s ease-in-out;
+  margin-right: 1rem;
+  transition: transform 600ms;
+  border-radius: 3px;
+}
+.carrousel .pelicula:hover {
+  transform: scale(1.08);
+}
+.carrousel .pelicula .video {
+  width: 100%;
+  box-shadow: 1px 2px 3px rgb(22, 33, 41);
+}
+.btn-left {
+  left: 0;
+}
+.btn-right {
+  right: 0;
+}
+.contendor-titilos .controles {
+  color: white;
+}
+.contenedor-principal {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+.fila {
+  margin: 10px 0px;
+  position: relative;
+}
