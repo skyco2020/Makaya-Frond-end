@@ -1,8 +1,10 @@
 // Variable para la llamada de jquery
-var $;
+// var $;
 var media = document.getElementsByTagName("video")[1];
-console.log(media);
-
+// console.log(media);
+$(document).ready(function() {
+  $('.newmodal').modal();
+});
 const peliculas = document.querySelectorAll(".pelicula");
 
 const cards = document.querySelectorAll("#card");
@@ -11,12 +13,21 @@ cards.forEach((card) =>
     card.style.cursor = "pointer";
   })
 );
+
 peliculas.forEach((pel) => {
   pel.addEventListener("mouseover", function () {
-    deleteShowAction();
-    pel.lastChild.classList.add("show-action");
+    // debugger    
+    $(".newmodal").removeClass('fade open modal');
+    let modalshow = $(this).find(".newmodal");
+    if($(modalshow).hasClass("newmodal")){      
+      $('#'+$(modalshow)[0].id).addClass('fade open modal');
+      $('#'+$(modalshow)[0].id).modal('open');
+    }
 
-    pel.firstChild.firstChild.play();
+    deleteShowAction();
+    // pel.lastChild.classList.add("show-action");
+
+    // pel.firstChild.firstChild.play();
     pel.querySelector(".fa-play").onclick = () => {
       let url = this.firstChild.firstChild.firstChild.getAttribute("src");
       let modal = document.querySelector("#modal1");
@@ -29,8 +40,14 @@ peliculas.forEach((pel) => {
 peliculas.forEach((pel) => {
   pel.addEventListener("mouseout", function () {
     this.lastChild.classList.remove("show-action");
+    $(".newmodal").removeClass('fade open modal');
+    debugger;
+    // $('.header').attr("hidden", false);
+    $('.header').css('overflow','visible');
+    // debugger;
+    // $("#exampleModal").removeClass('open');
     this.firstChild.firstChild.pause();
-    pel.style.transform = "scale(1)";
+    // pel.style.transform = "scale(1)";
   });
 });
 //ocultar el div action
@@ -143,3 +160,9 @@ btnRight.addEventListener("click", () => {
   console.log(12);
   carrousel.scrollLeft += carrousel.offsetWidth;
 });
+
+// Modal preview
+
+// $("#exampleModal").on("mouseover",function(){
+//   $("#exampleModal").modal('show');
+// })

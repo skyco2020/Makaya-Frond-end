@@ -674,18 +674,24 @@ button:active {
   position: relative;
 }
 .carrousel .pelicula {
-  min-width: 20%;
+  /* min-width: 20%;
   transition: 1s ease-in-out;
   margin-right: 1rem;
-  transition: transform 600ms;
+  border-radius: 3px; */
+  /* min-width: 12%; */
+  min-width: 23.8%;
+  transition: 1s ease-in-out;
+  margin-right: 1rem;
   border-radius: 3px;
+  height: 26vh;
+  /* height: 12vh; */
 }
 .carrousel .pelicula:hover {
-  transform: scale(1.08);
+  /* transform: scale(1.08); */
 }
 .carrousel .pelicula .video {
   width: 100%;
-  box-shadow: 1px 2px 3px rgb(22, 33, 41);
+  /* box-shadow: 1px 2px 3px rgb(22, 33, 41); */
 }
 .btn-left {
   left: 0;
@@ -705,3 +711,33 @@ button:active {
   margin: 10px 0px;
   position: relative;
 }
+/* new style */
+.newmodal{
+  top: 6%!important;
+  width: 23%;
+  height: 50%;
+  border-radius: 5%;
+  left: auto!important;
+}
+.newmodal > div{
+  height: 95%;
+}
+
+.videomodal{
+  position: relative;
+    top: 3%;
+}
+.video > video{
+  width: 49vh;
+}
+/* .pelicula:hover{
+  width: 30%;
+  top: 55.3333px;
+  left: auto;
+  transform: translateX(0px) translateY(calc(-32.3333px + 3em)) scaleX(1) scaleY(1) translateZ(0px)!important;
+  opacity: 1;
+  box-shadow: rgb(0 0 0 / 75%) 0px 3px 10px;
+  transform-origin: center top;
+  margin-bottom: 2em;
+  min-width: 33%!important;
+} */

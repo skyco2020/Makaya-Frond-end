@@ -14,6 +14,7 @@ declare var $: any;
 })
 export class ProfilComponent implements OnInit {
   profils: any;
+  prof = new Perfil();
   constructor(
     private userService: TaskService,
     private serperfil: PerfilService,
@@ -26,6 +27,8 @@ export class ProfilComponent implements OnInit {
 
     this.serperfil.GetAll(filter).subscribe((data: any) => {
       this.profils = data.ResourceList;
+      let p = this.prof;
+      debugger;
       if(this.profils.length >= 5){
         $('.add').css({
           display:'none'
@@ -56,10 +59,10 @@ export class ProfilComponent implements OnInit {
       })
     }
     else{
-      let prof = new Perfil();
-      prof.idPerfil = $('#idprofil').val();
-      prof.name =$('#name').val();
-      prof.complete = $('#complete').val()
+      // let prof = new Perfil();
+      // prof.idPerfil = $('#idprofil').val();
+      // prof.name =$('#name').val();
+      // prof.complete = $('#complete').val()
 
       // this.serperfil.Post(prof).
       // subscribe((data: any) => {
@@ -70,10 +73,67 @@ export class ProfilComponent implements OnInit {
   }
   ShowHome(profil) {
     debugger;
+    if(profil.passperfil == null){
+      this.SetPerfil(profil);
+    }
+    else{
+      $('.profiles').css({
+        display:'none'
+      })
+      $('.profilloggin').css({
+        display:'flex'
+      })
+      this.prof.name = "";
+      this.prof.passperfil = "";
+    }
+   
+  }
+  SetPerfil(profil){
     if (profil.typeperfil == 1) {
       this.router.navigate(['/home']);
     } else {
       this.router.navigate(['/kids']);
     }
+  }
+  CancelLogin(){
+    $('.profiles').css({
+      display:'flex'
+    })
+    $('.profilloggin').css({
+      display:'none'
+    })
+  }
+  LogginPerfil(){
+    if(this.prof.name === ""){
+      $('#errorname').css({
+        display:'block'
+      })
+    }
+    else  if(this.prof.passperfil === ""){
+      $('#errorpassperfil').css({
+        display:'block'
+      })
+    }
+    else{
+      debugger;
+      let userprofil = this.profils.filter(per => per.name === this.prof.name && per.passperfil === this.prof.passperfil);
+      if(userprofil.length > 0){
+        this.SetPerfil(userprofil[0]);
+      }
+      else{
+        $('#errorincorrectlog').css({
+          display:'block'
+        })        
+      }
+    }
+  }
+  
+  hiddenErrorMessage(id: string){
+    $('#'+id).css({
+      display:'none'
+    })
+    $('#errorincorrectlog').css({
+      display:'none'
+    })
   }
 }

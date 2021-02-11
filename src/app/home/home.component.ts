@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from '../services/task.service';
 import { GlobalFunctionService } from '../Function/global-function.service';
@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     private gbfuncservice: GlobalFunctionService) {}
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
+    debugger;
     stopPlay();
     Carousel();
     FullScreen();
@@ -28,7 +29,6 @@ export class HomeComponent implements OnInit {
     this.gbfuncservice.loadScript(urljs);
     this.video(dat => {
       this.videoslist = dat;
-      debugger;
     });
   }
 
@@ -38,7 +38,14 @@ export class HomeComponent implements OnInit {
       this.Movies = data;
     });
   }
-
+  Probarmouseover(id){
+    debugger;
+    $("#"+ id).modal('open');
+  // $("#modal2").modal()
+}
+Probarmouseout(){
+  // $("#exampleModal").modal('close');
+}
   Probar() {
     this.Movies = [
       {

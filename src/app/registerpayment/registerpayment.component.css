@@ -1,13 +1,25 @@
 /* Wizzard new  */
 
 .container-register{
-  width: 90%;
-  margin: 0px auto ;
+  width: 49%;
+  margin: 0px auto;
+  height: 12vh;
+  /* width: 90%;
+  margin: 0px auto ; */
   /* height: 100vh; */
   max-height: auto;
   background: var(--fondo);
 }
-
+header {
+  padding: 0px;
+  top: -30px;
+  position: relative;
+}
+.content-register > h2{
+  text-align: center;
+  position: relative;
+  top: -44px;
+}
 .content-register  h2{
   color: white;
   margin-left: 20px;
@@ -37,7 +49,7 @@
   /* text-align: center; */
   position: relative;
   margin: 0px auto;
-  margin-top: 20px;
+  margin-top: -10%;
   border-radius: none !important;
   width: 90%;
 }
@@ -157,7 +169,7 @@ select.list-dt:focus {
   font-size: 25px;
   color: #2c3e50;
   margin-bottom: 10px;
-  font-weight: bold;
+  font-weight: 60;
   text-align: left;
 }
 
@@ -165,7 +177,7 @@ select.list-dt:focus {
   text-align: center;
   margin-bottom: 30px;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   color: rgb(0, 0, 0);
 }
 
@@ -324,9 +336,9 @@ label {
   margin: auto;
   /* border-radius: 4px; */
 }
-.all-plan > div:first-child {
+/* .all-plan > div:first-child {
   margin-top: 25px;
-}
+} */
 
 .card-plan:hover {
   /* box-shadow: 5px 5px 10px 5px white; */
@@ -363,13 +375,72 @@ label {
 .finish > h2 {
   color: green;
 }
-.finish > div {
+.finish > div > img {
   /* background-color: rgb(230, 134, 134); */
-  margin: 10px 0px;
+  /* margin: 0.5em 11em; */
+  display:block;
+ margin:auto;
 }
 .finish > .price-trial > p {
   display: block;
   text-align: center;
   text-transform: uppercase;
   font-size: 25px;
+}
+.price-trial {
+  grid-template-columns: 28% 34% 53%;
+  grid-template-rows: 17% 25% 25%;
+  display: grid;
+}
+/* New styele */
+.all-plan {
+  display: grid;
+  grid-gap: 9px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+/* Este CSS es para modificar los elementos para que se vea mejor (colores y el tamaño) */
+.all-plan > div {
+  display: grid;
+  grid-gap: 0px;
+  gap: 0px;
+  grid-auto-rows: minmax(100px, auto);
+  /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-rows: 1fr 1fr; */
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.all-plan > div:nth-child(2n) {
+  /* position: relative;
+  top: 4%; */
+}
+.all-plan > div:nth-child(3n) {
+  position: relative;
+    top: -5%;
+}
+.carform{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  position: relative;
+  top: -43px;
+}
+#fieldsetpayment > .form-card{
+  height: 37vh;
+}
+#progressbar > li.active:before, #progressbar > li.active:after {
+  background: #ef7f1a!important;
+}
+#progressbar > li.inactive:before, #progressbar > li.inactive:after{
+  background-color: #583210;
+}
+@media screen and (max-width:700px) {
+	.contendor {		
+   	grid-template-columns: repeat(3, minmax(22%, 1fr));
+	}
+  .contenido {    
+	}
 }

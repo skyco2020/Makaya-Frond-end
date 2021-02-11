@@ -22,4 +22,4 @@ questions.forEach((question) =>
 function removeResponse() {
   termCcontent.forEach((question) => (question.style.display = "none"));
 }
-const btnLoginn = (document.getElementById("btn-login").disabled = true);
+// const btnLoginn = (document.getElementById("btn-login").disabled = true);

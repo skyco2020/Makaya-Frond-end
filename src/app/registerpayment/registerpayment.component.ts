@@ -44,6 +44,7 @@ let opacity;
 export class RegisterpaymentComponent implements OnInit {
   usr = new SkycoUser();
   accout = new SkycoAccount();
+  paymentIntent = new PaymentIntentDto();
   toastr: any;
   plan: any;
   priceplan: any;
@@ -55,20 +56,20 @@ export class RegisterpaymentComponent implements OnInit {
   errorconnection: any;
   public load: boolean;
 
-  elements: Elements;
-  card: StripeElement;
-  elementoption: ElementsOptions = {
-    locale: 'en',
-  };
+  // elements: Elements;
+  // card: StripeElement;
+  // elementoption: ElementsOptions = {
+  //   locale: 'en',
+  // };
   PlanSelect: any;
-  StripeTest: FormGroup;
+  // StripeTest: FormGroup;
 
   constructor(
     private userService: SkycoService,
     private taskser: TaskService,
     private router: Router,
     private paymentService: PaymentServiceService,
-    private fb: FormBuilder,
+    // private fb: FormBuilder,
     private stripeSvc: StripeService,
     public modalService: NgbModal, private gbfuncservice: GlobalFunctionService
   ) {}
@@ -76,18 +77,19 @@ export class RegisterpaymentComponent implements OnInit {
   ngOnInit(): void {
     // tslint:disable-next-line: only-arrow-functions
     this.GetLocation();
-    funcionCustom();
+    // funcionCustom();
     if (localStorage.getItem('mail') === null) {
       this.router.navigate(['/']);
     } else {
       $('#mail-2').val(this.gbfuncservice.Decrypt(localStorage.getItem('mail')));
       $('#confirm_mail-2').val(this.gbfuncservice.Decrypt(localStorage.getItem('mail')));
+      this.paymentIntent.email =this.gbfuncservice.Decrypt(localStorage.getItem('mail'));
       this.EnableMail();
       this.GetPlan();
       this.errorname = undefined;
       // $('.cardhidden').show();
       $('.hiddenfooter').hide();
-      this.GetFormStripe();
+      // this.GetFormStripe();
     }
   }
 
@@ -96,33 +98,33 @@ export class RegisterpaymentComponent implements OnInit {
     $('#confirm_mail-2').attr('readonly', false);
   }
   // TODO:form card company
-  GetFormStripe() {
-    this.StripeTest = this.fb.group({
-      name: ['', Validators.required],
-    });
+  // GetFormStripe() {
+  //   this.StripeTest = this.fb.group({
+  //     name: ['', Validators.required],
+  //   });
 
-    this.stripeSvc.elements(this.elementoption).subscribe((elements) => {
-      this.elements = elements;
-      if (!this.card) {
-        this.card = this.elements.create('card', {
-          style: {
-            base: {
-              iconColor: '#666EE8',
-              color: '#31325F',
-              lineHeight: '40px',
-              fontWeight: 300,
-              fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-              fontSize: '18px',
-              '::placeholder': {
-                color: '#CFD7E0',
-              },
-            },
-          },
-        });
-        this.card.mount('#card-element');
-      }
-    });
-  }
+  //   this.stripeSvc.elements(this.elementoption).subscribe((elements) => {
+  //     this.elements = elements;
+  //     if (!this.card) {
+  //       this.card = this.elements.create('card', {
+  //         style: {
+  //           base: {
+  //             iconColor: '#666EE8',
+  //             color: '#31325F',
+  //             lineHeight: '40px',
+  //             fontWeight: 300,
+  //             fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+  //             fontSize: '18px',
+  //             '::placeholder': {
+  //               color: '#CFD7E0',
+  //             },
+  //           },
+  //         },
+  //       });
+  //       this.card.mount('#card-element');
+  //     }
+  //   });
+  // }
 
   GetLocation() {
     // tslint:disable-next-line: only-arrow-functions
@@ -141,69 +143,134 @@ export class RegisterpaymentComponent implements OnInit {
     if (selecttyp === undefined) {
       $('.error_plan').html('You have to select a plan');
     } else {
-      this.LoadData(true);
-      $('.ste2').val(2);
-      this.LoadDataObject();
+      $('#personal').removeClass('active');
+      $('#personal').addClass('inactive');
+      $('#fieldsetpersonal').css({
+        display: 'none',
+        position: 'relative',
+      });
+
+      $('#payment').addClass('active');
+      $('#fieldsetpayment').css({
+        display: 'block',
+        position: 'relative',
+      });
+      // this.LoadData(true);
+      // $('.ste2').val(2);
+      // this.LoadDataObject();
       // this.GetNextPage();
     }
   }
 
   buy() {
-    const name = this.StripeTest.get('name').value;
-    if (name === '') {
-      $('.error_fullname').html('Full name');
-      // return false;
-    } else {
-      /* lo comemtamos para no mostrar el loading */
-      this.LoadData(true);
-      this.stripeSvc.createToken(this.card, { name }).subscribe(
-        (result) => {
-          this.GetNextPage();
-          /* lo comemtamos para que pueda hacer lo de front-end sin bombadear la base de datos */
-          if (result.token) {
-            console.log(result.token);
-            const paymentIntentDto: PaymentIntentDto = {
-              // tslint:disable-next-line: radix
-              AccountId: parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser'))),
-              CardId: result.token.card.id,
-              Description: this.PlanSelect.nickname,
-              Email: this.gbfuncservice.Decrypt(localStorage.getItem('mail')),
-              IDStripePrice: this.PlanSelect.id,
-              fullname: name,
-              idPaymentIntent: 0,
-              state: 1,
-              stripeTokenId: result.token.id,
-            };
+    let  separate = this.paymentIntent.expirationDate.split('/');
+    this.paymentIntent.month = separate[0];
+    this.paymentIntent.year = separate[1];
+    this.paymentIntent.description = this.PlanSelect.nickname;
+    this.paymentIntent.iDPlanPrice = this.PlanSelect.id;
+    this.paymentIntent.idPaymentIntent = 0;
+    this.paymentIntent.state = 1;
+    this.paymentIntent.AccountId = parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser')));
 
-            this.paymentService.Post(paymentIntentDto).subscribe(
-              (data: any) => {
-                this.LoadData(false);
-                debugger;
-                this.succes = data;
-                this.GetNextPage();
-                this.LoadRedirect();
-              },
-              (err: HttpErrorResponse) => {
-                this.LoadData(false);
-                this.error = err.error.ErrorDescription;
-              }
-            ),
-              // tslint:disable-next-line: no-unused-expression
-              (err: HttpErrorResponse) => {
-                this.LoadData(false);
-                this.error = err.error.ErrorDescription;
-              };
-            this.error = undefined;
-          } else if (result.error) {
-            this.LoadData(false);
-            this.error = result.error.message;
-          }
-        },
-        (err: HttpErrorResponse) => {
-          this.error = err.error.ErrorDescription;
-        }
-      );
-    }
+    this.paymentService.Post(this.paymentIntent).subscribe(
+      (data: any) => {
+        this.succes = data.Result.items.data[0];
+          $('#payment').removeClass('active');
+          $('#payment').addClass('inactive');
+          $('#fieldsetpayment').css({
+            display: 'none',
+            position: 'relative',
+          });
+
+          $('#confirm').addClass('active');
+          $('#fieldsetconfirm').css({
+            display: 'block',
+            position: 'relative',
+          });
+          this.LoadRedirect();
+      })
+    // const name = this.StripeTest.get('name').value;
+    // if (name === '') {
+    //   $('.error_fullname').html('Full name');
+    //   // return false;
+    // } else {
+    //   /* lo comemtamos para no mostrar el loading */
+    //   this.LoadData(true);
+      // this.stripeSvc.createToken(this.card, { name }).subscribe(
+      //   (result) => {
+      //     // this.GetNextPage();
+      //     /* lo comemtamos para que pueda hacer lo de front-end sin bombadear la base de datos */
+      //     if (result.token) {
+            
+      //       debugger;
+      //       console.log(result.token);
+      //       const paymentIntentDto: PaymentIntentDto = {
+      //         // tslint:disable-next-line: radix
+      //         AccountId: parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser'))),
+      //         CardId: result.token.card.id,
+      //         Description: this.PlanSelect.nickname,
+      //         Email: this.gbfuncservice.Decrypt(localStorage.getItem('mail')),
+      //         IDStripePrice: this.PlanSelect.id,
+      //         fullname: name,
+      //         idPaymentIntent: 0,
+      //         state: 1,
+      //         stripeTokenId: result.token.id,
+      //       };
+
+            //  const paymentIntentDto: PaymentIntentDto = {
+            //   // tslint:disable-next-line: radix
+            //   AccountId: parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser'))),
+            //   Description: this.PlanSelect.nickname,
+            //   Email: this.gbfuncservice.Decrypt(localStorage.getItem('mail')),
+            //   IDStripePrice: this.PlanSelect.id,
+            //   fullname: name,
+            //   idPaymentIntent: 0,
+            //   state: 1,
+            //   stripeTokenId: result.token.id,
+            // };
+
+      //       debugger;
+      //       this.paymentService.Post(paymentIntentDto).subscribe(
+      //         (data: any) => {
+      //           // this.LoadData(false);
+      //           debugger;
+      //           this.succes = data;
+      //           // this.GetNextPage();
+      //           $('#payment').removeClass('active');
+      //           $('#payment').addClass('inactive');
+      //           $('#fieldsetpayment').css({
+      //             display: 'none',
+      //             position: 'relative',
+      //           });
+
+      //           $('#confirm').addClass('active');
+      //           $('#fieldsetconfirm').css({
+      //             display: 'block',
+      //             position: 'relative',
+      //           });
+      //           this.LoadRedirect();
+      //         },
+      //         (err: HttpErrorResponse) => {
+      //           this.LoadData(false);
+      //           this.error = err.error.ErrorDescription;
+      //         }
+      //       ),
+      //         // tslint:disable-next-line: no-unused-expression
+      //         (err: HttpErrorResponse) => {
+      //           this.LoadData(false);
+      //           this.error = err.error.ErrorDescription;
+      //         };
+      //       this.error = undefined;
+      //     } else if (result.error) {
+      //       this.LoadData(false);
+      //       this.error = result.error.message;
+      //     }
+      //   },
+      //   (err: HttpErrorResponse) => {
+      //     this.error = err.error.ErrorDescription;
+      //   }
+      // );
+    // }
   }
   HideMessage(msg) {
     $('.' + msg).html('');
@@ -299,11 +366,23 @@ export class RegisterpaymentComponent implements OnInit {
       /* lo comemtamos para que pueda hacer lo de front-end sin bombadear la base de datos */
       this.userService.Put(this.usr).subscribe(
         (data: any) => {
-          debugger;
           // tslint:disable-next-line: no-debugger
           this.usr = this.usr;
           IStep2 = true;
-          this.GetNextPage();
+          $('#account').removeClass('active');
+          $('#account').addClass('inactive');
+          $('#fieldsetaccount').css({
+            display: 'none',
+            position: 'relative',
+          });
+
+          $('#personal').addClass('active');
+          $('#fieldsetpersonal').css({
+            display: 'block',
+            position: 'relative',
+          });
+          this.LoadData(false);
+          // this.GetNextPage();
         },
         (err: HttpErrorResponse) => {
           this.LoadData(false);
@@ -320,7 +399,7 @@ export class RegisterpaymentComponent implements OnInit {
   GetPlan() {
     const filter = '?count=3';
     this.paymentService.GetAll(filter).subscribe((data: any) => {
-      this.plan = data.Result.Result.data;
+      this.plan = data.Result.data;
     });
   }
 
@@ -345,7 +424,7 @@ export class RegisterpaymentComponent implements OnInit {
     this.PlanSelect = item;
     selecttyp = item;
     $('.ste2').val(2);
-    this.error = undefined;
+    this.error = false;
   }
 
   validateField() {
@@ -394,7 +473,6 @@ export class RegisterpaymentComponent implements OnInit {
   GetNextPage() {
     this.LoadData(false);
     $('#progressbar li').eq($('fieldset').index(next_fs)).addClass('active');
-    debugger;
     next_fs.show();
     current_fs.css({
       display: 'none',
@@ -429,7 +507,6 @@ function funcionCustom() {
   // tslint:disable-next-line: only-arrow-functions
   $(document).ready(function () {
     $('.next').click(function () {
-      debugger;
       current_fs = $(this).parent();
       next_fs = $(this).parent().next();
       if (selecttyp === undefined && IStep2 === true) {

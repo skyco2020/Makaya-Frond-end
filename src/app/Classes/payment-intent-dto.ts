@@ -1,12 +1,14 @@
 export class PaymentIntentDto {
   public idPaymentIntent: number;
   public AccountId: number;
-  public stripeTokenId: string;
-  public CardId: string;
+  public iDPlanPrice: string;
   public fullname: string;
-  public Email: string;
-  public Description: string;
-
-  public IDStripePrice: string;
+  public email: string;
+  public description: string;  
+  public cardnumber: string;
+  public expirationDate: string;
+  public month: string;
+  public year: string;
+  public cvc: string;
   public state: number;
 }

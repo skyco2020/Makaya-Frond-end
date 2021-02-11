@@ -45,21 +45,19 @@
 <section class="modify">
   <div class="fill-data">
     <label>name</label>
-    <input type="text" name="idprofil" id="idprofil" hidden />
-    <input type="text" name="complete" id="complete" hidden />
-    <input type="text" name="profilname" id="name" />
+    <input type="text" name="idprofil" [(ngModel)]="prof.idPerfil" id="idprofil" hidden />
+    <input type="text" name="complete" [(ngModel)]="prof.complete" id="complete" hidden />
+    <input type="text" name="profilname" [(ngModel)]="prof.name" id="name" (click)="hiddenErrorMessage('errorname')" />
 
-    <span style="color: brown; display: none" id="errorname"
-      >You have to enter a profile name</span
-    >
+    <span style="color: brown; display: none" id="errorname">
+      You have to enter a profile name
+    </span>
     <br />
     <label>Password</label>
-    <input type="text" name="idprofil" id="idprofil" hidden />
-    <input type="text" name="complete" id="complete" hidden />
-    <input type="text" name="profilname" id="name" />
+    <input type="password" name="passperfil" (click)="hiddenErrorMessage('errorpassperfil')"  [(ngModel)]="prof.passperfil" id="passperfil" />
 
-    <span style="color: brown; display: none" id="errorname"
-      >You have to enter a profile name</span
+    <span style="color: brown; display: none" id="errorpassperfil"
+      >You have to enter a password</span
     >
   </div>
   <div class="action-update">

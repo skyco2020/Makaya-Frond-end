@@ -166,64 +166,63 @@ export class FinishpaymentComponent implements OnInit {
   }
 
   buy() {
-    const name = this.StripeTest.get('name').value;
-    if (name === '') {
-      $('.error_fullname').html('Full name');
-      // return false;
-    }
-    else {
-      $('.hidden_button').prop( "disabled", true );
-      $(".hidden_button").attr('disabled','disabled');
-      this.LoadData(true);
-      this.stripeSvc
-        .createToken(this.card, { name })
-        .subscribe(result => {
-          if (result.token) {
-            console.log(result.token);
-            const paymentIntentDto: PaymentIntentDto = {
-              // tslint:disable-next-line: radix
-              AccountId: parseInt(localStorage.getItem('IdUser')),
-              CardId: result.token.card.id,
-              Description: this.PlanSelect.nickname,
-              Email: localStorage.getItem('mail'),
-              IDStripePrice: this.PlanSelect.id,
-              fullname: name,
-              idPaymentIntent: 0,
-              state: 1,
-              stripeTokenId: result.token.id
-            };
+    // const name = this.StripeTest.get('name').value;
+    // if (name === '') {
+    //   $('.error_fullname').html('Full name');
+    //   // return false;
+    // }
+    // else {
+    //   $('.hidden_button').prop( "disabled", true );
+    //   $(".hidden_button").attr('disabled','disabled');
+    //   this.LoadData(true);
+    //   this.stripeSvc
+    //     .createToken(this.card, { name })
+    //     .subscribe(result => {
+    //       if (result.token) {
+    //         console.log(result.token);
+        //     const paymentIntentDto: PaymentIntentDto = {
+        //       // tslint:disable-next-line: radix
+        //       AccountId: parseInt(localStorage.getItem('IdUser')),
+        //       // CardId: result.token.card.id,
+        //       description: this.PlanSelect.nickname,
+        //       email: localStorage.getItem('mail'),
+        //       iDPlanPrice: this.PlanSelect.id,
+        //       fullname: name,
+        //       idPaymentIntent: 0,
+        //       state: 1,
+        //     };
 
-            this.paymentService.Post(paymentIntentDto).subscribe(
-              (data: any) => {
-                this.LoadData(false);
-                this.succes = data;
-                this.GetNextPage();
-                this.LoadRedirect();
-              },
-              (err: HttpErrorResponse) => {
-                this.LoadData(false);
-                $(".hidden_button").removeAttr('disabled');
-                this.error = err.error.ErrorDescription;
-              }
-            ),
-            // tslint:disable-next-line: no-unused-expression
-            (err: HttpErrorResponse) => {
-              this.LoadData(false);
-              $(".hidden_button").removeAttr('disabled');
-              this.error = err.error.ErrorDescription;
-            };
-            this.error = undefined;
-          } else if (result.error) {
-            this.LoadData(false);
-            $(".hidden_button").removeAttr('disabled');
-            this.error = result.error.message;
-          }
-        },
-          (err: HttpErrorResponse) => {
-            $(".hidden_button").removeAttr('disabled');
-            this.error = err.error.ErrorDescription;
-          });
-    }
+        //     this.paymentService.Post(paymentIntentDto).subscribe(
+        //       (data: any) => {
+        //         this.LoadData(false);
+        //         this.succes = data;
+        //         this.GetNextPage();
+        //         this.LoadRedirect();
+        //       },
+        //       (err: HttpErrorResponse) => {
+        //         this.LoadData(false);
+        //         $(".hidden_button").removeAttr('disabled');
+        //         this.error = err.error.ErrorDescription;
+        //       }
+        //     ),
+        //     // tslint:disable-next-line: no-unused-expression
+        //     (err: HttpErrorResponse) => {
+        //       this.LoadData(false);
+        //       $(".hidden_button").removeAttr('disabled');
+        //       this.error = err.error.ErrorDescription;
+        //     };
+        //     this.error = undefined;
+        //   } else if (result.error) {
+        //     this.LoadData(false);
+        //     $(".hidden_button").removeAttr('disabled');
+        //     this.error = result.error.message;
+        //   }
+        // },
+        //   (err: HttpErrorResponse) => {
+        //     $(".hidden_button").removeAttr('disabled');
+        //     this.error = err.error.ErrorDescription;
+        //   });
+    // }
 
   }
 

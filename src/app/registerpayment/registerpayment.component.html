@@ -19,7 +19,7 @@
         <li id="confirm"><strong>Finish</strong></li>
       </ul>
       <!-- fieldsets -->
-      <fieldset>
+      <fieldset id="fieldsetaccount">
         <h2 class="">Account Information</h2>
         <div class="register-col">
           <!-- <input type="email" name="email" placeholder="Email Id" /> -->
@@ -116,11 +116,11 @@
           <input type="text" id="latitude" hidden />
           <input type="text" id="longitude" hidden />
         </div>
-        <div class="overlay" *ngIf="load">
+        <!-- <div class="overlay" *ngIf="load">
           <div class="spinner">
             <img class="imgsp" src="../../assets/img/giphyloadinf.webp" />
           </div>
-        </div>
+        </div> -->
         <div class="">
           <input
             type="button"
@@ -131,16 +131,13 @@
           />
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset id="fieldsetpersonal">
         <div class="form-card">
           <h2 class="fs-title">Plan Information</h2>
           <input class="ste2" hidden />
           <h2 class="fs-title text-center">Select one Plan</h2>
           <div class="all-plan">
-            <div
-              *ngFor="let item of plan; let idx = index"
-              (click)="CarSubmit(item, idx)"
-            >
+            <div *ngFor="let item of plan; let idx = index" (click)="CarSubmit(item, idx)">
               <div class="card-plan" id="select-plan">
                 <div class="plan-body">
                   <h5 class="">
@@ -157,16 +154,15 @@
                                                     <button class="btn btn-primary btnsubmit" (click)="CarSubmit(idx)">Choose</button> -->
                 </div>
               </div>
-              <br /><br /><br />
             </div>
             <h2 class="red-text error_plan fs-title text-center"></h2>
           </div>
         </div>
-        <div class="overlay" *ngIf="load">
+        <!-- <div class="overlay" *ngIf="load">
           <div class="spinner">
             <img class="imgsp" src="../../assets/img/giphyloadinf.webp" />
           </div>
-        </div>
+        </div> -->
         <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
         <input
           type="button"
@@ -176,45 +172,52 @@
           (click)="GetSelectPlan()"
         />
       </fieldset>
-      <fieldset>
+      <fieldset id="fieldsetpayment">
         <div class="form-card">
           <h2 class="fs-title">Payment Information</h2>
 
           <form
             novalidate
-            (ngSubmit)="buy()"
-            [formGroup]="StripeTest"
+            (ngSubmit)="buy()"           
             #f="ngForm"
           >
             <h3 class="card-title center planidhow" hidden></h3>
             <h3 class="card-title center planshow"></h3>
             <h4 class="card-title center priceshow"></h4>
             <br /><br />
-            <label for=""
-              >Enter your full name as it is written on the card</label
-            >
-            <input
-              type="text"
-              class="valfield"
-              formControlName="name"
-              placeholder="Full name"
-              required
-              [disabled]="!f.valid"
-              (click)="HideMessage('error_fullname')"
-            />
-            <h2 class="red-text error_fullname alert-danger"></h2>
-            <div id="card-element" class="field"></div>
+            <div class="carform">
+              <div>
+                <label for="">Your full name</label>
+              <input type="text" class="valfield" name="fullname" [(ngModel)]="paymentIntent.fullname"  maxlength="60"  placeholder="Full name" required (click)="HideMessage('error_fullname')"/>
+              </div>
+              <div>
+                <label for="">Card number</label>
+              <input type="text" min="0" maxlength="16" name="cardnumber" [(ngModel)]="paymentIntent.cardnumber" class="valfield"  placeholder="Card number" required (click)="HideMessage('error_fullname')"/>
+              </div>
+              <div>
+                <label for="">Expiration date</label>
+              <input type="text" class="valfield" name="expirationDate" [(ngModel)]="paymentIntent.expirationDate"  maxlength="5" placeholder="MM/YY" required (click)="HideMessage('error_fullname')"/>
+              </div>
+              <div>
+                <label for="">CVC</label>
+              <input type="number" class="valfield" name="cvc" [(ngModel)]="paymentIntent.cvc"  placeholder="CVC" required (click)="HideMessage('error_fullname')"/>
+              </div>
+              
+            </div>
+           
+            <!-- <h2 class="red-text error_fullname alert-danger"></h2> -->
+            <!-- <div id="card-element" class="field"></div> -->
             <div *ngIf="error" class="alert alert-danger">
               {{ error }}
             </div>
             <br /><br /><br />
           </form>
         </div>
-        <div class="overlay" *ngIf="load">
+        <!-- <div class="overlay" *ngIf="load">
           <div class="spinner">
             <img class="imgsp" src="../../assets/img/giphyloadinf.webp" />
           </div>
-        </div>
+        </div> -->
         <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
         <input
           type="button"
@@ -224,7 +227,7 @@
           value="Confirm"
         />
       </fieldset>
-      <fieldset>
+      <fieldset id="fieldsetconfirm">
         <div class="finish">
           <h2 class="">Success !</h2>
           <br />
@@ -235,15 +238,15 @@
 
           <div class="price-trial">
             <h5>
-              {{ succes != null ? succes.metadata["Type Plan"] : "" }}
+              {{ succes != null ? succes.plan.metadata["Type Plan"] : "" }}
             </h5>
             <p class="">
               Price: $
-              {{ succes != null ? succes.amount_decimal / 100 : "" }}
+              {{ succes != null ? succes.plan.amount / 100 : "" }}
             </p>
             <p class="">
               you have
-              {{ succes != null ? succes.trial_period_days : "" }}
+              {{ succes != null ? succes.plan.trial_period_days : "" }}
               days trial
             </p>
             <!-- <br> <button class="btn btn-primary btnsubmit" (click)="CarSubmit(idx)">Choose</button> -->

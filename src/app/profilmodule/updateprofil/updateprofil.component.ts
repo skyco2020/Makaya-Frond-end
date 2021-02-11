@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
 import { PerfilService } from '../../services/perfil.service';
@@ -16,6 +16,8 @@ declare var $: any;
 })
 export class UpdateprofilComponent implements OnInit {
   profils: any;
+  prof = new Perfil()  
+
   constructor(
     private userService: TaskService,
     private serperfil: PerfilService,
@@ -28,11 +30,8 @@ export class UpdateprofilComponent implements OnInit {
 
     this.serperfil.GetAll(filter).subscribe((data: any) => {
       this.profils = data.ResourceList;
-
     });
-    trye();
   }
-
   UpdateProfil(profil){
     $('.profiles').css({
       display:'none'
@@ -48,9 +47,7 @@ export class UpdateprofilComponent implements OnInit {
       margin: '0px auto'
 
     })
-    $('#name').val(profil.name);
-    $('#idprofil').val(profil.idPerfil);
-    $('#complete').val(profil.complete)
+    this.prof = profil;
   }
 
   Cancel(){
@@ -62,37 +59,27 @@ export class UpdateprofilComponent implements OnInit {
     })
   }
   Save(){
-    if($('#name').val() == ""){
+    if(this.prof.name === (undefined || "" || null)){
       $('#errorname').css({
         display:'block'
       })
     }
+    else  if(this.prof.passperfil === (undefined || "" || null)){
+      $('#errorpassperfil').css({
+        display:'block'
+      })
+    }
     else{
-      let prof = new Perfil();
-      prof.idPerfil = $('#idprofil').val();
-      prof.name =$('#name').val();
-      prof.complete = $('#complete').val()
-
-      this.serperfil.Put(prof).
+      this.serperfil.Put(this.prof).
       subscribe((data: any) => {
         this.ngOnInit();
         this. Cancel();
       })
     }
   }
-}
-function trye() {
-  debugger;
-  //  const email = document.querySelector("profile-user");
-  // $(".edit").on("click", function(){
-  //   debugger;
-  // })
-  // document.querySelector('#edit').addEventListener('click', function (e) {
-  //   debugger;
-  //   // alert(this.getAttribute('data-id'));
-  //   document.getElementById('profiles').style.display = 'none';
-  //   document.getElementById('modal').style.height = '100vh!important';
-  //   document.getElementById('modal').style.width = '100%!important';
-  //   document.getElementById('modal').style.position = 'absolute';
-  // });
+  hiddenErrorMessage(id: string){
+    $('#'+id).css({
+      display:'none'
+    })
+  }
 }
