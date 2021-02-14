@@ -80,6 +80,13 @@ export const appRoutes: Routes = [
         (e) => e.NonepaymentModule
       ),
   },
+  {
+    path: 'setting',
+    loadChildren: () =>
+      import('./modules/account-setting/account-setting.module').then(
+        (e) => e.AccountSettingModule 
+      ),
+  },
   /* any unrecognized path will send home */
   {
     path: '**',

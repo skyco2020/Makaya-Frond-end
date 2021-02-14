@@ -26,6 +26,7 @@ export class ProfilComponent implements OnInit {
     let filter = '?AccountId=' + tokenPayload.Idaccount;
 
     this.serperfil.GetAll(filter).subscribe((data: any) => {
+      debugger;
       this.profils = data.ResourceList;
       let p = this.prof;
       debugger;
