@@ -1,20 +1,22 @@
 a {
   text-transform: capitalize;
   transition: all 1s;
+  color: white;
 }
 a:hover {
   text-decoration: underline;
   /* opacity: 0.8; */
   text-align: left !important;
-  /* color: rgba(0, 0, 0, 0.8); */
+  color: var(--primary);
 }
 hr {
   background: white;
 }
 footer {
   width: 100%;
-  background-color: #ef7f1a;
+  background-color: var(--fondo);
   padding: 15px;
+  margin: 10px 0px 0px 0px;
 }
 footer > .footer-wrapper {
   display: grid;
@@ -39,14 +41,14 @@ footer > .footer-wrapper > .box > ul > li {
 /* media queries  */
 @media (max-width: 430px) {
   footer {
-    padding: 10px 0px 5px 15px ;
+    padding: 10px 0px 5px 15px;
   }
   footer > .footer-wrapper > .box {
     border-bottom: 0.3px solid black;
     margin-right: 0px;
     margin-bottom: 0px;
   }
-  footer > .footer-wrapper > .box:last-child{
-    border-bottom:none;
+  footer > .footer-wrapper > .box:last-child {
+    border-bottom: none;
   }
 }
