@@ -10,8 +10,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
 body {
-  background: var(--fondo) !important;
+  background: #181b1d !important;
 }
 ul {
   list-style: none;

@@ -88,6 +88,13 @@ export const appRoutes: Routes = [
       ),
   },
   {
+    path: 'upload-video',
+    loadChildren: () =>
+      import('./modules/load-video/load-video.module').then(
+        (e) => e.LoadVideoModule 
+      ),
+  },
+  {
     path: 'plan',
     loadChildren: () =>
       import('./modules/plan/plan.module').then(
@@ -99,6 +106,20 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('./modules/product/product.module').then(
         (e) => e.ProductModule 
+      ),
+  },
+  {
+    path: 'my-list',
+    loadChildren: () =>
+      import('./modules/my-list/my-list.module').then(
+        (e) => e.MyListModule 
+      ),
+  },
+  {
+    path: 'films',
+    loadChildren: () =>
+      import('./modules/films/films.module').then(
+        (e) => e.FilmsModule 
       ),
   },
   /* any unrecognized path will send home */

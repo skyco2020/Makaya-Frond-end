@@ -10,6 +10,7 @@ export class PlanComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
     document.querySelector('.close-modal').addEventListener('click',()=>{
       $('.modal-plan').css({
         display : 'none'
@@ -20,11 +21,18 @@ export class PlanComponent implements OnInit {
         display : 'block'
       })
     });
-    document.querySelector('.fa-pen-square').addEventListener('click',()=>{
-      $('.modal-plan').css({
-        display : 'block'
-      })
-    });
+    document.querySelectorAll('.fa-pen-square').forEach(elem =>{
+      elem.addEventListener('click',()=>{
+        $('.modal-plan').css({
+          display : 'block'
+        })
+      });
+    })
+    // document.getElementById('fa-pen-square').addEventListener('click',()=>{
+    //   $('.modal-plan').css({
+    //     display : 'block'
+    //   })
+    // });
   }
 
 }

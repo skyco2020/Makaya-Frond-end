@@ -32,6 +32,11 @@ import {GalleriaModule} from 'primeng/galleria';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
 import { PlanComponent } from './plan/plan.component';
 import { ProductComponent } from './product/product.component';
+import { MyListComponent } from './my-list/my-list.component';
+import { LoadVideoComponent } from './load-video/load-video.component';
+import { Menu02Component } from './menu02/menu02.component';
+import { FilmsComponent } from './films/films.component';
+import { Menu01Component } from './menu01/menu01.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,7 @@ import { ProductComponent } from './product/product.component';
     AccountComponent,RegisterpaymentComponent,FooterComponent,
     FinishpaymentComponent,NonepaymentComponent,
     GlobalmenuComponent, ProfilComponent,
-    UpdateprofilComponent, KidsComponent, AccountSettingComponent, PlanComponent, ProductComponent
+    UpdateprofilComponent, KidsComponent, AccountSettingComponent, PlanComponent, ProductComponent, MyListComponent, LoadVideoComponent, Menu02Component, FilmsComponent, Menu01Component
   ],
   imports: [
     BrowserModule,HttpClientModule,CarouselModule,GalleriaModule,
