@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SkycoService } from '../services/skyco.service';
-import { TaskService } from '../services/task.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import {
   StripeService,
@@ -12,8 +11,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Token } from '../Classes/token';
 import { PaymentIntentDto } from '../Classes/payment-intent-dto';
 import { PaymentServiceService } from '../services/payment-service.service';
+import { PlanService } from '../services/plan.service';
 
-import { FormGroup, FormBuilder, Validator, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SkycoUser } from '../Classes/skyco-user';
 import { SkycoAccount } from '../Classes/skyco-account';
@@ -66,7 +65,7 @@ export class RegisterpaymentComponent implements OnInit {
 
   constructor(
     private userService: SkycoService,
-    private taskser: TaskService,
+    private planservice: PlanService,
     private router: Router,
     private paymentService: PaymentServiceService,
     // private fb: FormBuilder,
@@ -166,8 +165,9 @@ export class RegisterpaymentComponent implements OnInit {
     let  separate = this.paymentIntent.expirationDate.split('/');
     this.paymentIntent.month = separate[0];
     this.paymentIntent.year = separate[1];
-    this.paymentIntent.description = this.PlanSelect.nickname;
-    this.paymentIntent.iDPlanPrice = this.PlanSelect.id;
+    this.paymentIntent.description = this.PlanSelect.Description;
+    this.paymentIntent.iDPlanPrice = this.PlanSelect.idplanstripe;
+    this.paymentIntent.TypePlan = this.PlanSelect.TypePlan;
     this.paymentIntent.idPaymentIntent = 0;
     this.paymentIntent.state = 1;
     this.paymentIntent.AccountId = parseInt(this.gbfuncservice.Decrypt(localStorage.getItem('IdUser')));
@@ -397,9 +397,10 @@ export class RegisterpaymentComponent implements OnInit {
     }, 0);
   }
   GetPlan() {
-    const filter = '?count=3';
-    this.paymentService.GetAll(filter).subscribe((data: any) => {
-      this.plan = data.Result.data;
+    const filter = '?top=3';
+    this.planservice.GetAll(filter).subscribe((data: any) => {
+      debugger;
+      this.plan = data.ResourceList;
     });
   }
 

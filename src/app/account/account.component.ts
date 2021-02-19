@@ -19,7 +19,7 @@ const urljs = '../../assets/js/login.js';
 })
 export class AccountComponent implements OnInit {
   user = new LoginToken();
-  
+
   accountForm: FormGroup;
   private isEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
@@ -64,6 +64,7 @@ export class AccountComponent implements OnInit {
             let role = decodotken.UserRole.toLowerCase();
             if (this.userService.loggedIn() && role === 'user'.toLowerCase()) {
               let filter = '?AccountId=' + decodotken.Idaccount;
+              localStorage.setItem('accountId', this.gbfuncservice.Encrypt(decodotken.Idaccount));
               this.serperfil.GetAll(filter).subscribe((data: any) => {
                 if (data.ResourceList.length > 1) {
                   this.router.navigate(['/perfil']);

@@ -166,6 +166,10 @@ input:active{
     text-transform: uppercase;
     margin: 10px 0px ;
   }
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> e76f8b81268e08142e0336de71d57ccf50cc55d2
   .user-content{
     div{
       margin: 10px 0px ;
@@ -177,26 +181,56 @@ input:active{
   .plan-content{
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
     a{
       color: rgb(255, 115, 0);
       text-decoration: underline;
       font-weight: bold;
       font-size: 0.86rem;
+=======
+    margin-bottom: 10px;
+    a{
+      color: rgb(0, 119, 255);
+      text-decoration: underline;
+      text-transform: capitalize;
+      // font-weight: bold;
+      font-size: 1rem;
+      &:hover{
+          
+        text-decoration: underline;
+      }
+>>>>>>> e76f8b81268e08142e0336de71d57ccf50cc55d2
     }
 
   }
   .card-content{
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
+=======
+    // margin-bottom: 15px;
+>>>>>>> e76f8b81268e08142e0336de71d57ccf50cc55d2
     .content-02{
       display: flex;
       flex-direction: column;
       a{
+<<<<<<< HEAD
         color: rgb(255, 115, 0);
         text-decoration: underline;
         font-weight: bold;
         font-size: 0.86rem;
       }
+=======
+        color: rgb(0, 119, 255);
+        // font-weight: bold;
+        font-size: 0.86rem;
+        &:hover{
+          
+          text-decoration: underline;
+        }
+      }
+      
+>>>>>>> e76f8b81268e08142e0336de71d57ccf50cc55d2
     }
     .content-01{
       display: flex;
@@ -209,6 +243,34 @@ input:active{
   }
   
 }
+<<<<<<< HEAD
+=======
+.btm{
+  padding: 10px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(209, 209, 209);
+  display: inline-block;
+  margin: 7px 0px;
+  
+}
+.btm-danger{
+  background-color: rgba(31, 31, 31,0.4);
+  font-size: 15px;
+  &:hover{
+    background-color: darken($color: rgba(31, 31, 31,0.4), $amount: 10) ;
+  }
+}
+.btm-primary{
+  background-color:rgb(1, 83, 160);
+  &:hover{
+    background-color: darken($color: rgb(1, 83, 160), $amount: 10) ;
+  }
+}
+>>>>>>> e76f8b81268e08142e0336de71d57ccf50cc55d2
 // media query 
 
 @media(max-width:780px){
