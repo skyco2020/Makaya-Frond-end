@@ -3,6 +3,7 @@ export class PaymentIntentDto {
   public AccountId: number;
   public iDPlanPrice: string;
   public fullname: string;
+  public TypePlan: string;
   public email: string;
   public description: string;  
   public cardnumber: string;

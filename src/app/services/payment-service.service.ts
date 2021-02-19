@@ -28,6 +28,14 @@ export class PaymentServiceService {
     return this.httpClient.get(conect);
   }
 
+  public RetrieveCard(id: number) {
+    return this.httpClient.get(this.stripeURL + `/RetrieveCard?accoutId=${id}`);
+  }
+
+  public RetrieveSubscription(id: number) {
+    return this.httpClient.get(this.stripeURL + `/Retrievesubscription?accoutId=${id}`);
+  }
+
   public cancelar(id: string) {
     return this.httpClient.post(this.stripeURL + `cancel/${id}`, {}, header);
   }

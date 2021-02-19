@@ -75,7 +75,7 @@
       <div class="user-content">
         <div class="">
           <strong>Username : </strong>
-          <span>Username</span>
+          <span>{{username}}</span>
         </div>
         <div class="">
           <strong>Password : </strong>
@@ -91,8 +91,8 @@
       <h2>Payment Information</h2>
       <div class="card-content">
         <div class="content-01">
-          <span>the next payment 12/23/23</span>
-          <span>**** **** **** 6772</span>
+          <span>the next payment {{subscription.created | date}}</span>
+          <span>**** **** **** {{card.last4}}</span>
         </div>
         <div class="content-02">
           <a href="#">change Card</a>
