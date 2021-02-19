@@ -13,12 +13,21 @@
 body {
   background: var(--fondo) !important;
 }
+ul {
+  list-style: none;
+}
+button {
+  border: none;
+  outline: none;
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 15px;
+}
 a {
+  color: white;
   text-decoration: none;
-  color: black;
 }
 a:hover {
-  color: black;
   text-decoration: none;
 }
 
@@ -60,7 +69,7 @@ header .show-case-logo label {
 }
 
 .show-case > header .btn-login-principal {
-  /* width: 100%; */
+  width: 100%;
   width: 100px !important;
   padding: 10px 25px;
   background-color: #fff;

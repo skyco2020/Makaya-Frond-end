@@ -30,6 +30,8 @@ import { GlobalFunctionService} from './Function/global-function.service';
 import {CarouselModule} from 'primeng/carousel';
 import {GalleriaModule} from 'primeng/galleria';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
+import { PlanComponent } from './plan/plan.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { AccountSettingComponent } from './account-setting/account-setting.compo
     AccountComponent,RegisterpaymentComponent,FooterComponent,
     FinishpaymentComponent,NonepaymentComponent,
     GlobalmenuComponent, ProfilComponent,
-    UpdateprofilComponent, KidsComponent, AccountSettingComponent
+    UpdateprofilComponent, KidsComponent, AccountSettingComponent, PlanComponent, ProductComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,CarouselModule,GalleriaModule,

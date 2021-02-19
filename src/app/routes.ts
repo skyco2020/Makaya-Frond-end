@@ -87,6 +87,20 @@ export const appRoutes: Routes = [
         (e) => e.AccountSettingModule 
       ),
   },
+  {
+    path: 'plan',
+    loadChildren: () =>
+      import('./modules/plan/plan.module').then(
+        (e) => e.PlanModule 
+      ),
+  },
+  {
+    path: 'product',
+    loadChildren: () =>
+      import('./modules/product/product.module').then(
+        (e) => e.ProductModule 
+      ),
+  },
   /* any unrecognized path will send home */
   {
     path: '**',

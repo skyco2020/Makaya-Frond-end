@@ -9,9 +9,10 @@ const urljs = '../../assets/js/sliderhome.js';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  
   userClaims: any;
   Movies: any;
   principal;
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
     debugger;
-    stopPlay();
+    // stopPlay();
     Carousel();
     FullScreen();
     this.Probar();
@@ -53,21 +54,21 @@ Probarmouseout(){
         age: 'Alfred Hitchcock, USA 1958',
         description:
           'A former detective with a fear of heights is hired to follow a woman apparently possessed by the past in Alfred Hitchcock’s timeless thriller about obsession.',
-        picture: '../../assets/video/agenord.mp4',
+        picture: '../../assets/video/Tropical.mp4',
       },
       {
         name: 'Citizen Kane',
         age: 'Orson Welles, USA 1941',
         description:
           'Cerbero es un perro con mucha energia, necesita un hogar donde tenga mucho espacio',
-        picture: '../../assets/video/VID-20200705-WA0050.mp4',
+        picture: '../../assets/video/Tropical.mp4',
       },
       {
         name: 'Tokyo Story',
         age: 'Ozu Yasujiro, Japan 1953',
         description:
           'The final part of Yasujiro Ozu’s loosely connected ‘Noriko’ trilogy is a devastating story of elderly grandparents brushed aside by their self-involved family.',
-        picture: '../../assets/video/agenord.mp4',
+        picture: '../../assets/video/Tropical.mp4',
       },
       {
         name: 'TOUSSAINT LOUVERTURE',
@@ -81,28 +82,28 @@ Probarmouseout(){
         age: 'Heading South 2005',
         description:
           'Three female tourists have their eyes opened while visiting the poverty-stricken and dangerous world of 1980s Haiti.',
-        picture: '../../assets/video/VID-20200705-WA0050.mp4',
+        picture: '../../assets/video/Tropical.mp4',
       },
       {
         name: 'Voodoo Possession',
         age: 'Voodoo Possession (2014)',
         description:
           'For believers and skeptics alike, there is nothing in this world or the next to rival the relentless evil of a Voodoo Possession.',
-        picture: '../../assets/video/agenord.mp4',
+        picture: '../../assets/video/Tropical.mp4',
       },
       {
         name: " Pluie d'espoir",
         age: 'Jacque Roc 2005',
         description:
           "Pluie d'Espoir is a movie based on the story of a young peasant named Toussaint from the Haitian Provinces. His instinct for survival is strong.",
-        picture: '../../assets/video/VID-20200705-WA0050.mp4',
+        picture: '../../assets/video/Tropical.mp4',
       },
       {
         name: 'Lakay',
         age: 'Brian T. Lee 2009',
         description:
           'A powerful and engaging social issue documentary investigating the living situations and treatment of Haitian immigrants and their children in the Bahamas.',
-        picture: '../../assets/video/VID-20200705-WA0050.mp4',
+        picture: '../../assets/video/Tropical.mp4',
       }
     ];
   }
@@ -200,48 +201,48 @@ function Carousel() {
   // });
 }
 
-function stopPlay() {
-  $('.stop-principal').on('click', function () {
-    var v = document.getElementsByTagName('video')[1];
-    v.parentElement;
-    v.pause();
-    $('.stop-principal').toggle();
-    $('.play-principal').toggle();
-    var p = document.getElementsByClassName('stop-principal');
-    console.log(p);
-  });
+// function stopPlay() {
+//   $('.stop-principal').on('click', function () {
+//     var v = document.getElementsByTagName('video')[1];
+//     v.parentElement;
+//     v.pause();
+//     $('.stop-principal').toggle();
+//     $('.play-principal').toggle();
+//     var p = document.getElementsByClassName('stop-principal');
+//     console.log(p);
+//   });
 
-  $('.play-principal').on('click', function () {
-    var v = document.getElementsByTagName('video')[1];
-    v.play();
-    $('.stop-principal').toggle();
-    $('.play-principal').toggle();
-  });
+//   $('.play-principal').on('click', function () {
+//     var v = document.getElementsByTagName('video')[1];
+//     v.play();
+//     $('.stop-principal').toggle();
+//     $('.play-principal').toggle();
+//   });
 
-  $('.stop-video-principal').on('click', function () {
-    var vp = document.getElementsByTagName('video')[0];
-    vp.pause();
-    $('.stop-video-principal').toggle();
-    $('.play-video-principal').toggle();
-  });
+//   $('.stop-video-principal').on('click', function () {
+//     var vp = document.getElementsByTagName('video')[0];
+//     vp.pause();
+//     $('.stop-video-principal').toggle();
+//     $('.play-video-principal').toggle();
+//   });
 
-  // $('.play-video-principal').on('click', function () {
-  //   var vp = document.getElementsByTagName('video')[0];
-  //   vp.play();
-  //   $('.stop-video-principal').toggle();
-  //   $('.play-video-principal').toggle();
-  // });
+//   // $('.play-video-principal').on('click', function () {
+//   //   var vp = document.getElementsByTagName('video')[0];
+//   //   vp.play();
+//   //   $('.stop-video-principal').toggle();
+//   //   $('.play-video-principal').toggle();
+//   // });
 
-  // $('.modal-close').on('click', function () {
-  //   debugger;
-  //   var media = document.getElementsByTagName('video')[1];
-  //   media.pause();
-  //   let curent = media.currentTime;
-  //   media.currentTime = 0;
-  //   //  $('.modal').modal();
-  //   // $('.modal').hide();
-  // });
-}
+//   // $('.modal-close').on('click', function () {
+//   //   debugger;
+//   //   var media = document.getElementsByTagName('video')[1];
+//   //   media.pause();
+//   //   let curent = media.currentTime;
+//   //   media.currentTime = 0;
+//   //   //  $('.modal').modal();
+//   //   // $('.modal').hide();
+//   // });
+// }
 
 function FullScreen(){
 
