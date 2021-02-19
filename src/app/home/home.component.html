@@ -25,9 +25,9 @@
           <i class="fas fa-chevron-down"></i>
 
           <ul class="sub-menu-user">
-            <li><a (click)="return()">Perfil</a></li>
-            <li><a href="#">Edit my perfil</a></li>
-            <li><a href="#">Setting</a></li>
+            <li><a routerLink="/setting">Perfil</a></li>
+            <!-- <li><a href="#">Edit my perfil</a></li> -->
+            <li><a routerLink="/setting">Setting</a></li>
             <li><a href="#">Plan</a></li>
             <li><a href="#">Notification</a></li>
             <li><a (click)="Logout()" href="#">Logout</a></li>
@@ -192,8 +192,14 @@
               <i class="fa fa-angle-double-down" id="wide-video"></i>
               <i class="fas fa-plus-circle"></i>
             </div>
-            
-            <div class="modal fade newmodal" id="Modalamor{{i}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div
+              class="modal fade newmodal"
+              id="Modalamor{{ i }}"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">
@@ -203,13 +209,10 @@
                       </video>
                     </div>
                   </div>
-                  <div class="modal-footer">
-                    
-                  </div>
+                  <div class="modal-footer"></div>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
         <button id="flecha-derecha" class="btn-right flecha-derecha">
@@ -242,9 +245,14 @@
               <i class="fa fa-angle-double-down" id="wide-video"></i>
               <i class="fas fa-plus-circle"></i>
             </div>
-            
-            
-            <div class="modal fade newmodal" id="Modalromantica{{i}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+            <div
+              class="modal fade newmodal"
+              id="Modalromantica{{ i }}"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">
@@ -254,13 +262,10 @@
                       </video>
                     </div>
                   </div>
-                  <div class="modal-footer">
-                    
-                  </div>
+                  <div class="modal-footer"></div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <button id="flecha-derecha" class="btn-right flecha-derecha">
@@ -294,8 +299,13 @@
               <i class="fas fa-plus-circle"></i>
             </div>
 
-            
-            <div class="modal fade newmodal" id="Modaldrama{{i}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div
+              class="modal fade newmodal"
+              id="Modaldrama{{ i }}"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-body">
@@ -305,13 +315,10 @@
                       </video>
                     </div>
                   </div>
-                  <div class="modal-footer">
-                    
-                  </div>
+                  <div class="modal-footer"></div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <button id="flecha-derecha" class="btn-right">
@@ -352,7 +359,6 @@
   </div> -->
 
   <!-- Modal show pre movie -->
- 
 
   <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
     Launch demo modal

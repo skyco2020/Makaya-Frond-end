@@ -9,7 +9,7 @@ import { filter, map } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit {
-  title = "Makaya";
+  // title = "Makaya";
 
   constructor(private titleService: Title, private router: Router,
     private activatedRoute: ActivatedRoute){}

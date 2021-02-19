@@ -10,6 +10,10 @@
       <div class="profile-username">
         <h5 class="username">{{ profil.name }}</h5>
       </div>
+      <i
+        *ngIf="profil.passperfil !== null"
+        class="fas fa-user-lock perfil-pass-perfil"
+      ></i>
     </div>
   </section>
   <div class="manage-profile">
@@ -26,25 +30,39 @@
 <section class="profilloggin">
   <div class="fill-data">
     <label>Username</label>
-    <input type="text" name="profilname" [(ngModel)]="prof.name" id="name" 
-    (click)="hiddenErrorMessage('errorname')" />
+    <input
+      type="text"
+      name="profilname"
+      [(ngModel)]="prof.name"
+      id="name"
+      (click)="hiddenErrorMessage('errorname')"
+    />
     <span style="color: brown; display: none" id="errorname">
       enter your user profile
     </span>
     <br />
     <label>Password</label>
-    <input type="password" name="passperfil" [(ngModel)]="prof.passperfil" id="passperfil" 
-    (click)="hiddenErrorMessage('errorpassperfil')"/>
+    <input
+      type="password"
+      name="passperfil"
+      [(ngModel)]="prof.passperfil"
+      id="passperfil"
+      (click)="hiddenErrorMessage('errorpassperfil')"
+    />
     <span style="color: brown; display: none" id="errorpassperfil">
       Enter tour password profile
     </span>
-      <span style="color: brown; display: none" id="errorincorrectlog">        
-        Incorrect username and / or password
-      </span>
+    <span style="color: brown; display: none" id="errorincorrectlog">
+      Incorrect username and / or password
+    </span>
   </div>
   <div class="action-update">
-    <button class="btn-update btn-modify btncanmodi" (click)="LogginPerfil()">Loggin</button>
-    <button class="btn-update btn-cancel btncanmodi" (click)="CancelLogin()">Cancel</button>
+    <button class="btn-update btn-modify btncanmodi" (click)="LogginPerfil()">
+      Loggin
+    </button>
+    <button class="btn-update btn-cancel btncanmodi" (click)="CancelLogin()">
+      Cancel
+    </button>
   </div>
 </section>
 <!-- <section class="addprofile">
