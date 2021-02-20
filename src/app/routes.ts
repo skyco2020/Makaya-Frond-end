@@ -87,27 +87,7 @@ export const appRoutes: Routes = [
         (e) => e.AccountSettingModule 
       ),
   },
-  {
-    path: 'upload-video',
-    loadChildren: () =>
-      import('./modules/load-video/load-video.module').then(
-        (e) => e.LoadVideoModule 
-      ),
-  },
-  {
-    path: 'plan',
-    loadChildren: () =>
-      import('./modules/plan/plan.module').then(
-        (e) => e.PlanModule 
-      ),
-  },
-  {
-    path: 'product',
-    loadChildren: () =>
-      import('./modules/product/product.module').then(
-        (e) => e.ProductModule 
-      ),
-  },
+  
   {
     path: 'my-list',
     loadChildren: () =>
@@ -120,6 +100,13 @@ export const appRoutes: Routes = [
     loadChildren: () =>
       import('./modules/films/films.module').then(
         (e) => e.FilmsModule 
+      ),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then(
+        (e) => e.AdminModule 
       ),
   },
   /* any unrecognized path will send home */

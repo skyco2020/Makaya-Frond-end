@@ -17,23 +17,25 @@
               type="text"
               name="TypePlan"
               id="type-plan"
-              formControlName="TypePlan" 
+              formControlName="TypePlan"
               [class]="isValidField('TypePlan')"
             />
             <div class="invalid-feedback">
               <span *ngIf="planForm.get('TypePlan').errors?.required">
-                  this field is rquired
+                this field is rquired
               </span>
+            </div>
           </div>
-          </div>
-          
+
           <div class="form-group">
             <label for="description">Description</label>
-            <textarea  class="form-control"
-            type="text"
-            name="Description"            
-            formControlName="Description" 
-            id="description"></textarea>
+            <textarea
+              class="form-control"
+              type="text"
+              name="Description"
+              formControlName="Description"
+              id="description"
+            ></textarea>
           </div>
           <div class="form-group">
             <label for="price">Price</label>
@@ -42,32 +44,55 @@
               type="number"
               name="Price"
               id="price"
-              formControlName="Price" 
+              formControlName="Price"
               [class]="isValidField('Price')"
-            />            
+            />
             <div class="invalid-feedback">
               <span *ngIf="planForm.get('Price').errors?.required">
-                  this field is rquired
+                this field is rquired
               </span>
-          </div>
+            </div>
           </div>
 
           <div class="form-group">
             <label for="product">Product</label>
-            <select class="form-control" name="idProduct" id="products" 
-            formControlName="idProduct" 
-            [class]="isValidField('idProduct')">
+            <select
+              class="form-control"
+              name="idProduct"
+              id="products"
+              formControlName="idProduct"
+              [class]="isValidField('idProduct')"
+            >
               <option disabled selected value="">__select a product__</option>
-              <option value="{{product.idProduct}}" *ngFor="let product of products">{{product.name}}</option>
-            </select>          
+              <option
+                value="{{ product.idProduct }}"
+                *ngFor="let product of products"
+              >
+                {{ product.name }}
+              </option>
+            </select>
             <div class="invalid-feedback">
               <span *ngIf="planForm.get('idProduct').errors?.required">
-                  Select a product
+                Select a product
               </span>
+            </div>
           </div>
-          </div>
-          <button type="button" *ngIf="iscreated" class="btn btn-primary" (click)="CreatePlan()">Add Plan</button>
-          <button type="button" *ngIf="!iscreated" class="btn btn-primary" (click)="UpdatePlan()">Update Plan</button>
+          <button
+            type="button"
+            *ngIf="iscreated"
+            class="btn btn-primary"
+            (click)="CreatePlan()"
+          >
+            Add Plan
+          </button>
+          <button
+            type="button"
+            *ngIf="!iscreated"
+            class="btn btn-primary"
+            (click)="UpdatePlan()"
+          >
+            Update Plan
+          </button>
         </form>
       </div>
       <!-- <div class="modal-footer">
@@ -76,6 +101,30 @@
         </button>
         <button type="button" class="btn btn-primary">Add Plan</button>
       </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- modal plan delete -->
+<div class="modal-plan-delete" id="modal-plan-delete">
+  <div class="overlay-delete">
+    <div class="modal-content-delete">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Plan</h5>
+        <button type="button" class="btn-close close-modal">
+          <i class="far fa-times-circle"></i>
+        </button>
+      </div>
+      <div class="modal-body-delete">
+        <form action="">
+          <div class="form-group">
+            <label for="type-plan">Motive</label>
+            <input class="form-control" type="text" name="motive" id="motive" />
+          </div>
+          <button type="button" class="btn btn-primary">Delete Plan</button>
+          <!-- <button type="button" *ngIf="!iscreated" class="btn btn-primary" (click)="UpdatePlan()">Update Plan</button> -->
+        </form>
+      </div>
     </div>
   </div>
 </div>
@@ -103,12 +152,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let plan of plans">
-          <th>{{plan.PlanId}}</th>
-          <td>{{plan.TypePlan}}</td>
-          <td>{{plan.Products.name}}</td>
+          <th>{{ plan.PlanId }}</th>
+          <td>{{ plan.TypePlan }}</td>
+          <td>{{ plan.Products.name }}</td>
           <td class="action">
             <i class="fas fa-pen-square" (click)="UpdateModal(plan)"></i>
-            <i class="fas fa-trash"></i>
+            <i class="fas fa-trash delete-modal" (click)="DeletePlan(plan)"></i>
           </td>
         </tr>
       </tbody>

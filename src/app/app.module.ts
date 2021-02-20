@@ -37,6 +37,7 @@ import { LoadVideoComponent } from './load-video/load-video.component';
 import { Menu02Component } from './menu02/menu02.component';
 import { FilmsComponent } from './films/films.component';
 import { Menu01Component } from './menu01/menu01.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { Menu01Component } from './menu01/menu01.component';
     AccountComponent,RegisterpaymentComponent,FooterComponent,
     FinishpaymentComponent,NonepaymentComponent,
     GlobalmenuComponent, ProfilComponent,
-    UpdateprofilComponent, KidsComponent, AccountSettingComponent, PlanComponent, ProductComponent, MyListComponent, LoadVideoComponent, Menu02Component, FilmsComponent, Menu01Component
+    UpdateprofilComponent, KidsComponent, AccountSettingComponent, PlanComponent, ProductComponent, MyListComponent, LoadVideoComponent, Menu02Component, FilmsComponent, Menu01Component, AdminComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,CarouselModule,GalleriaModule,

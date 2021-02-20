@@ -33,6 +33,11 @@ export class PlanComponent implements OnInit {
       this.initForm();
       this.iscreated = true;
     });
+    // document.querySelector('.close-modal').addEventListener('click',()=>{
+    //   $('.modal-plan-delete').css({
+    //     display : 'none'
+    //   })      
+    // });
     document.querySelector('.btn-add-plan').addEventListener('click',()=>{
       $('.modal-plan').css({
         display : 'block'
@@ -46,6 +51,18 @@ export class PlanComponent implements OnInit {
         $('.modal-plan').css({
           display : 'block'
         })
+        this.iscreated = true;
+        this.initForm();
+      });
+    });
+   console.log(document.querySelectorAll('.fa-pen-square').length);
+   console.log((document.querySelectorAll('.delete-modal')));
+    document.querySelectorAll('.fa-trash').forEach(el =>{
+      el.addEventListener('click',()=>{
+        console.log('modal plan delte');
+        $('.modal-plan-delete').css({
+          display : 'block'
+        });
         this.iscreated = true;
         this.initForm();
       });
@@ -119,6 +136,23 @@ export class PlanComponent implements OnInit {
           this.iscreated = true;
           this.GetAll();
           $('.modal-plan').css({
+            display : 'none'
+          })
+        },
+        (err: HttpErrorResponse) => {
+         
+        }
+      );
+    }
+  }
+  DeletePlan(){
+    debugger;
+    if(this.planForm.valid){
+      this.planservice.Put(this.planForm.value).subscribe(
+        (success) => {
+          this.iscreated = true;
+          this.GetAll();
+          $('.modal-plan-delete').css({
             display : 'none'
           })
         },
