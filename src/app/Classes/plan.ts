@@ -1,4 +1,5 @@
 import {SkycoAccount} from '../Classes/skyco-account';
+import { Product } from './product';
 export class Plan {
   public PlanId: number;
   public AccountId: number;
@@ -9,5 +10,5 @@ export class Plan {
   public state: number;
 
   public Accounts = new Array<SkycoAccount>();
-  // public List<PaymentDTO> Payments { get; set; }
+  public Products = new Array<Product>();
 }

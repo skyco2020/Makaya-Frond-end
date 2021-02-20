@@ -9,32 +9,65 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
+        <form action="" [formGroup]="planForm">
           <div class="form-group">
             <label for="type-plan">Name</label>
-            <!-- <select class="form-control" name="type-plan" id="type-plan">
-              <option disabled selected value="">__select a type__</option>
-              <option value="1">option 01</option>
-              <option value="2">option 02</option>
-              <option value="3">option 03</option>
-            </select> -->
             <input
               class="form-control"
               type="text"
-              name="type-plan"
+              name="TypePlan"
               id="type-plan"
+              formControlName="TypePlan" 
+              [class]="isValidField('TypePlan')"
             />
+            <div class="invalid-feedback">
+              <span *ngIf="planForm.get('TypePlan').errors?.required">
+                  this field is rquired
+              </span>
+          </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea  class="form-control"
+            type="text"
+            name="Description"            
+            formControlName="Description" 
+            id="description"></textarea>
           </div>
           <div class="form-group">
-            <label for="product">Product</label>
-            <select class="form-control" name="products" id="products">
-              <option disabled selected value="">__select a product__</option>
-              <option value="1">prod 01</option>
-              <option value="2">prod 02</option>
-              <option value="3">prod 03</option>
-            </select>
+            <label for="price">Price</label>
+            <input
+              class="form-control"
+              type="number"
+              name="Price"
+              id="price"
+              formControlName="Price" 
+              [class]="isValidField('Price')"
+            />            
+            <div class="invalid-feedback">
+              <span *ngIf="planForm.get('Price').errors?.required">
+                  this field is rquired
+              </span>
           </div>
-          <button type="button" class="btn btn-primary">Add Plan</button>
+          </div>
+
+          <div class="form-group">
+            <label for="product">Product</label>
+            <select class="form-control" name="idProduct" id="products" 
+            formControlName="idProduct" 
+            [class]="isValidField('idProduct')">
+              <option disabled selected value="">__select a product__</option>
+              <option value="{{product.idProduct}}" *ngFor="let product of products">{{product.name}}</option>
+            </select>          
+            <div class="invalid-feedback">
+              <span *ngIf="planForm.get('idProduct').errors?.required">
+                  Select a product
+              </span>
+          </div>
+          </div>
+          <button type="button" *ngIf="iscreated" class="btn btn-primary" (click)="CreatePlan()">Add Plan</button>
+          <button type="button" *ngIf="!iscreated" class="btn btn-primary" (click)="UpdatePlan()">Update Plan</button>
         </form>
       </div>
       <!-- <div class="modal-footer">
@@ -69,21 +102,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td>type 1</td>
-          <td>Product 1</td>
+        <tr *ngFor="let plan of plans">
+          <th>{{plan.PlanId}}</th>
+          <td>{{plan.TypePlan}}</td>
+          <td>{{plan.Products.name}}</td>
           <td class="action">
-            <i class="fas fa-pen-square"></i>
-            <i class="fas fa-trash"></i>
-          </td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>type 2</td>
-          <td>Product 2</td>
-          <td class="action">
-            <i class="fas fa-pen-square"></i>
+            <i class="fas fa-pen-square" (click)="UpdateModal(plan)"></i>
             <i class="fas fa-trash"></i>
           </td>
         </tr>

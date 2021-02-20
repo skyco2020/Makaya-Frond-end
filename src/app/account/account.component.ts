@@ -35,8 +35,8 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
     // loginLabel();
     localStorage.removeItem('userToken');
-    if (localStorage.getItem('mail') !== null) {
-      this.user.UserName = localStorage.getItem('mail');
+    if (this.gbfuncservice.Decrypt(localStorage.getItem('mail')) !== null) {
+      this.user.UserName = this.gbfuncservice.Decrypt(localStorage.getItem('mail'));
       $('#email').attr('disabled', true);
     } else {
       $('#email').attr('disabled', false);
