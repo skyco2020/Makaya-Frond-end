@@ -120,34 +120,32 @@
         <h5 class="title-section">My List</h5>
       </ng-template>
       <ng-template let-movies pTemplate="item">
-        <div class="modal-film film-not-active">
-          <div class="video">
-            <video src="{{ movies.picture }}"></video>
-          </div>
-          <div class="content-film">
-            <div class="icoones-film">
-              <i class="fas fa-user"></i>
-              <i class="fas fa-user"></i>
-              <i class="fas fa-user"></i>
-              <i class="fas fa-user"></i>
+        <!-- <div class="product-item"> -->
+        <div class="pelicula">
+          <img src="../../assets/img/1.png" alt="" />
+          <div class="pelicula-footer">
+            <div class="fila-one">
+              <i class="fas fa-play"></i>
+              <i class="fas fa-plus-circle"></i>
+              <i class="fas fa-thumbs-up"></i>
+              <i class="fas fa-thumbs-down"></i>
+              <i class="fas fa-angle-down"></i>
             </div>
-            <div class="info-film">duration/recomendation/plus...</div>
+            <div class="fila-two">
+              <span class="new-or-not">New</span>
+              <span class="recomendation">70% for you</span>
+              <span class="duration">1h30mn</span>
+            </div>
+            <div class="fila-three">
+              <ul>
+                <li>Love</li>
+                <li>comedy</li>
+                <li>patient</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="product-item">
-          <div class="product-item-content pelicula">
-            <div class="video">
-              <video>
-                <source src="{{ movies.picture }}" type="video/mp4" />
-              </video>
-            </div>
-            <!-- <div class="actions">
-            <i class="fas fa-play"></i>
-            <i class="fa fa-angle-double-down" id="wide-video"></i>
-            <i class="fas fa-plus-circle"></i>
-          </div> -->
-          </div>
-        </div>
+        <!-- </div> -->
       </ng-template>
     </p-carousel>
     <!-- <p-carousel

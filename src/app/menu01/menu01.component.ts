@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalFunctionService } from '../Function/global-function.service';
 
 @Component({
   selector: 'app-menu01',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Menu01Component implements OnInit {
 
-  constructor() { }
+  constructor(private serGlo:GlobalFunctionService) { }
 
   ngOnInit(): void {
+    this.serGlo.loadScript('../../assets/js/menu01.js');
   }
 
 }

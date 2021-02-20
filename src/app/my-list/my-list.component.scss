@@ -17,20 +17,74 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(19%, 1fr));
     gap: 5px;
     .pelicula {
-        border-radius: 2px;
+        border-radius: 4px;
         background: white;
         padding: 0;
         margin: 0;
+        transition: 400ms ease-in-out;
         cursor: pointer;
         &:hover{
+            .pelicula-footer{
+                display: flex;
+            }
             z-index: 2;
-            transform: scale(1.12);
+            transform: scale(1.18);
+            width: 250px;;
             transition: 500ms ease-in-out;
+            position: relative;    
     
         }
+        .pelicula-footer{
+            display: none;
+            flex-direction: column;
+            // justify-content: center;
+            // align-items: center;
+            padding: 10px;
+            color: white;
+            background-color: #1d2024;
+            gap: 1rem;
+            .fila-one{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+               
+                i{
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid gray;
+                    padding: 5px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .fila-two{
+                display: flex;
+                gap:  1rem;
+                .new-or-not{
+                    color: aqua;
+                }
+            }
+            .fila-three{
+                ul{
+                    display: flex;
+                    justify-content: flex-start;
+                    list-style: circle;
+                    gap: 1rem;
+                    &:first-child{
+                        list-style-type: none;
+                    }
+                    li{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+       
         img{
             height: 100%;
             width: 100%;
