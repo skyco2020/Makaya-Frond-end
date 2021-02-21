@@ -135,6 +135,12 @@ i{
     }
 
 }
+img{
+    width: 30%;
+    height: auto;
+    margin-left: 8%;
+    border-radius: 8%;
+}
 @keyframes animateModal{
     0%{
         transform: translateY(-500px);

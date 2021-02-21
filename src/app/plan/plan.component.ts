@@ -17,6 +17,7 @@ export class PlanComponent implements OnInit {
  plans= new Array<Plan>();
  products = new Array<Product>();
  planForm: FormGroup;
+ planDeleteForm: FormGroup;
  iscreated: boolean = true;
 
   constructor(private planservice: PlanService, private productservice:ProductService, 
@@ -26,6 +27,7 @@ export class PlanComponent implements OnInit {
     this.GetAllProduc();
     this.GetAll();
     this.initForm();
+    this.initDeleteForm();
     document.querySelector('.close-modal').addEventListener('click',()=>{
       $('.modal-plan').css({
         display : 'none'
@@ -33,11 +35,7 @@ export class PlanComponent implements OnInit {
       this.initForm();
       this.iscreated = true;
     });
-    // document.querySelector('.close-modal').addEventListener('click',()=>{
-    //   $('.modal-plan-delete').css({
-    //     display : 'none'
-    //   })      
-    // });
+
     document.querySelector('.btn-add-plan').addEventListener('click',()=>{
       $('.modal-plan').css({
         display : 'block'
@@ -55,8 +53,7 @@ export class PlanComponent implements OnInit {
         this.initForm();
       });
     });
-   console.log(document.querySelectorAll('.fa-pen-square').length);
-   console.log((document.querySelectorAll('.delete-modal')));
+
     document.querySelectorAll('.fa-trash').forEach(el =>{
       el.addEventListener('click',()=>{
         console.log('modal plan delte');
@@ -95,11 +92,18 @@ export class PlanComponent implements OnInit {
       PlanID: [''],
       idProduct: ['',[Validators.required]],
       AccountId: [this.gbfuncservice.Decrypt(localStorage.getItem('accountId'))],
-      TypePlan: ['',[Validators.required]],
+      TypePlan: ['',[Validators.required, Validators.maxLength(50)]],
       Price: ['',[Validators.required]],
-      Description: ' ',
+      Description:  ['',[Validators.maxLength(250)]],
       PlanDate: [new Date()],
       state: [1]
+    });
+  }
+
+  private initDeleteForm():void{
+    this.planDeleteForm = this.fb.group({
+      Motive: ['',[Validators.required, Validators.maxLength(250)]],
+      idplanstripe: ' '
     });
   }
 
@@ -109,8 +113,13 @@ export class PlanComponent implements OnInit {
       'is-invalid': validatedField.touched ? 'is-valid':'';
   }
 
+  isValidDeleteField(field: string): string{
+    const validatedField = this.planDeleteForm.get(field);
+    return(!validatedField.valid && validatedField.touched) ?
+      'is-invalid': validatedField.touched ? 'is-valid':'';
+  }
+
   CreatePlan(){
-    debugger;
     if(this.planForm.valid){
 
       this.planservice.Post(this.planForm.value).subscribe(
@@ -145,10 +154,25 @@ export class PlanComponent implements OnInit {
       );
     }
   }
-  DeletePlan(){
+
+  CloseModal(){
+    $('.modal-plan-delete').css({
+      display : 'none'
+    })
+    this.initDeleteForm();
+  }
+  OpenModalDeletePlan(item){
     debugger;
-    if(this.planForm.valid){
-      this.planservice.Put(this.planForm.value).subscribe(
+    $('.modal-plan-delete').css({
+      display : 'block'
+    })
+    $('#motive').focus();
+    this.planDeleteForm.patchValue(item);
+  }
+  DeletePlan(){
+    debugger;    
+    if(this.planDeleteForm.valid){
+      this.planservice.Delete(this.planDeleteForm.value).subscribe(
         (success) => {
           this.iscreated = true;
           this.GetAll();
@@ -169,5 +193,5 @@ export class PlanComponent implements OnInit {
       display : 'block'
     })
     $('.btn-action').html('Update Plan')
-  }
+   }
 }

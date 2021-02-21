@@ -23,13 +23,9 @@ export class PlanService {
     const conect = `${this.url}`;
     return this.http.post(conect, modal);
   }
-  Delete(Id: number){
-    const conect = `${this.url}/${Id}`;
-    return this.http.delete(conect,
-      {headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
-        // tslint:disable-next-line: object-literal-key-quotes
-        'Authorization': localStorage.getItem('userToken')})});
+  Delete(data){
+    const conect = `${this.url}/Delete`;
+    return this.http.post(conect,data);
   }
   Put(modal: Plan){
     const conect = `${this.url}`;

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../Classes/product';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GlobalFunctionService } from '../Function/global-function.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 declare var $: any;
 @Component({
@@ -12,10 +15,14 @@ export class ProductComponent implements OnInit {
 
   attachementimg: string;
   products = new Array<Product>();
-  constructor(private productservice:ProductService) { }
+  productForm: FormGroup;
+
+  constructor(private productservice:ProductService, private fb:FormBuilder,
+    private gbfuncservice: GlobalFunctionService) { }
 
   ngOnInit(): void {
     this.GetAll();
+    this.initForm();
     document.querySelector('.close-modal').addEventListener('click',()=>{
       $('.modal-plan').css({
         display : 'none'
@@ -26,6 +33,7 @@ export class ProductComponent implements OnInit {
         display : 'block'
       })
     });
+
     document.querySelectorAll('.fa-pen-square').forEach(elem =>{
       elem.addEventListener('click',()=>{
         $('.modal-plan').css({
@@ -43,6 +51,23 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  private initForm():void{
+    this.productForm = this.fb.group({
+      idProduct: [''],
+      AccountId: [this.gbfuncservice.Decrypt(localStorage.getItem('accountId'))],
+      name: ['',[Validators.required, Validators.maxLength(150)]],
+      description:  ['',[Validators.maxLength(250)]],
+      urlimg: [''],
+      active: true
+    });
+  }
+
+  isValidField(field: string): string{
+    const validatedField = this.productForm.get(field);
+    return(!validatedField.valid && validatedField.touched) ?
+      'is-invalid': validatedField.touched ? 'is-valid':'';
+  }
+
   fileEvent(fileInput: Event){
     debugger;
     let file = (<HTMLInputElement>fileInput.target).files[0];
@@ -55,5 +80,34 @@ export class ProductComponent implements OnInit {
   _handleReaderLoader(readerEvent){
     var binaryString=readerEvent.target.result;
     this.attachementimg=btoa(binaryString);
+  }
+
+  CreateProduct(){
+    if(this.productForm.valid){
+      this.productservice.Post(this.productForm.value).subscribe(
+        (success) => {
+          this.GetAll();
+          $('.modal-plan').css({
+            display : 'none'
+          })
+        },
+        (err: HttpErrorResponse) => {
+         
+        }
+      );
+    }
+  }
+
+  DeletePlan(idproduct){   
+    debugger;
+      this.productservice.Delete(idproduct).subscribe(
+        (success) => {
+          this.GetAll();
+         
+        },
+        (err: HttpErrorResponse) => {
+         
+        }
+      );
   }
 }

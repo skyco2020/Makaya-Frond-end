@@ -198,7 +198,12 @@ i{
             }
         }
     }
-
+    .btn-primary-cancel{
+        background-color: #1f1a1a!important;
+    }
+    .btn-primary-cancel:hover{
+        color: #fff!important;
+    }
 }
 textarea {
     resize: none;
