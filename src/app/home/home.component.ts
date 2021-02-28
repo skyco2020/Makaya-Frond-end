@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from '../services/task.service';
 import { GlobalFunctionService } from '../Function/global-function.service';
+import { MovieService } from '../services/movie.service';
 
 declare var $: any;
 const urljs = '../../assets/js/sliderhome.js';
@@ -18,25 +19,27 @@ export class HomeComponent implements OnInit {
   principal;
   videoslist;
   constructor(private userService: TaskService, private router: Router,
-    private gbfuncservice: GlobalFunctionService) {}
+    private gbfuncservice: GlobalFunctionService, private movieservice: MovieService) {}
   // TODO:hay que llamar la function aca siempre
   ngOnInit() {
     debugger;
     // stopPlay();
     Carousel();
     FullScreen();
-    this.Probar();
-    this.principal = this.Movies[2];
+    // this.Probar();
+    this.GetAllMovie();
+    // this.principal = this.Movies[2];
     this.gbfuncservice.loadScript(urljs);
-    this.video(dat => {
-      this.videoslist = dat;
-    });
+    // this.video(dat => {
+    //   this.videoslist = dat;
+    // });
   }
 
   GetAllMovie() {
-    this.userService.GetAllMovie().subscribe((data: any) => {
-      this.principal = data[4];
-      this.Movies = data;
+    this.movieservice.GetAll().subscribe((data: any) => {
+      console.log(data.hits);
+      this.principal = data.hits[5].videos.large.url;
+      this.Movies = data.hits;
     });
   }
   Probarmouseover(id){

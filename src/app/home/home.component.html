@@ -1,4 +1,4 @@
-<div class="modal-wide" id="modal-wide">
+<div class="modal-wide" id="modal-wide" style="display: none;">
   <div class="modal-wide-content">
     <i class="fas fa-times-circle close-modal"></i>
     <div class="icones">
@@ -12,7 +12,7 @@
         <i class="fas fa-volume-mute"></i>
       </div>
     </div>
-    <video src="../../assets/video/Tropical.mp4"></video>
+    <video src="{{principal}}"></video>
     <div class="details">
       <div class="details-part-01">
         <div class="details-left">
@@ -94,7 +94,7 @@
   </div>
 </div>
 
-<app-menu01></app-menu01>
+<app-menu01 [videeprincipal] ="principal"></app-menu01>
 <!-- section  peliculas recomendadas  -->
 <main>
   <div id="modal1" class="modal">
@@ -113,15 +113,10 @@
         id="video-principal-modal"
         muted
         controlsList="nodownload"
+        src="{{principal}}"
       >
-        <source src="../../assets/video/v00.mp4" type="video/mp4" />
-        <!-- <track
-          label="English subtitles"
-          kind="subtitles"
-          srclang="en"
-          src="/static/the-web-is-always-changing.vtt"
-          default=""
-        /> -->
+      <!-- <video loop autoplay src="{{principal}}"></video>
+        <source src="{{principal}}"/> -->
       </video>
       <div class="DelAdv">
         <div class="left-side">
@@ -164,7 +159,9 @@
       <ng-template let-movies pTemplate="item">
         <div class="modal-film film-not-active">
           <div class="video">
-            <video muted src="{{ movies.picture }}"></video>
+            <!-- <iframe src="https://vod-progressive.akamaized.net/exp=1614501319~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F659%2F20%2F503297067%2F2299315562.mp4~hmac=4c231d81aaa25a4329a9b88151c2fddb13ddb465aa60b01b9b89c33548def037/vimeo-prod-skyfire-std-us/01/659/20/503297067/2299315562.mp4?filename=Ocean+-+62249.mp4" height="200" width="300" title="Iframe Example"></iframe> -->
+
+            <video muted src="{{ movies.videos.large.url }}"></video>
           </div>
           <div class="content-film">
             <div class="icoones-film">
@@ -193,8 +190,9 @@
         <div class="product-item">
           <div class="product-item-content pelicula">
             <div class="video">
+              <!-- <img src="{{movies.userImageURL}}" alt="" /> -->
               <video>
-                <source src="{{ movies.picture }}" type="video/mp4" />
+                <source src="{{ movies.videos.large.url }}" type="video/mp4" />
               </video>
             </div>
             <!-- <div class="actions">
@@ -218,7 +216,7 @@
       <ng-template let-movies pTemplate="item">
         <!-- <div class="product-item"> -->
         <div class="pelicula">
-          <img src="../../assets/img/1.png" alt="" />
+          <img src="{{movies.userImageURL}}" alt="" />
           <div class="pelicula-footer">
             <div class="fila-one">
               <i class="fas fa-play"></i>

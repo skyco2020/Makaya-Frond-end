@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GlobalFunctionService } from '../Function/global-function.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { GlobalFunctionService } from '../Function/global-function.service';
   styleUrls: ['./menu01.component.scss']
 })
 export class Menu01Component implements OnInit {
-
+@Input() videeprincipal;
   constructor(private serGlo:GlobalFunctionService) { }
 
   ngOnInit(): void {
