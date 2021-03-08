@@ -1,22 +1,44 @@
 <section class="showcase">
-  <header class="container">
-    <img routerLink="/home" class="logo" src="../../assets/img/makaya.png" />
-    <div class="menu-home-left-list">
-      <ul>
-        <li>
-          <a routerLink="/home">home</a>
-        </li>
+  <header class="">
+    <div class="header-left">
+      <img routerLink="/home" class="logo" src="../../assets/img/makaya.png" />
+      <div class="menu-home-left-list">
+        <ul>
+          <li class="navigation-menu">
+            <a class="btn-toggle-menu" role="button">Menu</a>
+            <div class="sub-menu">
+              <ul class="sub-menu-list">
+                <li>
+                  <a routerLink="/home">home</a>
+                </li>
 
-        <li>
-          <a href="#">Program</a>
-        </li>
-        <li>
-          <a routerLink="/films">Film</a>
-        </li>
-        <li>
-          <a routerLink="/my-list">My list</a>
-        </li>
-      </ul>
+                <li>
+                  <a href="#">Program</a>
+                </li>
+                <li>
+                  <a routerLink="/films">Film</a>
+                </li>
+                <li>
+                  <a routerLink="/my-list">My list</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="item">
+            <a routerLink="/home">home</a>
+          </li>
+
+          <li class="item">
+            <a href="#">Program</a>
+          </li>
+          <li class="item">
+            <a routerLink="/films">Film</a>
+          </li>
+          <li class="item">
+            <a routerLink="/my-list">My list</a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="toggle">
       <div class="icons-useful">
@@ -86,7 +108,7 @@
       </div>
     </div>
   </header>
-  <video loop autoplay src="{{videeprincipal}}"></video>
+  <video loop autoplay src="{{ videeprincipal }}"></video>
   <div class="overlay"></div>
   <div class="text">
     <!-- <h2>Never Stop To</h2> -->

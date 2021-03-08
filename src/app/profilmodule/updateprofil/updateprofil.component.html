@@ -1,4 +1,7 @@
 <div id="profiles" class="profiles">
+  <div class="title">
+    <h1>Manage Perfil</h1>
+  </div>
   <section class="profiles-content">
     <div
       id="profile-user"
@@ -9,32 +12,16 @@
       <img class="" src="../../assets/img/user.png" alt="" />
       <div class="profile-username">
         <h5 class="username">{{ profil.name }}</h5>
+        <i
+          *ngIf="profil.passperfil !== null"
+          class="fas fa-user-lock perfil-pass-perfil"
+        ></i>
       </div>
       <!-- <div class="action">
         <a id="edit-user" href="#" data-id="4">edit</a>
       </div> -->
       <i id="edit" class="fas fa-user-edit edit"></i>
     </div>
-    <!-- <div id="profile-user" class="profile-user">
-      <img class="" src="../../assets/img/user.png" alt="" />
-      <div class="profile-username">
-        <h5 class="username">Hilaire</h5>
-      </div>
-      <div class="action">
-        <a href="#">edit</a>
-      </div>
-      <i id="edit-user" class="fas fa-user-edit"></i>
-    </div>
-    <div id="profile-user" class="profile-user">
-      <img class="" src="../../assets/img/user.png" alt="" />
-      <div class="profile-username">
-        <h5 class="username">Hilaire</h5>
-      </div>
-      <div class="action">
-        <a href="#">edit</a>
-      </div>
-      <i id="edit-user" class="fas fa-user-edit"></i>
-    </div> -->
   </section>
   <div class="manage-profile">
     <a class="btn-manage-profile" aria-label="MANAGE PROFILES" href="/perfil">
@@ -45,16 +32,40 @@
 <section class="modify">
   <div class="fill-data">
     <label>name</label>
-    <input type="text" name="idprofil" [(ngModel)]="prof.idPerfil" id="idprofil" hidden />
-    <input type="text" name="complete" [(ngModel)]="prof.complete" id="complete" hidden />
-    <input type="text" name="profilname" [(ngModel)]="prof.name" id="name" (click)="hiddenErrorMessage('errorname')" />
+    <input
+      type="text"
+      name="idprofil"
+      [(ngModel)]="prof.idPerfil"
+      id="idprofil"
+      hidden
+    />
+    <input
+      type="text"
+      name="complete"
+      [(ngModel)]="prof.complete"
+      id="complete"
+      hidden
+    />
+    <input
+      type="text"
+      name="profilname"
+      [(ngModel)]="prof.name"
+      id="name"
+      (click)="hiddenErrorMessage('errorname')"
+    />
 
     <span style="color: brown; display: none" id="errorname">
       You have to enter a profile name
     </span>
     <br />
     <label>Password</label>
-    <input type="password" name="passperfil" (click)="hiddenErrorMessage('errorpassperfil')"  [(ngModel)]="prof.passperfil" id="passperfil" />
+    <input
+      type="password"
+      name="passperfil"
+      (click)="hiddenErrorMessage('errorpassperfil')"
+      [(ngModel)]="prof.passperfil"
+      id="passperfil"
+    />
 
     <span style="color: brown; display: none" id="errorpassperfil"
       >You have to enter a password</span

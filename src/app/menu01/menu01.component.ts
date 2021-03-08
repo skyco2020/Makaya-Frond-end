@@ -12,6 +12,11 @@ export class Menu01Component implements OnInit {
 
   ngOnInit(): void {
     this.serGlo.loadScript('../../assets/js/menu01.js');
+    document.querySelector('.btn-toggle-menu').addEventListener('click',(e)=>{
+      console.log('click menu');
+      document.querySelector('.navigation-menu').classList.toggle('active');
+      
+    })
   }
 
 }

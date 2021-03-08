@@ -12,7 +12,7 @@ declare var $: any;
 @Component({
   selector: 'app-updateprofil',
   templateUrl: './updateprofil.component.html',
-  styleUrls: ['./updateprofil.component.css'],
+  styleUrls: ['./updateprofil.component.scss'],
 })
 export class UpdateprofilComponent implements OnInit {
   profils: any;
