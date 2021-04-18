@@ -1,0 +1,19 @@
+<main>
+    <p>slice works!</p>
+    <div class="containerPrincipal">
+        <div class="sliceshow"  #slice>
+            <div class="slice" *ngFor="let movies of moviesslice">               
+                <a>
+                    <img src="{{movies.userImageURL}}" alt="" />
+                </a>   
+                <div class="textslice">
+                    <p>description</p>  
+                </div>        
+            </div>
+        </div>
+        <div class="controls">
+            <button class="button" onclick="next()"><i class="fas fa-angle-left"></i>  </button>
+            <button class="button rigth" onclick="Previous()"> <i class="fas fa-angle-right"></i></button>
+        </div>
+    </div>
+</main>

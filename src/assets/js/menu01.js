@@ -1,34 +1,50 @@
+const videoShowCase = document.getElementsByTagName("video")[0];
+videoShowCase.muted = true;
+console.log(videoShowCase);
+
 document.querySelector("#icon-search-menu").addEventListener("click", () => {
-  if ((document.querySelector(".search-film").style.display = "none")) {
-    document.querySelector(".search-film").style.display = "block";
-    // document.querySelector(".search-film").style.focus;
-    document.querySelector(".search-box").style.background =
-      "rgba(0, 0, 0, 0.651)";
-  } else if ((document.querySelector(".search-film").style.display = "block")) {
-    document.querySelector(".search-film").style.display = "none";
-    // document.querySelector(".search-film").style.focus;
-    document.querySelector(".search-box").style.background = "transparent";
-  }
+  document.querySelector(".search-box").classList.toggle("active");
 });
-// document.querySelector("body").addEventListener("click", (e) => {
-//   console.log(e.target);
-//   if (!e.target.classList.contains("icon-search-menu")) {
-//     console.log("entra aca ");
-//     document.querySelector(".search-film").style.display = "none";
-//     document.querySelector(".search-box").style.background = "transparent";
-//   }
-// });
+
+document.querySelector(".notifications").addEventListener("mouseover", () => {
+  document.querySelector(".notifications-box").style.display = "block";
+});
+
+document.querySelector(".notifications").addEventListener("mouseout", () => {
+  document.querySelector(".notifications-box").style.display = "none";
+});
+
+document.querySelector(".volume-up-principal").addEventListener("click", () => {
+  console.log(videoShowCase);
+  $(".fa-volume-up").toggle();
+  $(".fa-volume-mute").toggle();
+  videoShowCase.muted = true;
+  // videoShowCase.play();
+});
+
 document
-  .querySelector("#icon-notifications")
-  .addEventListener("mouseover", () => {
-    // console.log("show input");
-    // document.querySelector(".search-film").toggle("setDisplayActive");
-    document.querySelector(".notifications-box").style.display = "block";
+  .querySelector(".volume-mute-principal")
+  .addEventListener("click", () => {
+    console.log(videoShowCase);
+    $(".fa-volume-up").toggle();
+    $(".fa-volume-mute").toggle();
+    // videoShowCase.pause();
+    videoShowCase.muted = false;
   });
-document
-  .querySelector("#icon-notifications")
-  .addEventListener("mouseout", () => {
-    // console.log("show input");
-    // document.querySelector(".search-film").toggle("setDisplayActive");
-    document.querySelector(".notifications-box").style.display = "none";
-  });
+
+$(".fa-volume-up").on("click", () => {
+  $(".fa-volume-up").toggle();
+  $(".fa-volume-mute").toggle();
+  $("#volume").val(0);
+  $(media).prop("volume", 0);
+  // media.play();
+  currentTime = true;
+});
+$(".fa-volume-mute").on("click", () => {
+  $(".fa-volume-up").toggle();
+  $(".fa-volume-mute").toggle();
+  $("#volume").val(110);
+  $(media).prop("volume", 1);
+  // media.play();
+  currentTime = true;
+});

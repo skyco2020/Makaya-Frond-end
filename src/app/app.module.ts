@@ -39,6 +39,8 @@ import { FilmsComponent } from './films/films.component';
 import { Menu01Component } from './menu01/menu01.component';
 import { AdminComponent } from './admin/admin.component';
 
+// import { SwiperModule } from 'swiper/angular';
+
 @NgModule({
   declarations: [
     AppComponent,HomeComponent, UserComponent,

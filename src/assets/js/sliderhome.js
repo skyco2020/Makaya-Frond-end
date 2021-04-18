@@ -1,39 +1,17 @@
 // Variable para la llamada de jquery
 var $;
 var media = document.getElementsByTagName("video")[1];
-const videoShowCase = document.getElementsByTagName("video")[0];
-videoShowCase.muted = true;
+
 $(document).ready(function () {
   $(".newmodal").modal();
 });
 const peliculas = document.querySelectorAll(".pelicula");
 
-document.querySelector(".fa-volume-up").addEventListener("click", () => {
-  console.log(videoShowCase);
-  $(".fa-volume-up").toggle();
-  $(".fa-volume-mute").toggle();
-  videoShowCase.muted = true;
-  // videoShowCase.play();
-});
-document.querySelector(".fa-volume-mute").addEventListener("click", () => {
-  console.log(videoShowCase);
-  $(".fa-volume-up").toggle();
-  $(".fa-volume-mute").toggle();
-  // videoShowCase.pause();
-  videoShowCase.muted = false;
-});
 peliculas.forEach((pel) => {
   pel.addEventListener("mouseover", function () {
-    // pel.lastChild.classList.add("show-action");
-    // pel.style.zIndex = "1";
-    // console.log(this.previousElementSibling.classList);
-    // this.previousElementSibling.style.display = "block";
-    // this.previousElementSibling.style.transform = "scale(1.3)";
-    // this.firstChild.style.display = "block";
     console.log(this.parentElement.previousElementSibling);
     document.querySelectorAll(".modal-film").forEach((p) => {
       if (p.classList.contains("film-active")) {
-        console.log("encontra la clase active");
         p.classList.remove("film-active");
         p.firstChild.firstChild.pause();
         p.classList.add("film-not-active");
@@ -73,33 +51,18 @@ peliculas.forEach((pel) => {
     // };
   });
 });
-peliculas.forEach((pel) => {
-  // pel.addEventListener("mouseout", function () {
-  // this.firstChild.style.display = "none";
-  //   console.log(this.parentElement.previousElementSibling);
-  //   this.parentElement.previousElementSibling.style.display = "none";
-  //   this.parentElement.previousElementSibling.firstChild.firstChild.pause();
-  // this.firstChild.style.display = "none";
-  // this.firstChild.style.transform = "scale(1.3)";
-  // document.body.style.zIndex = 1;
-  // this.firstChild.style.zIndex = 999999;
-  // this.style.display = "flex";
-  // $(".newmodal").removeClass("fade open modal");
-  // $(".header").css("overflow", "visible");
-  // debugger;
-  // $("#exampleModal").removeClass("open");
-  // this.firstChild.firstChild.pause();
-  // console.log("sale");
-  // });
-});
+
 //ocultar el div action
 // function deleteShowAction() {
 //   peliculas.forEach((p) => {
 //     p.lastChild.classList.remove("show-action");
 //   });
 // }
-// let close = document.querySelector(".modal-close");
-// let modal = document.querySelector("#modal1");
+const closeModalWide = document.querySelector("#close-modal-wide");
+const modalWide = document.querySelector("#modal-wide");
+closeModalWide.addEventListener("click", (e) => {
+  modalWide.style.display = "none";
+});
 // document.querySelector(".btn-play-principal").onclick = () => {
 //   let vp = document.querySelector("#video-principal").getAttribute("src");
 //   let modal = document.querySelector("#modal1");
@@ -120,22 +83,22 @@ peliculas.forEach((pel) => {
 //   media.play();
 //   currentTime = true;
 // });
-// $(".fa-volume-up").on("click", () => {
-//   $(".fa-volume-up").toggle();
-//   $(".fa-volume-mute").toggle();
-//   $("#volume").val(0);
-//   $(media).prop("volume", 0);
-//   // media.play();
-//   currentTime = true;
-// });
-// $(".fa-volume-mute").on("click", () => {
-//   $(".fa-volume-up").toggle();
-//   $(".fa-volume-mute").toggle();
-//   $("#volume").val(110);
-//   $(media).prop("volume", 1);
-//   // media.play();
-//   currentTime = true;
-// });
+$(".fa-volume-up").on("click", () => {
+  $(".fa-volume-up").toggle();
+  $(".fa-volume-mute").toggle();
+  $("#volume").val(0);
+  $(media).prop("volume", 0);
+  // media.play();
+  currentTime = true;
+});
+$(".fa-volume-mute").on("click", () => {
+  $(".fa-volume-up").toggle();
+  $(".fa-volume-mute").toggle();
+  $("#volume").val(110);
+  $(media).prop("volume", 1);
+  // media.play();
+  currentTime = true;
+});
 
 // $(".fa-minus").on("click", function () {
 //   let val = parseInt($("#volume").val());
@@ -217,4 +180,20 @@ menuToggle.addEventListener("click", () => {
 });
 $(".film-active").on("click", function () {
   console.log("sale del film");
+});
+
+var swiper = new Swiper(".swiper-container", {
+  slidesPerView: 4,
+  spaceBetween: 6,
+  slidesPerGroup: 4,
+  loop: false,
+  loopFillGroupWithBlank: false,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 });

@@ -1,8 +1,9 @@
+<app-menu01 [videeprincipal]="principal"></app-menu01>
 <div class="modal-wide d-none" id="modal-wide">
   <div class="overlay-wide-modal"></div>
   <div class="modal-wide-content">
     <div class="video">
-      <i class="fas fa-times-circle close-modal"></i>
+      <i id="close-modal-wide" class="fas fa-times-circle close-modal"></i>
       <div class="icones">
         <div class="">
           <button><i class="fas fa-play"></i> Play</button>
@@ -182,7 +183,6 @@
   </div>
 </div>
 
-<app-menu01 [videeprincipal]="principal"></app-menu01>
 <!-- section  peliculas recomendadas  -->
 <main>
   <div id="modal1" class="modal">
@@ -235,77 +235,243 @@
     </div>
   </div>
   <div class="peliculas-recomendadas">
-    <p-carousel
-      [value]="Movies"
-      [numVisible]="4"
-      [numScroll]="2"
-      [circular]="false"
-    >
-      <ng-template pTemplate="header">
-        <h5 class="title-section">My List</h5>
-      </ng-template>
-      <ng-template let-movies pTemplate="item">
-        <div class="modal-film film-not-active">
-          <div class="video">
-            <!-- <iframe src="https://vod-progressive.akamaized.net/exp=1614501319~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F659%2F20%2F503297067%2F2299315562.mp4~hmac=4c231d81aaa25a4329a9b88151c2fddb13ddb465aa60b01b9b89c33548def037/vimeo-prod-skyfire-std-us/01/659/20/503297067/2299315562.mp4?filename=Ocean+-+62249.mp4" height="200" width="300" title="Iframe Example"></iframe> -->
+    <div class="swiper-container">
+      <h2>Top 10</h2>
+      <!-- *ngFor="let movie of Movies; let i = index" -->
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
 
-            <video muted src="{{ movies.videos.large.url }}"></video>
-          </div>
-          <div class="content-film">
-            <div class="icoones-film">
-              <i class="fas fa-user"></i>
-              <i class="fas fa-user"></i>
-              <i class="fas fa-user"></i>
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="info-film">
-              duration/recomendation/plus... Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Amet vel consequuntur aspernatur
-              eligendi voluptate id, assumenda cupiditate ex saepe, aperiam
-              provident fugiat, consequatur quod nihil ipsa explicabo voluptas
-              est nulla! Blanditiis, sequi exercitationem? Eaque doloremque
-              perspiciatis ipsa libero nam dolores nemo iste, quam possimus ad,
-              corrupti amet eum soluta velit, blanditiis culpa inventore
-              voluptate rem voluptas eos ipsum! Sequi similique odio sunt, vero
-              quidem, culpa omnis illum exercitationem explicabo tenetur ipsum
-              numquam. Voluptas molestias, ipsa aliquam magnam fugiat officiis
-              aspernatur facilis quasi libero quis asperiores quas similique,
-              voluptates delectus! Recusandae voluptate dolores eligendi,
-              incidunt cum veniam accusantium doloribus pariatur itaque.
-            </div>
-          </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
         </div>
-        <div class="product-item">
-          <div class="product-item-content pelicula">
-            <div class="video">
-              <!-- <img src="{{movies.userImageURL}}" alt="" /> -->
-              <video>
-                <source src="{{ movies.videos.large.url }}" type="video/mp4" />
-              </video>
-            </div>
-            <!-- <div class="actions">
-            <i class="fas fa-play"></i>
-            <i class="fa fa-angle-double-down" id="wide-video"></i>
-            <i class="fas fa-plus-circle"></i>
-          </div> -->
-          </div>
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
         </div>
-      </ng-template>
-    </p-carousel>
-    <p-carousel
-      [value]="Movies"
-      [numVisible]="4"
-      [numScroll]="2"
-      [circular]="false"
-    >
-      <ng-template pTemplate="header">
-        <h5 class="title-section">My List</h5>
-      </ng-template>
-      <ng-template let-movies pTemplate="item">
-        <!-- <div class="product-item"> -->
-        <div class="pelicula">
-          <img src="{{ movies.userImageURL }}" alt="" />
-          <div class="pelicula-footer">
+      </div>
+      <!-- Add Pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container">
+      <!-- *ngFor="let movie of Movies; let i = index" -->
+      <h2>Favourite</h2>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container">
+      <!-- *ngFor="let movie of Movies; let i = index" -->
+      <h2>Favourite</h2>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="swiper-container">
+      <!-- *ngFor="let movie of Movies; let i = index" -->
+      <h2>Favourite</h2>
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://live.staticflickr.com/3694/10356693764_c5eec3b108_b.jpg"
+            type
+          />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg"
+            type
+          />
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <!-- <div class="swiper-pagination"></div> -->
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+    <!-- <div class="pelicula"> -->
+
+    <!-- <div class="pelicula-footer">
             <div class="fila-one">
               <i class="fas fa-play"></i>
               <i class="fas fa-plus-circle"></i>
@@ -325,86 +491,8 @@
                 <li>patient</li>
               </ul>
             </div>
-          </div>
-        </div>
-        <!-- </div> -->
-      </ng-template>
-    </p-carousel>
-    <!-- <p-carousel
-      [value]="Movies"
-      [numVisible]="4"
-      [numScroll]="2"
-      [circular]="false"
-    >
-      <ng-template pTemplate="header">
-        <h5 class="title-section">Last Watch</h5>
-      </ng-template>
-      <ng-template let-movies pTemplate="item">
-        <div class="product-item">
-          <div class="product-item-content pelicula">
-            <div class="video">
-              <video>
-                <source src="{{ movies.picture }}" type="video/mp4" />
-              </video>
-            </div>
-          </div>
-        </div>
-      </ng-template>
-    </p-carousel> -->
-
-    <!-- <div class="fila">
-    <div class="contendor-titilos">
-      <h3>Amor</h3>
-      <div class="controles">
-        <button></button>
-        <button></button>
-        <button></button>
-      </div>
-    </div>
-    <div class="contenedor-principal">
-      <button id="flecha-izquierda" class="btn-left flecha-izquierda">
-        <i class="fas fa-angle-left"></i>
-      </button>
-      <div class="carrousel">
-        <div class="pelicula" *ngFor="let movie of Movies; let i = index">
-          <div class="video">
-            <video>
-              <source src="{{ movie.picture }}" type="video/mp4" />
-            </video>
-          </div>
-          <div class="actions">
-            <i class="fas fa-play"></i>
-            <i class="fa fa-angle-double-down" id="wide-video"></i>
-            <i class="fas fa-plus-circle"></i>
-          </div>
-          
-          <div
-            class="modal fade newmodal"
-            id="Modalamor{{ i }}"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-            >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <div class="videomodal">
-                    <video>
-                      <source src="{{ movie.picture }}" type="video/mp4" />
-                    </video>
-                  </div>
-                </div>
-                <div class="modal-footer"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button id="flecha-derecha" class="btn-right flecha-derecha">
-        <i class="fas fa-angle-right"></i>
-      </button>
-    </div>
-  </div> -->
+          </div> -->
+    <!-- </div> -->
   </div>
 </main>
 

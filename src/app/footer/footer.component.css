@@ -19,12 +19,16 @@ footer {
   margin: 10px 0px 0px 0px;
 }
 footer > .footer-wrapper {
+  width: 90%;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 footer > .footer-wrapper > .box {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  /* margin-right: 10px;
+  
+  margin-bottom: 10px; */
 }
 footer > .footer-wrapper > .box > ul {
   list-style: none;
